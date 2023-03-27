@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>$description$</description>
+        <icon>$icon$</icon>
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="13.0.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\..\icon.png" />
+        <file src="Protei.SwaggerSourceGenerator.targets" target="build"/>
+        <file src="Build\Protei.SwaggerSourceGenerator.props" target="build"/>
+        <file src="BuildMultiTargeting\Protei.SwaggerSourceGenerator.props" target="buildMultiTargeting"/>
+        <file src="bin\$configuration$\**\*.dll" target="bin" />
+    </files>
+</package>

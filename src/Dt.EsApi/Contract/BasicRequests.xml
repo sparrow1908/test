@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Requests.BasicGroup">
+
+    <struct name="StartNotification">
+      <field name="notificationFilters" type="NotificationFilters" mandatory="true" />
+    </struct>
+
+    <struct name="SetNotificationFilters">
+      <field name="notificationFilters" type="NotificationFilters" mandatory="true" />
+    </struct>
+
+    <struct name="Register">
+      <field name="strOperatorName" type="string" mandatory="true" />
+      <field name="strName" type="string" mandatory="true" />
+      <field name="strPIN" type="string" mandatory="true" />
+      <field name="strPass" type="string" mandatory="true" />
+      <field name="strHostName" type="string" mandatory="true" />
+      <field name="version" type="string" mandatory="false" />
+      <field name="pcInfo" type="PcInfo" mandatory="false" />
+      <field name="vpUserID" type="int" mandatory="false" />
+      <field name="RoleSettings" type="RoleSettings" mandatory="false" />
+    </struct>
+
+    <struct name="Unregister" />
+
+    <struct name="LoadDictionaryByName">
+      <field name="dictionaryName" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="LoadZippedDictionaries">
+      <field name="localHash" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="GetServerDateTime" />
+
+    <struct name="GetSnapshots">
+      <field name="cardId" type="int" mandatory="true" />
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="from" type="int" mandatory="true"/>
+      <field name="to" type="int" mandatory="true"/>
+    </struct>
+
+</namespace>
+</descriptions>

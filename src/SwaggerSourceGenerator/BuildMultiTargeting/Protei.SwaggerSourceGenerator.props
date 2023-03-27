@@ -1,0 +1,3 @@
+﻿<Project>
+    <Import Project="..\Build\Protei.SwaggerSourceGenerator.props" />
+</Project>

@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F54C8E49-5908-4810-89E4-40A84E4032BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dt.EsApi</RootNamespace>
+    <AssemblyName>Dt.EsApi</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RuntimeIdentifier>win</RuntimeIdentifier>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CollectionEqualityComparer.cs" />
+    <Compile Include="Contract\ActionResponse.cs" />
+    <Compile Include="Contract\ExecutableRequest.cs" />
+    <Compile Include="Contract\Generated_BasicRequests.cs">
+      <DependentUpon>BasicRequests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_BasicResponses.cs">
+      <DependentUpon>BasicResponses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_Card112Requests.cs">
+      <DependentUpon>Card112Requests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_Card112Responses.cs">
+      <DependentUpon>Card112Responses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardCustomServiceRequests.cs">
+      <DependentUpon>CardCustomServiceRequests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardCustomServiceResponses.cs">
+      <DependentUpon>CardCustomServiceResponses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardData.cs">
+      <DependentUpon>CardData.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardVideoQARequests.cs">
+      <DependentUpon>CardVideoQARequests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardVideoQAResponses.cs">
+      <DependentUpon>CardVideoQAResponses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_DataTypes.cs">
+      <DependentUpon>DataTypes.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_ForcesRequests.cs">
+      <DependentUpon>ForcesRequests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_ForcesResponses.cs">
+      <DependentUpon>ForcesResponses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_MiscRequests.cs">
+      <DependentUpon>MiscRequests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_MiscResponses.cs">
+      <DependentUpon>MiscResponses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_Notifications.cs">
+      <DependentUpon>Notifications.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardsRequests.cs">
+      <DependentUpon>CardsRequests.xml</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\Generated_CardsResponses.cs">
+      <DependentUpon>CardsResponses.xml</DependentUpon>
+    </Compile>
+    <Compile Include="DtTypeConverter.cs" />
+    <Compile Include="Enums\CallCenterProvider.cs" />
+    <Compile Include="Enums\CallCommandType.cs" />
+    <Compile Include="Enums\CommunicationPhoneType.cs" />
+    <Compile Include="Enums\CommunicationType.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\InstallationTypeEnum.cs" />
+    <Compile Include="Enums\ServiceCardChangeType.cs" />
+    <Compile Include="Enums\TileProviderType.cs" />
+    <Compile Include="Enums\User03Role.cs" />
+    <Compile Include="ICloneable.cs" />
+    <Compile Include="JsonComparer.cs" />
+    <Compile Include="Models\AddressObjectModel.cs" />
+    <Compile Include="Models\CardListResultModel.cs" />
+    <Compile Include="Models\CardListItemStateModel.cs" />
+    <Compile Include="Models\CardMarkerModel.cs" />
+    <Compile Include="Models\CardMessageModel.cs" />
+    <Compile Include="Models\CarMapModel.cs" />
+    <Compile Include="Models\CommunicationTypeLinkModel.cs" />
+    <Compile Include="Models\DepartmentHistoryModel.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\DictionaryItem.cs" />
+    <Compile Include="Models\GeoAreaModel.cs" />
+    <Compile Include="Models\GeoPointModel.cs" />
+    <Compile Include="Models\IncidentTypeModel.cs" />
+    <Compile Include="Models\MapTileUrlModel.cs" />
+    <Compile Include="Models\MrsProviderModel.cs" />
+    <Compile Include="Models\Notifications\BroadcastMessageCreatedNotif.cs" />
+    <Compile Include="Models\Notifications\DepartmentChangedNotif.cs" />
+    <Compile Include="Models\Notifications\DepartmentInvolvedNotif.cs" />
+    <Compile Include="Models\Notifications\ReactionMessageCreatedNotif.cs" />
+    <Compile Include="Models\Notifications\ReactionMessagesUpdatedNotif.cs" />
+    <Compile Include="Models\Notifications\ServiceCardChangedNotif.cs" />
+    <Compile Include="Models\Notifications\UpdateClientNotif.cs" />
+    <Compile Include="Models\ReactionStateModel.cs" />
+    <Compile Include="Models\ConnectionSetting.cs" />
+    <Compile Include="Models\CrimeTypeGroupModel.cs" />
+    <Compile Include="Models\CrimeTypeModel.cs" />
+    <Compile Include="Models\DistrictCityLinkModel.cs" />
+    <Compile Include="Models\FireObjectRangeModel.cs" />
+    <Compile Include="Models\FireReactionPlanModel.cs" />
+    <Compile Include="Models\FireReactionPlanItemModel.cs" />
+    <Compile Include="Models\RegionAdditionalInfoModel.cs" />
+    <Compile Include="Models\ServiceIncidentTypeModel.cs" />
+    <Compile Include="Models\StreetDistrictCityLinkModel.cs" />
+    <Compile Include="Models\SubCallType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringBuilderExtensions.cs" />
+    <Compile Include="Tools\CSharpLanguageExternalInit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Contract\BasicRequests.xml" />
+    <Content Include="Contract\BasicResponses.xml" />
+    <Content Include="Contract\Card112Requests.xml" />
+    <Content Include="Contract\Card112Responses.xml" />
+    <Content Include="Contract\CardCustomServiceRequests.xml" />
+    <Content Include="Contract\CardCustomServiceResponses.xml" />
+    <Content Include="Contract\CardData.xml" />
+    <Content Include="Contract\CardsRequests.xml" />
+    <Content Include="Contract\CardsResponses.xml" />
+    <Content Include="Contract\CardVideoQARequests.xml" />
+    <Content Include="Contract\CardVideoQAResponses.xml" />
+    <Content Include="Contract\DataTypes.xml" />
+    <Content Include="Contract\ForcesRequests.xml" />
+    <Content Include="Contract\ForcesResponses.xml" />
+    <Content Include="Contract\MiscRequests.xml" />
+    <Content Include="Contract\MiscResponses.xml" />
+    <Content Include="Contract\Notifications.xml" />
+    <Content Include="Xslt-proc\iconv.dll" />
+    <Content Include="Xslt-proc\iconv.exe" />
+    <Content Include="Xslt-proc\libexslt.dll" />
+    <Content Include="Xslt-proc\libxml2.dll" />
+    <Content Include="Xslt-proc\libxslt.dll" />
+    <Content Include="Xslt-proc\minigzip.exe" />
+    <Content Include="Xslt-proc\xmlcatalog.exe" />
+    <Content Include="Xslt-proc\xmllint.exe" />
+    <Content Include="Xslt-proc\xsltproc.exe" />
+    <Content Include="Xslt-proc\zlib1.dll" />
+    <Content Include="Transformers\XmlToCS_CardData.xslt" />
+    <Content Include="Transformers\XmlToCS_DataTypes.xslt" />
+    <Content Include="Transformers\XmlToCS_Notifications.xslt" />
+    <Content Include="Transformers\XmlToCS_Requests.xslt" />
+    <Content Include="Transformers\XmlToCS_Responses.xslt" />
+    <Content Include="Transformers\XmlToCS_Templates.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="generate.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers">
+      <Version>7.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>powershell -ExecutionPolicy Bypass -File ..\..\generate.ps1</PreBuildEvent>
+  </PropertyGroup>
+</Project>

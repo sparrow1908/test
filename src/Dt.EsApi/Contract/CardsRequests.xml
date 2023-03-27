@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Requests.Cards">
+
+    <struct name="Open">
+      <field name="serviceTypeId" type="int" mandatory="true" />
+      <field name="globalId" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="Emerge">
+      <field name="serviceTypeId" type="int" mandatory="true" />
+      <field name="callData" type="CallData" mandatory="true" />
+      <field name="chatId" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="Peek">
+      <field name="serviceTypeId" type="int" mandatory="true" />
+      <field name="globalId" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="SetSyntheticStateToCompleted">
+      <field name="serviceTypeId" type="int" mandatory="true" />
+      <field name="globalId" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="SaveCards">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+      <field name="forceRecreate" type="bool" mandatory="false" />
+      <field name="withCall" type="bool" mandatory="false" />
+      <field name="operatorProveCoords" type="bool" mandatory="false" />
+      <field name="nWithCallTransferServiceTypeId" type="int" mandatory="false" />
+      <field name="isUseDynamicCS" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="PeekSnapshot">
+      <field name="nEmergencyCardSnapshotId" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="EmergeWithSms">
+      <field name="callData" type="CallData" mandatory="true" />
+    </struct>
+
+    <struct name="SetSyntheticState">
+      <field name="nServiceTypeId" type="int" mandatory="true" />
+      <field name="globalId" type="string" mandatory="true" />
+      <field name="nCardSyntheticState" type="En_CardSyntheticState" mandatory="true" />
+    </struct>
+</namespace>
+</descriptions>

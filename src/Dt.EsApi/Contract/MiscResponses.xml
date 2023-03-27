@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.MiscGroup">
+
+    <struct name="PingResponse" />
+
+    <struct name="GetCreatorListResponse">
+      <collection_field name="creatorList" type="List" internal_type="string" mandatory="false" />
+    </struct>
+
+    <struct name="LocalDistrictGetResponse">
+      <field name="localDistrictId" type="int" mandatory="false" />
+      <collection_field name="localDistrictIds" type="List" internal_type="int" mandatory="false" />
+    </struct>
+
+    <struct name="ShowCameraAtVideoPortalResponse" />
+
+    <struct name="GeoAreaFromAddressGetResponse">
+      <field name="area" type="GeoArea" mandatory="true" />
+    </struct>
+
+    <struct name="AddressFromGeoPointGetResponse">
+      <field name="address" type="MapAddress" mandatory="true" />
+      <field name="location" type="GeoPoint" mandatory="true" />
+    </struct>
+
+    <struct name="MarkersFilterRegisterResponse">
+      <collection_field name="Data" type="List" internal_type="CardMarkerInfo" mandatory="false" />
+    </struct>
+
+    <struct name="PostClientMonitorStatusResponse" />
+
+    <struct name="GetLocationInformationResponse">
+      <field name="success" type="bool" mandatory="true" />
+      <field name="nStreetId" type="int" mandatory="false" />
+      <field name="nDistrictId" type="int" mandatory="false" />
+      <field name="nCityId" type="int" mandatory="false" />
+      <field name="nFloor" type="int" mandatory="false" />
+      <field name="strBuildingNumber" type="string" mandatory="false" />
+      <field name="strCorps" type="string" mandatory="false" />
+      <field name="strFlat" type="string" mandatory="false" />
+      <field name="regionDesc" type="string" mandatory="false" />
+      <field name="strAddress" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GetAdditionalDeclarantInfoResponse">
+      <field name="success" type="bool" mandatory="true" />
+      <field name="strDeclarantName" type="string" mandatory="false" />
+      <field name="strDeclarantMiddleName" type="string" mandatory="false" />
+      <field name="strDeclarantLastName" type="string" mandatory="false" />
+      <field name="strDeclarantAddress" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GisServiceDistanceResponse">
+      <field name="DistanceInfo" type="DistanceInfo" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceDistanceOnRouteResponse">
+      <field name="DistanceOnRouteInfo" type="DistanceOnRouteInfo" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceLayersResponse">
+      <field name="LayersInfo" type="LayersInfo" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceGeoObjectsResponse">
+      <field name="geoObjectsInfo" type="GeoObjectsInfo" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceSearchResponse">
+      <field name="SearchInfo" type="SearchInfo" mandatory="true" />
+    </struct>
+
+    <struct name="UpdateFieldResponse" />
+
+    <struct name="GetKLADRInfoResponse">
+      <field name="streetKLADR" type="string" mandatory="false" />
+      <field name="districtKLADR" type="string" mandatory="false" />
+      <field name="cityKLADR" type="string" mandatory="false" />
+
+      <field name="declarantStreetKLADR" type="string" mandatory="false" />
+      <field name="declarantDistrictKLADR" type="string" mandatory="false" />
+      <field name="declarantCityKLADR" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GetCallCenterConnectionInfoResponse">
+      <field name="activeIndex" type="int" mandatory="true" />
+      <collection_field name="callCenterInfos" type="List" internal_type="CallCenterConnectionInfo" mandatory="false" />
+    </struct>
+
+    <struct name="RemoteLayersResponse">
+      <field name="LayersInfo" type="LayersInfo" mandatory="true" />
+    </struct>
+
+    <struct name="WeatherLayersResponse">
+      <collection_field name="weatherLayers" type="List" internal_type="WeatherLayer" mandatory="false" />
+    </struct>
+
+    <struct name="GetVehicle01TrackInfoResponse">
+      <collection_field name="trackInfo" type="List" internal_type="VehicleTrackInfo" mandatory="false" />
+    </struct>
+
+    <struct name="GetVehicle03ArrivalInfoResponse">
+      <field name="arrivalInfo" type="ArrivalInfo" mandatory="false" />
+    </struct>
+
+    <struct name="GetGisServerTokenResponse">
+      <field name="token" type="string" mandatory="false" />
+      <field name="expiration" type="DateTime" mandatory="true" />
+    </struct>
+
+    <struct name="GisServerLayer">
+      <field name="layerId" type="string" mandatory="false" />
+      <field name="layerName" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GetGisServerLayersResponse">
+      <collection_field name="layers" type="List" internal_type="GisServerLayer" mandatory="false" />
+    </struct>
+
+    <struct name="SendAvayaSMSResponse">
+      <field name="smsId" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="StartCardSessionResponse" />
+
+    <struct name="EndCardSessionResponse" />
+
+    <struct name="ConfirmReceivingSmsResponse" />
+
+</namespace>
+</descriptions>

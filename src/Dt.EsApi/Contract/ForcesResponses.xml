@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.ForcesGroup">
+
+    <struct name="GetCurrentDepartmentStatesResponse">
+      <collection_field name="departmentStatePairs" type="List" internal_type="Tm_DepartmentStatePair" mandatory="false" />
+    </struct>
+
+    <struct name="GetDepartmentStateHistoryResponse">
+      <field name="departmentStateHistory" type="DepartmentStateHistory" mandatory="true" />
+    </struct>
+
+    <struct name="IncludeDepartmentResponse" />
+
+    <struct name="NewDepartmentStateResponse" />
+
+    <struct name="NewMessageResponse" />
+
+    <struct name="NewBroadcastMessageResponse" />
+
+    <struct name="GetMessagesResponse">
+      <collection_field name="messages" type="List" internal_type="CardMessage" mandatory="false" />
+    </struct>
+
+    <struct name="RemoveMessageResponse" />
+
+    <struct name="UpdateMessageResponse" />
+
+    <struct name="GetMonitoringSystemEnginesResponse">
+      <collection_field name="engines" type="List" internal_type="CamertonEngine" mandatory="false" />
+    </struct>
+
+</namespace>
+</descriptions>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.Card_VideoQA">
+
+    <struct name="GetCamerasListResponse">
+      <collection_field name="cameras" type="List" internal_type="VideoQACamera" mandatory="false" />
+    </struct>
+
+</namespace>
+</descriptions>

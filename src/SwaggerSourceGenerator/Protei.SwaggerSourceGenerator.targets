@@ -1,0 +1,38 @@
+﻿<Project>
+
+    <Target Name="PrepareSwaggerSourceGeneratorInfoProperties" 
+            BeforeTargets="CoreBuild;ResolveAssemblyReferences;ResolveAssemblyReferencesDesignTime;BeforeBuild">
+        <Message Text="Prepare SwaggerSourceGenerator properties." Importance="high" />
+        <PropertyGroup> 
+            <OpenApiSchemaPath Condition="'$(OpenApiSchemaPath)' == ''">$(MSBuildProjectDirectory)\CodeGen\openapi.json</OpenApiSchemaPath>
+            <SwaggerGeneratorOutputPath Condition="'$(SwaggerGeneratorOutputPath)' == ''">$(MSBuildProjectDirectory)\CodeGen\SwaggerGenerated</SwaggerGeneratorOutputPath>
+        </PropertyGroup>
+        <Message Text="Received SwaggerGenerator properties: OpenApiSchemaPath: '$(OpenApiSchemaPath)', SwaggerGeneratorOutputPath:'$(SwaggerGeneratorOutputPath)'" Importance="high" />
+    </Target> 
+
+    <Target Name="SwaggerSourceGenerator"
+            DependsOnTargets="PrepareSwaggerSourceGeneratorInfoProperties"
+            AfterTargets="PrepareSwaggerSourceGeneratorInfoProperties"
+            BeforeTargets="CoreBuild;ResolveAssemblyReferences;ResolveAssemblyReferencesDesignTime;BeforeBuild">
+        <Message Text="Generate Swagger source. Target: '$(SwaggerGeneratorOutputPath)'" Importance="high" />
+        <SwaggerSourceGenerator OutputFolder="$(SwaggerGeneratorOutputPath)"
+                                SchemaPath="$(OpenApiSchemaPath)"/>
+    </Target>
+
+    <Target Name="IncludeSourceCodeToCompile"
+            DependsOnTargets="SwaggerSourceGenerator"
+            AfterTargets="SwaggerSourceGenerator"
+            BeforeTargets="CoreBuild;ResolveAssemblyReferences;ResolveAssemblyReferencesDesignTime;BeforeBuild"
+            Condition="'$(Configuration)' == 'Release' And '$(GenerateSingleFile)' == 'false'">
+        <Message Text="Include genereated source to compile. Target: '$(SwaggerGeneratorOutputPath)'" Importance="high" />
+        <ItemGroup>
+            <Compile Remove="$(SwaggerGeneratorOutputPath)\*.g.cs" />
+            <Compile Include="$(SwaggerGeneratorOutputPath)\*.g.cs" />
+        </ItemGroup>
+    </Target>
+
+    <Target Name="ForceReGenerateOnRebuild" AfterTargets="CoreClean;Clean">
+        <Message Text="Delete genereated source. Target: '$(SwaggerGeneratorOutputPath)'" Importance="high" />
+        <Delete Files="$(SwaggerGeneratorOutputPath)\*.g.cs" />
+    </Target>
+</Project>

@@ -1,0 +1,10 @@
+﻿<Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
+
+    <PropertyGroup>
+        <TaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netstandard2.1</TaskFolder>
+        <TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net48</TaskFolder>
+        <TaskAssembly>$(MSBuildThisFileDirectory)..\bin\$(TaskFolder)\SwaggerSourceGenerator.dll</TaskAssembly>
+    </PropertyGroup>
+
+    <UsingTask TaskName="SwaggerSourceGenerator.SwaggerSourceGenerator" AssemblyFile="$(TaskAssembly)" />
+</Project>

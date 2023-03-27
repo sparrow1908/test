@@ -1,0 +1,1143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Types">
+
+    <struct name="CardsContainer">
+      <field name="card112" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="Карточка 112" />
+      <field name="card01" type="Tm_Card_01_Data" mandatory="false"
+             fieldname="Карточка 01" />
+      <field name="card02" type="Tm_Card_02_Data" mandatory="false"
+             fieldname="Карточка 02" />
+      <field name="card03" type="Tm_Card_03_Data" mandatory="false"
+             fieldname="Карточка 03" />
+      <field name="card04" type="Tm_Card_04_Data" mandatory="false"
+             fieldname="Карточка 04" />
+      <field name="cardAT" type="Tm_Card_AT_Data" mandatory="false"
+             fieldname="Карточка AT" />
+      <field name="cardCommServ" type="Tm_Card_CommServ_Data" mandatory="false"
+             fieldname="Карточка ЕДДС/ЖКХ" />
+      <collection_field name="customServicesCards" fieldname="Карточки кастомных служб"
+                        type="List" internal_type="CardCustomService" mandatory="false" />
+    </struct>
+
+    <struct name="Tm_Card_112_Data">
+      <field name="m_GeneralData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="dtCreate" type="DateTime" mandatory="true"
+             fieldname="Дата и время создания" />
+
+      <field name="nCallId" type="long" mandatory="false"
+             fieldname="ID вызова" />
+
+      <field name="extCallId" type="string" mandatory="false"
+             fieldname="Дополнительный Id вызова" />
+
+      <field name="extCallId2" type="string" mandatory="false"
+             fieldname="Дополнительный Id вызова" />
+
+      <field name="strCdPN" type="string" mandatory="false"
+             fieldname="Набранный номер" />
+
+      <field name="strCgPN" type="string" mandatory="false"
+             fieldname="Номер звонящего" />
+
+      <field name="nCategory" type="int" mandatory="false"
+             fieldname="Какая-то интеграция с 04" />
+
+      <field name="nCallTypeId" type="int" mandatory="false"
+             fieldname="Тип вызова" />
+
+      <field name="nIncidentTypeId" type="int" mandatory="false"
+             fieldname="Тип происшествия" />
+
+      <field name="nImportanceLevelId" type="En_ImportanceLevel" mandatory="false"
+             fieldname="Уровень угрозы ЧС" />
+
+      <field name="strPhoneOwner" type="string" mandatory="false"
+             fieldname="Владелец телефонного номера" />
+
+      <field name="strPhoneAddress" type="string" mandatory="false"
+             fieldname="Адрес звонящего" />
+
+      <field name="strCreator" type="string" mandatory="false"
+             fieldname="Создатель" />
+
+      <field name="nCityID" type="int" mandatory="false"
+             fieldname="Район" />
+
+      <field name="nDistrictID" type="int" mandatory="false"
+             fieldname="Округ" />
+
+      <field name="nStreetID" type="int" mandatory="false"
+             fieldname="Улица" />
+
+      <field name="nAdditionalStreetId" type="int" mandatory="false"
+             fieldname="Дополнительная улица" />
+
+      <field name="nCardSyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки 112" />
+
+      <field name="nCard01SyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки 01" />
+
+      <field name="nCard02SyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки 02" />
+
+      <field name="nCard03SyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки 03" />
+
+      <field name="nCard04SyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки 04" />
+
+      <field name="nCardCommServSyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки ЕДДС" />
+
+      <field name="nCardATSyntheticStateId" type="int" mandatory="false"
+             fieldname="Статус карточки АТ" />
+
+      <field name="strBuilding" type="string" mandatory="false"
+             fieldname="Номер дома" />
+
+      <field name="strCorps" type="string" mandatory="false"
+             fieldname="Корпус" />
+
+      <field name="strRoom" type="string" mandatory="false"
+             fieldname="Квартира" />
+
+      <field name="strAddressStrip" type="string" mandatory="false"
+             fieldname="Адресный участок" />
+
+      <field name="strStoreys" type="string" mandatory="false"
+             fieldname="Этажность" />
+
+      <field name="strCallerContactPhone" type="string" mandatory="false"
+             fieldname="Контактный телефон звонящего" />
+
+      <field name="nFloor" type="int" mandatory="false"
+             fieldname="Этаж" />
+
+      <field name="strAdditionalLocationInfo" type="string" mandatory="false"
+             fieldname="Дополнительная информация по объекту" />
+
+      <field name="strEntrance" type="string" mandatory="false"
+             fieldname="Подъезд" />
+
+      <field name="strEntranceCode" type="string" mandatory="false"
+             fieldname="Код домофона на подъезде" />
+
+      <field name="strIncidentDescription" type="string" mandatory="false"
+             fieldname="Описание происшествия" />
+
+      <field name="strDeclarantName" type="string" mandatory="false"
+             fieldname="Имя звонящего" />
+
+      <field name="strDeclarantLastName" type="string" mandatory="false"
+             fieldname="Фамилия звонящего" />
+
+      <field name="strDeclarantMiddleName" type="string" mandatory="false"
+             fieldname="Отчество звонящего" />
+
+      <field name="nDeclarantStatusId" type="int" mandatory="false"
+             fieldname="Статус звонящего" />
+
+      <field name="strDeclarantAddress" type="string" mandatory="false"
+             fieldname="Адрес звонящего" />
+
+      <field name="nDeclarantCityId" type="int" mandatory="false"
+             fieldname="Город/обл. звонящего" />
+
+      <field name="nDeclarantDistrictId" type="int" mandatory="false"
+             fieldname="Округ звонящего" />
+
+      <field name="nDeclarantLocalDistrictId" type="int" mandatory="false" fieldname="id района заявителя" />
+
+      <field name="nDeclarantStreetId" type="int" mandatory="false"
+             fieldname="Улица звонящего" />
+
+      <field name="strDeclarantBuildingNumber" type="string" mandatory="false"
+             fieldname="Номер дома звонящего" />
+
+      <field name="strDeclarantCorps" type="string" mandatory="false"
+             fieldname="Корпус звонящего" />
+
+      <field name="strDeclarantFlat" type="string" mandatory="false"
+             fieldname="Квартира звонящего" />
+
+      <field name="nCCMC_TypeId" type="int" mandatory="false"
+             fieldname="Тип ЧС" />
+
+      <field name="lHasCard01" type="bool" mandatory="true"
+             fieldname="Подключена служба 01" />
+
+      <field name="lHasCard02" type="bool" mandatory="true"
+             fieldname="Подключена служба 02" />
+
+      <field name="lHasCard03" type="bool" mandatory="true"
+             fieldname="Подключена служба 03" />
+
+      <field name="lHasCard04" type="bool" mandatory="true"
+             fieldname="Подключена служба 04" />
+
+      <field name="lHasCardAT" type="bool" mandatory="true"
+             fieldname="Подключена служба AT" />
+
+      <field name="lHasCardCommServ" type="bool" mandatory="true"
+             fieldname="Подключена служба ЕДДС" />
+
+      <field name="nDuplicateUserStatus" type="int" mandatory="false"
+             fieldname="Статус дублирования, определенный пользователем" />
+
+      <field name="nDuplicateSystemStatus" type="int" mandatory="false"
+             fieldname="Статус дублирования, определенный системой" />
+
+      <field name="nOriginalCardId" type="int" mandatory="false"
+             fieldname="id возможного оригинала" />
+
+      <field name="originalGlobalId" type="string" mandatory="false"
+             fieldname="GUID возможного оригинала" />
+
+      <field name="isMultizone" type="bool" mandatory="false"
+             fieldname="Мультизональность" />
+
+      <field name="dtDeclarantDateOfBirth" type="DateTime" mandatory="false"
+             fieldname="Дата рождения звонящего" />
+
+      <field name="nAgeYear" type="int" mandatory="false"
+             fieldname="Возраст звонящего (лет)" />
+
+      <field name="nObjectId" type="int" mandatory="false"
+             fieldname="Объект" />
+
+      <field name="revision" type="int" mandatory="false"
+             fieldname="Номер ревизии карточки" />
+
+      <field name="cellId" type="long" mandatory="false"
+             fieldname="Номер ячейки Tele2" />
+
+      <field name="geoLatitude" type="double" mandatory="false"
+             fieldname="Координата: (широта)" />
+
+      <field name="geoLongitude" type="double" mandatory="false"
+             fieldname="Координата (долгота)" />
+
+      <field name="geoRegionDesc" type="string" mandatory="false"
+             fieldname="Описание гео позиции" />
+
+      <field name="declarantGeoLatitude" type="double" mandatory="false"
+             fieldname="Координата заявителя: (широта)" />
+
+      <field name="declarantGeoLongitude" type="double" mandatory="false"
+             fieldname="Координата заявителя (долгота)" />
+
+      <field name="declarantGeoRegionDesc" type="string" mandatory="false"
+             fieldname="Тип гео позиции заявителя" />
+
+      <field name="invalidStreet" type="string" mandatory="false"
+             fieldname="Улица непрошедшая валидацию" />
+
+      <field name="eraIntegrationXml" type="string" mandatory="false"
+             fieldname="XML для интеграции с EraGlonass" />
+
+      <field name="strTextAddress" type="string" mandatory="false"
+             fieldname="Текстовый адрес" />
+
+      <field name="callerNearCameras" type="string" mandatory="false"
+             fieldname="Идентификаторы камер видеопортала ближайших к заявителю" />
+
+      <field name="dtComplete" type="DateTime" mandatory="false"
+             fieldname="Дата и время завершения карточки" />
+
+      <field name="nRegionId" type="int" mandatory="false"
+             fieldname="id региона" />
+
+      <field name="nLocalDistrictId" type="int" mandatory="false"
+             fieldname="id района" />
+
+      <collection_field name="callHistory" fieldname="Вызовы, привязанные к карточке"
+                        type="List" internal_type="CallHistoryItem" mandatory="false" />
+
+      <collection_field name="failedReplicationTargets" fieldname="Сервисы, на которые не удалось передать карточку"
+                        type="List" internal_type="ReplicationTarget" mandatory="false" />
+
+      <collection_field name="succeededReplicationTargets" fieldname="Сервисы на которые удалось передать карточку"
+                        type="List" internal_type="ReplicationTarget" mandatory="false" />
+
+      <field name="attachmentList" type="string" mandatory="false"
+             fieldname="Вложения" />
+
+      <collection_field name="directCommServDepartments" type="List" internal_type="int"
+                        mandatory="false" fieldname="Отделения ЖКХ" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="nLanguageId" type="int" mandatory="false"
+             fieldname="Язык общения" />
+
+      <field name="isNear" type="bool" mandatory="true"
+             fieldname="Рядом" />
+
+      <field name="strKm" type="string" mandatory="false"
+             fieldname="Км./м." />
+
+      <field name="nCasualties" type="int" mandatory="false"
+             fieldname="Количество пострадавших" />
+
+      <field name="lHumanThreat" type="bool" mandatory="true"
+             fieldname="Угроза людям" />
+
+      <field name="sourceZoneId" type="int" mandatory="false"
+             fieldname="Идентификатор зоны в которой была создана карточка" />
+
+      <field name="globalId" type="string" mandatory="false"
+             fieldname="GUID карточки" />
+
+      <field name="strOperatorName" type="string" mandatory="false"
+             fieldname="ФИО оператора" />
+
+      <field name="lPriority" type="bool" mandatory="false"
+             fieldname="Важная" />
+
+      <field name="strLatestSys" type="string" mandatory="false"
+             fieldname="Система последней модифицировавшая карточку" />
+
+      <field name="strEraCardId" type="string" mandatory="false"
+             fieldname="Идентификатор карточки ЭРА-ГЛОНАСС" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="callStatus" type="En_CallStatus" mandatory="false"
+             fieldname="Результат звонка" />
+
+      <field name="visitedNetworkId" type="string" mandatory="false"
+             fieldname="P-Visited-Network-Id" />
+
+      <field name="lTestCard" type="bool" mandatory="true"
+             fieldname="Учебная" />
+
+      <field name="extendedData" type="string" mandatory="false" isjson="true"
+             fieldname="Дополнительные поля" />
+
+      <field name="callRoutingTag" type="string" mandatory="false"
+             fieldname="Информация для маршрутизации переадресованного вызова" />
+
+      <collection_field name="customServices" type="List" internal_type="CustomService" mandatory="false"
+                        fieldname="Привлечённые кастомные службы" />
+
+      <field name="nSourceTypeId" type="int" mandatory="false"
+             fieldname="Тип источника" />
+
+      <field name="externalId2" type="string" mandatory="false"
+             fieldname="externalId2" />
+
+      <field name="strSourceTypeInfo" type="string" mandatory="false"
+             fieldname="Информация об источнике" />
+
+      <field name="autoDistribute" type="bool" mandatory="false"
+             fieldname="Автоматически распределять карточку на оператора" />
+
+      <field name="draft" type="bool" mandatory="false"
+             fieldname="Является ли карточка черновиком" />
+
+      <field name="metadata" type="MetaData" mandatory="false"
+             fieldname="metadata по карточке" />
+
+      <field name="control" type="bool" mandatory="false"
+             fieldname="Контроль" />
+
+      <field name="ChatId" type="string" mandatory="false"
+             fieldname="Идентификатор чата" />
+
+      <field name="wasChangedAfterFirstSave" type="bool" mandatory="false"
+             fieldname="Карточка была изменена после первого сохранения" />
+
+      <field name="strStructure" type="string" mandatory="false"
+             fieldname="Номер строения" />
+
+      <field name="strDeclarantStructure" type="string" mandatory="false"
+             fieldname="Номер строения в адресе заявителя" />
+
+    </struct>
+
+    <struct name="Tm_Card_01_Data">
+      <field name="m_GeneralData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="strObjectOwner" type="string" mandatory="false"
+             fieldname="Данные о владельце объекта" />
+
+      <field name="nFirePreventionTypeID" type="int" mandatory="false"
+             fieldname="Вид пожарной охраны" />
+
+      <field name="strInternalCardNumber" type="string" mandatory="false"
+             fieldname="№ карточки УП" />
+
+      <field name="firstFireBarrel" type="int" mandatory="false"
+             fieldname="Время подачи первого ствола (в минутах)" />
+
+      <field name="waterConsumption" type="int" mandatory="false"
+             fieldname="Расход воды (в литрах)" />
+
+      <field name="nWaterSourceID" type="int" mandatory="false"
+             fieldname="Водоисточник" />
+
+      <field name="damageCost" type="int" mandatory="false"
+             fieldname="Ущерб" />
+
+      <field name="savedCost" type="int" mandatory="false"
+             fieldname="Спасено мат. ценностей" />
+
+      <field name="policeInterest" type="bool" mandatory="true"
+             fieldname="Оперативный интерес" />
+
+      <field name="strShift" type="string" mandatory="false"
+             fieldname="Смена" />
+
+      <field name="strMessage" type="string" mandatory="false"
+             fieldname="Сообщение" />
+
+      <field name="strObjectAdditionalInfo" type="string" mandatory="false"
+             fieldname="Доп.инфо объекта" />
+
+      <field name="nObjectId" type="int" mandatory="false"
+             fieldname="Объект" />
+
+      <field name="nReactionPlanId" type="int" mandatory="false"
+             fieldname="План реагирования" />
+
+      <field name="nObjectTypeId" type="int" mandatory="false"
+             fieldname="Тип объекта" />
+
+      <field name="lObjectGasified" type="bool" mandatory="true"
+             fieldname="Объект газифицирован" />
+
+      <field name="nFireClassId" type="int" mandatory="false"
+             fieldname="Ранг пожара" />
+
+      <field name="lHumanThreat" type="bool" mandatory="true"
+             fieldname="Угроза людям" />
+
+      <field name="lEmergencyFlag" type="bool" mandatory="true"
+             fieldname="Признак ЧС" />
+
+      <field name="nSpace" type="int" mandatory="false"
+             fieldname="Площадь (кв.м.)" />
+
+      <field name="nPerishedPeople" type="int" mandatory="false"
+             fieldname="Погибло людей" />
+
+      <field name="nPerishedChildren" type="int" mandatory="false"
+             fieldname="Погибло детей" />
+
+      <field name="nPerishedCollaborators" type="int" mandatory="false"
+             fieldname="Погибло сотрудников" />
+
+      <field name="nWounded" type="int" mandatory="false"
+             fieldname="Ранено людей" />
+
+      <field name="nWoundedChildren" type="int" mandatory="false"
+             fieldname="Ранено детей" />
+
+      <field name="nWoundedCollaborators" type="int" mandatory="false"
+             fieldname="Ранено сотрудников" />
+
+      <field name="nSavedPeople" type="int" mandatory="false"
+             fieldname="Спасено людей" />
+
+      <field name="nSavedChildren" type="int" mandatory="false"
+             fieldname="Спасено детей" />
+
+      <field name="nBrokenLivingConditions" type="int" mandatory="false"
+             fieldname="Нарушено у/ж" />
+
+      <field name="nBrokenLivingConditionsChildren" type="int" mandatory="false"
+             fieldname="Нарушено у/ж детей" />
+
+      <field name="nFireReasonID" type="int" mandatory="false"
+             fieldname="Причина пожара" />
+
+      <field name="nFireIncidentTypeID" type="int" mandatory="false"
+             fieldname="Вид выезда" />
+
+      <field name="dtLocalization" type="DateTime" mandatory="false"
+             fieldname="Время локализации" />
+
+      <field name="dtLiquidation" type="DateTime" mandatory="false"
+             fieldname="Время ликвидации" />
+
+      <field name="dtOpenFireLiquidation" type="DateTime" mandatory="false"
+             fieldname="Время устранения открытого огня" />
+
+      <field name="strDescription" type="string" mandatory="false"
+             fieldname="Уточненная причина пожара" />
+
+      <field name="nFireDistance" type="int" mandatory="false"
+             fieldname="Расстояние" />
+
+      <field name="strOwnership" type="string" mandatory="false"
+             fieldname="Форма собственности" />
+
+      <field name="isError" type="bool" mandatory="true"
+             fieldname="Ошибочная карточка" />
+
+      <collection_field name="fireBarrels" type="List" internal_type="FireBarrelsItem"
+                        mandatory="false" fieldname="Подавали стволы" />
+
+      <collection_field name="fireExtinguishers" type="List" internal_type="FireExtinguishersItem"
+                        mandatory="false" fieldname="Огнетушащие средства" />
+
+      <collection_field name="drillsChiefs" type="List" internal_type="DrillsChief"
+                        mandatory="false" fieldname="Руководители учений" />
+
+      <collection_field name="fireChiefs" type="List" internal_type="FireChief"
+                        mandatory="false" fieldname="РТП-1" />
+
+      <collection_field name="fireFighters" type="List" internal_type="FireFighter"
+                        mandatory="false" fieldname="Личный состав" />
+
+      <collection_field name="gdzsUnits" type="List" internal_type="GdzsUnit"
+                        mandatory="false" fieldname="Звенья ГДЗС" />
+
+      <field name="dtServiceCardCreate" type="DateTime" mandatory="false"
+             fieldname="Время создания сервисной карточки" />
+
+      <field name="dtServiceCardView" type="DateTime" mandatory="false"
+             fieldname="Время просмотра сервисной карточки" />
+
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false"
+             fieldname="Выезд на место" />
+
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false"
+             fieldname="Прибытие на место" />
+
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false"
+             fieldname="Время закрытия сервисной карточки" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="nServiceIncidentTypeId" type="int" mandatory="false"
+             fieldname="Вид происшествия" />
+
+      <field name="nFireStartEstimate" type="int" mandatory="false"
+             fieldname="Оценка времени развития пожара" />
+
+      <field name="strFireResults" type="string" mandatory="false"
+             fieldname="Наблюдаемые последствия пожара" />
+
+      <field name="strPathDescription" type="string" mandatory="false"
+             fieldname="Характеристика подъездных путей" />
+
+      <field name="strConditionsDescription" type="string" mandatory="false"
+             fieldname="Характеристика условий работы" />
+
+      <field name="lEvacuationAvail" type="bool" mandatory="true"
+             fieldname="Оценка возможности эвакуации" />
+
+      <field name="strServiceOperator" type="string" mandatory="false"
+             fieldname="Оператор ДДС принявший карточку" />
+
+      <field name="strRegistrationNumber" type="string" mandatory="false"
+             fieldname="Внутренний номер заявки ДДС" />
+
+      <field name="nNumberStoreys" type="int" mandatory="false"
+             fieldname="Этажность (СПБ)" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="dtDenialOfService" type="DateTime" mandatory="false"
+             fieldname="Время отказа в обслуживании" />
+
+      <field name="regionData" type="RegionData" mandatory="false"
+             fieldname="Специфичные данные для региона установки" />
+
+      <field name="strMNISId" type="string" mandatory="false"
+             fieldname="Идентификатор МНИС" />
+
+      <field name="mnisReactionInfo" type="MNISReaction" mandatory="false"
+             fieldname="Сведения МНИС" />
+
+      <collection_field name="involvedVehicles" type="List" internal_type="Vehicle01Info"
+                        mandatory="false" fieldname="Сведения о привлеченных ТС 01" />
+
+    </struct>
+
+    <struct name="Tm_Card_02_Data">
+      <field name="m_GeneralData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="m_CardOVD" type="Tm_Card_OVD_Data" mandatory="true"
+             fieldname="Карточка ОВД" />
+
+      <field name="nITypeID" type="int" mandatory="false"
+             fieldname="Квалификация" />
+
+      <field name="importanceLevel" type="int" mandatory="false"
+             fieldname="Приоритетность вызова" />
+
+      <field name="lExported" type="bool" mandatory="true"
+             fieldname="Экспортирована ли" />
+
+      <field name="strRegistrationNumber" type="string" mandatory="false"
+             fieldname="Номер КУСП" />
+
+      <field name="registrationDepartmentID" type="int" mandatory="false"
+             fieldname="Отделение" />
+
+      <collection_field name="m_CriminalDescriptionList" type="List" internal_type="Tm_ISharerDescription"
+                        mandatory="false" fieldname="Подозреваемые" />
+
+      <collection_field name="m_LostPeopleDescriptionList" type="List" internal_type="Tm_ISharerDescription"
+                        mandatory="false" fieldname="Разыскиваемые" />
+
+      <collection_field name="m_VehicleList" type="List" internal_type="Tm_IVehicleDescription"
+                        mandatory="false" fieldname="Автотранспорт" />
+
+      <collection_field name="m_VictimList" type="List" internal_type="Tm_IVictimDescription"
+                        mandatory="false" fieldname="Пострадавшие" />
+
+      <field name="dtServiceCardCreate" type="DateTime" mandatory="false"
+             fieldname="Время создания сервисной карточки" />
+
+      <field name="dtServiceCardView" type="DateTime" mandatory="false"
+             fieldname="Время просмотра сервисной карточки" />
+
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false"
+             fieldname="Выезд на место" />
+
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false"
+             fieldname="Прибытие на место" />
+
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false"
+             fieldname="Время закрытия сервисной карточки" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="nServiceIncidentTypeId" type="int" mandatory="false"
+             fieldname="Вид происшествия" />
+
+      <field name="nCriminalsCount" type="int" mandatory="false"
+             fieldname="Число правонарушителей" />
+
+      <field name="nVehiclesCount" type="int" mandatory="false"
+             fieldname="Число транспортных средств" />
+
+      <field name="strServiceOperator" type="string" mandatory="false"
+             fieldname="Оператор ДДС принявший карточку" />
+
+      <field name="strIncidentAdditionalInfo" type="string" mandatory="false"
+             fieldname="Дополнительная информация о происшествии" />
+
+      <field name="strVehicleRegNumberReadOnly" type="string" mandatory="false"
+             fieldname="Номер первого ТС в списке" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="dtDenialOfService" type="DateTime" mandatory="false"
+             fieldname="Время отказа в обслуживании" />
+
+      <field name="regionData" type="RegionData" mandatory="false"
+             fieldname="специфичные данные для региона установки" />
+
+    </struct>
+
+    <struct name="Tm_Card_OVD_Data">
+      <field name="nEmergencyCardId" type="int" mandatory="true"
+             fieldname="Номер карточки 112" />
+
+      <field name="strInspector" type="string" mandatory="false"
+             fieldname="Кто принял" />
+
+      <collection_field name="taskForceItemsList" type="List" internal_type="TaskForceItem"
+                        mandatory="false" fieldname="Кто выезжал" />
+
+      <field name="nStatusId" type="int" mandatory="false"
+             fieldname="Принятое решение" />
+
+      <field name="strIntrinsicOVD_N" type="string" mandatory="false"
+             fieldname="КУСП ОВД" />
+
+      <field name="dtRegDate" type="DateTime" mandatory="false"
+             fieldname="Дата рег." />
+
+      <field name="strDocNumber" type="string" mandatory="false"
+             fieldname="№дела / №КУСП / №адм. прот." />
+
+      <field name="strPage" type="string" mandatory="false"
+             fieldname="Страница" />
+
+      <field name="lSolved" type="bool" mandatory="true"
+             fieldname="Результат" />
+
+      <field name="nOVDITypeId" type="int" mandatory="false"
+             fieldname="Квалификация ОВД" />
+
+      <field name="strIntrinsicDPS_N" type="string" mandatory="false"
+             fieldname="КУСП ДПС" />
+
+      <field name="isVideoObservation" type="bool" mandatory="false"
+             fieldname="Имеется видеонаблюдение" />
+
+      <field name="isSuspectedPerson" type="bool" mandatory="false"
+             fieldname="Имеется подозреваемый в совершении преступления" />
+
+      <field name="isEvidence" type="bool" mandatory="false"
+             fieldname="Изъяты следы, вещественные доказательства" />
+
+      <field name="isSkRfStuff" type="bool" mandatory="false"
+             fieldname="Участие работника СК РФ" />
+
+      <field name="nPastEventId" type="int" mandatory="false"
+             fieldname="Проведенные мероприятия" />
+
+      <field name="nDepartureResultId" type="int" mandatory="false"
+             fieldname="Информация по результатам выезда" />
+    </struct>
+
+    <struct name="Tm_Card_03_Data">
+      <field name="generalData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="nDailyId" type="int" mandatory="false"
+             fieldname="ID карточки в конкретный день" />
+
+      <field name="isTransportation" type="bool" mandatory="true"
+             fieldname="Транспортировка ли эта карточка" />
+
+      <field name="nSickCount" type="int" mandatory="false"
+             fieldname="Количество больных" />
+
+      <field name="nCompleteStatus" type="En_CardCompleteStatus" mandatory="false"
+             fieldname="Статус карточки" />
+
+      <field name="nHospitalId" type="int" mandatory="false"
+             fieldname="Идентификатор ЛПУ отправки" />
+
+      <field name="nDstHospitalId" type="int" mandatory="false"
+             fieldname="Идентификатор ЛПУ назначения" />
+
+      <field name="nTransportationId" type="int" mandatory="false"
+             fieldname="Тип транспортировки" />
+
+      <field name="nTransportReasonId" type="int" mandatory="false"
+             fieldname="Причина транспортировки" />
+
+      <field name="dtClosed" type="DateTime" mandatory="false"
+             fieldname="Время окончания обслуживания вызова" />
+
+      <field name="dtAdmission" type="DateTime" mandatory="false"
+             fieldname="Время доставления в ЛПУ" />
+
+      <field name="strDeliveredTo" type="string" mandatory="false"
+             fieldname="Куда доставлен" />
+
+      <field name="strTeamMessage" type="string" mandatory="false"
+             fieldname="Сообщение бригады" />
+
+      <field name="strCloseReason" type="string" mandatory="false"
+             fieldname="Причина закрытия карточки" />
+
+      <field name="nDuplicateStatus" type="int" mandatory="false"
+             fieldname="Статус дублирования" />
+
+      <field name="nOriginalCardId" type="int" mandatory="false"
+             fieldname="id возможного оригинала" />
+
+      <field name="nRecomendedDepId" type="int" mandatory="false"
+             fieldname="Рекомендованный департамент" />
+
+      <field name="strSickPersonsInfo" type="string" mandatory="false"
+             fieldname="Строка с информацией о больных для списка" />
+
+      <field name="strSickPersonsReasons" type="string" mandatory="false"
+             fieldname="Строка с перечислением причин вызова для подсветки в списке происшествий" />
+
+      <field name="strSickPersonsPriorities" type="string" mandatory="false"
+             fieldname="Строка с перечислением меток о том, что вызов является приоритетным" />
+
+      <field name="strEnginesInfo" type="string" mandatory="false"
+             fieldname="Строка с информацией о бригадах" />
+
+      <field name="isFreeTransport" type="bool" mandatory="false"
+             fieldname="Освободить бригады" />
+
+      <field name="isTransfered" type="bool" mandatory="false"
+             fieldname="Передача центральному диспетчеру" />
+
+      <field name="dtServiceCardCreate" type="DateTime" mandatory="false"
+             fieldname="Время создания сервисной карточки" />
+
+      <field name="strIncidentAdditionalInfo" type="string" mandatory="false"
+             fieldname="Дополнительная информация о происшествии" />
+
+      <collection_field name="sickPersons" type="List" internal_type="SickPerson"
+                        mandatory="false" fieldname="Больные" />
+
+      <field name="dtServiceCardView" type="DateTime" mandatory="false"
+             fieldname="Время просмотра сервисной карточки" />
+
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false"
+             fieldname="Выезд на место" />
+
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false"
+             fieldname="Прибытие на место" />
+
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false"
+             fieldname="Время закрытия сервисной карточки" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="nServiceIncidentTypeId" type="int" mandatory="false"
+             fieldname="Вид происшествия" />
+
+      <field name="strWhoCalled" type="string" mandatory="false"
+             fieldname="Кто вызвал" />
+
+      <field name="nWhoCalledId" type="int" mandatory="false"
+             fieldname="Кто вызвал (классификатор)" />
+
+      <field name="haveChildren" type="bool" mandatory="true"
+             fieldname="Есть дети" />
+
+      <field name="strServiceOperator" type="string" mandatory="false"
+             fieldname="Оператор ДДС принявший карточку" />
+
+      <field name="strRegistrationNumber" type="string" mandatory="false"
+             fieldname="Внутренний номер заявки ДДС" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="dtDenialOfService" type="DateTime" mandatory="false"
+             fieldname="Время отказа в обслуживании" />
+
+      <field name="isVehicleInvolved" type="bool" mandatory="false"
+             fieldname="Привлечены ТС 03" />
+
+      <collection_field name="involvedVehicles" type="List" internal_type="Vehicle03Info"
+                        mandatory="false" fieldname="Сведения о привлеченных ТС 03" />
+
+    </struct>
+
+    <struct name="Tm_Card_04_Data">
+      <field name="m_GeneralData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="strWhatHappened" type="string" mandatory="false"
+             fieldname="Сообщение" />
+
+      <field name="nCommunityServiceId" type="int" mandatory="false"
+             fieldname="Коммунальная служба" />
+
+      <field name="strMeasures" type="string" mandatory="false"
+             fieldname="Принятые меры" />
+
+      <field name="nCommunityServiceSituationId" type="int" mandatory="false"
+             fieldname="Происшествие" />
+
+      <field name="lExported" type="bool" mandatory="false"
+             fieldname="Экспортирована ли" />
+
+      <field name="nCompleteStatus" type="En_CardCompleteStatus" mandatory="true"
+             fieldname="Статус" />
+
+      <field name="dtServiceCardCreate" type="DateTime" mandatory="false"
+             fieldname="Время создания сервисной карточки" />
+
+      <field name="dtServiceCardView" type="DateTime" mandatory="false"
+             fieldname="Время просмотра сервисной карточки" />
+
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false"
+             fieldname="Выезд на место" />
+
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false"
+             fieldname="Прибытие на место" />
+
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false"
+             fieldname="Время закрытия сервисной карточки" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="nServiceIncidentTypeId" type="int" mandatory="false"
+             fieldname="Вид происшествия" />
+
+      <field name="nInstructionId" type="int" mandatory="false"
+             fieldname="Инструкции" />
+
+      <field name="lIsConsulting" type="bool" mandatory="true"
+             fieldname="Консультация" />
+
+      <field name="strServiceOperator" type="string" mandatory="false"
+             fieldname="Оператор ДДС принявший карточку" />
+
+      <field name="strRegistrationNumber" type="string" mandatory="false"
+             fieldname="Внутренний номер заявки ДДС" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="dtDenialOfService" type="DateTime" mandatory="false"
+             fieldname="Время отказа в обслуживании" />
+
+    </struct>
+
+    <struct name="Tm_Card_CommServ_Data">
+      <field name="m_GeneralData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="strMessage" type="string" mandatory="false"
+             fieldname="Сообщение" />
+
+      <field name="strObjectInfo" type="string" mandatory="false"
+             fieldname="Дополнительная информация по объекту" />
+
+      <field name="lHumanThreat" type="bool" mandatory="true"
+             fieldname="Угроза людям" />
+
+      <field name="lEmergencyFlag" type="bool" mandatory="true"
+             fieldname="Признак ЧС" />
+
+      <field name="dtDepart" type="DateTime" mandatory="false"
+             fieldname="Время убытия бригады" />
+
+      <field name="dtArrival" type="DateTime" mandatory="false"
+             fieldname="Время прибытия на место" />
+
+      <field name="nObjectTypeId" type="int" mandatory="false"
+             fieldname="Тип объекта" />
+
+      <field name="dtComplete" type="DateTime" mandatory="false"
+             fieldname="Время устранения" />
+
+      <field name="nCompleteStatus" type="En_CardCompleteStatus" mandatory="true"
+             fieldname="Статус" />
+
+      <field name="strUsedMeans" type="string" mandatory="false"
+             fieldname="Задействованные силы" />
+
+      <field name="dtDeadlineExceeded" type="DateTime" mandatory="false"
+             fieldname="Контрольное время выполнения" />
+
+      <field name="dtDeclarantNotify" type="DateTime" mandatory="false"
+             fieldname="Дата и время доведения информации до заявителя" />
+
+      <field name="strAgentWhoNotifies" type="string" mandatory="false"
+             fieldname="Диспетчер" />
+
+      <field name="dtServiceCardCreate" type="DateTime" mandatory="false"
+             fieldname="Время создания сервисной карточки" />
+
+      <field name="dtServiceCardView" type="DateTime" mandatory="false"
+             fieldname="Время просмотра сервисной карточки" />
+
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false"
+             fieldname="Выезд на место" />
+
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false"
+             fieldname="Прибытие на место" />
+
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false"
+             fieldname="Время закрытия сервисной карточки" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="nServiceIncidentTypeId" type="int" mandatory="false"
+             fieldname="Вид происшествия" />
+
+      <field name="nCommunityServiceId" type="int" mandatory="false"
+             fieldname="Коммунальная служба" />
+
+      <field name="nInstructionId" type="int" mandatory="false"
+             fieldname="Инструкции" />
+
+      <field name="lIsConsulting" type="bool" mandatory="true"
+             fieldname="Консультация" />
+
+      <field name="strServiceOperator" type="string" mandatory="false"
+             fieldname="Оператор ДДС принявший карточку" />
+
+      <field name="strRegistrationNumber" type="string" mandatory="false"
+             fieldname="Внутренний номер заявки ДДС" />
+
+      <field name="strMeasures" type="string" mandatory="false"
+             fieldname="Принятые меры" />
+
+      <field name="nServiceIncidentCategoryId" type="int" mandatory="false"
+             fieldname="Категория происшествия" />
+
+      <field name="nUKID" type="int" mandatory="false"
+             fieldname="Управляющая компания" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="dtDenialOfService" type="DateTime" mandatory="false"
+             fieldname="Время отказа в обслуживании" />
+
+    </struct>
+
+    <struct name="Tm_Card_AT_Data">
+      <field name="m_GeneralData" type="Tm_CardGeneralData" mandatory="false"
+             fieldname="Общая информация" />
+
+      <field name="strWhatHappened" type="string" mandatory="false"
+             fieldname="Описание происшествия" />
+
+      <field name="strMeasures" type="string" mandatory="false"
+             fieldname="Принятые меры" />
+
+      <field name="strDamage" type="string" mandatory="false"
+             fieldname="Ущерб" />
+
+      <field name="dtServiceCardCreate" type="DateTime" mandatory="false"
+             fieldname="Время создания сервисной карточки" />
+
+      <field name="dtServiceCardView" type="DateTime" mandatory="false"
+             fieldname="Время просмотра сервисной карточки" />
+
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false"
+             fieldname="Выезд на место" />
+
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false"
+             fieldname="Прибытие на место" />
+
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false"
+             fieldname="Время закрытия сервисной карточки" />
+
+      <field name="dtDeadline" type="DateTime" mandatory="false"
+             fieldname="Дата и время нарушения регламента" />
+
+      <field name="strServiceOperator" type="string" mandatory="false"
+             fieldname="Оператор ДДС принявший карточку" />
+
+      <field name="strRegistrationNumber" type="string" mandatory="false"
+             fieldname="Внутренний номер заявки ДДС" />
+
+      <field name="nServiceIncidentTypeId" type="int" mandatory="false"
+             fieldname="Вид террористического акта" />
+
+      <field name="nDied" type="int" mandatory="false"
+             fieldname="Количество погибших" />
+
+      <field name="nVictims" type="int" mandatory="false"
+             fieldname="Количество пострадавших" />
+
+      <field name="nSuspects" type="int" mandatory="false"
+             fieldname="Количество подозреваемых" />
+
+      <field name="strSuspectsDesc" type="string" mandatory="false"
+             fieldname="Описание подозреваемых" />
+
+      <field name="strSuspectsEquipment" type="string" mandatory="false"
+             fieldname="Вооружение подозреваемых" />
+
+      <field name="strSuspectsVehicles" type="string" mandatory="false"
+             fieldname="Транспортные средства подозреваемых" />
+
+      <field name="strSuspectsDirection" type="string" mandatory="false"
+             fieldname="Направление движения подозреваемых" />
+
+      <field name="strSuspectsInjury" type="string" mandatory="false"
+             fieldname="Повреждения подозреваемых" />
+
+      <field name="callDuration" type="int" mandatory="false"
+             fieldname="Продолжительность вызова" />
+
+      <field name="dtDenialOfService" type="DateTime" mandatory="false"
+             fieldname="Время отказа в обслуживании" />
+    </struct>
+
+    <struct name="ServiceCard01">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="" />
+
+      <field name="card01Data" type="Tm_Card_01_Data" mandatory="true"
+             fieldname="" />
+    </struct>
+
+    <struct name="ServiceCard02">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="" />
+
+      <field name="card02Data" type="Tm_Card_02_Data" mandatory="true"
+             fieldname="" />
+    </struct>
+
+    <struct name="ServiceCard03">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="" />
+
+      <field name="card03Data" type="Tm_Card_03_Data" mandatory="true"
+             fieldname="" />
+    </struct>
+
+    <struct name="ServiceCard04">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="" />
+
+      <field name="card04Data" type="Tm_Card_04_Data" mandatory="true"
+             fieldname="" />
+    </struct>
+
+    <struct name="ServiceCardAT">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="" />
+
+      <field name="cardATData" type="Tm_Card_AT_Data" mandatory="true"
+             fieldname="" />
+    </struct>
+
+    <struct name="ServiceCardCommServ">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true"
+             fieldname="" />
+
+      <field name="cardCommServData" type="Tm_Card_CommServ_Data" mandatory="true"
+             fieldname="" />
+    </struct>
+
+    <struct name="PrevDeclarantInfo">
+      <field name="strPrevDeclarantLastName" type="string" mandatory="false"
+             fieldname="Фамилия звонящего в предыдущем вызове" />
+
+      <field name="strPrevDeclarantName" type="string" mandatory="false"
+             fieldname="Имя звонящего в предыдущем вызове" />
+
+      <field name="strPrevDeclarantMiddleName" type="string" mandatory="false"
+             fieldname="Отчество звонящего в предыдущем вызове" />
+
+      <field name="strPrevCallerContactPhone" type="string" mandatory="false"
+             fieldname="Контактный телефон звонящего в предыдущем вызове" />
+
+
+      <field name="nPrevDeclarantCityId" type="int" mandatory="false"
+             fieldname="Город/обл. звонящего в предыдущем вызове" />
+
+      <field name="nPrevDeclarantDistrictId" type="int" mandatory="false"
+             fieldname="Округ звонящего в предыдущем вызове" />
+
+      <field name="nPrevDeclarantStreetId" type="int" mandatory="false"
+             fieldname="Улица звонящего в предыдущем вызове" />
+
+      <field name="strPrevDeclarantBuildingNumber" type="string" mandatory="false"
+             fieldname="Номер дома звонящего в предыдущем вызове" />
+
+      <field name="strPrevDeclarantCorps" type="string" mandatory="false"
+             fieldname="Корпус звонящего в предыдущем вызове" />
+
+      <field name="strPrevDeclarantFlat" type="string" mandatory="false"
+             fieldname="Квартира звонящего в предыдущем вызове" />
+
+    </struct>
+
+</namespace>
+</descriptions>

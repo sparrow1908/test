@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Requests.Card_112">
+
+    <struct name="Create">
+      <field name="isPersist" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="UpdateDuplicateStatus">
+      <field name="nEmergencyCardId" type="int" mandatory="false" />
+      <field name="nOriginalCardId" type="int" mandatory="false" />
+      <field name="globalId" type="string" mandatory="true" />
+      <field name="originalGlobalId" type="string" mandatory="false" />
+      <field name="nDuplicateStatus" type="En_DuplicateStatus" mandatory="false" />
+    </struct>
+
+    <struct name="GetDuplicatedCards">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true" />
+      <field name="isSuspected" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="SetSyntheticState">
+      <field name="nEmergencyCardId" type="int" mandatory="true" />
+      <field name="nCardSyntheticState" type="En_CardSyntheticState" mandatory="true" />
+    </struct>
+
+    <struct name="UpdateCallHistory">
+      <field name="nEmergencyCardId" type="int" mandatory="true" />
+      <collection_field name="callHistory" type="List" internal_type="CallHistoryItem" mandatory="true" />
+    </struct>
+
+    <struct name="GetCardList">
+      <field name="cardFilter" type="Card112Filter" />
+      <field name="from" type="int" mandatory="true" />
+      <field name="to" type="int" mandatory="true" />
+      <field name="orderBy" type="string" mandatory="false" />
+      <field name="sortingOrder" type="En_SortingOrder" mandatory="false" />
+      <field name="ignoreDepartment" type="bool" mandatory="false" />
+
+      <!--До версии клиента 4.34 и сервера 5.15 поля Cdpn и Cgpn были перепутаны местами как на клиенте, так и на сервере.
+          Данный параметр был добавлен для поддержания обратной совместимости — "старые" клиенты до 4.34 этот параметр не присылают,
+          и сервер для них меняет данные этих полей местами. После того, как все клиенты "перешагнут" 4.34, необходимо убрать данное поле -->
+      <field name="isCorrectCdpnCgpn" type="bool" mandatory="false" />
+    </struct>
+
+</namespace>
+</descriptions>

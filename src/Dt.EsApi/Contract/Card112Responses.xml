@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.Card_112">
+
+    <struct name="CreateResponse">
+      <field name="nEmergencyCardId" type="int" mandatory="true" />
+      <field name="dtCreate" type="DateTime" mandatory="true" />
+      <field name="strCreator" type="string" mandatory="false" />
+      <field name="globalId" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="UpdateDuplicateStatusResponse" />
+
+    <struct name="GetDuplicatedCardsResponse">
+      <field name="zippedCardList" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="SetSyntheticStateResponse" />
+
+    <struct name="UpdateCallHistoryResponse">
+      <collection_field name="callHistory" type="List" internal_type="CallHistoryItem" mandatory="false" />
+    </struct>
+
+    <struct name="GetCardListResponse">
+      <collection_field name="cardList" type="List" internal_type="EmergencyCard" mandatory="false" />
+      <field name="total" type="int" mandatory="true" />
+    </struct>
+
+</namespace>
+</descriptions>

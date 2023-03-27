@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Requests.Card_CustomService">
+
+    <struct name="SetSyntheticState" description="изменение состояния дополнительной (кастомной) службы">
+      <field name="nEmergencyCardId" type="int" mandatory="false" description="локальный идентификатор карточки" />
+      <field name="globalId" type="string" mandatory="false" description="глобальный идентификатор карточки" />
+      <field name="nCustomServiceId" type="int" mandatory="false"
+             description="идентификатор дополнительной (кастомной) службы" />
+      <field name="nServiceTypeId" type="int" mandatory="int"
+             description="идентификатор службы, которая ссылается на дополнительную (кастомную) службу" />
+      <field name="nCardSyntheticState" type="En_CardSyntheticState" mandatory="true"
+             description="состояние, которое необходим присвоить службе" />
+    </struct>
+
+</namespace>
+</descriptions>

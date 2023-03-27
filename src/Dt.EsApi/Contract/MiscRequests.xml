@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Requests.MiscGroup">
+
+    <struct name="Ping">
+      <field name="rndNum" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="GetCreatorList" />
+
+    <struct name="LocalDistrictGet">
+      <field name="streetId" type="int" mandatory="false" />
+      <field name="districtId" type="int" mandatory="false" />
+      <field name="strBuilding" type="string" mandatory="true" />
+      <field name="strCorps" type="string" mandatory="true" />
+      <field name="cityId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="ShowCameraAtVideoPortal">
+      <field name="userID" type="int" mandatory="false" />
+      <field name="cameraID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="GeoAreaFromAddressGet">
+      <field name="address" type="MapAddress" mandatory="true" />
+    </struct>
+
+    <struct name="AddressFromGeoPointGet">
+      <field name="coordinates" type="GeoPoint" mandatory="true" />
+    </struct>
+
+    <struct name="MarkersFilterRegister">
+      <field name="cardFilter" type="Card112Filter" mandatory="true" />
+      <!--До версии клиента 4.34 и сервера 5.15 поля Cdpn и Cgpn были перепутаны местами как на клиенте, так и на сервере.
+          Данный параметр был добавлен для поддержания обратной совместимости — "старые" клиенты до 4.34 этот параметр не присылают,
+          и сервер для них меняет данные этих полей местами. После того, как все клиенты "перешагнут" 4.34 и с сервера уберут 
+          логику замены, необходимо убрать данное поле -->
+      <field name="isCorrectCdpnCgpn" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="PostClientMonitorStatus">
+      <field name="clientMonitorSID" type="long" mandatory="true" />
+      <field name="title" type="string" mandatory="true" />
+      <field name="description" type="string" mandatory="true" />
+      <field name="type" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="GetLocationInformation">
+      <field name="phoneNumber" type="string" mandatory="true" />
+      <field name="visitedNetworkId" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="GetAdditionalDeclarantInfo">
+      <field name="phoneNumber" type="string" mandatory="true" />
+      <field name="visitedNetworkId" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceDistance">
+      <field name="pointFirst" type="GeoPoint" mandatory="true" />
+      <field name="pointSecond" type="GeoPoint" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceDistanceOnRoute">
+      <field name="pointFirst" type="GeoPoint" mandatory="true" />
+      <field name="pointSecond" type="GeoPoint" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceLayers">
+      <field name="username" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceGeoObjects">
+      <field name="layerId" type="int" mandatory="true" />
+      <field name="pageSize" type="int" mandatory="true" />
+      <field name="pageNumber" type="int" mandatory="true" />
+      <field name="userName" type="string" mandatory="false" />
+      <field name="query" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GisServiceSearch">
+      <field name="username" type="string" mandatory="true" />
+      <field name="searchValue" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="UpdateField">
+      <field name="callId" type="long" mandatory="true" />
+      <field name="startCallTime" type="DateTime" mandatory="false" />
+      <field name="distributeDuration" type="int" mandatory="false" />
+      <field name="callDuration" type="int" mandatory="false" />
+      <field name="serviceTypeId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="GetKLADRInfo">
+      <field name="streetId" type="int" mandatory="false" />
+      <field name="districtId" type="int" mandatory="false" />
+      <field name="cityId" type="int" mandatory="false" />
+
+      <field name="declarantStreetId" type="int" mandatory="false" />
+      <field name="declarantDistrictId" type="int" mandatory="false" />
+      <field name="declarantCityId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="GetCallCenterConnectionInfo" />
+
+    <struct name="RemoteLayers">
+      <field name="layerType" type="En_LayerType" mandatory="true" />
+      <field name="username" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="WeatherLayers">
+      <field name="updateLayers" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="GetVehicle01TrackInfo">
+      <collection_field name="vehicles" type="List" internal_type="Vehicle01Info" />
+    </struct>
+
+    <struct name="GetVehicle03ArrivalInfo">
+      <field name="destination" type="GeoPoint" mandatory="false" />
+      <collection_field name="vehicles" type="List" internal_type="Vehicle03Info" />
+    </struct>
+
+    <struct name="GetGisServerToken" />
+
+    <struct name="GetGisServerLayers">
+      <field name="strLogin" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="SendAvayaSMS">
+      <field name="telNum" type="string" mandatory="true" />
+      <field name="text" type="string" mandatory="true" />
+      <field name="cardId" type="int" mandatory="true" />
+      <field name="smsId" type="string" mandatory="false" />
+      <field name="senderNum" type="string" mandatory="false"/>
+    </struct>
+
+    <struct name="StartCardSession">
+      <field name="cardId" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="EndCardSession">
+      <field name="cardId" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="ConfirmReceivingSms">
+      <field name="isSmsReceived" type="bool" mandatory="true" />
+      <field name="smsId" type="string" mandatory="false" />
+      <field name="cardId" type="int" mandatory="false" />
+    </struct>
+
+</namespace>
+</descriptions>

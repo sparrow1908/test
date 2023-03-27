@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.BasicGroup">
+
+    <struct name="RegisterResponse">
+      <field name="CLIENT_SID" type="long" mandatory="true" />
+      <field name="strCreator" type="string" mandatory="false" />
+      <field name="loginSuccess" type="bool" mandatory="false" />
+      <field name="GSESSIONID" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="UnregisterResponse" />
+
+    <struct name="StartNotificationResponse">
+      <field name="atmosphereTrackingId" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="SetNotificationFiltersResponse" />
+
+    <struct name="ErrorResponse">
+      <field name="code" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="LoadDictionaryByNameResponse">
+      <collection_field name="dictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+    </struct>
+
+    <struct name="LoadZippedDictionariesResponse">
+      <field name="dictionaries" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GetServerDateTimeResponse">
+      <field name="dateTime" type="DateTime" mandatory="true" />
+    </struct>
+
+    <struct name="GetSnaphotsResponse">
+      <collection_field name="snapshots" type="List" internal_type="Tm_SnapshotData" mandatory="false" />
+      <field name="totalCount" type="int" mandatory="false"/>
+    </struct>
+
+</namespace>
+</descriptions>

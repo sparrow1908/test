@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Notifications">
+
+    <struct name="CardMarkerChanged">
+      <field name="marker" type="CardMarkerInfo" mandatory="false" />
+    </struct>
+
+    <struct name="Card112Created">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" desc="true, если создана новая карточка с вызовом" />
+    </struct>
+
+    <struct name="Card112Changed">
+      <field name="card112Data" type="Tm_Card_112_Data" mandatory="true" />
+    </struct>
+
+    <struct name="Card01Created">
+      <field name="serviceCard01" type="ServiceCard01" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="Card01Changed">
+      <field name="serviceCard01" type="ServiceCard01" mandatory="true" />
+    </struct>
+
+    <struct name="Card02Created">
+      <field name="serviceCard02" type="ServiceCard02" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="Card02Changed">
+      <field name="serviceCard02" type="ServiceCard02" mandatory="true" />
+    </struct>
+
+    <struct name="Card03Created">
+      <field name="serviceCard03" type="ServiceCard03" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="Card03Changed">
+      <field name="serviceCard03" type="ServiceCard03" mandatory="true" />
+    </struct>
+
+    <struct name="Card04Created">
+      <field name="serviceCard04" type="ServiceCard04" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="Card04Changed">
+      <field name="serviceCard04" type="ServiceCard04" mandatory="true" />
+    </struct>
+
+    <struct name="CardATCreated">
+      <field name="serviceCardAT" type="ServiceCardAT" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="CardATChanged">
+      <field name="serviceCardAT" type="ServiceCardAT" mandatory="true" />
+    </struct>
+
+    <struct name="CardCommServCreated">
+      <field name="serviceCardCommServ" type="ServiceCardCommServ" mandatory="true" />
+      <field name="whenEmerged" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="CardCommServChanged">
+      <field name="serviceCardCommServ" type="ServiceCardCommServ" mandatory="true" />
+    </struct>
+
+    <struct name="DepartmentStateChanged">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="department" type="Department" mandatory="true" />
+    </struct>
+
+    <struct name="DepartmentInvolved">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <field name="department" type="Department" mandatory="true" />
+    </struct>
+
+    <struct name="NewMessageCreated">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <field name="message" type="CardMessage" mandatory="true" />
+    </struct>
+
+    <struct name="NewBroadcastMessageCreated">
+      <field name="messageID" type="int" mandatory="true" />
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="message" type="string" mandatory="false" />
+      <collection_field name="departmentIDs" type="List" internal_type="int" mandatory="true" />
+      <field name="sender" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="MessageListUpdated">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <collection_field name="cardMessages" type="List" internal_type="CardMessage" mandatory="true" />
+    </struct>
+
+    <struct name="UpdateRequested">
+      <field name="sid" type="long" mandatory="true" />
+      <field name="ip" type="string" mandatory="false" />
+      <field name="sha1Distr" type="string" mandatory="false" />
+      <field name="sha1Installer" type="string" mandatory="false" />
+      <field name="distrPath" type="string" mandatory="false" />
+      <field name="installerPath" type="string" mandatory="false" />
+      <field name="user" type="string" mandatory="false" />
+      <field name="password" type="string" mandatory="false" />
+      <field name="clientMonitorSID" type="long" mandatory="false" />
+    </struct>
+
+    <struct name="CamertonEnginesPositionChanged">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <collection_field name="engineList" type="List" internal_type="CamertonEngine" mandatory="true" />
+    </struct>
+
+    <struct name="SettingsUpdateNeeded">
+      <field name="sid" type="long" mandatory="true" />
+      <field name="forced" type="bool" mandatory="true" />
+      <field name="clientMonitorSID" type="long" mandatory="false" />
+    </struct>
+
+    <struct name="ActiveCallCenterIndexChanged">
+      <field name="activeCallCenterIndex" type="int" mandatory="true" />
+      <collection_field name="callCenterInfos" type="List" internal_type="CallCenterConnectionInfo" mandatory="true" />
+    </struct>
+
+    <struct name="GisServiceLayersUpdated" />
+
+    <struct name="WeatherLayersChanged" />
+
+    <struct name="ServiceCardEvent">
+      <field name="cardId" type="int" mandatory="true" description="Id карточки" />
+      <field name="globalId" type="string" mandatory="false" description="GlobalId карточки" />
+      <field name="serviceTypeId" type="int" mandatory="true"
+             description="Идентификатор службы, часть которой была изменена" />
+      <field name="eventType" type="CardEventType" mandatory="true" description="Тип изменения карточки" />
+    </struct>
+
+    <struct name="SmsStatusChanged">
+      <field name="cardId" type="int" mandatory="false" description="Id карточки" />
+      <field name="callId" type="int" mandatory="false" description="Id вызова" />
+      <field name="strSMPPId" type="string" mandatory="false" description="SMPP идентификатор СМС" />
+      <field name="smsStatus" type="En_SMSStatus" mandatory="false"
+             desc="Статус СМС (отправлено, не отправлено, получено, не получено)" />
+    </struct>
+
+    <struct name="SmsUpdatedEvent">
+      <field name="smsHistoryItem" type="CallHistoryItem" mandatory="true" />
+    </struct>
+
+</namespace>
+</descriptions>

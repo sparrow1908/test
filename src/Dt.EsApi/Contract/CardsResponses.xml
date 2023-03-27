@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.Cards">
+
+    <struct name="OpenResponse">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+    </struct>
+    
+    <struct name="EmergeResponse">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+      <field name="prevDeclarantInfo" type="PrevDeclarantInfo" mandatory="false" />
+      <field name="responseWithHint" type="bool" mandatory="false" />
+      <field name="isUntrustedCgpn" type="bool" mandatory="false" />
+    </struct>
+    
+    <struct name="SetSyntheticStateToCompletedResponse" />
+    
+    <struct name="PeekResponse">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+    </struct>
+
+    <struct name="SaveCardsResponse">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+      <field name="isDifferentRevisions" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="PeekSnapshotResponse">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+    </struct>
+
+    <struct name="EmergeWithSmsResponse">
+      <collection_field name="emergeResponse" type="List" internal_type="EmergeResponse" mandatory="false" />
+    </struct>
+
+    <struct name="SetSyntheticStateResponse">
+      <field name="cards" type="CardsContainer" mandatory="false" />
+    </struct>
+</namespace>
+</descriptions>

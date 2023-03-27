@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Responses.Card_CustomService">
+
+    <struct name="SetSyntheticStateResponses"
+            description="ответ на изменение состояния дополнительной (кастомной) службы" />
+
+</namespace>
+</descriptions>

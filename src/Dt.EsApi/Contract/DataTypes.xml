@@ -1,0 +1,2295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Types">
+
+    <enum name="En_ValidatedCommand">
+      <item name="CompleteCard" value="1" desc="Валидирует команду 'Завершить карточку'" />
+      <item name="PrintCard" value="2" desc="Валидирует команду 'Печатать карточку'" />
+    </enum>
+
+    <enum name="ErrorCode">
+      <item name="GENERAL_FAULT" value="1" />
+      <item name="UNKNOWN_ACTION" value="2" />
+      <item name="NO_FREE_HANDLERS" value="3" />
+      <item name="INTERRUPTED_CYCLE" value="4" />
+      <item name="DATABASE_FAULT" value="5" />
+      <item name="INVALID_CLIENT" value="6" />
+      <item name="INTERNAL_ERROR" value="7" />
+      <item name="SID_NOT_SPECIFIED" value="8" />
+      <item name="NON_INITIALIZED_MANAGERS" value="9" />
+      <item name="LOGIN_FAILED" value="10" />
+      <item name="LICENSE_ERROR" value="11" />
+      <item name="CLIENT_LICENSE_ERROR" value="12" />
+      <item name="INVALID_PARAMETERS" value="13" />
+    </enum>
+
+    <enum name="En_CallType">
+      <item name="FalseCall" value="1" desc="Ложный" />
+      <item name="ChildPrank" value="2" desc="Детская шалость" />
+      <item name="Info" value="3" desc="Справочный" />
+      <item name="Card_01" value="4" desc="Пожарные" />
+      <item name="Card_02" value="5" desc="Полиция" />
+      <item name="Card_03" value="6" desc="Скорая" />
+      <item name="Card_04" value="7" desc="Служба газа" />
+      <item name="Card_CommServ" value="8" desc="ЕДДС" />
+      <item name="Repeated" value="9" desc="Повторный" />
+      <item name="Card_AT" value="10" desc="Антитеррор" />
+      <item name="Psychologist" value="13" desc="Психолог" />
+      <item name="Consultation" value="14" desc="КОН" />
+      <item name="Interpreter" value="15" desc="Переводчик" />
+      <item name="RosOhrana" value="16" desc="РосОхранаТелеком" />
+      <item name="GZHI" value="17" desc="ГЖИ" />
+      <item name="InterRegional" value="18" desc="Межрегиональный" />
+    </enum>
+
+    <enum name="En_CardType">
+      <item name="Card_112" value="0" desc="Служба 112" />
+      <item name="Card_01" value="1" desc="Служба 01" />
+      <item name="Card_02" value="2" desc="Служба 02" />
+      <item name="Card_03" value="3" desc="Служба 03" />
+      <item name="Card_04" value="4" desc="Служба 04" />
+      <item name="Card_CommServ" value="5" desc="Служба ЕДДС" />
+      <item name="Card_AT" value="6" desc="Служба Антитеррор" />
+    </enum>
+
+    <enum name="En_ServiceType">
+      <item name="Service01" value="0" desc="Служба 01" />
+      <item name="Service02" value="1" desc="Служба 02" />
+      <item name="Service03" value="2" desc="Служба 03" />
+      <item name="Service04" value="3" desc="Служба 04" />
+      <item name="ServiceCommServ" value="4" desc="Служба ЕДДС" />
+      <item name="Service112" value="5" desc="Служба 112" />
+      <item name="ServiceAT" value="6" desc="Служба Антитеррор" />
+      <item name="ServicePsychologist" value="9" desc="Психолог" />
+      <item name="ServiceConsultation" value="10" desc="КОН" />
+      <item name="ServiceInterpreter" value="11" desc="Переводчик" />
+      <item name="ServiceRosOhrana" value="12" desc="РосОхранаТелеком" />
+    </enum>
+
+    <enum name="En_CardCompleteStatus">
+      <item name="Submitted" value="0" />
+      <item name="Processing" value="1" />
+      <item name="Complete" value="2" />
+    </enum>
+
+    <enum name="En_ImportanceLevel">
+      <item name="NotImportant" value="0" desc="Происшествия нет" />
+      <item name="Important" value="1" desc="Происшествие" />
+    </enum>
+
+    <enum name="En_CardSyntheticState">
+      <item name="Request112" value="1" />
+      <item name="ServicesInvolvement" value="2" />
+      <item name="ServicesReaction" value="3" />
+      <item name="ServicesWork" value="4" />
+      <item name="Completed" value="5" />
+      <item name="ServicesStart" value="6" />
+      <item name="DenialOfService" value="7" />
+    </enum>
+
+    <enum name="En_SortingOrder">
+      <item name="ASC" value="1" />
+      <item name="DESC" value="2" />
+    </enum>
+
+    <enum name="En_PhonogramSource ">
+      <item name="Internal" value="1" />
+      <item name="External" value="2" />
+    </enum>
+
+    <enum name="En_DuplicateStatus">
+      <item name="UnconfirmedDuplicate" value="1" />
+      <item name="Duplicate" value="2" />
+      <item name="DuplicateFalse" value="3" />
+      <item name="UnconfirmedRepeated" value="4" />
+      <item name="Repeated" value="5" />
+      <item name="RepeatedFalse" value="6" />
+    </enum>
+
+    <enum name="En_User03Role">
+      <item name="Operator_03" value="1" />
+      <item name="Dispatcher_03" value="2" />
+    </enum>
+
+    <enum name="En_ReflectionPriorityBy03Reason">
+      <item name="Emergency" value="0" />
+      <item name="Immediate" value="1" />
+      <item name="Urgent" value="2" />
+      <item name="Transportation" value="3" />
+      <item name="NoPriority" value="4" />
+    </enum>
+
+    <enum name="En_AttachmentType">
+      <item name="IMAGE" value="0" />
+      <item name="ACTION" value="1" />
+      <item name="STRING" value="2" />
+      <item name="PHONE_NUMBER" value="3" />
+      <item name="GEOMETRY" value="4" />
+      <item name="DOWNLOAD" value="5" />
+      <item name="VP_ONLINE_URL" value="6" />
+      <item name="VP_ARCHIVE_URL" value="7" />
+      <item name="VP_THUMBNAIL" value="8" />
+      <item name="PROXY_DOWNLOAD" value="9" />
+    </enum>
+
+    <enum name="En_SMSType">
+      <item name="Incoming" value="1" desc="Входящее СМС" />
+      <item name="Outcoming" value="2" desc="Исходящее СМС" />
+    </enum>
+
+    <enum name="En_Direction">
+      <item name="Incoming" value="1" desc="Входящий вызов"/>
+      <item name="Outcoming" value="2" desc="Исходящий вызов"/>
+    </enum>
+
+    <enum name="En_SMSStatus">
+      <item name="Sent" value="1" desc="СМС отправлено" />
+      <item name="NotSent" value="2" desc="СМС не отправлено" />
+      <item name="Received" value="3" desc="СМС получено" />
+      <item name="NotReceived" value="4" desc="СМС не получено" />
+    </enum>
+
+    <enum name="En_SourceType">
+      <item name="PHONE" value="1" desc="Телефон" />
+      <item name="SMS" value="2" desc="Смс" />
+      <item name="ERA_GLONASS" value="3" desc="ЭРА-ГЛОНАСС" />
+      <item name="WITHOUT_CALL" value="4" desc="Без вызова" />
+      <item name="SENSORS" value="5" desc="Датчики" />
+      <item name="INTERNET_PORTAL" value="6" desc="Интернет-Портал" />
+    </enum>
+
+    <struct name="CallCenterConnectionInfo">
+      <field name="Url" type="string" mandatory="false" />
+      <field name="Description" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="AttachmentList">
+      <collection_field name="attachments" type="List" internal_type="AttachmentContent" mandatory="false" />
+    </struct>
+
+    <struct name="AttachmentData">
+      <field name="url" type="string" mandatory="false" />
+      <field name="postdata" type="string" mandatory="false" />
+      <field name="value" type="string" mandatory="false" />
+      <field name="data" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="AttachmentContent">
+      <field name="name" type="string" mandatory="false" />
+      <field name="title" type="string" mandatory="false" />
+      <field name="type" type="En_AttachmentType" mandatory="true" />
+      <field name="data" type="AttachmentData" mandatory="false" />
+    </struct>
+
+    <enum name="ReportFormatType">
+      <item name="pdf" value="1" />
+      <item name="xls" value="2" />
+      <item name="xlsx" value="3" />
+      <item name="docx" value="4" />
+      <item name="rtf" value="5" />
+    </enum>
+
+    <enum name="En_ExternalInfoType">
+      <item name="Unknown" value="0" desc="Неизвестный тип" />
+      <item name="ContentList" value="1" desc="Список ContentType в json" />
+      <item name="SpbSvetetsAlert" value="2" desc="" />
+      <item name="Card112" value="3" desc="Карточка 112" />
+    </enum>
+
+    <struct name="GeographicLocation">
+      <field name="m_dLatitude" type="double" mandatory="true" />
+      <field name="m_dLongitude" type="double" mandatory="true" />
+    </struct>
+
+    <struct name="CamertonEngine">
+      <field name="engineId" type="int" mandatory="true" />
+      <field name="geographicLocation" type="GeographicLocation" mandatory="false" />
+      <field name="additionalInfo" type="string" mandatory="false" />
+      <field name="iconUrl" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="Tm_CardGeneralData">
+      <field name="m_nEmergencyCardId" type="int" mandatory="true" dbFieldName="nId" />
+      <field name="m_nCardType" type="En_CardType" mandatory="true" />
+      <field name="m_lCardCreated" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="CardCommServFilter">
+      <field name="nServiceIncidentCategoryId" type="int" mandatory="false" />
+      <field name="isDeadlineExceeded" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="Card03Filter">
+      <field name="isTransfered" type="bool" mandatory="false" />
+      <field name="isFilterEngine3" type="bool" mandatory="false" />
+      <field name="isFilterEngine2" type="bool" mandatory="false" />
+      <field name="nHospitalId" type="int" mandatory="false" />
+      <field name="nStreetId" type="int" mandatory="false" />
+      <field name="nReasonId" type="int" mandatory="false" />
+      <field name="strAge" type="string" mandatory="false" />
+      <field name="nGender" type="int" mandatory="false" />
+      <field name="nCardId" type="int" mandatory="false" desc="Id карточки" />
+    </struct>
+
+    <struct name="Card112Filter">
+      <field name="nCardId" type="int" mandatory="false" />
+      <field name="dtBeginPeriod" type="DateTime" mandatory="true" />
+      <field name="dtEndPeriod" type="DateTime" mandatory="true" />
+      <field name="strPhoneNumber" type="string" mandatory="false" />
+      <field name="nServiceId" type="int" mandatory="false" />
+      <field name="nLocalDistrictId" type="int" mandatory="false" />
+      <field name="nDistrictId" type="int" mandatory="false" />
+      <field name="nStreetId" type="int" mandatory="false" />
+      <field name="strBuilding" type="string" mandatory="false" />
+      <field name="strAgentLogin" type="string" mandatory="false" />
+      <field name="strCallerContactPhone" type="string" mandatory="false" />
+      <field name="strDeclarantLastName" type="string" mandatory="false" />
+      <field name="completeStatus" type="int" mandatory="false" />
+      <field name="importanceLevel" type="En_ImportanceLevel" mandatory="false" />
+      <field name="lCompleted" type="bool" mandatory="false" />
+      <field name="isUnwatched" type="bool" mandatory="false" />
+      <field name="strIncidentDescription" type="string" mandatory="false" />
+      <field name="dtDeadline" type="DateTime" mandatory="false" />
+      <field name="isDayly" type="bool" mandatory="false" />
+      <field name="nIncidentTypeId" type="int" mandatory="false" />
+      <field name="isPriority" type="bool" mandatory="false" />
+      <field name="CardCommServFilter" type="CardCommServFilter" mandatory="false" />
+      <field name="lTestCard" type="bool" mandatory="false" />
+      <field name="Card03Filter" type="Card03Filter" mandatory="false" />
+      <field name="Card02Filter" type="Card02Filter" mandatory="false" />
+      <collection_field name="nCallTypeIds" type="List" internal_type="int" mandatory="false" />
+      <collection_field name="nSourceTypeIds" type="List" internal_type="int" mandatory="false" />
+      <field name="isServiceTypeIdCorrect" type="bool" mandatory="false"
+             description="Старые клиенты посылают CallTypeId в поле ServiceTypeId. Флаг позволяет определить как сервер должен обработать значение в этом поле."
+             default="true" />
+      <field name="withEmptyStreet" type="bool" mandatory="false" />
+      <field name="strDeclarantName" type="string" mandatory="false" />
+      <field name="strDeclarantMiddleName" type="string" mandatory="false" />
+      <field name="withEmptyLocalDistrict" type="bool" mandatory="false" />
+      <field name="strAdditionalLocationInfo" type="string" mandatory="false" />
+      <field name="nDeclarantLocalDistrictId" type="int" mandatory="false" desc="Идентификатор района города звонящего" />
+      <field name="withEmptyDeclarantLocalDistrict" type="bool" mandatory="false"
+             desc="Фильтровать по пустому району города звонящего" />
+      <field name="nDeclarantStreetId" type="int" mandatory="false" desc="Идентификатор улицы звонящего" />
+      <field name="withEmptyDeclarantStreet" type="bool" mandatory="false" desc="Фильтровать по пустой улице звонящего" />
+      <field name="strDeclarantBuildingNumber" type="string" mandatory="false" />
+      <field name="nRegionId" type="int" mandatory="false" desc="Идентификатор региона" />
+      <field name="nServiceCount" type="int" mandatory="false" desc="Количество привлеченных экстренных служб" />
+      <field name="control" type="bool" mandatory="false" />
+      <collection_field name="nCardSyntheticStateIds" type="List" internal_type="int" mandatory="false"
+                        desc="список идентификаторов статусов карточек" />
+      <collection_field name="nDepartmentIds" type="List" internal_type="int" mandatory="false"
+                        desc="список идентификаторов привлечённых отделений службы" />
+      <field name="withEmptyCity" type="bool" mandatory="false"
+             desc="Учитывать ли пустой город вместе с фильтром по идентификатору города" />
+      <collection_field name="nIncidentTypeIds" type="List" internal_type="int" mandatory="false"
+                        desc="список типов вызовов" />
+      <collection_field name="cityIds" type="List" internal_type="int" mandatory="false" desc="районы" />
+      <collection_field name="excludeExternalCreatorsList" type="List" internal_type="int" mandatory="false"
+                        desc="Источники для исключения из списка" />
+      <field name="wasInDenialOfService" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="CallData">
+      <field name="nCallId" type="long" mandatory="true" />
+      <field name="extCallId" type="string" mandatory="false" />
+      <field name="extCallId2" type="string" mandatory="false" />
+      <field name="strCdPN" type="string" mandatory="false" />
+      <field name="strCgPN" type="string" mandatory="false" />
+      <field name="nCategory" type="int" mandatory="true" />
+      <field name="GatewayIPAddr" type="string" mandatory="false" />
+      <collection_field name="externalInfo" type="List" internal_type="string" mandatory="false" />
+      <field name="ESGlobalID" type="string" mandatory="false" />
+      <field name="externalInfoType" type="En_ExternalInfoType" mandatory="true" />
+      <field name="ccRegionID" type="int" mandatory="false" />
+      <field name="visitedNetworkId" type="string" mandatory="false" />
+      <field name="smsData" type="SMSData" mandatory="false" />
+      <field name="resultInfo" type="string" mandatory="false" />
+      <field name="callDuration" type="int" mandatory="false"/>
+      <field name="callDirection" type="En_Direction" mandatory="false"/>
+      <field name="distributeDuration" type="int" mandatory="false"/>
+    </struct>
+
+    <struct name="SMSData">
+      <field name="strMessageText" type="string" mandatory="false" desc="Текст сообщения" />
+      <field name="smsType" type="En_SMSType" mandatory="false" desc="Тип СМС (входящее, исходящее)" />
+      <field name="smsStatus" type="En_SMSStatus" mandatory="false" desc="Статус СМС (отправлено, получено)" />
+      <field name="strSMPPId" type="string" mandatory="false" desc="SMPP Id" />
+      <field name="nSmsId" type="int" mandatory="false" desc="Идентификатор СМС для Авая" />
+    </struct>
+
+    <struct name="IncidentTypeRecord">
+      <field name="nIncidentTypeId" type="int" mandatory="true" />
+      <field name="callTypeId" type="int" mandatory="false" />
+      <collection_field name="ServiceTypeIds" type="List" internal_type="int" mandatory="false" />
+      <field name="regionId" type="int" mandatory="false" />
+      <field name="deleted" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="ServiceIncidentTypeRecord">
+      <field name="nId" type="int" mandatory="true" />
+      <field name="strValue" type="string" mandatory="false" />
+      <field name="nIncidentTypeId" type="int" mandatory="false" />
+      <field name="additionalInfo" type="string" mandatory="false" />
+      <collection_field name="auxIncidentIds" type="List" internal_type="int" mandatory="false" />
+      <field name="deleted" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="ServiceDeadlines">
+      <field name="serviceTypeId" type="int" mandatory="true" />
+      <field name="serviceCreateTimeout" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="ReplicationTarget">
+      <field name="replicationTargetId" type="int" mandatory="true" />
+      <field name="replicationServiceName" type="string" mandatory="false" />
+      <field name="replicationTargetServiceTypeId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="Card112List">
+      <collection_field name="cardList" type="List" internal_type="Tm_Card_112_Data" mandatory="false" />
+      <field name="total" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="Tm_ISharerDescription">
+      <field name="strInLooksAge" type="string" mandatory="false" desc="На вид" />
+      <field name="nStatureID" type="int" mandatory="false" desc="Рост" />
+      <field name="nFigureID" type="int" mandatory="false" desc="Телосложение" />
+      <field name="strStature" type="string" mandatory="false" desc="Рост" />
+      <field name="strFigure" type="string" mandatory="false" desc="Телосложение" />
+      <field name="strExterior" type="string" mandatory="false" desc="Одет" />
+      <field name="strExtra" type="string" mandatory="false" desc="Особые приметы" />
+      <field name="nGender" type="int" mandatory="false" desc="Пол" />
+      <field name="strLastName" type="string" mandatory="false" desc="Фамилия" />
+      <field name="strFirstName" type="string" mandatory="false" desc="Имя" />
+      <field name="strMiddleName" type="string" mandatory="false" desc="Отчество" />
+      <field name="dtBirthday" type="DateTime" mandatory="false" desc="Дата рождения" />
+    </struct>
+
+    <struct name="Tm_IVehicleDescription">
+      <field name="strVendor" type="string" mandatory="false" desc="Производитель" />
+      <field name="strName" type="string" mandatory="false" desc="Модель" />
+      <field name="strColor" type="string" mandatory="false" desc="Цвет" />
+      <field name="strType" type="string" mandatory="false" desc="Тип ТС из классификатора" />
+      <field name="nColorID" type="int" mandatory="false" desc="Цвет ТС из классификатора" />
+      <field name="nTypeID" type="int" mandatory="false" desc="Тип ТС из классификатора" />
+      <field name="strExtra" type="string" mandatory="false" desc="Особые приметы" />
+      <field name="strRegistrationNumber" type="string" mandatory="false" desc="Номер" />
+      <field name="strRegion" type="string" mandatory="false" desc="Регион" />
+      <field name="lHided" type="bool" mandatory="true" desc="Скрылось с места происшествия" />
+    </struct>
+
+    <struct name="Tm_IVictimDescription">
+      <field name="strLastName" type="string" mandatory="false" desc="Фамилия" />
+      <field name="strMiddleName" type="string" mandatory="false" desc="Отчество" />
+      <field name="strFirstName" type="string" mandatory="false" desc="Имя" />
+      <field name="strContactPhone" type="string" mandatory="false" desc="Телефон" />
+      <field name="strAdditionalInfo" type="string" mandatory="false" desc="Доп. инфо" />
+      <field name="nCityId" type="int" mandatory="false" desc="Id района" />
+      <field name="nStreetId" type="int" mandatory="false" desc="Id улицы" />
+      <field name="strBuildingNumber" type="string" mandatory="false" desc="Телосложение" />
+      <field name="strCorps" type="string" mandatory="false" desc="Корпус" />
+      <field name="strFlat" type="string" mandatory="false" desc="Квартира" />
+    </struct>
+
+    <struct name="TaskForceItem">
+      <field name="ovdServiceId" type="int" mandatory="true" />
+      <field name="lastName" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="Card02Filter">
+      <field name="strInstrinsicOvd" type="string" mandatory="false" desc="КУСП ОВД" />
+      <field name="strInstrinsicDps" type="string" mandatory="false" desc="КУСП ДПС" />
+      <field name="isFilterEmptyStreet" type="bool" mandatory="false"
+             desc="Фильтровать ли карточки с неуказанной улицей" />
+      <field name="nStreetId" type="int" mandatory="false" desc="Id улицы" />
+      <field name="nITypeId" type="int" mandatory="false" desc="Квалификация ОВД" />
+      <field name="nCardId" type="int" mandatory="false" desc="Id карточки" />
+      <field name="strDeclarantLastName" type="string" mandatory="false" desc="Фамилия заявителя" />
+    </struct>
+
+    <struct name="Tm_DictionaryItem">
+      <field name="nId" type="int" mandatory="true" />
+      <field name="strValue" type="string" mandatory="false" />
+      <field name="extId" type="string" mandatory="false" />
+      <field name="deleted" type="bool" mandatory="true" />
+      <field name="strDescription" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="DCRecord">
+      <field name="districtId" type="int" mandatory="true" />
+      <field name="cityId" type="int" mandatory="true" />
+      <field name="deleted" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="SDCRecord">
+      <field name="streetId" type="int" mandatory="true" />
+      <field name="districtId" type="int" mandatory="true" />
+      <field name="cityId" type="int" mandatory="true" />
+      <field name="deleted" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="CardStateDescStruct">
+      <field name="_id" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_nextid" type="int" mandatory="false" />
+      <field name="_previd" type="int" mandatory="false" />
+      <field name="_standardMinutes" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="CardSyntheticState">
+      <field name="_id" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_color_r" type="int" mandatory="true" />
+      <field name="_color_g" type="int" mandatory="true" />
+      <field name="_color_b" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="Tm_SubCallTypeItem">
+      <field name="nId" type="int" mandatory="true" />
+      <field name="nCallTypeId" type="int" mandatory="true" />
+      <field name="nCityId" type="int" mandatory="true" />
+      <field name="strGroupNumber" type="string" mandatory="false" />
+      <field name="description" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="FieldConstraint">
+      <field name="name" type="string" mandatory="false" />
+      <field name="size" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="ObjectStruct">
+      <field name="_ID" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_streetID" type="int" mandatory="false" />
+      <field name="_cityID" type="int" mandatory="true" />
+      <field name="_districtID" type="int" mandatory="true" />
+      <field name="_building" type="string" mandatory="false" />
+      <field name="_corps" type="string" mandatory="false" />
+      <field name="_gasified" type="bool" mandatory="true" />
+      <field name="_baseClassID" type="int" mandatory="true" />
+      <field name="_departmentID" type="int" mandatory="true" />
+      <field name="_typeID" type="int" mandatory="false" />
+      <field name="_deleted" type="bool" mandatory="true" />
+
+      <collection_field name="_fireReactionPlanIDs" type="List" internal_type="int" mandatory="false" />
+    </struct>
+
+    <struct name="FireObjectRangeStruct">
+      <field name="_ID" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_streetID" type="int" mandatory="false" />
+      <field name="_cityID" type="int" mandatory="true" />
+      <field name="_districtID" type="int" mandatory="true" />
+      <field name="_departmentID" type="int" mandatory="true" />
+      <field name="_buildingFrom" type="int" mandatory="false" />
+      <field name="_buildingTo" type="int" mandatory="false" />
+      <field name="_odd" type="int" mandatory="false" />
+
+      <collection_field name="_fireReactionPlanIDs" type="List" internal_type="int" mandatory="false" />
+    </struct>
+
+    <struct name="FireReactionPlanItemStruct">
+      <field name="_ID" type="int" mandatory="true" />
+      <field name="_fireRectionPlanID" type="int" mandatory="true" />
+      <field name="_fireEngineTypeID" type="int" mandatory="true" />
+      <field name="_fireEngineType" type="string" mandatory="false" />
+      <field name="_fireDepartmentID" type="int" mandatory="true" />
+      <field name="_count" type="int" mandatory="true" />
+      <field name="_order" type="int" mandatory="true" />
+      <field name="_fireClassID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="FireReactionPlanStruct">
+      <field name="_ID" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_departmentID" type="int" mandatory="true" />
+
+      <collection_field name="_items" type="List" internal_type="FireReactionPlanItemStruct" mandatory="false" />
+    </struct>
+
+    <struct name="MalefactionStruct">
+      <field name="_ID" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_code" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="MalefactionGroupStruct">
+      <field name="_ID" type="int" mandatory="true" />
+      <field name="_name" type="string" mandatory="false" />
+      <field name="_code" type="int" mandatory="true" />
+      <collection_field name="_items" type="List" internal_type="MalefactionStruct" mandatory="false" />
+    </struct>
+
+    <struct name="Tm_SnapshotData">
+      <field name="nId" type="int" mandatory="true" />
+      <field name="strModifier" type="string" mandatory="false" />
+      <field name="dtModified" type="DateTime" mandatory="true" />
+      <field name="nCardId" type="int" mandatory="true" />
+      <field name="nCardTypeId" type="int" mandatory="true" />
+      <field name="nVersion" type="int" mandatory="true" />
+      <field name="strModifications" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="CustomServiceCardTemplate">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор шаблона внешнего вида карточки" />
+      <collection_field name="fields" type="List" internal_type="FieldInfo" mandatory="false"
+                        desc="Список полей" />
+    </struct>
+
+    <struct name="ServiceTypeIdToCustomServiceCardTemplate">
+      <field name="serviceTypeId" type="int" mandatory="true" desc="Идентификатор службы" />
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+    </struct>
+
+    <struct name="FieldInfo">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="templateType" type="En_TemplateType" mandatory="true" desc="Тип шаблона" />
+      <field name="order" type="int" mandatory="true" desc="Порядок поля" />
+    </struct>
+
+    <struct name="ControlTemplate">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="name" type="string" mandatory="false" desc="Название поля" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" /> 
+    </struct>
+
+    <struct name="ComboControlTemplate">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="name" type="string" mandatory="false" desc="Название поля" />
+      <field name="dataSetId" type="int" mandatory="true" desc="Id источника данных" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" /> 
+    </struct>
+
+    <struct name="DateTimeControlTemplate">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="name" type="string" mandatory="false" desc="Название поля" />
+      <field name="format" type="DateTimeFormat" mandatory="true" desc="Формат поля" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" /> 
+    </struct>
+
+    <struct name="TableControlTemplate">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="name" type="string" mandatory="false" desc="Название таблицы" />
+      <field name="columnsSetId" type="int" mandatory="true" desc="Id списка столбцов" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" />
+    </struct>
+
+    <struct name="ColumnsSet">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор набора столбцов" />
+      <collection_field name="columns" type="List" internal_type="ColumnInfo" mandatory="false"
+                        desc="Список столбцов" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" />
+    </struct>
+
+    <struct name="ColumnInfo">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона столбца" />
+      <field name="templateType" type="En_TemplateType" mandatory="true" desc="Тип шаблона" />
+      <field name="order" type="int" mandatory="true" desc="Порядок столбца" />
+    </struct>
+
+    <struct name="DataSet">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор набора данных" />
+      <collection_field name="items" type="List" internal_type="DataSetItem" mandatory="false"
+                        desc="Набор значений" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" /> 
+    </struct>
+
+    <struct name="DataSetItem">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор значения в наборе данных" />
+      <field name="value" type="string" mandatory="false" desc="Значение" />
+      <field name="isDeleted" type="bool" mandatory="false" desc="Признак того, что запись удалена" /> 
+    </struct>
+
+    <enum name="En_TemplateType">
+      <item name="Bool" value="0" desc="Логический тип" />
+      <item name="Int" value="1" desc="Числовой тип" />
+      <item name="String" value="2" desc="Строковый тип" />
+      <item name="DateTime" value="3" desc="Дата/время" />
+      <item name="Combo" value="4" desc="С выбором из списка" />
+      <item name="Table" value="5" desc="Таблица" />
+    </enum>
+
+    <enum name="DateTimeFormat">
+      <item name="Date" value="0" desc="Дата" />
+      <item name="DateTime" value="1" desc="Дата и время" />
+    </enum>
+
+    <struct name="BasicDictionaries">
+      <!--card 112-->
+      <collection_field name="CallTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="ServiceTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="SubCallTypeDictionary" type="List" internal_type="Tm_SubCallTypeItem" mandatory="false" />
+      <collection_field name="CallTypeNumberDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="AdditionalCallTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="DeclarantStatusDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="CCMC_TypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+
+      <!--card 01-->
+      <collection_field name="ObjectTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireClassDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireReasonDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireIncidentTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="Departments01Dictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireReactionPlanDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="Card01StateDescStructs" type="List" internal_type="CardStateDescStruct" mandatory="false" />
+      <collection_field name="FireObjectRangeStructs" type="List" internal_type="FireObjectRangeStruct" mandatory="false" />
+      <collection_field name="FireReactionPlanStructs" type="List" internal_type="FireReactionPlanStruct" mandatory="false" />
+      <collection_field name="FireBarrelTypes" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireExtinguisherTypes" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="WaterSources" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FirePreventionTypes" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireRoles" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FireIncidentGroupDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+
+      <!--card 02-->
+      <collection_field name="Departments02Dictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="OVDServiceDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="ITypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="ITypeDetailedDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="StatureDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="FigureDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="StatusDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="Card02StateDescStructs" type="List" internal_type="CardStateDescStruct" mandatory="false" />
+      <collection_field name="MalefactionGroupStructs" type="List" internal_type="MalefactionGroupStruct" mandatory="false" />
+      <collection_field name="OvdPastEvents" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="OvdDepartureResults" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+
+      <!--card 03-->
+      <collection_field name="Departments03Dictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="ReasonDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="Card03StateDescStructs" type="List" internal_type="CardStateDescStruct" mandatory="false" />
+      <collection_field name="DiagnosisDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="Hospitals" type="List" internal_type="Hospital" mandatory="false" />
+      <collection_field name="TransportationTypesDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="Card03TransportReasonDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+
+      <!--card 04-->
+      <collection_field name="GasServicesDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="GasServiceSituationsDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="GasSituationInstructions" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+
+      <!--card comm serv-->
+      <collection_field name="DepartmentsCommServDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="CardCommServStateDescStructs" type="List" internal_type="CardStateDescStruct"
+                        mandatory="false" />
+      <collection_field name="IncidentCommServCategoryDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="CardCommServUKDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="IncidentCommServObjectTypeDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="IncidentCommServType2ObjectTypeMap" type="List" internal_type="IntMapItem"
+                        mandatory="false" />
+
+      <!--shared-->
+      <collection_field name="CityDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="DistrictDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="StreetDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="RegionDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="LocalDistrictDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="RegionsAdditionalInfo" type="List" internal_type="RegionAdditionalInfo" mandatory="false" />
+
+      <collection_field name="IncidentTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="IncidentTypeRecords" type="List" internal_type="IncidentTypeRecord" mandatory="false" />
+      <collection_field name="Incident01TypeRecords" type="List" internal_type="ServiceIncidentTypeRecord"
+                        mandatory="false" />
+      <collection_field name="Incident02TypeRecords" type="List" internal_type="ServiceIncidentTypeRecord"
+                        mandatory="false" />
+      <collection_field name="Incident03TypeRecords" type="List" internal_type="ServiceIncidentTypeRecord"
+                        mandatory="false" />
+      <collection_field name="Incident04TypeRecords" type="List" internal_type="ServiceIncidentTypeRecord"
+                        mandatory="false" />
+      <collection_field name="IncidentATTypeRecords" type="List" internal_type="ServiceIncidentTypeRecord"
+                        mandatory="false" />
+      <collection_field name="IncidentCommServTypeRecords" type="List" internal_type="ServiceIncidentTypeRecord"
+                        mandatory="false" />
+      <collection_field name="ObjectStructs" type="List" internal_type="ObjectStruct" mandatory="false" />
+      <collection_field name="DCRecords" type="List" internal_type="DCRecord" mandatory="false" />
+      <collection_field name="SDCRecords" type="List" internal_type="SDCRecord" mandatory="false" />
+      <collection_field name="CardSyntheticStateDictionary" type="List" internal_type="CardSyntheticState"
+                        mandatory="false" />
+      <collection_field name="LanguageDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="sourceTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="VehicleTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="Card03WhoCalledDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="ExternalCreatorsDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="ServiceDeadlinesDictionary" type="List" internal_type="ServiceDeadlines"
+                        mandatory="false" />
+
+      <!--constraints-->
+      <collection_field name="Tm_Card_02_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+      <collection_field name="Tm_Card_03_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+      <collection_field name="Tm_Card_OVD_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+      <collection_field name="Tm_Card_04_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+      <collection_field name="Tm_Card_AT_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+      <collection_field name="Tm_Card_CommServ_Constraints" type="List" internal_type="FieldConstraint"
+                        mandatory="false" />
+      <collection_field name="Tm_FireFighterCard_Constraints" type="List" internal_type="FieldConstraint"
+                        mandatory="false" />
+      <collection_field name="Tm_ISharerDescription_Constraints" type="List" internal_type="FieldConstraint"
+                        mandatory="false" />
+      <collection_field name="Tm_IVehicleDescription_Constraints" type="List" internal_type="FieldConstraint"
+                        mandatory="false" />
+      <collection_field name="Tm_IVictimDescription_Constraints" type="List" internal_type="FieldConstraint"
+                        mandatory="false" />
+      <collection_field name="Tm_Card_112_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+      <collection_field name="Tm_Call_History_Constraints" type="List" internal_type="FieldConstraint" mandatory="false" />
+
+      <!--Custom Services-->
+      <collection_field name="customServiceIncidentType" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="customServiceDepartment" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="ServiceType2CustomServiceTypeDictionary" type="List" internal_type="Tm_DictionaryItem"
+                        mandatory="false" />
+      <collection_field name="BoolControlTemplates" type="List" internal_type="ControlTemplate" mandatory="false" />
+      <collection_field name="IntControlTemplates" type="List" internal_type="ControlTemplate" mandatory="false" />
+      <collection_field name="StringControlTemplates" type="List" internal_type="ControlTemplate" mandatory="false" />
+      <collection_field name="DateTimeControlTemplates" type="List" internal_type="DateTimeControlTemplate" mandatory="false" />
+      <collection_field name="ComboControlTemplates" type="List" internal_type="ComboControlTemplate" mandatory="false" />
+      <collection_field name="TableControlTemplates" type="List" internal_type="TableControlTemplate" mandatory="false" />
+      <collection_field name="CustomServiceCardTemplates" type="List" internal_type="CustomServiceCardTemplate" mandatory="false" />
+      <collection_field name="DataSets" type="List" internal_type="DataSet" mandatory="false" />
+      <collection_field name="ServiceTypeIdToCustomServiceCardTemplateDictionary" type="List" internal_type="ServiceTypeIdToCustomServiceCardTemplate" mandatory="false" />
+      <collection_field name="ColumnsSets" type="List" internal_type="ColumnsSet" mandatory="false" />
+
+      <!--Region communication-->
+      <collection_field name="CommunicationTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="CommunicationPhonesDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+      <collection_field name="PhoneBookDictionary" type="List" internal_type="PhoneBookDictionary" mandatory="false" />
+      <collection_field name="PerformActionsTypeDictionary" type="List" internal_type="Tm_DictionaryItem" mandatory="false" />
+    </struct>
+
+    <struct name="CardMessage">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="nID" type="int" mandatory="true" />
+      <field name="strCreator" type="string" mandatory="false" />
+      <field name="nEmergencyCardID" type="int" mandatory="true" />
+      <field name="nDepartmentID" type="int" mandatory="false" />
+      <field name="strMessage" type="string" mandatory="false" />
+      <field name="isServiceMessage" type="bool" mandatory="true" />
+      <field name="dtCreate" type="DateTime" mandatory="true" />
+    </struct>
+
+    <struct name="Department">
+      <field name="m_nID" type="int" mandatory="true" />
+      <field name="m_strName" type="string" mandatory="false" />
+      <field name="m_GeographicLocation" type="GeographicLocation" mandatory="false" />
+      <field name="m_nDistrictID" type="int" mandatory="true" />
+      <collection_field name="m_Engines" type="List" internal_type="Engine" mandatory="false" />
+    </struct>
+
+    <struct name="Engine">
+      <field name="nID" type="int" mandatory="true" />
+      <field name="nDepartmentID" type="int" mandatory="true" />
+      <field name="strNumber" type="string" mandatory="false" />
+      <field name="nStateID" type="int" mandatory="false" />
+      <field name="nShiftReportStateID" type="int" mandatory="false" />
+      <field name="nEmergencyCardID" type="int" mandatory="false" />
+      <field name="nEmergencyCardImportnaceLevelID" type="int" mandatory="false" />
+      <field name="engine03AdditionalInfo" type="Engine03AdditionalInfo" mandatory="false" />
+    </struct>
+
+    <struct name="Engine03AdditionalInfo">
+      <field name="nProfileID" type="int" mandatory="true" />
+      <field name="nPrimarySpecialistID" type="int" mandatory="false" desc="Врач" />
+      <field name="nSecondarySpecialistID" type="int" mandatory="false" desc="Фельдшер" />
+      <field name="nOrderlyID" type="int" mandatory="false" desc="Санитар" />
+      <field name="dtShiftBegin" type="DateTime" mandatory="true" desc="Начало смены" />
+      <field name="dtShiftEnd" type="DateTime" mandatory="true" desc="Конец смены" />
+      <field name="dtShiftBeginReal" type="DateTime" mandatory="true" />
+      <field name="dtWorkBegin" type="DateTime" mandatory="true" />
+      <field name="dtLastAction" type="DateTime" mandatory="true" />
+      <field name="nCityID" type="int" mandatory="false" />
+      <field name="nDistrictID" type="int" mandatory="false" />
+      <field name="nStreetID" type="int" mandatory="false" />
+      <field name="strBuilding" type="string" mandatory="false" />
+      <field name="strCorps" type="string" mandatory="false" />
+      <field name="strRoom" type="string" mandatory="false" />
+      <field name="dtEmergencyCardCreate" type="DateTime" mandatory="true" />
+      <field name="nCallCount" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="Tm_DepartmentStatePair">
+      <field name="departmentID" type="int" mandatory="true" />
+      <field name="stateID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="CardDepartmentState">
+      <field name="id" type="int" mandatory="true" />
+      <field name="modified" type="DateTime" mandatory="true" />
+      <field name="action" type="DateTime" mandatory="true" />
+      <field name="departmentID" type="int" mandatory="true" />
+      <field name="cardStateDescID" type="int" mandatory="true" />
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="strMessage" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="DepartmentStateHistory">
+      <collection_field name="stateHistory" type="List" internal_type="CardDepartmentState" mandatory="false" />
+      <field name="activeState" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="DepartmentInvolvedFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="DepartmentStateChangedFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="RequestedEnginesListChangedFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+      <field name="wantsEmergencyCardID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="CardCurrentStatesInDepartmentsChangedFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+      <field name="wantsEmergencyCardID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="CardMessageListChangedFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+      <field name="wantsEmergencyCardID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="BroadcastMessageFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+      <collection_field name="wantsDepartmentIDs" type="List" internal_type="int" mandatory="false" />
+    </struct>
+
+    <struct name="ShiftReportChangedFilter">
+      <field name="wantsServiceTypeId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="CardAdditionalInfoAddedFilter">
+      <field name="cardId" type="int" mandatory="true" />
+    </struct>
+
+    <enum name="CardEventType">
+      <item name="CardCreated" value="1" desc="Карточка создана" />
+      <item name="CardChanged" value="2" desc="Карточка изменена" />
+    </enum>
+
+    <struct name="NotificationFilters">
+      <field name="wantsCard01Changed" type="bool" mandatory="true" />
+      <field name="wantsCard02Changed" type="bool" mandatory="true" />
+      <field name="wantsCard03Changed" type="bool" mandatory="true" />
+      <field name="wantsCard04Changed" type="bool" mandatory="true" />
+      <field name="wantsCardATChanged" type="bool" mandatory="true" />
+      <field name="wantsCardCommServChanged" type="bool" mandatory="true" />
+      <field name="wantsCard112Changed" type="bool" mandatory="true" />
+      <field name="wantsCard01Created" type="bool" mandatory="true" />
+      <field name="wantsCard02Created" type="bool" mandatory="true" />
+      <field name="wantsCard03Created" type="bool" mandatory="true" />
+      <field name="wantsCard04Created" type="bool" mandatory="true" />
+      <field name="wantsCardATCreated" type="bool" mandatory="true" />
+      <field name="wantsCardCommServCreated" type="bool" mandatory="true" />
+      <field name="wantsCard112Created" type="bool" mandatory="true" />
+      <field name="wantsGlonassCardChanged" type="bool" mandatory="false" />
+      <field name="wantsClientRegistered" type="bool" mandatory="false" />
+      <field name="wantsUpdateRequested" type="bool" mandatory="false" />
+      <field name="wantsActiveCallCenterIndexChanged" type="bool" mandatory="false" />
+      <field name="wantsCardMessageListChangedFilter" type="CardMessageListChangedFilter" mandatory="false" />
+      <field name="wantsBroadcastMessageFilter" type="BroadcastMessageFilter" mandatory="false" />
+      <field name="wantsDepartmentInvolvedFilter" type="DepartmentInvolvedFilter" mandatory="false" />
+      <field name="wantsDepartmentStateChangedFilter" type="DepartmentStateChangedFilter" mandatory="false" />
+      <field name="wantsRequestedEnginesListChangedFilter" type="RequestedEnginesListChangedFilter" mandatory="false" />
+      <field name="wantsCardCurrentStatesInDepartmentsChangedFilter" type="CardCurrentStatesInDepartmentsChangedFilter" mandatory="false" />
+      <field name="wantsShiftReportChangedFilter" type="ShiftReportChangedFilter" mandatory="false" />
+      <field name="wantsUpdatingCoordsFilter" type="UpdatingCoordsFilter" mandatory="false" />
+      <field name="wantsCamertonEnginesPositionFilter" type="bool" mandatory="false" />
+      <field name="wantsCommServDeadlineExceededFilter" type="bool" mandatory="false" />
+      <field name="wantsCardAdditionalInfoAddedFilter" type="CardAdditionalInfoAddedFilter" mandatory="false" />
+      <field name="wantsWeatherLayersChanged" type="bool" mandatory="false" />
+      <collection_field name="wantsServiceTypeIdsCardChanged" type="List" internal_type="int" mandatory="false" />
+      <collection_field name="wantsServiceTypeIdsCardCreated" type="List" internal_type="int" mandatory="false" />
+      <field name="wantsAllServiceTypeIdsCardChanged" type="bool" mandatory="false" />
+      <field name="wantsAllServiceTypeIdsCardCreated" type="bool" mandatory="false" />
+      <field name="wantsSmsStatusChanged" type="bool" mandatory="false" />
+      <field name="wantsSmsUpdatedEvent" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="UpdatingCoordsFilter">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="FireBarrelsItem">
+      <field name="nTypeID" type="int" mandatory="true" />
+      <field name="count" type="int" mandatory="true" />
+      <field name="dtSupply" type="DateTime" mandatory="false" />
+    </struct>
+
+    <struct name="FireExtinguishersItem">
+      <field name="nTypeID" type="int" mandatory="true" />
+      <field name="count" type="int" mandatory="true" />
+      <field name="dtSupply" type="DateTime" mandatory="false" />
+    </struct>
+
+    <struct name="FireChief">
+      <field name="strName" type="string" mandatory="false" />
+      <field name="nJobId" type="int" mandatory="true" />
+      <field name="dtArrive" type="DateTime" mandatory="true" />
+    </struct>
+
+    <struct name="DrillsChief">
+      <field name="strName" type="string" mandatory="false" />
+      <field name="nJobId" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="GdzsUnit">
+      <field name="nNumOfPeoples" type="int" mandatory="true" />
+      <field name="nNumOfMinutes" type="int" mandatory="true" />
+      <field name="dtStartWorking" type="DateTime" mandatory="false" />
+    </struct>
+
+    <struct name="FireFighter">
+      <field name="strName" type="string" mandatory="false" />
+      <field name="nJobId" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="SickPerson" desc="Больной">
+      <field name="nId" type="int" mandatory="false" desc="ID пациента" />
+      <field name="strName" type="string" mandatory="false" desc="ФИО пациента" />
+      <field name="strMiddleName" type="string" mandatory="false" desc="Отчество пациента" />
+      <field name="strLastName" type="string" mandatory="false" desc="Фамилия пациента" />
+      <field name="strSickPersonSigns" type="string" mandatory="false" desc="Приметы пациента" />
+      <field name="isMale" type="bool" mandatory="false" desc="Пол (мужчина ли)" />
+      <field name="dtBirth" type="DateTime" mandatory="false" desc="Дата рождения" />
+      <field name="nAgeYear" type="int" mandatory="false" desc="Возраст лет" />
+      <field name="nAgeMonth" type="int" mandatory="false" desc="Возраст месяцев" />
+      <field name="nAgeDay" type="int" mandatory="false" desc="Возраст дней" />
+      <field name="nReasonId" type="int" mandatory="false" desc="Причина вызова" />
+      <field name="strReasonTags" type="string" mandatory="false" desc="Описание причины" />
+      <field name="nConsultDiagnosId" type="int" mandatory="false" desc="Диагноз консультанта" />
+      <field name="nDiagnosId" type="int" mandatory="false" desc="Диагноз ЛПУ" />
+      <field name="nResultId" type="int" mandatory="false" desc="Результат обслуживания" />
+      <field name="strDeathCause" type="string" mandatory="false" desc="Причина смерти" />
+      <field name="strEmcDefects" type="string" mandatory="false" desc="Дефекты оказания помощи" />
+      <field name="strEmcAssistance" type="string" mandatory="false" desc="Оказаная помощь" />
+      <field name="isReasonPriority" type="bool" mandatory="false" desc="Приоритетный ли вызов" />
+    </struct>
+
+    <struct name="Hospital">
+      <field name="nId" type="int" mandatory="true" />
+      <field name="strName" type="string" mandatory="false" />
+      <field name="strSign" type="string" mandatory="false" />
+      <field name="nCityId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="SettingsInfo" desc="Информация о настройках на компьютере клиента">
+      <field name="user03Role" type="En_User03Role" mandatory="false" />
+      <field name="cityId" type="int" mandatory="false" />
+      <field name="localDistrictId" type="int" mandatory="false" />
+      <field name="regionId" type="int" mandatory="false" />
+      <field name="numberOfForcesAvailableDeps" type="int" mandatory="false" />
+      <field name="currentDepartmentId" type="int" mandatory="false" />
+      <field name="isRegion" type="bool" mandatory="false" />
+      <field name="actualDepartmentID" type="int" mandatory="false" />
+      <field name="wpID" type="string" mandatory="false" />
+      <field name="roleTitle" type="string" mandatory="false" />
+      <field name="sourceZoneId" type="int" mandatory="false" />
+      <field name="importanceLevelDefaultValue" type="En_ImportanceLevel" mandatory="false" />
+      <field name="isImportanceLevelEnabled" type="bool" mandatory="false" />
+      <collection_field name="nAdditionalCityIds" type="List" internal_type="int" mandatory="false" />
+    </struct>
+
+    <struct name="PcInfo">
+      <field name="osName" type="string" mandatory="false" />
+      <field name="settingsInfo" type="SettingsInfo" mandatory="false" />
+      <field name="maxDotNetFramework" type="string" mandatory="false" />
+      <field name="missingVcRedistribs" type="string" mandatory="false" />
+      <field name="clientDictionariesCache" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="VideoQACamera">
+      <field name="cameraID" type="int" mandatory="true" />
+      <field name="operatorID" type="int" mandatory="true" />
+      <field name="manufacturer" type="string" mandatory="false" />
+      <field name="model" type="string" mandatory="false" />
+      <field name="isPtz" type="bool" mandatory="true" />
+      <field name="isDigital" type="bool" mandatory="true" />
+      <field name="address" type="string" mandatory="false" />
+      <field name="longitude" type="double" mandatory="true" />
+      <field name="latitude" type="double" mandatory="true" />
+      <field name="azimuth" type="double" mandatory="true" />
+      <field name="angle" type="double" mandatory="true" />
+      <field name="codec" type="string" mandatory="false" />
+      <field name="resolutionX" type="int" mandatory="true" />
+      <field name="resolutionY" type="int" mandatory="true" />
+      <field name="fps" type="int" mandatory="true" />
+      <field name="bitrate" type="int" mandatory="true" />
+      <field name="lostPackets" type="double" mandatory="true" />
+      <field name="ipAddress" type="string" mandatory="false" />
+      <field name="streamPort" type="int" mandatory="true" />
+      <field name="webPort" type="int" mandatory="true" />
+      <field name="login" type="string" mandatory="false" />
+      <field name="password" type="string" mandatory="false" />
+      <field name="state" type="int" mandatory="true" />
+      <field name="gatewayHost" type="string" mandatory="false" />
+      <field name="name" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="EraGlonassECallLocation">
+      <field name="latitude" type="long" mandatory="false" desc="Широта местоположения ТС" />
+      <field name="longitude" type="long" mandatory="false" desc="Долгота местоположения ТС" />
+      <field name="positionCanBeTrusted" type="bool" mandatory="false"
+             desc="Достоверность определения местоположения ТС" />
+      <field name="timestamp" type="string" mandatory="false" desc="Момент определения местоположения" />
+    </struct>
+
+    <struct name="EraGlonassECallIntegration">
+      <field name="cardId" type="string" mandatory="false" desc="Уникальный идентификатор карточки вызова" />
+      <field name="cardShortId" type="int" mandatory="true"
+             desc="Краткий ссылочный идентификатор (КСИ) карточки вызова" />
+      <field name="esgCardId" type="string" mandatory="false"
+             desc="Идентификатор КВ в СЭР (в случае отправки уточненной КВ)" />
+      <field name="declarantLanguageCode" type="string" mandatory="false" desc="Язык общения с заявителем" />
+      <field name="voiceChannelState" type="string" mandatory="false"
+             desc="Состояние голосового канала между заявителем и оператором" />
+      <field name="injuredPersons" type="string" mandatory="false" desc="Число пострадавших" />
+      <field name="driverPhone" type="string" mandatory="false" desc="Контактный телефонный номер заявителя" />
+      <field name="driverFullName" type="string" mandatory="false" desc="ФИО заявителя" />
+      <field name="terminalPhone" type="string" mandatory="false" desc="Телефонный номер абонентского терминала" />
+      <field name="automaticActivation" type="bool" mandatory="false" desc="Тип активации (автоматически/вручную)" />
+      <field name="testCall" type="bool" mandatory="false" desc="Тип вызова (тестовый/экстренный)" />
+      <field name="vehicleType" type="string" mandatory="false" desc="Тип ТС" />
+      <field name="vehicleIdentificationNumber" type="string" mandatory="false" desc="Идентификатор ТС по ISO 3779" />
+      <field name="vehiclePropulsionStorageType" type="string" mandatory="false" desc="Тип энергоносителя ТС" />
+      <field name="callTimestamp" type="string" mandatory="false"
+             desc="Время события или создания карточки вызова (с временной зоной)" />
+      <field name="vehicleLocation" type="EraGlonassECallLocation" mandatory="false"
+             desc="Местоположение ТС в момент события" />
+      <field name="numberOfPassengers" type="int" mandatory="false" desc="Число пассажиров" />
+      <field name="severeCrashEstimate" type="int" mandatory="false"
+             desc="Оценка тяжести ДТП (0 = низкая вероятность ущерба здоровью людей, 10 = максимальная вероятность)" />
+      <field name="locationDescription" type="string" mandatory="false"
+             desc="Адресная информация о местоположении ТС в текстовом виде" />
+
+      <field name="crashInfoFrontCrash" type="bool" mandatory="false" desc="Удар спереди" />
+      <field name="crashInfoLeftCrash" type="bool" mandatory="false" desc="Удар слева" />
+      <field name="crashInfoRightCrash" type="bool" mandatory="false" desc="Удар справа" />
+      <field name="crashInfoSideCrash" type="bool" mandatory="false" desc="Удар сбоку" />
+      <field name="crashInfoRearCrash" type="bool" mandatory="false" desc="Удар сзади" />
+      <field name="crashInfoRollover" type="bool" mandatory="false" desc="Переворот" />
+      <field name="crashInfoOtherCrashType" type="bool" mandatory="false" desc="Другой тип происшествия" />
+      <field name="vehicleRegistryNumber" type="string" mandatory="false"
+             desc="Государственный регистрационный номер ТС" />
+      <field name="vehicleBodyColor" type="string" mandatory="false" desc="Цвет кузова ТС" />
+      <field name="vehicleModel" type="string" mandatory="false" desc="Марка и/или модель ТС" />
+      <field name="vehicleDirection" type="string" mandatory="false" desc="Направление движения ТС" />
+    </struct>
+
+    <struct name="MapAddress" desc="Карты">
+      <field name="country" type="string" mandatory="false" />
+      <field name="region" type="string" mandatory="false" />
+      <field name="city" type="string" mandatory="false" />
+      <field name="district" type="string" mandatory="false" />
+      <field name="street" type="string" mandatory="false" />
+      <field name="localdistrict" type="string" mandatory="false" />
+      <field name="additionalStreet" type="string" mandatory="false" />
+      <field name="house" type="string" mandatory="false" />
+      <field name="building" type="string" mandatory="false" />
+      <field name="floors" type="string" mandatory="false" />
+      <field name="cityId" type="int" mandatory="false" />
+      <field name="districtId" type="int" mandatory="false" />
+      <field name="streetId" type="int" mandatory="false" />
+      <field name="localdistrictId" type="int" mandatory="false" />
+      <field name="additionalStreetId" type="int" mandatory="false" />
+      <field name="invalidStreet" type="string" mandatory="false" />
+      <field name="structure" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GeoPoint">
+      <field name="lat" type="double" mandatory="true" />
+      <field name="lng" type="double" mandatory="true" />
+    </struct>
+
+    <struct name="GeoArea">
+      <field name="lowerCorner" type="GeoPoint" mandatory="false" />
+      <field name="upperCorner" type="GeoPoint" mandatory="false" />
+      <field name="kind" type="string" mandatory="false" />
+      <field name="text" type="string" mandatory="false" />
+      <field name="isLocality" type="bool" mandatory="true" />
+      <field name="iacObject" type="long" mandatory="false" />
+      <field name="floors" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="CardMarkerInfo">
+      <field name="globalId" type="string" mandatory="false" />
+      <field name="cardID" type="int" mandatory="true" />
+      <field name="coord" type="GeoPoint" mandatory="false" />
+      <field name="cardState" type="int" mandatory="false" />
+      <field name="callType" type="int" mandatory="false" />
+      <field name="description" type="string" mandatory="false" />
+      <field name="needToShow" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="CallHistoryItem">
+      <field name="callData" type="CallData" mandatory="false" />
+      <field name="callTime" type="DateTime" mandatory="true" />
+      <field name="operatorPin" type="string" mandatory="false" />
+      <collection_field name="phonograms" type="List" internal_type="Phonogram" mandatory="false"
+                        description="Список информации о записях разговоров" />
+    </struct>
+
+    <struct name="Phonogram">
+      <field name="url" type="string" mandatory="false" description="URL на скачивание фонограммы" />
+      <field name="dtcreate" type="DateTime" mandatory="false" description="Дата создания записи в БД" />
+      <field name="sourceType" type="En_PhonogramSource" mandatory="false" description="Источник фонограммы" />
+    </struct>
+
+    <struct name="Card112ListExcelReportParams">
+      <field name="filter" type="Card112Filter" mandatory="false" />
+      <field name="usePaging" type="bool" mandatory="false" />
+      <field name="from" type="int" mandatory="true" />
+      <field name="to" type="int" mandatory="true" />
+      <field name="orderBy" type="string" mandatory="false" />
+      <field name="sortingOrder" type="En_SortingOrder" mandatory="false" />
+      <collection_field name="reportColumns" type="List" internal_type="Column" mandatory="false" />
+    </struct>
+
+    <struct name="Column">
+      <field name="header" type="string" mandatory="false" />
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="fieldName" type="string" mandatory="false" />
+    </struct>
+
+    <enum name="En_LayerType">
+      <item name="FIRES" value="1" desc="Пожары" />
+    </enum>
+
+    <struct name="IntMapItem">
+      <field name="id1" type="int" mandatory="true" />
+      <field name="id2" type="int" mandatory="true" />
+      <field name="strValue" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GisServiceGeoObject">
+      <field name="id" type="int" mandatory="true" />
+      <field name="name" type="string" mandatory="false" />
+      <field name="description" type="string" mandatory="false" />
+      <field name="geoJsonLocation" type="string" mandatory="false" />
+      <field name="iconUrl" type="string" mandatory="false" />
+      <field name="fillColor" type="string" mandatory="false" />
+      <field name="strokeColor" type="string" mandatory="false" />
+      <field name="pointRadius" type="string" mandatory="false" />
+      <field name="fillOpacity" type="string" mandatory="false" />
+      <field name="strokeOpacity" type="string" mandatory="false" />
+      <field name="strokeWidth" type="string" mandatory="false" />
+      <collection_field name="fields" type="List" internal_type="GisServiceGeoObjectField" mandatory="false" />
+      <field name="location" type="Location" mandatory="false" />
+    </struct>
+
+    <struct name="GisServiceGeoObjectField">
+      <field name="id" type="int" mandatory="true" />
+      <field name="name" type="string" mandatory="false" />
+      <field name="value" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="GisServiceLayer">
+      <field name="id" type="int" mandatory="true" />
+      <field name="name" type="string" mandatory="false" />
+      <field name="description" type="string" mandatory="false" />
+      <collection_field name="geoObjects" type="List" internal_type="GisServiceGeoObject" mandatory="false" />
+      <collection_field name="layers" type="List" internal_type="GisServiceLayer" mandatory="false" />
+      <field name="parentId" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="Geometry">
+      <field name="type" type="string" mandatory="false" />
+      <collection_field name="coordinates" type="List" internal_type="double" mandatory="false" />
+    </struct>
+
+    <struct name="Location">
+      <field name="type" type="string" mandatory="false" />
+      <field name="geometry" type="Geometry" mandatory="false" />
+    </struct>
+
+    <struct name="DistanceInfo">
+      <field name="distance" type="double" mandatory="true" />
+    </struct>
+
+    <struct name="DistanceOnRouteInfo">
+      <field name="distance" type="double" mandatory="true" />
+      <collection_field name="points" type="List" internal_type="GeoPoint" mandatory="false" />
+    </struct>
+
+    <struct name="LayersInfo">
+      <collection_field name="layers" type="List" internal_type="GisServiceLayer" mandatory="false" />
+      <field name="withObjects" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="GeoObjectsInfo">
+      <collection_field name="geoObjects" type="List" internal_type="GisServiceGeoObject" mandatory="false" />
+      <field name="lastPage" type="bool" mandatory="true" />
+      <field name="totalCount" type="long" mandatory="true" />
+    </struct>
+
+    <struct name="SearchInfo">
+      <collection_field name="layers" type="List" internal_type="GisServiceLayer" mandatory="false" />
+      <field name="withObjects" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="ValidationRule" desc="Правило валидации поля">
+      <field name="Type" type="string" mandatory="false"
+             desc="Тип правила, по которому определяется обязательность поля. Type обязательно используется во всех правилах ValidationRule. " />
+      <field name="CompareField" type="string" mandatory="false"
+             desc="Другое поле карточки, которое используется при определении обязательности данного поля. CompareField не используется если данное поле безусловно обязательно." />
+      <field name="CompareValue" type="string" mandatory="false"
+             desc="Значение другого поля карточки при котором данное поле становится обязательным. CompareValue используется совместно с CompareField." />
+      <field name="CommandProperty" type="En_ValidatedCommand" mandatory="false"
+             desc="Свойство служит для определения команды, для которой используется данное правило валидации." />
+    </struct>
+
+    <struct name="Card112Validation">
+      <collection_field name="IncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false" desc="Тип проиcшествия" />
+      <collection_field name="SelectedSubCallType" type="List" internal_type="ValidationRule" mandatory="false" desc="Отделение" />
+      <collection_field name="IsTraining" type="List" internal_type="ValidationRule" mandatory="false" desc="Учебная" />
+      <collection_field name="IsPriority" type="List" internal_type="ValidationRule" mandatory="false" desc="Важная" />
+      <collection_field name="StreetID" type="List" internal_type="ValidationRule" mandatory="false" desc="Улица" />
+      <collection_field name="DistrictID" type="List" internal_type="ValidationRule" mandatory="false" desc="Округ" />
+      <collection_field name="CityID" type="List" internal_type="ValidationRule" mandatory="false" desc="Район" />
+      <collection_field name="Building" type="List" internal_type="ValidationRule" mandatory="false" desc="Дом" />
+      <collection_field name="Corps" type="List" internal_type="ValidationRule" mandatory="false" desc="Корпус" />
+      <collection_field name="Room" type="List" internal_type="ValidationRule" mandatory="false" desc="Квартира" />
+      <collection_field name="Entrance" type="List" internal_type="ValidationRule" mandatory="false" desc="Подъезд" />
+      <collection_field name="EntranceCode" type="List" internal_type="ValidationRule" mandatory="false" desc="Код в подъезд" />
+      <collection_field name="ObjectId" type="List" internal_type="ValidationRule" mandatory="false" desc="Объект" />
+      <collection_field name="Floor" type="List" internal_type="ValidationRule" mandatory="false" desc="Этаж" />
+      <collection_field name="TotalFloors" type="List" internal_type="ValidationRule" mandatory="false" desc="Этажность" />
+      <collection_field name="AddressStrip" type="List" internal_type="ValidationRule" mandatory="false" desc="Адресный участок" />
+      <collection_field name="AdditionalLocationInfo" type="List" internal_type="ValidationRule" mandatory="false" desc="Дополнительная информация" />
+      <collection_field name="IsIncident" type="List" internal_type="ValidationRule" mandatory="false" desc="Угроза ЧС" />
+      <collection_field name="IsHumanThreat" type="List" internal_type="ValidationRule" mandatory="false" desc="Угроза людям" />
+      <collection_field name="CCMC_TypeId" type="List" internal_type="ValidationRule" mandatory="false" desc="Тип ЧС" />
+      <collection_field name="IncidentDescription" type="List" internal_type="ValidationRule" mandatory="false" desc="Описание происшествия" />
+      <collection_field name="DeclarantLastName" type="List" internal_type="ValidationRule" mandatory="false" desc="Фамилия заявителя" />
+      <collection_field name="DeclarantName" type="List" internal_type="ValidationRule" mandatory="false" desc="Имя заявителя" />
+      <collection_field name="DeclarantMiddleName" type="List" internal_type="ValidationRule" mandatory="false" desc="Отчество заявителя" />
+      <collection_field name="AgeYear" type="List" internal_type="ValidationRule" mandatory="false" desc="Возраст заявителя" />
+      <collection_field name="CallerContactPhone" type="List" internal_type="ValidationRule" mandatory="false" desc="Контактный телефон" />
+      <collection_field name="DeclarantStatusId" type="List" internal_type="ValidationRule" mandatory="false" desc="Статус заявителя" />
+      <collection_field name="DeclarantStreetId" type="List" internal_type="ValidationRule" mandatory="false" desc="Улица заявителя" />
+      <collection_field name="DeclarantDistrictId" type="List" internal_type="ValidationRule" mandatory="false" desc="Округ заявителя" />
+      <collection_field name="DeclarantCityId" type="List" internal_type="ValidationRule" mandatory="false" desc="Район заявителя" />
+      <collection_field name="DeclarantBuildingNumber" type="List" internal_type="ValidationRule" mandatory="false" desc="Дом заявителя" />
+      <collection_field name="DeclarantCorps" type="List" internal_type="ValidationRule" mandatory="false" desc="Корпус заявителя" />
+      <collection_field name="DeclarantFlat" type="List" internal_type="ValidationRule" mandatory="false" desc="Квартира заявителя" />
+      <collection_field name="DeclarantAddress" type="List" internal_type="ValidationRule" mandatory="false" desc="Дополнительная информация о заявителе" />
+      <collection_field name="Coordinates" type="List" internal_type="ValidationRule" mandatory="false" desc="Координаты" />
+      <collection_field name="IsCrossroad" type="List" internal_type="ValidationRule" mandatory="false" desc="Перекресток" />
+      <collection_field name="CgPN" type="List" internal_type="ValidationRule" mandatory="false" desc="Входящий номер телефона" />
+      <collection_field name="AdditionalStreetId" type="List" internal_type="ValidationRule" mandatory="false" desc="Дополнительная улица" />
+      <collection_field name="LocalDistrictId" type="List" internal_type="ValidationRule" mandatory="false" desc="Район города" />
+      <collection_field name="IsNear" type="List" internal_type="ValidationRule" mandatory="false" desc="Рядом" />
+      <collection_field name="Km" type="List" internal_type="ValidationRule" mandatory="false" desc="Км" />
+      <collection_field name="Casualties" type="List" internal_type="ValidationRule" mandatory="false" desc="Количество пострадавших" />
+      <collection_field name="LanguageId" type="List" internal_type="ValidationRule" mandatory="false" desc="Язык" />
+      <collection_field name="DeclarantLocalDistrictId" type="List" internal_type="ValidationRule" mandatory="false" desc="Район города заявителя" />
+      <collection_field name="FloorString" type="List" internal_type="ValidationRule" mandatory="false" desc="Этаж" />
+      <collection_field name="Structure" type="List" internal_type="ValidationRule" mandatory="false" desc="Строение" />
+      <collection_field name="DeclarantStructure" type="List" internal_type="ValidationRule" mandatory="false" desc="Строение заявителя" />
+      <collection_field name="Region" type="List" internal_type="ValidationRule" mandatory="false" desc="Регион" />
+    </struct>
+
+    <struct name="Card01Validation" desc="Валидация полей карточки 01">
+      <collection_field name="FireIncidentTypeID" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид выезда" />
+      <collection_field name="FirePreventionTypeID" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид пожарной охраны" />
+      <collection_field name="ObjectId" type="List" internal_type="ValidationRule" mandatory="false" desc="Объект" />
+      <collection_field name="ObjectGasified" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Объект газифицирован" />
+      <collection_field name="ObjectOwner" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Хозяин объекта" />
+      <collection_field name="Ownership" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Форма собственности" />
+      <collection_field name="ObjectTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Тип объекта" />
+      <collection_field name="ObjectAdditionalInfo" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Доп. инфо объекта" />
+      <collection_field name="ReactionPlanId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="План реагирования" />
+      <collection_field name="FireClassId" type="List" internal_type="ValidationRule" mandatory="false" desc="Ранг" />
+      <collection_field name="InternalCardNumber" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Номер карточки УП" />
+      <collection_field name="Shift" type="List" internal_type="ValidationRule" mandatory="false" desc="Смена" />
+      <collection_field name="Message" type="List" internal_type="ValidationRule" mandatory="false" desc="Сообщение" />
+      <collection_field name="WaterConsumption" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Расход воды (в литрах)" />
+      <collection_field name="FirstFireBarrel" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Время подачи первого ствола (в минутах)" />
+      <collection_field name="WaterSourceID" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Водоисточник" />
+      <collection_field name="PerishedPeople" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Всего (погибло)" />
+      <collection_field name="PerishedChildren" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Из них детей (погибло)" />
+      <collection_field name="PerishedCollaborators" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Сотрудников (погибло)" />
+      <collection_field name="Wounded" type="List" internal_type="ValidationRule" mandatory="false" desc="Всего (ранено)" />
+      <collection_field name="WoundedChildren" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Из них детей (ранено)" />
+      <collection_field name="WoundedCollaborators" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Сотрудников (ранено)" />
+      <collection_field name="SavedPeople" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Всего (спасено)" />
+      <collection_field name="SavedChildren" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Из них детей (спасено)" />
+      <collection_field name="BrokenLivingConditions" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Всего (нарушены ж/у)" />
+      <collection_field name="BrokenLivingConditionsChildren" type="List" internal_type="ValidationRule"
+                        mandatory="false" desc="Из них детей (нарушены ж/у)" />
+      <collection_field name="FireReasonID" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Причина пожара" />
+      <collection_field name="Description" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Уточненная причина пожара" />
+      <collection_field name="DamageCost" type="List" internal_type="ValidationRule" mandatory="false" desc="Ущерб" />
+      <collection_field name="SavedCost" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Спасено мат. ценностей" />
+      <collection_field name="Space" type="List" internal_type="ValidationRule" mandatory="false" desc="Площадь" />
+      <collection_field name="FireDistance" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Расстояние" />
+      <collection_field name="PoliceInterest" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Оперативный интерес" />
+      <collection_field name="ServiceIncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Характер происшествия" />
+      <collection_field name="FireStartEstimate" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Оценка времени развития пожара" />
+      <collection_field name="FireResults" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Последствия пожара" />
+      <collection_field name="NumberStoreys" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Этажность" />
+    </struct>
+
+    <struct name="CardForceValidation" desc="Валидация полей карточки Силы и средства (в составе карточки 01)">
+      <collection_field name="Localization" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Локализация" />
+      <collection_field name="Liquidation" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Ликвидация" />
+      <collection_field name="OpenFireLiquidation" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Ликвидация открытого огня" />
+    </struct>
+
+    <struct name="Card02Validation" desc="Валидация полей карточки 02">
+      <collection_field name="ITypeID" type="List" internal_type="ValidationRule" mandatory="false" desc="Квалификация" />
+      <collection_field name="RegistrationNumber" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Номер КУСП" />
+      <collection_field name="RegistrationDepartmentID" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Отдел" />
+      <collection_field name="ServiceIncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид правонарушения" />
+      <collection_field name="CriminalsCount" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Количество правонарушителей" />
+      <collection_field name="VehiclesCount" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Количество ТС" />
+      <collection_field name="IncidentAdditionalInfo" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Дополнительная информация о происшествии" />
+    </struct>
+
+    <struct name="CardOvdValidation" desc="Валидация полей карточки ОВД">
+      <collection_field name="IntrinsicOVD_N" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="№ КУСП ОВД" />
+      <collection_field name="IntrinsicDPS_N" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="№ КУСП ДПС" />
+      <collection_field name="Inspector" type="List" internal_type="ValidationRule" mandatory="false" desc="Кто принял" />
+      <collection_field name="DepartureResultId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Информация по результатам выезда" />
+      <collection_field name="IsSuspectedPerson" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Имеется подозреваемый в совершении преступления" />
+      <collection_field name="IsEvidence" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Изъяты следы, вещественные доказательства" />
+      <collection_field name="IsVideoObservation" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Имеется видеонаблюдение" />
+      <collection_field name="IsSkRfStuff" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Участие работника СК РФ" />
+      <collection_field name="PastEventId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Проведенные мероприятия" />
+      <collection_field name="StatusId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Принятое решение" />
+      <collection_field name="RegDate" type="List" internal_type="ValidationRule" mandatory="false" desc="Дата рег." />
+      <collection_field name="DocNumber" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="№ дела/№ КУСП/№ адм. прот." />
+      <collection_field name="Page" type="List" internal_type="ValidationRule" mandatory="false" desc="Страница" />
+      <collection_field name="SelectedMalefactionGroup" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Квалификация ОВД" />
+      <collection_field name="OVDITypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Квалификация ОВД" />
+      <collection_field name="Solved" type="List" internal_type="ValidationRule" mandatory="false" desc="Результат" />
+    </struct>
+
+    <struct name="Card02WantedValidation" desc="Валидация полей карточки 02 Разыскиваемый">
+      <collection_field name="InLooksAge" type="List" internal_type="ValidationRule" mandatory="false" desc="На вид (Возраст)" />
+      <collection_field name="Gender" type="List" internal_type="ValidationRule" mandatory="false" desc="Пол" />
+      <collection_field name="StatureID" type="List" internal_type="ValidationRule" mandatory="false" desc="Рост" />
+      <collection_field name="FigureID" type="List" internal_type="ValidationRule" mandatory="false" desc="Телосложение" />
+      <collection_field name="Exterior" type="List" internal_type="ValidationRule" mandatory="false" desc="Одет" />
+      <collection_field name="Extra" type="List" internal_type="ValidationRule" mandatory="false" desc="Особые примеры" />
+      <collection_field name="LastName" type="List" internal_type="ValidationRule" mandatory="false" desc="Фамилия" />
+      <collection_field name="FirstName" type="List" internal_type="ValidationRule" mandatory="false" desc="Имя" />
+      <collection_field name="MiddleName" type="List" internal_type="ValidationRule" mandatory="false" desc="Отчество" />
+      <collection_field name="BirthdayDate" type="List" internal_type="ValidationRule" mandatory="false" desc="Дата рождения" />
+    </struct>
+
+    <struct name="Card02SuspectValidation" desc="Валидация полей карточки 02 Подозреваемый">
+      <collection_field name="InLooksAge" type="List" internal_type="ValidationRule" mandatory="false" desc="На вид (Возраст)" />
+      <collection_field name="Gender" type="List" internal_type="ValidationRule" mandatory="false" desc="Пол" />
+      <collection_field name="StatureID" type="List" internal_type="ValidationRule" mandatory="false" desc="Рост" />
+      <collection_field name="FigureID" type="List" internal_type="ValidationRule" mandatory="false" desc="Телосложение" />
+      <collection_field name="Exterior" type="List" internal_type="ValidationRule" mandatory="false" desc="Одет" />
+      <collection_field name="Extra" type="List" internal_type="ValidationRule" mandatory="false" desc="Особые примеры" />
+      <collection_field name="LastName" type="List" internal_type="ValidationRule" mandatory="false" desc="Фамилия" />
+      <collection_field name="FirstName" type="List" internal_type="ValidationRule" mandatory="false" desc="Имя" />
+      <collection_field name="MiddleName" type="List" internal_type="ValidationRule" mandatory="false" desc="Отчество" />
+      <collection_field name="BirthdayDate" type="List" internal_type="ValidationRule" mandatory="false" desc="Дата рождения" />
+    </struct>
+
+    <struct name="Card02VehicleValidation" desc="Валидация полей карточки 02 Транспорт">
+      <collection_field name="Vendor" type="List" internal_type="ValidationRule" mandatory="false" desc="Марка" />
+      <collection_field name="Name" type="List" internal_type="ValidationRule" mandatory="false" desc="Модель" />
+      <collection_field name="Color" type="List" internal_type="ValidationRule" mandatory="false" desc="Цвет" />
+      <collection_field name="RegistrationNumber" type="List" internal_type="ValidationRule" mandatory="false" desc="Номер" />
+      <collection_field name="Extra" type="List" internal_type="ValidationRule" mandatory="false" desc="Дополнительная информация" />
+      <collection_field name="Region" type="List" internal_type="ValidationRule" mandatory="false" desc="Регион" />
+      <collection_field name="TypeId" type="List" internal_type="ValidationRule" mandatory="false" desc="Тип ТС из классификатора" />
+      <collection_field name="ColorId" type="List" internal_type="ValidationRule" mandatory="false" desc="Цвет ТС из классификатора" />
+      <collection_field name="Hided" type="List" internal_type="ValidationRule" mandatory="false" desc="Скрылось с места происшествия" />
+    </struct>
+
+    <struct name="Card02VictimValidation" desc="Валидация полей карточки 02 Пострадавший">
+      <collection_field name="LastName" type="List" internal_type="ValidationRule" mandatory="false" desc="Фамилия" />
+      <collection_field name="FirstName" type="List" internal_type="ValidationRule" mandatory="false" desc="Имя" />
+      <collection_field name="MiddleName" type="List" internal_type="ValidationRule" mandatory="false" desc="Отчество" />
+      <collection_field name="CityId" type="List" internal_type="ValidationRule" mandatory="false" desc="Район (пострадавшего)" />
+      <collection_field name="StreetId" type="List" internal_type="ValidationRule" mandatory="false" desc="Улица (пострадавшего)" />
+      <collection_field name="BuildingNumber" type="List" internal_type="ValidationRule" mandatory="false" desc="Дом" />
+      <collection_field name="Corps" type="List" internal_type="ValidationRule" mandatory="false" desc="Корпус" />
+      <collection_field name="Flat" type="List" internal_type="ValidationRule" mandatory="false" desc="Квартира" />
+      <collection_field name="ContactPhone" type="List" internal_type="ValidationRule" mandatory="false" desc="Телефон" />
+      <collection_field name="AdditionalInfo" type="List" internal_type="ValidationRule" mandatory="false" desc="Доп. инфо" />
+    </struct>
+
+    <struct name="Card03Validation" desc="Валидация полей карточки 03">
+      <collection_field name="IsTransportation" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Перевозка" />
+      <collection_field name="ObjectTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Тип объекта" />
+      <collection_field name="ObjectId" type="List" internal_type="ValidationRule" mandatory="false" desc="Объект" />
+      <collection_field name="TransportReasonId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Тип перевозки" />
+      <collection_field name="TransportationId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид транспортировки" />
+      <collection_field name="HospitalId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Откуда" />
+      <collection_field name="DstHospitalId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Куда" />
+      <collection_field name="DeliveredTo" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Куда доставлен" />
+      <collection_field name="Admission" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Время поступления в ЛПУ" />
+      <collection_field name="Closed" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Время окончания обслуживания вызова" />
+      <collection_field name="TeamMessage" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Сообщение бригады" />
+      <collection_field name="CloseReason" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Причина закрытия" />
+      <collection_field name="ServiceCardWork" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Выезд на место" />
+      <collection_field name="ServiceCardWorkNext" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Прибытие на место" />
+      <collection_field name="ServiceIncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид происшествия" />
+      <collection_field name="WhoCalledId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Кто вызвал" />
+      <collection_field name="HaveChildren" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Имеются дети" />
+      <collection_field name="IncidentAdditionalInfo" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Дополнительная информация" />
+    </struct>
+
+    <struct name="Card03SickPersonValidation" desc="Валидация полей карточки 03 Пострадавший">
+      <collection_field name="Name" type="List" internal_type="ValidationRule" mandatory="false" desc="Имя" />
+      <collection_field name="ReasonId" type="List" internal_type="ValidationRule" mandatory="false" desc="Повод" />
+      <collection_field name="IsMale" type="List" internal_type="ValidationRule" mandatory="false" desc="Пол" />
+      <collection_field name="SickPersonSigns" type="List" internal_type="ValidationRule" mandatory="false" desc="Приметы" />
+      <collection_field name="Birth" type="List" internal_type="ValidationRule" mandatory="false" desc="Дата рождения" />
+      <collection_field name="AgeYear" type="List" internal_type="ValidationRule" mandatory="false" desc="Bозраст (лет)" />
+      <collection_field name="AgeMonth" type="List" internal_type="ValidationRule" mandatory="false" desc="Bозраст (месяцев)" />
+      <collection_field name="AgeDay" type="List" internal_type="ValidationRule" mandatory="false" desc="Bозраст (дней)" />
+      <collection_field name="IsReasonPriority" type="List" internal_type="ValidationRule" mandatory="false" desc="Приоритетный" />
+      <collection_field name="ConsultDiagnosId" type="List" internal_type="ValidationRule" mandatory="false" desc="Диагноз" />
+      <collection_field name="LastName" type="List" internal_type="ValidationRule" mandatory="false" desc="Фамилия" />
+      <collection_field name="MiddleName" type="List" internal_type="ValidationRule" mandatory="false" desc="Отчество" />
+      <collection_field name="Age" type="List" internal_type="ValidationRule" mandatory="false" desc="Возраст" />
+    </struct>
+
+    <struct name="Card04Validation" desc="Валидация полей карточки 04">
+      <collection_field name="WhatHappened" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Сообщение" />
+      <collection_field name="CommunityServiceId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Коммунальная служба" />
+      <collection_field name="CommunityServiceSituationId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Происшествие" />
+      <collection_field name="Measures" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Принятые меры" />
+      <collection_field name="ServiceIncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Тип происшествия" />
+      <collection_field name="InstructionId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Инструкции" />
+      <collection_field name="IsConsulting" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Консультация" />
+      <collection_field name="GasInstructions" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Инструкции" />
+      <collection_field name="ServiceCardWork" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Выезд на место" />
+      <collection_field name="ServiceCardWorkNext" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Прибытие на место" />
+    </struct>
+
+    <struct name="CardATValidation" desc="Валидация полей карточки AT">
+      <collection_field name="WhatHappened" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Описание происшествия" />
+      <collection_field name="Measures" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Принятые меры" />
+      <collection_field name="Damage" type="List" internal_type="ValidationRule" mandatory="false" desc="Ущерб" />
+      <collection_field name="ServiceIncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид террористического акта" />
+      <collection_field name="Died" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Количество погибших" />
+      <collection_field name="Victims" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Количество пострадавших" />
+      <collection_field name="Suspects" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Количество подозреваемых" />
+      <collection_field name="SuspectsDesc" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Описание подозреваемых" />
+      <collection_field name="SuspectsEquipment" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вооружение подозреваемых" />
+      <collection_field name="SuspectsVehicles" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Транспортные средства подозреваемых" />
+      <collection_field name="SuspectsDirection" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Направление движения подозреваемых" />
+      <collection_field name="SuspectsInjury" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Повреждения подозреваемых" />
+      <collection_field name="ServiceCardWork" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Выезд на место" />
+      <collection_field name="ServiceCardWorkNext" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Прибытие на место" />
+    </struct>
+
+    <struct name="CardCommServValidation" desc="Валидация полей карточки ЕДДС/ЖКХ">
+      <collection_field name="CategoryCommServId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Тема обращения" />
+      <collection_field name="Message" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Сообщение" />
+      <collection_field name="ObjectInfo" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Дополнительная информация по объекту" />
+      <collection_field name="DeadlineExceeded" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Контрольное время устранения" />
+      <collection_field name="UsedMeans" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Задействованные силы" />
+      <collection_field name="Depart" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Время убытия бригады" />
+      <collection_field name="Arrival" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Время прибытия на место" />
+      <collection_field name="Complete" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Время устранения" />
+      <collection_field name="DeclarantNotify" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Дата и время доведения информации до заявителя" />
+      <collection_field name="AgentWhoNotifies" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Диспетчер" />
+      <collection_field name="CommunityServiceId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Коммунальная служба" />
+      <collection_field name="Measures" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Принятые меры" />
+      <collection_field name="ManagementCompanyId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Управляющая компания" />
+      <collection_field name="ObjectTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Объект" />
+      <collection_field name="EmergencyFlag" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Признак ЧС" />
+      <collection_field name="EmergencyFlagId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Аварийная" />
+      <collection_field name="ServiceIncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид происшествия" />
+      <collection_field name="InstructionId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Инструкции" />
+      <collection_field name="IsConsulting" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Консультация" />
+    </struct>
+
+    <struct name="CardCustomServiceValidation" desc="Валидация полей карточки кастомной службы (старой)">
+      <collection_field name="Comment" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Комментарий" />
+      <collection_field name="IncidentTypeId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Вид выезда" />
+      <collection_field name="DepartmentId" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Силы и средства" />
+      <collection_field name="DepartureAtTime" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Выезд на место" />
+      <collection_field name="ArrivedAtTime" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Прибытие на место" />
+      <collection_field name="Measures" type="List" internal_type="ValidationRule" mandatory="false"
+                        desc="Принятые меры" />
+    </struct>
+
+    <struct name="CardCustomServiceValidationItem">
+      <field name="ServiceTypeId" type="int" mandatory="true" desc="Id службы" />
+      <field name="Validation" type="CardCustomServiceValidation" mandatory="false" />
+    </struct>
+
+    <struct name="Validations" desc="Валидация всех карточек">
+      <field name="Card112" type="Card112Validation" mandatory="false" />
+      <field name="Card01" type="Card01Validation" mandatory="false" />
+      <field name="Card02" type="Card02Validation" mandatory="false" />
+      <field name="CardOvd" type="CardOvdValidation" mandatory="false" />
+      <field name="CardForce" type="CardForceValidation" mandatory="false" />
+      <field name="Card02Suspect" type="Card02SuspectValidation" mandatory="false" />
+      <field name="Card02Wanted" type="Card02WantedValidation" mandatory="false" />
+      <field name="Card02Vehicle" type="Card02VehicleValidation" mandatory="false" />
+      <field name="Card02Victim" type="Card02VictimValidation" mandatory="false" />
+      <field name="Card03" type="Card03Validation" mandatory="false" />
+      <field name="Card03SickPerson" type="Card03SickPersonValidation" mandatory="false" />
+      <field name="Card04" type="Card04Validation" mandatory="false" />
+      <field name="CardAT" type="CardATValidation" mandatory="false" />
+      <field name="CardCommServ" type="CardCommServValidation" mandatory="false" />
+      <collection_field name="CardCustomServices" type="List" internal_type="CardCustomServiceValidationItem"
+                        mandatory="false" />
+    </struct>
+
+    <struct name="ButtonCommand">
+      <field name="DefaultCommand" type="Command" mandatory="false" desc="Основная команда кнопки" />
+      <field name="AdditionalCommand" type="Command" mandatory="false" desc="Дополнительная команда кнопки" />
+    </struct>
+
+    <enum name="Command">
+      <item name="SaveCardWithTransferCommand" value="0" desc="Передать вызов" />
+      <item name="InitConferenceCommand" value="1" desc="Создать конференцию" />
+    </enum>
+
+    <struct name="RoleSettings">
+      <field name="SaveFileToXmlPath" type="string" mandatory="false"
+             desc="Директория для сохранения карточки в xml формате" />
+      <field name="Validations" type="Validations" mandatory="false" />
+      <field name="RoleTitle" type="string" mandatory="false" desc="Название роли" />
+      <field name="CreateCardWithoutCall" type="bool" mandatory="true" desc="Возможность создавать карточки без вызова" />
+      <field name="ShowDuplicates" type="bool" mandatory="true" desc="Показывать вкладку дубликатов" />
+      <field name="EditCard" type="bool" mandatory="true" />
+      <field name="FilterCards" type="bool" mandatory="true" />
+      <field name="ShowHistory" type="bool" mandatory="true" desc="Отображать кнопку История" />
+      <field name="LoadVoiceRecord" type="bool" mandatory="true" desc="Возможность прослушивать записи переговоров" />
+      <field name="DeadlineControl" type="bool" mandatory="true" />
+      <field name="ShowReports" type="bool" mandatory="true" />
+      <field name="CompleteOnSave" type="bool" mandatory="true" />
+      <field name="CanCompleteCards" type="bool" mandatory="true" />
+      <collection_field name="ApplicastAddresses" type="List" internal_type="string" mandatory="false"
+                        desc="Список IP адресов applicast" />
+      <collection_field name="MapTileUrls" type="List" internal_type="MapTileUrl" mandatory="false"
+                        desc="Список Url до гео сервера для получения подложки" />
+      <collection_field name="MapUrls" type="List" internal_type="string" mandatory="false"
+                        desc="Список Url до гео сервера" />
+      <field name="GeoServerUser" type="string" mandatory="false"
+             desc="Имя пользователя на Геосервере (в частности, используется для получения пользовательских слоев)" />
+      <collection_field name="ConsultUrls" type="List" internal_type="string" mandatory="false" desc="Список Url КОН" />
+      <field name="CallTypeIdFilter" type="int" mandatory="false"
+             desc="Фильтр по Типу вызова карточек и переопределение типа вызова по умолчанию" />
+      <field name="DoNotUseCardDepartmentFilter" type="bool" mandatory="true"
+             desc="На рабочих местах 3-го уровня показывать все карточки не учитывая отделение" />
+      <field name="IsImportanceLevelEnabled" type="bool" mandatory="false" />
+      <field name="ImportanceLevelDefaultValue" type="En_ImportanceLevel" mandatory="false" />
+      <field name="UselessRefreshTimeout" type="int" mandatory="false"
+             desc="Измеряется в секундах (целое число), при получении нотификаций прежде чем обновлять список карточек будет сделана пауза в столько секунд, сколько указано в настройке" />
+      <field name="ReportTimeout" type="int" mandatory="false" desc="Sets the timeout when downloading reports" />
+      <field name="ReportReadWriteTimeout" type="int" mandatory="false"
+             desc="Gets or sets a time-out in milliseconds when writing to or reading from a stream for reports downloading" />
+      <field name="PingerReadWriteTimeout" type="int" mandatory="false"
+             desc="Gets or sets a time-out in milliseconds when writing to or reading from a stream for pinger" />
+      <field name="ReadWriteTimeout" type="int" mandatory="false"
+             desc="Gets or sets a time-out in milliseconds when writing to or reading from a stream" />
+      <field name="LocalDistrictId" type="int" mandatory="false" />
+      <collection_field name="MrsSettings" type="List" internal_type="MRSSettings" mandatory="false"
+                        desc="Список url MRS" />
+      <field name="AutoZoomLevel" type="int" mandatory="false"
+             desc="Уровень приближения при автофокусе на адресном объекте" />
+      <field name="MinZoomLevel" type="int" mandatory="false" desc="Минимальный уровень приближения на карте" />
+      <field name="MaxZoomLevel" type="int" mandatory="false" desc="Максимальный уровень приближения на карте" />
+      <field name="ServiceType" type="En_ServiceType" mandatory="false" desc="Текстовый идентификатор службы" />
+      <field name="TransferButtonCommand" type="ButtonCommand" mandatory="false"
+             desc="Настройки кнопки Передать с вызовом" />
+      <field name="InteractiveToolTipsEnabled" type="bool" mandatory="false"
+             desc="Включить всплывающие подсказки к полям карточки (режим УТК УСПО)" />
+      <field name="CanSendMessage" type="bool" mandatory="false" desc="Оператору доступна кнопка Сообщения" />
+      <collection_field name="OperatorCanEditCollection" type="List" internal_type="OperatorCanEditItem"
+                        mandatory="false" desc="Список типов карточек доступных для изменения " />
+      <field name="CallCenterParameters" type="CallCenterParameter" mandatory="false"
+             desc="Параметры колл центра для проигрывания звука" />
+      <field name="GisPageSize" type="int" mandatory="false"
+             desc="Количество гео-объектов, подгружаемых в одном запросе к гео-серверу" />
+      <field name="IsCitySelectedInFilterDefault" type="bool" mandatory="false"
+             desc="Должен ли быть выбран город в фильтре при старте приложения" />
+      <field name="RecordsFolderAccessDenied" type="bool" mandatory="false"
+             desc="Пользователю запрещен доступ к локальной папке с аудио записями вызовов." />
+      <field name="CanShowRemoteLayers" type="bool" mandatory="false"
+             desc="Пользователю разрешено включать отображение внешних слоев." />
+      <field name="NoCardCreationSiren" type="bool" mandatory="false"
+             desc="Не проигрывать сирену при поступлении уведомления с новой карточкой. Указание этого значения переопределит значение, заданное в БД." />
+      <field name="ShowWeather" type="bool" mandatory="false" desc="Показывать метеоданные (только для IsMap = true)." />
+      <field name="WebRequestTimeout" type="int" mandatory="false"
+             desc="Таймаут ожидания ответа от сервера (кроме пинга, отчетов и загрузки словарей)" />
+      <collection_field name="AddressbookSettings" type="List" internal_type="AddressbookSetting"
+                        mandatory="false" desc="Список настроек адресной книги" />
+      <collection_field name="CardHighlightCollection" type="List" internal_type="CardHighlightItem"
+                        mandatory="false" desc="Список правил подсветки карточек в списке карточек" />
+      <field name="SwitchToNormalModeWhenUnlockedOrAnsweredCall" type="bool" mandatory="false"
+             desc="Переключаться в оперативный режим при разблокировке РМО и приёме вызова" />
+      <field name="DefaultSerfingModeFilterPeriod" type="int" mandatory="false"
+             desc="Фильтр по дате при переходе в режим статистики, в днях (если 1 - то 24 часа)" />
+      <field name="MaxSerfingModeFilterPeriod" type="int" mandatory="false"
+             desc="Максимальный период в фильтре по дате в режиме статистики" />
+      <field name="ShowConferenceButton" type="bool" mandatory="false" desc="Показывать кнопку Конференция" />
+      <field name="ServiceTypeId" type="int" mandatory="false" desc="Идентификатор службы" />
+      <field name="IsCallTypeReadOnly" type="bool" mandatory="false"
+             desc="Является ли CallType полем только для чтения" />
+      <collection_field name="DefaultVisibleLayers" type="List" internal_type="int" mandatory="false"
+                        desc="Список видимых слоев по умолчанию" />
+      <field name="UnviewedCardsHighlightColor" type="string" mandatory="false"
+             desc="Цвет подсветки карточек, не просмотренных службой" />
+      <field name="CanOperator112SendSms" type="bool" mandatory="false"
+             desc="Возможность для оператора 112 отправлять СМС" />
+      <field name="MonitoringTabEnabled" type="bool" mandatory="false"
+             desc="Возможность для оператора 112 использовать вкладку мониторинга" />
+      <field name="CardListScrollThrottlingDelay" type="int" mandatory="false"
+             desc="Измеряется в миллисекундах (целое число, минимальное значение - 50), при скролле списка карточек прежде чем обновлять список карточек будет сделана пауза в столько миллисекунд, сколько указано в настройке" />
+      <collection_field name="DisableServicesChoiceForCallTypeIds" type="List" internal_type="int" mandatory="false"
+                        desc="Список id типов вызовов, при выборе которых панель служб в карточке должна быть отключена" />
+      <field name="ShowAttachments" type="bool" mandatory="false" desc="Показывать вкладку с вложениями" />
+      <field name="CanCopyEraDataToDescription" type="bool" mandatory="false"
+             desc="Возможность копировать данные ЭРА в описание происшествия" />
+      <field name="CanOpenCardInNewWindow" type="bool" mandatory="false"
+             desc="Возможность открывать карточку в новом окне" />
+      <field name="SkipCallAppendToCallHistoryOnStatistics" type="bool" mandatory="false"
+             desc="Пропускать добавление вызова в историю вызовов в режиме статистики" />
+      <field name="CanOperator112SendChatMessage" type="bool" mandatory="false"
+             desc="Возможность для оператора 112 отправлять отправлять сообщение в чат" />
+      <field name="KeepLogsLatestLaunches" type="int" mandatory="false"
+             desc="На клиенте будут храниться логи последних KeepLogsLatestLaunches запусков (не учитывая текущий) и последних KeepLogsLatestDays дней включительно. Логи более старших запусков будут стираться" />
+      <field name="KeepLogsLatestDays" type="int" mandatory="false"
+             desc="На клиенте будут храниться логи последних KeepLogsLatestLaunches запусков (не учитывая текущий) и последних KeepLogsLatestDays дней включительно. Логи более старших запусков будут стираться" />
+      <field name="DisableServicesChoiceWhenEmptyIncidentTypeId" type="bool" mandatory="false"
+             desc="Отключить панель служб в карточке при пустом типе происшествия" />
+      <field name="ChangedAfterFirstSaveCardsHighlightColor" type="string" mandatory="false"
+             desc="Цвет подсветки карточек, которые были изменены после первого сохранения (в hex-виде, например, #bbedbb)" />
+      <field name="ShowWithoutKsombFilterCheckbox" type="bool" mandatory="false"
+             desc="Показывать чекбокс Без КСОМБ в фильтре" />
+      <field name="ShowControlFilterCheckbox" type="bool" mandatory="false"
+             desc="Показывать чекбокс Контроль в фильтре" />
+      <field name="DoNotShowAddressArea" type="bool" mandatory="false"
+             desc="Не показывать поле Адресный участок" />
+      <field name="EntranceOnlyDigits" type="bool" mandatory="false"
+             desc="Допускать в поле подъезд только цифры" />
+      <collection_field name="DisallowToChangeOtherCallTypeIdsToTheseCallTypeIds" type="List" internal_type="int" mandatory="false"
+                        desc="Запретить менять остальные id типы вызовов на эти id типов вызовов. В этом списке обязательно должны быть id типов вызовов Ложный (1), Детская шалость (2), Справочный (3), Повторный (9)" />
+      <field name="EnableNewCustomServices" type="bool" mandatory="false"
+              desc="Новый вид кастомной службы" />
+      <field name="IsShowChangeCoordinatesFormatButton" type="bool" mandatory="false"
+             desc="Показывать кнопку Изменить формат координат" />
+      <field name="EnableMandatoryAuthorization" type="bool" mandatory="false"
+             desc="Требуется авторизация для работы в приложении" />
+      <collection_field name="DefaultInvolvedServiceTypeIds" type="List" internal_type="int" mandatory="false"
+                        desc="Список id служб, которые будут всегда привлечены при создании карточки." />
+      <field name="IsDeadlinesTimerEnable" type="bool" mandatory="false"
+             desc="Таймер для отображения времени регламента" />
+      <field name="Is112CallStatisticReportsShow" type="bool" mandatory="false"
+             desc="Показать вкладку с отчётами о статистике вызовов системы-112" />
+      <field name="MinimizeEraData" type="bool" mandatory="false"
+             desc ="Минимизировать данные от ЭРЫ-ГЛОНАСС" />
+      <field name="CanChangeReactionOfCommServ" type="bool" mandatory="false"
+             desc ="Включить возможность влиять на реагирование службы ЕДДС/ЖКХ" />
+      <field name="SingleFieldCenterMapCoordinates" type="bool" mandatory="false"
+             desc ="Отображать единое поле координат в окне 'Координаты центра карты'" />
+      <field name="IsSendServiceTypeIdForCallTransfer" type="bool" mandatory="false"
+             desc ="Отправлять 'ServiceTypeId' для направления передачи карточки с вызовом" />
+      <field name="SendSmsByCtrlEnter" type="bool" mandatory="false"
+             desc ="Отправка СМС осуществляется по 'Ctrl-Enter', перенос по 'Enter' (по умолчанию: 'Enter' - отправка, 'Ctrl-Enter' - перенос)" />
+      <field name="ShowSmsTabInDuplicate" type="bool" mandatory="false"
+             desc="Отображать вкладку 'СМС' в окне 'Просмотр дубликата'" />
+      <field name="ShowToWorkButton" type="bool" mandatory="false"
+             desc="Отображать кнопку 'В работу'" />
+      <field name="ShowReactionButton" type="bool" mandatory="false"
+             desc="Отображать кнопку 'Реагирование'" />
+    </struct>
+
+    <enum name="En_CallStatus">
+      <item name="TransferedTo01" value="0" desc="Вызов переведен на службу 01" />
+      <item name="TransferedTo02" value="1" desc="Вызов переведен на службу 02" />
+      <item name="TransferedTo03" value="2" desc="Вызов переведен на службу 03" />
+      <item name="TransferedTo04" value="3" desc="Вызов переведен на службу 04" />
+      <item name="TransferedToAT" value="4" desc="Вызов переведен на службу AT" />
+      <item name="TransferedToCommServ" value="5" desc="Вызов переведен на службу ЖКХ" />
+      <item name="TerminatedByOperator" value="6" desc="Вызов прекращен оператором" />
+      <item name="TerminatedByAbonent" value="7" desc="Вызов прекращен абонентом" />
+    </enum>
+
+    <struct name="EmergencyCard">
+      <field name="card112" type="Tm_Card_112_Data" mandatory="true" />
+      <field name="card01" type="Tm_Card_01_Data" mandatory="true" />
+      <field name="card02" type="Tm_Card_02_Data" mandatory="true" />
+      <field name="card03" type="Tm_Card_03_Data" mandatory="true" />
+      <field name="card04" type="Tm_Card_04_Data" mandatory="true" />
+      <field name="cardAT" type="Tm_Card_AT_Data" mandatory="true" />
+      <field name="cardCommServ" type="Tm_Card_CommServ_Data" mandatory="true" />
+    </struct>
+
+    <struct name="OperatorCanEditItem">
+      <field name="Card" type="En_CardType" mandatory="true" />
+      <field name="View" type="ServiceCardEditView" mandatory="true" />
+      <field name="CanComplete" type="bool" mandatory="true" />
+      <field name="CanChangeState" type="bool" mandatory="true" />
+    </struct>
+
+    <enum name="ServiceCardEditView">
+      <item name="Card01View" value="1" desc="Карточка 01 как у ДДС 01" />
+      <item name="Card01SpbView" value="2" desc="Карточка 01 Санкт-Петербург для просмотра" />
+      <item name="Card01SpbEditView" value="3" desc="Карточка 01 Санкт-Петербург для редактирования" />
+
+      <item name="Card02View" value="4" desc="Карточка 02 как у ДДС 02" />
+      <item name="Card02SpbView" value="5" desc="Карточка 02 Санкт-Петербург для просмотра" />
+      <item name="Card02SpbEditView" value="6" desc="Карточка 02 Санкт-Петербург для редактирования" />
+      <item name="Card02IntegrationView" value="21" desc="Карточка 02 'Интеграция' для редактирования" />
+
+      <item name="Card03DispatcherView" value="7" desc="Карточка 03 как у Диспетчера 03" />
+      <item name="Card03SpbView" value="8" desc="Карточка 03 Санкт-Петербург для просмотра" />
+      <item name="Card03SpbEditView" value="9" desc="Карточка 03 Санкт-Петербург для редактирования" />
+      <item name="Card03AddVictimsView" value="11" desc="Карточка 03 только добавление пострадавших" />
+
+      <item name="Card04View" value="12" desc="Карточка 04 как у ДДС 04" />
+      <item name="Card04SpbView" value="13" desc="Карточка 04 Санкт-Петербург для просмотра" />
+      <item name="Card04SpbEditView" value="14" desc="Карточка 04 Санкт-Петербург для редактирования" />
+
+      <item name="CardCommServView" value="15" desc="Карточка ЖКХ/ЕДДС как у ДДС ЖКХ/ЕДДС" />
+      <item name="CardCommServSpbView" value="16" desc="Карточка ЖКХ/ЕДДС Санкт-Петербург для просмотра" />
+      <item name="CardCommServSpbEditView" value="17" desc="Карточка ЖКХ/ЕДДС Санкт-Петербург для редактирования" />
+
+      <item name="CardATView" value="18" desc="Карточка АТ как у ДДС АТ" />
+      <item name="CardATSpbView" value="19" desc="Карточка АТ Санкт-Петербург для просмотра" />
+      <item name="CardATSpbEditView" value="20" desc="Карточка АТ Санкт-Петербург для редактирования" />
+    </enum>
+
+    <struct name="EmergencyServersCollection">
+      <collection_field name="emergencyServers" type="List" internal_type="EmergencyServerInfo" mandatory="false" />
+    </struct>
+
+    <struct name="EmergencyServerInfo">
+      <field name="Url" type="string" mandatory="false" />
+      <field name="IsActive" type="bool" mandatory="true" />
+      <field name="IsFirstPriority" type="bool" mandatory="true" />
+      <field name="IsAvailable" type="bool" mandatory="true" />
+    </struct>
+
+    <struct name="Weather">
+      <field name="temperature" type="short" mandatory="true" />
+      <field name="pressure" type="short" mandatory="true" />
+      <field name="clouds" type="byte" mandatory="true" />
+      <field name="windDirection" type="byte" mandatory="true" />
+      <field name="windStrength" type="short" mandatory="true" />
+      <field name="humidity" type="short" mandatory="true" />
+    </struct>
+
+    <struct name="WeatherLayer">
+      <field name="id" type="long" mandatory="true" />
+      <field name="description" type="string" mandatory="false" />
+      <field name="longitude" type="double" mandatory="false" />
+      <field name="latitude" type="double" mandatory="false" />
+      <field name="weather" type="Weather" mandatory="false" />
+    </struct>
+
+    <struct name="AddressbookSetting">
+      <field name="DbIp" type="string" mandatory="false" desc="IP базы адресной книги" />
+      <field name="DbPort" type="int" mandatory="true" desc="Порт базы адресной книги" />
+      <field name="DbName" type="string" mandatory="false" desc="Имя базы адресной книги" />
+      <field name="User" type="string" mandatory="false" desc="Пользователь" />
+      <field name="Password" type="string" mandatory="false" desc="Пароль" />
+    </struct>
+
+    <struct name="AddressbookSettingsItem">
+      <collection_field name="AddressbookSettings" type="List" internal_type="AddressbookSetting"
+                        mandatory="false" desc="Список настроек адресной книги" />
+    </struct>
+
+    <struct name="VisualAttributes">
+      <field name="BackgroundColor" type="string" mandatory="false"
+             desc="Текстовое название стандартного цвета" />
+    </struct>
+
+    <struct name="CardCondition">
+      <field name="IsComplex" type="bool" mandatory="false" desc="Признак Комплексное реагирование" />
+      <field name="IsPriority" type="bool" mandatory="false" desc="Признак Важная" />
+      <field name="IsIncident" type="bool" mandatory="false" desc="Признак Угроза ЧС" />
+      <field name="IsTest" type="bool" mandatory="false" desc="Признак Учебная" />
+      <field name="IsControl" type="bool" mandatory="false" desc="Признак Контроль" />
+    </struct>
+
+    <struct name="CardHighlightItem">
+      <field name="VisualAttributes" type="VisualAttributes" mandatory="true"
+             desc="Визуальное состояние карточки, которое будет применено при совпадении CardCondition" />
+      <field name="CardCondition" type="CardCondition" mandatory="true"
+             desc="Состояние карточки, при котором будут применены VisualAttributes" />
+    </struct>
+
+    <struct name="CustomService">
+      <field name="nameId" type="int" mandatory="false" desc="Идентификатор имени кастомной службы" />
+      <field name="nServiceTypeId" type="int" mandatory="true" desc="Идентификатор службы" />
+      <field name="stateId" type="int" mandatory="false" desc="Идентификатор состояния кастомной службы" />
+      <field name="dateInvolve" type="DateTime" mandatory="false" desc="Дата привлечения кастомной службы" />
+      <field name="data" type="CustomServiceData" mandatory="true" desc="Данные карточки кастомной службы" />
+    </struct>
+
+    <struct name="CustomServiceData">
+      <field name="nIncidentTypeId" type="int" mandatory="false" desc="Вид выезда" />
+      <collection_field name="departmentIds" type="List" internal_type="int" mandatory="false"
+                        desc="Коллекция задействованных бригад" />
+      <field name="additionalInfo" type="string" mandatory="false" desc="Комментарий" />
+      <field name="performActions" type="string" mandatory="false" desc="Принятые меры" />
+      <field name="dtServiceCardWork" type="DateTime" mandatory="false" desc="Выезд на место" />
+      <field name="dtServiceCardWorkNext" type="DateTime" mandatory="false" desc="Прибытие на место" />
+      <field name="dtServiceCardComplete" type="DateTime" mandatory="false" desc="Время закрытия сервисной карточки" />
+      <field name="dtServiceCardView" type="DateTime" mandatory="false" desc="Время просмотра карточки" />
+    </struct>
+
+    <struct name="CardCustomService">
+      <field name="serviceTypeId" type="int" mandatory="true" desc="Идентификатор службы" />
+      <field name="metaFields" type="MetaFields" mandatory="false" desc="Доп. информация" />
+      <field name="customFields" type="CustomFields" mandatory="false" desc="Список кастомных полей службы" />
+    </struct>
+
+    <struct name="MetaFields">
+      <field name="stateId" type="int" mandatory="false" desc="Идентификатор состояния кастомной службы" />
+      <field name="dateInvolve" type="DateTime" mandatory="false" desc="Дата привлечения кастомной службы" />
+    </struct>
+
+    <struct name="CustomFields">
+      <collection_field name="boolFields" type="List" internal_type="BoolField" mandatory="false"
+                        desc="Список логических полей" />
+      <collection_field name="intFields" type="List" internal_type="IntField" mandatory="false"
+                        desc="Список целочисленных полей" />
+      <collection_field name="stringFields" type="List" internal_type="StringField" mandatory="false"
+                        desc="Список строковых полей" />
+      <collection_field name="comboFields" type="List" internal_type="ComboField" mandatory="false"
+                        desc="Список полей с выпадающим списком" />
+      <collection_field name="dateTimeFields" type="List" internal_type="DateTimeField" mandatory="false"
+                        desc="Список полей с датой/временем" />
+      <collection_field name="tables" type="List" internal_type="Table" mandatory="false"
+                        desc="Список таблиц" />
+    </struct>
+
+    <struct name="BoolField">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="value" type="bool" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="IntField">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="value" type="int" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="StringField">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="value" type="string" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="ComboField">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+      <field name="value" type="int" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="DateTimeField">
+       <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона поля" />
+       <field name="value" type="DateTime" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="Table">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона таблицы" />
+      <collection_field name="boolColumns" type="List" internal_type="BoolColumn" mandatory="false"
+                        desc="Список столбцов с логическим значением" />
+      <collection_field name="intColumns" type="List" internal_type="IntColumn" mandatory="false"
+                        desc="Список столбцов с целочисленным значением" />
+      <collection_field name="stringColumns" type="List" internal_type="StringColumn" mandatory="false"
+                        desc="Список столбцов со строковым значением" />
+      <collection_field name="dateTimeColumns" type="List" internal_type="DateTimeColumn" mandatory="false"
+                        desc="Список столбцов с датой/временем" />
+      <collection_field name="comboColumns" type="List" internal_type="ComboColumn" mandatory="false"
+                        desc="Список столбцов с выпадающим списком" />
+    </struct>
+
+    <struct name="BoolColumn">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона ячейки столбца" />
+      <collection_field name="values" type="List" internal_type="BoolCell" mandatory="false"
+                        desc="Список значений стобца" />
+    </struct>
+
+    <struct name="BoolCell">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор ячейки" />
+      <field name="value" type="bool" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="StringColumn">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона ячейки столбца" />
+      <collection_field name="values" type="List" internal_type="StringCell" mandatory="false"
+                        desc="Список значений стобца" />
+    </struct>
+
+    <struct name="StringCell">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор ячейки" />
+      <field name="value" type="string" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="IntColumn">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона ячейки столбца" />
+      <collection_field name="values" type="List" internal_type="IntCell" mandatory="false"
+                        desc="Список значений стобца" />
+    </struct>
+
+    <struct name="IntCell">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор ячейки" />
+      <field name="value" type="int" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="DateTimeColumn">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона ячейки столбца" />
+      <collection_field name="values" type="List" internal_type="DateTimeCell" mandatory="false"
+                        desc="Список значений стобца" />
+    </struct>
+
+    <struct name="DateTimeCell">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор ячейки" />
+      <field name="value" type="DateTime" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="ComboColumn">
+      <field name="templateId" type="int" mandatory="true" desc="Идентификатор шаблона ячейки столбца" />
+      <collection_field name="values" type="List" internal_type="ComboCell" mandatory="false"
+                        desc="Список значений стобца" />
+    </struct>
+
+    <struct name="ComboCell">
+      <field name="id" type="int" mandatory="true" desc="Идентификатор ячейки" />
+      <field name="value" type="int" mandatory="false" desc="Значение" />
+    </struct>
+
+    <struct name="ServiceEvent">
+      <field name="serviceTypeId" type="int" mandatory="true" description="Идентификатор типа службы" />
+      <field name="opened" type="bool" mandatory="true" description="Открывал ли хотя бы один оператор службы карточку" />
+    </struct>
+
+    <struct name="MetaData">
+      <collection_field name="serviceEvents" type="List" internal_type="ServiceEvent" mandatory="false"
+                        desc="Список событий службы" />
+      <field name="replication" type="ReplicationMetaData" mandatory="false"
+             description="Метаданные репликации карточки" />
+    </struct>
+
+    <struct name="ReplicationTargetInfo">
+      <field name="replicationTargetId" type="int" mandatory="true" description="Id направления репликации" />
+      <field name="replicationTargetName" type="string" mandatory="false"
+             description="Наименование направления репликации" />
+      <field name="isDelivered" type="bool" mandatory="true" description="Статус доставки карточки по направлению" />
+    </struct>
+
+    <struct name="ReplicationMetaData">
+      <field name="isDelivered" type="bool" mandatory="true"
+             description="Статус доставки карточки по всем направлениям репликации" />
+      <collection_field name="targetsInfo" type="List" internal_type="ReplicationTargetInfo" mandatory="false"
+                        desc="Список информации о доставке по каждому направлению." />
+    </struct>
+
+    <struct name="RegionAdditionalInfo">
+      <field name="nId" type="int" mandatory="true" />
+      <field name="autocomplete" type="bool" mandatory="false" />
+    </struct>
+
+    <struct name="PhoneBookDictionary">
+      <field name="id" type="int" mandatory="true" description="Уникальный идентификатор записи в БД" />
+      <field name="regionId" type="int" mandatory="true" description="Уникальный идентификатор региона" />
+      <field name="commTypeId" type="int" mandatory="true" description="Уникальный идентификатор вида вызова" />
+      <field name="commPhoneId" type="int" mandatory="true" description="Уникальный идентификатор вида номера телефона" />
+      <field name="phoneNumber" type="string" mandatory="false" description="Номер телефона" />
+      <field name="deleted" type="bool" mandatory="false" description="Флаг, указывающий является ли запись удалённой" />
+    </struct>
+
+    <struct name="RegionData">
+      <field name="strRegistrationDepartment" type="string" mandatory="false"
+             fieldname="Подразделение регистрации происшествия" />
+      <field name="dtRegDate" type="DateTime" mandatory="false" fieldname="Дата регистрации происшествия" />
+      <field name="dtDepartmentTransfer" type="DateTime" mandatory="false" fieldname="Время передачи в подразделение" />
+      <field name="strDenialOfServiceReason" type="string" mandatory="false" fieldname="Причина отказа" />
+    </struct>
+
+    <struct name="MNISReaction">
+      <collection_field name="reaction" type="List" internal_type="MNISReactionItem" mandatory="false"
+                        description="Состояния реагирования службы на происшествие" />
+    </struct>
+
+    <struct name="MNISReactionItem">
+      <collection_field name="events" type="List" internal_type="MNISEvent" mandatory="false"
+                        description="События реагирования" />
+    </struct>
+
+    <struct name="MNISEvent">
+      <field name="resource" type="string" mandatory="false" description="Экипаж/бригада" />
+      <field name="eventType" type="En_MNISEventType" mandatory="false" description="Вид (статус) события" />
+      <field name="eventTime" type="DateTime" mandatory="false" description="Время наступления события" />
+      <field name="eventName" type="string" mandatory="false" description="Название события" />
+    </struct>
+
+    <enum name="En_MNISEventType">
+      <item name="Other" value="0" desc="Прочие статусы" />
+      <item name="Accepted" value="1" desc="Вызов принят" />
+      <item name="Departure" value="2" desc="Выезд" />
+      <item name="OnTheWay" value="3" desc="Экипаж (бригада) в дороге" />
+      <item name="WayIncedent" value="4" desc="Авария в дороге" />
+      <item name="TrafficDelay" value="5" desc="Задержка в дороге" />
+      <item name="Reject" value="6" desc="Отмена вызова" />
+      <item name="Redirect" value="7" desc="Перенаправление на другой вызов" />
+      <item name="Arrived" value="8" desc="Прибытие на место" />
+      <item name="Deployment" value="9" desc="Развертывание, рекогносцировка" />
+      <item name="Performance" value="10" desc="Выполнение экстренных мероприятий" />
+      <item name="Completed" value="11" desc="Экстренные мероприятия завершены" />
+      <item name="Undeployment" value="12" desc="Свертывание" />
+      <item name="Retuning" value="13" desc="Убытие на базу" />
+      <item name="Comeback" value="14" desc="Возвращение на базу" />
+      <item name="ArrivalToBase" value="15" desc="Прибытие на базу" />
+      <item name="Closed" value="16" desc="Реагирование завершено" />
+    </enum>
+
+    <struct name="Vehicle03Info">
+      <field name="vehicleId" type="string" mandatory="false" description="Идентификатор ТС 03" />
+      <field name="dtInvolve" type="DateTime" mandatory="false" description="Дата привлечения ТС 03" />
+    </struct>
+
+    <struct name="Vehicle01Info">
+      <field name="vehicleId" type="string" mandatory="false" description="Идентификатор ТС 01" />
+      <field name="latestEventTime" type="DateTime" mandatory="false"
+             description="Время наступления последнего события по этому ТС" />
+      <field name="latestEventType" type="En_MNISEventType" mandatory="false"
+             description="Вид (статус) последнего события по этому ТС" />
+    </struct>
+
+    <enum name="En_VehicleInfoSourceName">
+      <item name="MNIS" value="1" desc="МНИС" />
+      <item name="RNIS" value="2" desc="РНИС" />
+    </enum>
+
+    <struct name="VehicleArrival">
+      <field name="externalVehicleId" type="string" mandatory="false" description="Идентификатор ТС во внешней системе" />
+      <field name="currentLocation" type="GeoPoint" mandatory="false" description="Координаты ТС" />
+      <field name="estimatedTravelTimeMinutes" type="int" mandatory="false" description="Приблизительное время в пути" />
+      <field name="estimatedArrivalTime" type="DateTime" mandatory="false" description="Приблизительное время прибытия" />
+      <field name="stateRegNumber" type="string" mandatory="false" description="Регистрационный номер ТС" />
+    </struct>
+
+    <struct name="ArrivalInfo">
+      <collection_field name="vehiclesArrival" type="List" internal_type="VehicleArrival" mandatory="false"
+                        description="Список информации о местоположении ТС" />
+      <field name="destination" type="GeoPoint" mandatory="false" description="Координата пункта прибытия ТС" />
+    </struct>
+
+    <struct name="VehicleTrackInfo">
+      <field name="coords" type="GeoPoint" mandatory="false" description="Координата местоположения ТС" />
+      <field name="stateRegNumber" type="string" mandatory="false" description="Регистрационный номер ТС" />
+    </struct>
+
+    <enum name="MapType">
+      <item name="Protei" value="3" desc="Protei GEO server" />
+      <item name="IAC" value="5" desc="IAC GIS" />
+      <item name="ArcGIS" value="6" desc="ArcGIS rest API" />
+      <item name="ChromeBrowserPppur" value="7" desc="External map view with PPPUR integration by chrome webdriver" />
+    </enum>
+
+    <enum name="CallCenterProviderType">
+      <item name="NotSet" value="0" />
+      <item name="Protei" value="1" />
+      <item name="Avaya7" value="3" />
+      <item name="ProteiEACD3" value="4" />
+      <item name="EmergencyServer" value="5" />
+      <item name="GridBookServer" value="6" />
+      <item name="ProteiEACDWPServer" value="7" />
+    </enum>
+
+    <struct name="ConnectionInfo">
+      <field name="ActionUrl" type="string" mandatory="false" />
+      <field name="NotificationUrl" type="string" mandatory="false" />
+      <field name="NotificationWebSocketUrl" type="string" mandatory="false" />
+      <field name="ReportUrl" type="string" mandatory="false" />
+      <field name="Priority" type="int" mandatory="true" />
+      <field name="Attempts" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="MRSSettings">
+      <field name="Mrs" type="string" mandatory="false" />
+      <field name="RemotePath" type="string" mandatory="false" />
+      <field name="FtpUser" type="string" mandatory="false" />
+      <field name="FtpPassword" type="string" mandatory="false" />
+      <field name="CallIdFilter" type="string" mandatory="false" />
+      <field name="GetFileListTimeout" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="MapsSettings">
+      <field name="VideoPortalUserID" type="int" mandatory="false" />
+      <!--TODO: новая настройка для videoPortalUserID (вынести из MapsSettings)-->
+      <field name="CityName" type="string" mandatory="false" />
+      <field name="MapManufacturer" type="MapType" mandatory="true" />
+    </struct>
+
+    <struct name="MapTileUrl">
+      <field name="Url" type="string" mandatory="false" />
+      <field name="MapManufacturer" type="MapType" mandatory="false" />
+      <field name="HomeCity" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="CallCenterSettings">
+      <field name="CallCenterProvider" type="CallCenterProviderType" mandatory="true" />
+      <field name="Url" type="string" mandatory="false" />
+      <field name="RunProcessWaitTimeout" type="int" mandatory="false" />
+      <field name="PollingInterval" type="int" mandatory="false" />
+    </struct>
+
+    <struct name="CallCenterParameter">
+      <field name="PlaySpeakers" type="bool" mandatory="false" desc="Проигрывать звук в динамики/колонки" />
+      <field name="PlayHeadPhones" type="bool" mandatory="false" desc="Проигрывать звук в наушники/гарнитуру" />
+      <field name="EmergencyModeEnable" type="bool" mandatory="false" desc="Возможность работы в 'Аварийном режиме'" />
+      <field name="WaitSecondsBeforeEmergencyMode" type="int" mandatory="false"
+             desc="Длительность ожидания (секунды), до переключения из 'Режима работы без РМО' в 'Аварийный режим'" />
+    </struct>
+
+    <struct name="Settings">
+      <field name="MapsSettings" type="MapsSettings" mandatory="false" />
+      <field name="CallCenterSettings" type="CallCenterSettings" mandatory="false" />
+      <field name="AcdTerminalWindowStyleRunMode" type="string" mandatory="false" />
+      <collection_field name="ConnectionInfos" type="List" internal_type="ConnectionInfo" mandatory="false" />
+      <field name="User03Role" type="En_User03Role" mandatory="false" />
+      <field name="ActualDepartmentID" type="int" mandatory="false" />
+      <field name="IsCallCenterUsed" type="bool" mandatory="true" />
+      <field name="NoCardCreationSiren" type="bool" mandatory="true" />
+      <field name="IsCard112ReadOnly" type="bool" mandatory="true" />
+      <collection_field name="ForcesAvailableDepartments" type="List" internal_type="int" mandatory="false" />
+      <field name="CityID" type="int" mandatory="false" />
+      <field name="DistrictID" type="int" mandatory="false" />
+      <field name="BlockFilterCityAndDistrict" type="bool" mandatory="false" />
+      <field name="IsReadOnlyMode" type="bool" mandatory="true" />
+      <field name="IsMap" type="bool" mandatory="true" />
+      <field name="CityReadOnly" type="bool" mandatory="true" />
+      <field name="ShowNonTransferedCardsForDispatcher03" type="bool" mandatory="true" />
+      <field name="Installation" type="string" mandatory="false" />
+      <field name="ShowConsultMenu" type="bool" mandatory="false" />
+      <field name="RoleSettings" type="RoleSettings" mandatory="false" />
+      <field name="SourceZoneId" type="int" mandatory="false" />
+      <field name="SirenName" type="string" mandatory="false" />
+      <collection_field name="AdditionalCities" type="List" internal_type="int" mandatory="false" />
+    </struct>
+
+</namespace>
+</descriptions>

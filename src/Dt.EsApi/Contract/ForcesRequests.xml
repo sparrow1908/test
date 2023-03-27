@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<descriptions>
+<namespace name="ServerLogic.Requests.ForcesGroup">
+
+    <struct name="GetCurrentDepartmentStates">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="globalId" type="string" mandatory="true" />
+      <field name="nEmergencyCardID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="GetDepartmentStateHistory">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="globalId" type="string" mandatory="true" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <field name="departmentID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="IncludeDepartment">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="globalId" type="string" mandatory="true" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <field name="departmentID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="NewDepartmentState">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <field name="departmentID" type="int" mandatory="true" />
+      <field name="stateID" type="int" mandatory="true" />
+      <field name="dtAction" type="DateTime" mandatory="false" />
+      <field name="strMessage" type="string" mandatory="false" />
+    </struct>
+
+    <struct name="RemoveMessage">
+      <field name="messageID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="GetMessages">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+    </struct>
+
+    <struct name="NewMessage">
+      <field name="serviceTypeId" type="int" mandatory="false" />
+      <field name="emergencyCardID" type="int" mandatory="true" />
+      <field name="departmentID" type="int" mandatory="false" />
+      <field name="strMessage" type="string" mandatory="true" />
+      <field name="strRole" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="NewBroadcastMessage">
+      <field name="strMessage" type="string" mandatory="true" />
+      <collection_field name="targetDepartments" type="List" internal_type="int" mandatory="true" />
+      <collection_field name="serviceTypes" type="List" internal_type="int" mandatory="true" />
+    </struct>
+
+    <struct name="UpdateMessage">
+      <field name="messageID" type="int" mandatory="true" />
+      <field name="dtCreate" type="DateTime" mandatory="true" />
+      <field name="strMessage" type="string" mandatory="true" />
+    </struct>
+
+    <struct name="GetMonitoringSystemEngines" />
+
+</namespace>
+</descriptions>

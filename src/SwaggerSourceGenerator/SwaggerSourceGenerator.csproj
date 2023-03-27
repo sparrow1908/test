@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.1;net48</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+        <!-- Generates a package at build -->
+        <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <PackageId>Protei.SwaggerSourceGenerator</PackageId>
+        <Authors>Protei</Authors>
+        <Company>Protei</Company>
+        <Description>OpenAPI-CSharp source generator.</Description>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\icon.png" Pack="True" PackagePath="" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageDirectory>$(MSBuildProjectDirectory)\..\..\packages</PackageDirectory>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageIconUrl />
+        <BuildNumber Condition="'$(BuildNumber)' == ''">0</BuildNumber>
+        <Version>1.0.0.$(BuildNumber)</Version>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <NuspecFile>SwaggerSourceGenerator.nuspec</NuspecFile>
+        <NuspecProperties>$(NuspecProperties);version=$(Version)</NuspecProperties>
+        <NuspecProperties>$(NuspecProperties);id=$(PackageId)</NuspecProperties>
+        <NuspecProperties>$(NuspecProperties);author=$(Authors)</NuspecProperties>
+        <NuspecProperties>$(NuspecProperties);Description=$(Description)</NuspecProperties>
+        <NuspecProperties>$(NuspecProperties);icon=$(PackageIcon)</NuspecProperties>
+        <NuspecProperties>$(NuspecProperties);configuration=$(Configuration)</NuspecProperties>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- pack the props files -->
+        <Content Include="Build\Protei.SwaggerSourceGenerator.props" PackagePath="build\" />
+        <Content Include="BuildMultiTargeting\Protei.SwaggerSourceGenerator.props" PackagePath="buildMultiTargeting\" />
+        <Content Include="Protei.SwaggerSourceGenerator.targets" PackagePath="build\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Generator dependencies -->
+        <PackageReference Include="NSwag.CodeGeneration.CSharp" Version="13.16.1" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" />
+        <PackageReference Include="Microsoft.Build.Framework" Version="16.3.0" />
+        <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+        <!-- marks all packages as 'local only' so they don't end up in the nuspec -->
+        <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>SwaggerSourceGenerator.Tests</_Parameter1>
+        </AssemblyAttribute>
+
+        <!-- Make assembly usable for Moq, so Moq is able to instanciate objects of 'internal' classes -->
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+</Project>
