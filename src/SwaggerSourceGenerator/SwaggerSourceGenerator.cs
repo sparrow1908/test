@@ -22,7 +22,7 @@ namespace SwaggerSourceGenerator
             OpenApiDocument document;
             using (var webClient = new System.Net.WebClient())
             {
-                var loadDocumentTask = OpenApiDocument.FromJsonAsync(webClient.DownloadString("https://youtrack.protei.ru/api/openapi.json"));
+                var loadDocumentTask = OpenApiDocument.FromJsonAsync(webClient.DownloadString("https://petstore3.swagger.io/api/v3/openapi.json"));
                 var cts = new CancellationTokenSource();
                 cts.CancelAfter(TimeSpan.FromSeconds(10));
                 System.Threading.Tasks.Task.WaitAny(new System.Threading.Tasks.Task[] { loadDocumentTask }, cts.Token);
