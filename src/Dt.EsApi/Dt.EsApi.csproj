@@ -110,7 +110,9 @@
     <Compile Include="Enums\User03Role.cs" />
     <Compile Include="ICloneable.cs" />
     <Compile Include="JsonComparer.cs" />
+    <Compile Include="Mapper\IMapperFabric.cs" />
     <Compile Include="Models\AddressObjectModel.cs" />
+    <Compile Include="Models\Card04Model.cs" />
     <Compile Include="Models\CardListResultModel.cs" />
     <Compile Include="Models\CardListItemStateModel.cs" />
     <Compile Include="Models\CardMarkerModel.cs" />
@@ -187,6 +189,9 @@
     <None Include="generate.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>10.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers">
       <Version>7.0.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

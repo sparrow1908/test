@@ -6,6 +6,45 @@ using ServerLogic.Types;
 
 namespace Dt.EsApi.Mapper
 {
+    public record SnapshotModel
+    {
+        public int Id { get; init; }
+        public string Modifier { get; init; }
+        public DateTime Modified { get; init; }
+        public int CardId { get; init; }
+        public int CardTypeId { get; init; }
+        public int Version { get; init; }
+        public string? Modifications { get; init; }
+    }
+
+    public record UpdateDuplicateStatusModel
+    {
+        public int EmergencyCardId { get; set; }
+
+        public int? OriginalCardId { get; set; }
+
+        public string GlobalId { get; set; }
+
+        public string OriginalGlobalId { get; set; }
+
+        public DuplicateStatus? DuplicateStatus { get; set; }
+
+        public UpdateDuplicateStatusModel(int emergencyCardId, int? originalCardId, string globalId,
+            string originalGlobalId, DuplicateStatus? duplicateStatus)
+        {
+            EmergencyCardId = emergencyCardId;
+            OriginalCardId = originalCardId;
+            GlobalId = globalId;
+            OriginalGlobalId = originalGlobalId;
+            DuplicateStatus = duplicateStatus;
+        }
+    }
+
+    public enum DuplicateStatus
+    {
+        Duplicate = 2,
+    }
+
     public interface IDtoMapper
     {
         TDestination Map<TSource, TDestination>(TSource source);
