@@ -1,1523 +1,1096 @@
-﻿using System;
+﻿using ServerLogic.Types;
+using System;
 using System.Collections.Generic;
 
 #nullable enable
 namespace Dt.EsApi.Models
 {
-
     public record CardsContainerModel
     {
         ///<summary> РљР°СЂС‚РѕС‡РєР° 112 </summary>
-        public Card112Model card112 { get; set; }
-
+        public Card112Model Card112 { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° 01 </summary>
-        public Card01Model? card01 { get; set; }
-
+        public Card01Model? Card01 { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° 02 </summary>
-        public Card02Model? card02 { get; set; }
-
+        public Card02Model? Card02 { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° 03 </summary>
-        public Card03Model? card03 { get; set; }
-
+        public Card03Model? Card03 { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° 04 </summary>
-        public Card04Model? card04 { get; set; }
-
+        public Card04Model? Card04 { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° AT </summary>
-        public CardATModel? cardAT { get; set; }
-
+        public CardATModel? CardAT { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° Р•Р”Р”РЎ/Р–РљРҐ </summary>
-        public CardCommServModel? cardCommServ { get; set; }
-
-
+        public CardCommServModel? CardCommServ { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєРё РєР°СЃС‚РѕРјРЅС‹С… СЃР»СѓР¶Р± </summary> 
-        public List<CardCustomServiceModel>? customServicesCards { get; set; }
+        public List<CardCustomServiceModel>? CustomServicesCards { get; set; }
     }
-
     public record Card112Model
     {
         ///<summary> РћР±С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </summary>
-        public CardGeneralData? m_GeneralData { get; set; }
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ </summary>
-        public DateTime dtCreate { get; set; }
-
+        public DateTime Create { get; set; }
         ///<summary> ID РІС‹Р·РѕРІР° </summary>
-        public long? nCallId { get; set; }
-
+        public long? CallId { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ Id РІС‹Р·РѕРІР° </summary>
-        public string? extCallId { get; set; }
-
+        public string? ExtCallId { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ Id РІС‹Р·РѕРІР° </summary>
-        public string? extCallId2 { get; set; }
-
+        public string? ExtCallId2 { get; set; }
         ///<summary> РќР°Р±СЂР°РЅРЅС‹Р№ РЅРѕРјРµСЂ </summary>
-        public string? strCdPN { get; set; }
-
+        public string? CdPN { get; set; }
         ///<summary> РќРѕРјРµСЂ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strCgPN { get; set; }
-
+        public string? CgPN { get; set; }
         ///<summary> РљР°РєР°СЏ-С‚Рѕ РёРЅС‚РµРіСЂР°С†РёСЏ СЃ 04 </summary>
         public int? Category { get; set; }
-
         ///<summary> РўРёРї РІС‹Р·РѕРІР° </summary>
         public int? CallTypeId { get; set; }
-
         ///<summary> РўРёРї РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
         public int? IncidentTypeId { get; set; }
-
         ///<summary> РЈСЂРѕРІРµРЅСЊ СѓРіСЂРѕР·С‹ Р§РЎ </summary>
-        public ImportanceLevel? ImportanceLevelId { get; set; }
-
+        public ImportanceLevelModel? ImportanceLevelId { get; set; }
         ///<summary> Р’Р»Р°РґРµР»РµС† С‚РµР»РµС„РѕРЅРЅРѕРіРѕ РЅРѕРјРµСЂР° </summary>
-        public string? strPhoneOwner { get; set; }
-
+        public string? PhoneOwner { get; set; }
         ///<summary> РђРґСЂРµСЃ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strPhoneAddress { get; set; }
-
+        public string? PhoneAddress { get; set; }
         ///<summary> РЎРѕР·РґР°С‚РµР»СЊ </summary>
-        public string? strCreator { get; set; }
-
+        public string? Creator { get; set; }
         ///<summary> Р Р°Р№РѕРЅ </summary>
-        public int? nCityID { get; set; }
-
+        public int? CityID { get; set; }
         ///<summary> РћРєСЂСѓРі </summary>
-        public int? nDistrictID { get; set; }
-
+        public int? DistrictID { get; set; }
         ///<summary> РЈР»РёС†Р° </summary>
-        public int? nStreetID { get; set; }
-
+        public int? StreetID { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ СѓР»РёС†Р° </summary>
-        public int? nAdditionalStreetId { get; set; }
-
+        public int? AdditionalStreetId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё 112 </summary>
-        public int? nCardSyntheticStateId { get; set; }
-
+        public int? CardSyntheticStateId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё 01 </summary>
-        public int? nCard01SyntheticStateId { get; set; }
-
+        public int? Card01SyntheticStateId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё 02 </summary>
-        public int? nCard02SyntheticStateId { get; set; }
-
+        public int? Card02SyntheticStateId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё 03 </summary>
-        public int? nCard03SyntheticStateId { get; set; }
-
+        public int? Card03SyntheticStateId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё 04 </summary>
-        public int? nCard04SyntheticStateId { get; set; }
-
+        public int? Card04SyntheticStateId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё Р•Р”Р”РЎ </summary>
-        public int? nCardCommServSyntheticStateId { get; set; }
-
+        public int? CardCommServSyntheticStateId { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё РђРў </summary>
-        public int? nCardATSyntheticStateId { get; set; }
-
+        public int? CardATSyntheticStateId { get; set; }
         ///<summary> РќРѕРјРµСЂ РґРѕРјР° </summary>
-        public string? strBuilding { get; set; }
-
+        public string? Building { get; set; }
         ///<summary> РљРѕСЂРїСѓСЃ </summary>
-        public string? strCorps { get; set; }
-
+        public string? Corps { get; set; }
         ///<summary> РљРІР°СЂС‚РёСЂР° </summary>
-        public string? strRoom { get; set; }
-
+        public string? Room { get; set; }
         ///<summary> РђРґСЂРµСЃРЅС‹Р№ СѓС‡Р°СЃС‚РѕРє </summary>
-        public string? strAddressStrip { get; set; }
-
+        public string? AddressStrip { get; set; }
         ///<summary> Р­С‚Р°Р¶РЅРѕСЃС‚СЊ </summary>
-        public string? strStoreys { get; set; }
-
+        public string? Storeys { get; set; }
         ///<summary> РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strCallerContactPhone { get; set; }
-
+        public string? CallerContactPhone { get; set; }
         ///<summary> Р­С‚Р°Р¶ </summary>
-        public int? nFloor { get; set; }
-
+        public int? Floor { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РѕР±СЉРµРєС‚Сѓ </summary>
-        public string? strAdditionalLocationInfo { get; set; }
-
+        public string? AdditionalLocationInfo { get; set; }
         ///<summary> РџРѕРґСЉРµР·Рґ </summary>
-        public string? strEntrance { get; set; }
-
+        public string? Entrance { get; set; }
         ///<summary> РљРѕРґ РґРѕРјРѕС„РѕРЅР° РЅР° РїРѕРґСЉРµР·РґРµ </summary>
-        public string? strEntranceCode { get; set; }
-
+        public string? EntranceCode { get; set; }
         ///<summary> РћРїРёСЃР°РЅРёРµ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public string? strIncidentDescription { get; set; }
-
+        public string? IncidentDescription { get; set; }
         ///<summary> РРјСЏ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantName { get; set; }
-
+        public string? DeclarantName { get; set; }
         ///<summary> Р¤Р°РјРёР»РёСЏ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantLastName { get; set; }
-
+        public string? DeclarantLastName { get; set; }
         ///<summary> РћС‚С‡РµСЃС‚РІРѕ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantMiddleName { get; set; }
-
+        public string? DeclarantMiddleName { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public int? nDeclarantStatusId { get; set; }
-
+        public int? DeclarantStatusId { get; set; }
         ///<summary> РђРґСЂРµСЃ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantAddress { get; set; }
-
+        public string? DeclarantAddress { get; set; }
         ///<summary> Р“РѕСЂРѕРґ/РѕР±Р». Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public int? nDeclarantCityId { get; set; }
-
+        public int? DeclarantCityId { get; set; }
         ///<summary> РћРєСЂСѓРі Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public int? nDeclarantDistrictId { get; set; }
-
+        public int? DeclarantDistrictId { get; set; }
         ///<summary> id СЂР°Р№РѕРЅР° Р·Р°СЏРІРёС‚РµР»СЏ </summary>
-        public int? nDeclarantLocalDistrictId { get; set; }
-
+        public int? DeclarantLocalDistrictId { get; set; }
         ///<summary> РЈР»РёС†Р° Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public int? nDeclarantStreetId { get; set; }
-
+        public int? DeclarantStreetId { get; set; }
         ///<summary> РќРѕРјРµСЂ РґРѕРјР° Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantBuildingNumber { get; set; }
-
+        public string? DeclarantBuildingNumber { get; set; }
         ///<summary> РљРѕСЂРїСѓСЃ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantCorps { get; set; }
-
+        public string? DeclarantCorps { get; set; }
         ///<summary> РљРІР°СЂС‚РёСЂР° Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public string? strDeclarantFlat { get; set; }
-
+        public string? DeclarantFlat { get; set; }
         ///<summary> РўРёРї Р§РЎ </summary>
-        public int? nCCMC_TypeId { get; set; }
-
+        public int? CCMC_TypeId { get; set; }
         ///<summary> РџРѕРґРєР»СЋС‡РµРЅР° СЃР»СѓР¶Р±Р° 01 </summary>
-        public bool lHasCard01 { get; set; }
-
+        public bool HasCard01 { get; set; }
         ///<summary> РџРѕРґРєР»СЋС‡РµРЅР° СЃР»СѓР¶Р±Р° 02 </summary>
-        public bool lHasCard02 { get; set; }
-
+        public bool HasCard02 { get; set; }
         ///<summary> РџРѕРґРєР»СЋС‡РµРЅР° СЃР»СѓР¶Р±Р° 03 </summary>
-        public bool lHasCard03 { get; set; }
-
+        public bool HasCard03 { get; set; }
         ///<summary> РџРѕРґРєР»СЋС‡РµРЅР° СЃР»СѓР¶Р±Р° 04 </summary>
-        public bool lHasCard04 { get; set; }
-
+        public bool HasCard04 { get; set; }
         ///<summary> РџРѕРґРєР»СЋС‡РµРЅР° СЃР»СѓР¶Р±Р° AT </summary>
-        public bool lHasCardAT { get; set; }
-
+        public bool HasCardAT { get; set; }
         ///<summary> РџРѕРґРєР»СЋС‡РµРЅР° СЃР»СѓР¶Р±Р° Р•Р”Р”РЎ </summary>
-        public bool lHasCardCommServ { get; set; }
-
+        public bool HasCardCommServ { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РґСѓР±Р»РёСЂРѕРІР°РЅРёСЏ, РѕРїСЂРµРґРµР»РµРЅРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј </summary>
-        public int? nDuplicateUserStatus { get; set; }
-
+        public int? DuplicateUserStatus { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РґСѓР±Р»РёСЂРѕРІР°РЅРёСЏ, РѕРїСЂРµРґРµР»РµРЅРЅС‹Р№ СЃРёСЃС‚РµРјРѕР№ </summary>
-        public int? nDuplicateSystemStatus { get; set; }
-
+        public int? DuplicateSystemStatus { get; set; }
         ///<summary> id РІРѕР·РјРѕР¶РЅРѕРіРѕ РѕСЂРёРіРёРЅР°Р»Р° </summary>
-        public int? nOriginalCardId { get; set; }
-
+        public int? OriginalCardId { get; set; }
         ///<summary> GUID РІРѕР·РјРѕР¶РЅРѕРіРѕ РѕСЂРёРіРёРЅР°Р»Р° </summary>
-        public string? originalGlobalId { get; set; }
-
+        public string? OriginalGlobalId { get; set; }
         ///<summary> РњСѓР»СЊС‚РёР·РѕРЅР°Р»СЊРЅРѕСЃС‚СЊ </summary>
-        public bool? isMultizone { get; set; }
-
+        public bool? IsMultizone { get; set; }
         ///<summary> Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ Р·РІРѕРЅСЏС‰РµРіРѕ </summary>
-        public DateTime? dtDeclarantDateOfBirth { get; set; }
-
+        public DateTime? DeclarantDateOfBirth { get; set; }
         ///<summary> Р’РѕР·СЂР°СЃС‚ Р·РІРѕРЅСЏС‰РµРіРѕ (Р»РµС‚) </summary>
-        public int? nAgeYear { get; set; }
-
+        public int? AgeYear { get; set; }
         ///<summary> РћР±СЉРµРєС‚ </summary>
-        public int? nObjectId { get; set; }
-
+        public int? ObjectId { get; set; }
         ///<summary> РќРѕРјРµСЂ СЂРµРІРёР·РёРё РєР°СЂС‚РѕС‡РєРё </summary>
-        public int? revision { get; set; }
-
+        public int? Revision { get; set; }
         ///<summary> РќРѕРјРµСЂ СЏС‡РµР№РєРё Tele2 </summary>
-        public long? cellId { get; set; }
-
+        public long? CellId { get; set; }
         ///<summary> РљРѕРѕСЂРґРёРЅР°С‚Р°: (С€РёСЂРѕС‚Р°) </summary>
-        public double? geoLatitude { get; set; }
-
+        public double? GeoLatitude { get; set; }
         ///<summary> РљРѕРѕСЂРґРёРЅР°С‚Р° (РґРѕР»РіРѕС‚Р°) </summary>
-        public double? geoLongitude { get; set; }
-
+        public double? GeoLongitude { get; set; }
         ///<summary> РћРїРёСЃР°РЅРёРµ РіРµРѕ РїРѕР·РёС†РёРё </summary>
-        public string? geoRegionDesc { get; set; }
-
+        public string? GeoRegionDesc { get; set; }
         ///<summary> РљРѕРѕСЂРґРёРЅР°С‚Р° Р·Р°СЏРІРёС‚РµР»СЏ: (С€РёСЂРѕС‚Р°) </summary>
-        public double? declarantGeoLatitude { get; set; }
-
+        public double? DeclarantGeoLatitude { get; set; }
         ///<summary> РљРѕРѕСЂРґРёРЅР°С‚Р° Р·Р°СЏРІРёС‚РµР»СЏ (РґРѕР»РіРѕС‚Р°) </summary>
-        public double? declarantGeoLongitude { get; set; }
-
+        public double? DeclarantGeoLongitude { get; set; }
         ///<summary> РўРёРї РіРµРѕ РїРѕР·РёС†РёРё Р·Р°СЏРІРёС‚РµР»СЏ </summary>
-        public string? declarantGeoRegionDesc { get; set; }
-
+        public string? DeclarantGeoRegionDesc { get; set; }
         ///<summary> РЈР»РёС†Р° РЅРµРїСЂРѕС€РµРґС€Р°СЏ РІР°Р»РёРґР°С†РёСЋ </summary>
-        public string? invalidStreet { get; set; }
-
+        public string? InvalidStreet { get; set; }
         ///<summary> XML РґР»СЏ РёРЅС‚РµРіСЂР°С†РёРё СЃ EraGlonass </summary>
-        public string? eraIntegrationXml { get; set; }
-
+        public string? EraIntegrationXml { get; set; }
         ///<summary> РўРµРєСЃС‚РѕРІС‹Р№ Р°РґСЂРµСЃ </summary>
-        public string? strTextAddress { get; set; }
-
+        public string? TextAddress { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ РєР°РјРµСЂ РІРёРґРµРѕРїРѕСЂС‚Р°Р»Р° Р±Р»РёР¶Р°Р№С€РёС… Рє Р·Р°СЏРІРёС‚РµР»СЋ </summary>
-        public string? callerNearCameras { get; set; }
-
+        public string? CallerNearCameras { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ Р·Р°РІРµСЂС€РµРЅРёСЏ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtComplete { get; set; }
-
+        public DateTime? Complete { get; set; }
         ///<summary> id СЂРµРіРёРѕРЅР° </summary>
-        public int? nRegionId { get; set; }
-
+        public int? RegionId { get; set; }
         ///<summary> id СЂР°Р№РѕРЅР° </summary>
-        public int? nLocalDistrictId { get; set; }
-
+        public int? LocalDistrictId { get; set; }
         ///<summary> Р’Р»РѕР¶РµРЅРёСЏ </summary>
-        public string? attachmentList { get; set; }
-
+        public string? AttachmentList { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°СЂСѓС€РµРЅРёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° </summary>
-        public DateTime? dtDeadline { get; set; }
-
+        public DateTime? Deadline { get; set; }
         ///<summary> РЇР·С‹Рє РѕР±С‰РµРЅРёСЏ </summary>
-        public int? nLanguageId { get; set; }
-
+        public int? LanguageId { get; set; }
         ///<summary> Р СЏРґРѕРј </summary>
-        public bool isNear { get; set; }
-
+        public bool IsNear { get; set; }
         ///<summary> РљРј./Рј. </summary>
-        public string? strKm { get; set; }
-
+        public string? Km { get; set; }
         ///<summary> РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕСЃС‚СЂР°РґР°РІС€РёС… </summary>
-        public int? nCasualties { get; set; }
-
+        public int? Casualties { get; set; }
         ///<summary> РЈРіСЂРѕР·Р° Р»СЋРґСЏРј </summary>
-        public bool lHumanThreat { get; set; }
-
+        public bool HumanThreat { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·РѕРЅС‹ РІ РєРѕС‚РѕСЂРѕР№ Р±С‹Р»Р° СЃРѕР·РґР°РЅР° РєР°СЂС‚РѕС‡РєР° </summary>
-        public int? sourceZoneId { get; set; }
-
+        public int? SourceZoneId { get; set; }
         ///<summary> GUID РєР°СЂС‚РѕС‡РєРё </summary>
-        public string? globalId { get; set; }
-
+        public string? GlobalId { get; set; }
         ///<summary> Р¤РРћ РѕРїРµСЂР°С‚РѕСЂР° </summary>
-        public string? strOperatorName { get; set; }
-
+        public string? OperatorName { get; set; }
         ///<summary> Р’Р°Р¶РЅР°СЏ </summary>
-        public bool? lPriority { get; set; }
-
+        public bool? Priority { get; set; }
         ///<summary> РЎРёСЃС‚РµРјР° РїРѕСЃР»РµРґРЅРµР№ РјРѕРґРёС„РёС†РёСЂРѕРІР°РІС€Р°СЏ РєР°СЂС‚РѕС‡РєСѓ </summary>
-        public string? strLatestSys { get; set; }
-
+        public string? LatestSys { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєР°СЂС‚РѕС‡РєРё Р­Р Рђ-Р“Р›РћРќРђРЎРЎ </summary>
-        public string? strEraCardId { get; set; }
-
+        public string? EraCardId { get; set; }
         ///<summary> РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? callDuration { get; set; }
-
+        public int? CallDuration { get; set; }
         ///<summary> Р РµР·СѓР»СЊС‚Р°С‚ Р·РІРѕРЅРєР° </summary>
-        public CallStatus? callStatus { get; set; }
-
+        public CallStatusModel? CallStatus { get; set; }
         ///<summary> P-Visited-Network-Id </summary>
-        public string? visitedNetworkId { get; set; }
-
+        public string? VisitedNetworkId { get; set; }
         ///<summary> РЈС‡РµР±РЅР°СЏ </summary>
-        public bool lTestCard { get; set; }
-
+        public bool TestCard { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РїРѕР»СЏ </summary>
-        public string? extendedData { get; set; }
-
+        public string? ExtendedData { get; set; }
         ///<summary> РРЅС„РѕСЂРјР°С†РёСЏ РґР»СЏ РјР°СЂС€СЂСѓС‚РёР·Р°С†РёРё РїРµСЂРµР°РґСЂРµСЃРѕРІР°РЅРЅРѕРіРѕ РІС‹Р·РѕРІР° </summary>
-        public string? callRoutingTag { get; set; }
-
+        public string? CallRoutingTag { get; set; }
         ///<summary> РўРёРї РёСЃС‚РѕС‡РЅРёРєР° </summary>
-        public int? nSourceTypeId { get; set; }
-
+        public int? SourceTypeId { get; set; }
         ///<summary> externalId2 </summary>
-        public string? externalId2 { get; set; }
-
+        public string? ExternalId2 { get; set; }
         ///<summary> РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РёСЃС‚РѕС‡РЅРёРєРµ </summary>
-        public string? strSourceTypeInfo { get; set; }
-
+        public string? SourceTypeInfo { get; set; }
         ///<summary> РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЂР°СЃРїСЂРµРґРµР»СЏС‚СЊ РєР°СЂС‚РѕС‡РєСѓ РЅР° РѕРїРµСЂР°С‚РѕСЂР° </summary>
-        public bool? autoDistribute { get; set; }
-
+        public bool? AutoDistribute { get; set; }
         ///<summary> РЇРІР»СЏРµС‚СЃСЏ Р»Рё РєР°СЂС‚РѕС‡РєР° С‡РµСЂРЅРѕРІРёРєРѕРј </summary>
-        public bool? draft { get; set; }
-
+        public bool? Draft { get; set; }
         ///<summary> metadata РїРѕ РєР°СЂС‚РѕС‡РєРµ </summary>
-        public MetaDataModel? metadata { get; set; }
-
+        public MetaDataModel? Metadata { get; set; }
         ///<summary> РљРѕРЅС‚СЂРѕР»СЊ </summary>
-        public bool? control { get; set; }
-
+        public bool? Control { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‡Р°С‚Р° </summary>
         public string? ChatId { get; set; }
-
         ///<summary> РљР°СЂС‚РѕС‡РєР° Р±С‹Р»Р° РёР·РјРµРЅРµРЅР° РїРѕСЃР»Рµ РїРµСЂРІРѕРіРѕ СЃРѕС…СЂР°РЅРµРЅРёСЏ </summary>
-        public bool? wasChangedAfterFirstSave { get; set; }
-
+        public bool? WasChangedAfterFirstSave { get; set; }
         ///<summary> РќРѕРјРµСЂ СЃС‚СЂРѕРµРЅРёСЏ </summary>
-        public string? strStructure { get; set; }
-
+        public string? Structure { get; set; }
         ///<summary> РќРѕРјРµСЂ СЃС‚СЂРѕРµРЅРёСЏ РІ Р°РґСЂРµСЃРµ Р·Р°СЏРІРёС‚РµР»СЏ </summary>
-        public string? strDeclarantStructure { get; set; }
-
+        public string? DeclarantStructure { get; set; }
         ///<summary> Р’С‹Р·РѕРІС‹, РїСЂРёРІСЏР·Р°РЅРЅС‹Рµ Рє РєР°СЂС‚РѕС‡РєРµ </summary> 
-        public List<CallHistoryItemModel>? callHistory { get; set; }
-
+        public List<CallHistoryItemModel>? CallHistory { get; set; }
         ///<summary> РЎРµСЂРІРёСЃС‹, РЅР° РєРѕС‚РѕСЂС‹Рµ РЅРµ СѓРґР°Р»РѕСЃСЊ РїРµСЂРµРґР°С‚СЊ РєР°СЂС‚РѕС‡РєСѓ </summary> 
-        public List<ReplicationTargetModel>? failedReplicationTargets { get; set; }
-
-        ///<summary> РЎРµСЂРІРёСЃС‹ РЅР° РєРѕС‚РѕСЂС‹Рµ СѓРґР°Р»РѕСЃСЊ РїРµСЂРµРґР°С‚СЊ РєР°СЂС‚РѕС‡РєСѓ </summary> 
-        public List<ReplicationTargetModel>? succeededReplicationTargets { get; set; }
-
+        public List<ReplicationTargetModel>? FailedReplicationTargets { get; set; }
+        ///<summary> РЎРµСЂРІРёСЃС‹ РЅР° РєРѕС‚РѕСЂС‹Рµ СѓРґР°Р»РѕСЃСЊ РїРµСЂРµРґР°С‚СЊ РєР°СЂС‚РѕС‡РєСѓ </summary>        
+        public List<ReplicationTargetModel>? SucceededReplicationTargets { get; set; }
         ///<summary> РћС‚РґРµР»РµРЅРёСЏ Р–РљРҐ </summary> 
-        public List<int>? directCommServDepartments { get; set; }
-
+        public List<int>? DirectCommServDepartments { get; set; }
         ///<summary> РџСЂРёРІР»РµС‡С‘РЅРЅС‹Рµ РєР°СЃС‚РѕРјРЅС‹Рµ СЃР»СѓР¶Р±С‹ </summary> 
-        public List<CustomServiceModel>? customServices { get; set; }
+        public List<CustomServiceModel>? CustomServices { get; set; }
     }
-
     public record Card01Model
     {
-
         ///<summary> РћР±С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </summary>
-        public CardGeneralData? m_GeneralData { get; set; }
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> Р”Р°РЅРЅС‹Рµ Рѕ РІР»Р°РґРµР»СЊС†Рµ РѕР±СЉРµРєС‚Р° </summary>
-        public string? strObjectOwner { get; set; }
-
+        public string? ObjectOwner { get; set; }
         ///<summary> Р’РёРґ РїРѕР¶Р°СЂРЅРѕР№ РѕС…СЂР°РЅС‹ </summary>
-        public int? nFirePreventionTypeID { get; set; }
-
+        public int? FirePreventionTypeID { get; set; }
         ///<summary> в„– РєР°СЂС‚РѕС‡РєРё РЈРџ </summary>
-        public string? strInternalCardNumber { get; set; }
-
+        public string? InternalCardNumber { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїРѕРґР°С‡Рё РїРµСЂРІРѕРіРѕ СЃС‚РІРѕР»Р° (РІ РјРёРЅСѓС‚Р°С…) </summary>
-        public int? firstFireBarrel { get; set; }
-
+        public int? FirstFireBarrel { get; set; }
         ///<summary> Р Р°СЃС…РѕРґ РІРѕРґС‹ (РІ Р»РёС‚СЂР°С…) </summary>
-        public int? waterConsumption { get; set; }
-
+        public int? WaterConsumption { get; set; }
         ///<summary> Р’РѕРґРѕРёСЃС‚РѕС‡РЅРёРє </summary>
-        public int? nWaterSourceID { get; set; }
-
+        public int? WaterSourceID { get; set; }
         ///<summary> РЈС‰РµСЂР± </summary>
-        public int? damageCost { get; set; }
-
+        public int? DamageCost { get; set; }
         ///<summary> РЎРїР°СЃРµРЅРѕ РјР°С‚. С†РµРЅРЅРѕСЃС‚РµР№ </summary>
-        public int? savedCost { get; set; }
-
+        public int? SavedCost { get; set; }
         ///<summary> РћРїРµСЂР°С‚РёРІРЅС‹Р№ РёРЅС‚РµСЂРµСЃ </summary>
-        public bool policeInterest { get; set; }
-
+        public bool PoliceInterest { get; set; }
         ///<summary> РЎРјРµРЅР° </summary>
-        public string? strShift { get; set; }
-
+        public string? Shift { get; set; }
         ///<summary> РЎРѕРѕР±С‰РµРЅРёРµ </summary>
-        public string? strMessage { get; set; }
-
+        public string? Message { get; set; }
         ///<summary> Р”РѕРї.РёРЅС„Рѕ РѕР±СЉРµРєС‚Р° </summary>
-        public string? strObjectAdditionalInfo { get; set; }
-
+        public string? ObjectAdditionalInfo { get; set; }
         ///<summary> РћР±СЉРµРєС‚ </summary>
-        public int? nObjectId { get; set; }
-
+        public int? ObjectId { get; set; }
         ///<summary> РџР»Р°РЅ СЂРµР°РіРёСЂРѕРІР°РЅРёСЏ </summary>
-        public int? nReactionPlanId { get; set; }
-
+        public int? ReactionPlanId { get; set; }
         ///<summary> РўРёРї РѕР±СЉРµРєС‚Р° </summary>
-        public int? nObjectTypeId { get; set; }
-
+        public int? ObjectTypeId { get; set; }
         ///<summary> РћР±СЉРµРєС‚ РіР°Р·РёС„РёС†РёСЂРѕРІР°РЅ </summary>
-        public bool lObjectGasified { get; set; }
-
+        public bool ObjectGasified { get; set; }
         ///<summary> Р Р°РЅРі РїРѕР¶Р°СЂР° </summary>
-        public int? nFireClassId { get; set; }
-
+        public int? FireClassId { get; set; }
         ///<summary> РЈРіСЂРѕР·Р° Р»СЋРґСЏРј </summary>
-        public bool lHumanThreat { get; set; }
-
+        public bool HumanThreat { get; set; }
         ///<summary> РџСЂРёР·РЅР°Рє Р§РЎ </summary>
-        public bool lEmergencyFlag { get; set; }
-
+        public bool EmergencyFlag { get; set; }
         ///<summary> РџР»РѕС‰Р°РґСЊ (РєРІ.Рј.) </summary>
-        public int? nSpace { get; set; }
-
+        public int? Space { get; set; }
         ///<summary> РџРѕРіРёР±Р»Рѕ Р»СЋРґРµР№ </summary>
-        public int? nPerishedPeople { get; set; }
-
+        public int? PerishedPeople { get; set; }
         ///<summary> РџРѕРіРёР±Р»Рѕ РґРµС‚РµР№ </summary>
-        public int? nPerishedChildren { get; set; }
-
+        public int? PerishedChildren { get; set; }
         ///<summary> РџРѕРіРёР±Р»Рѕ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ </summary>
-        public int? nPerishedCollaborators { get; set; }
-
+        public int? PerishedCollaborators { get; set; }
         ///<summary> Р Р°РЅРµРЅРѕ Р»СЋРґРµР№ </summary>
-        public int? nWounded { get; set; }
-
+        public int? Wounded { get; set; }
         ///<summary> Р Р°РЅРµРЅРѕ РґРµС‚РµР№ </summary>
-        public int? nWoundedChildren { get; set; }
-
+        public int? WoundedChildren { get; set; }
         ///<summary> Р Р°РЅРµРЅРѕ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ </summary>
-        public int? nWoundedCollaborators { get; set; }
-
+        public int? WoundedCollaborators { get; set; }
         ///<summary> РЎРїР°СЃРµРЅРѕ Р»СЋРґРµР№ </summary>
-        public int? nSavedPeople { get; set; }
-
+        public int? SavedPeople { get; set; }
         ///<summary> РЎРїР°СЃРµРЅРѕ РґРµС‚РµР{ get; set; } </summary>
-        public int? nSavedChildren { get; set; }
-
+        public int? SavedChildren { get; set; }
         ///<summary> РќР°СЂСѓС€РµРЅРѕ Сѓ/Р¶ </summary>
-        public int? nBrokenLivingConditions { get; set; }
-
+        public int? BrokenLivingConditions { get; set; }
         ///<summary> РќР°СЂСѓС€РµРЅРѕ Сѓ/Р¶ РґРµС‚РµР№ </summary>
-        public int? nBrokenLivingConditionsChildren { get; set; }
-
+        public int? BrokenLivingConditionsChildren { get; set; }
         ///<summary> РџСЂРёС‡РёРЅР° РїРѕР¶Р°СЂР° </summary>
-        public int? nFireReasonID { get; set; }
-
+        public int? FireReasonID { get; set; }
         ///<summary> Р’РёРґ РІС‹РµР·РґР° </summary>
-        public int? nFireIncidentTypeID { get; set; }
-
+        public int? FireIncidentTypeID { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р»РѕРєР°Р»РёР·Р°С†РёРё </summary>
-        public DateTime? dtLocalization { get; set; }
-
+        public DateTime? Localization { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р»РёРєРІРёРґР°С†РёРё </summary>
-        public DateTime? dtLiquidation { get; set; }
-
+        public DateTime? Liquidation { get; set; }
         ///<summary> Р’СЂРµРјСЏ СѓСЃС‚СЂР°РЅРµРЅРёСЏ РѕС‚РєСЂС‹С‚РѕРіРѕ РѕРіРЅСЏ </summary>
-        public DateTime? dtOpenFireLiquidation { get; set; }
-
+        public DateTime? OpenFireLiquidation { get; set; }
         ///<summary> РЈС‚РѕС‡РЅРµРЅРЅР°СЏ РїСЂРёС‡РёРЅР° РїРѕР¶Р°СЂР° </summary>
-        public string? strDescription { get; set; }
-
+        public string? Description { get; set; }
         ///<summary> Р Р°СЃСЃС‚РѕСЏРЅРёРµ </summary>
-        public int? nFireDistance { get; set; }
-
+        public int? FireDistance { get; set; }
         ///<summary> Р¤РѕСЂРјР° СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё </summary>
-        public string? strOwnership { get; set; }
-
+        public string? Ownership { get; set; }
         ///<summary> РћС€РёР±РѕС‡РЅР°СЏ РєР°СЂС‚РѕС‡РєР° </summary>
-        public bool isError { get; set; }
-
+        public bool IsError { get; set; }
         ///<summary> Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardCreate { get; set; }
-
+        public DateTime? ServiceCardCreate { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardView { get; set; }
-
+        public DateTime? ServiceCardView { get; set; }
         ///<summary> Р’С‹РµР·Рґ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWork { get; set; }
-
+        public DateTime? ServiceCardWork { get; set; }
         ///<summary> РџСЂРёР±С‹С‚РёРµ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWorkNext { get; set; }
-
+        public DateTime? ServiceCardWorkNext { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р·Р°РєСЂС‹С‚РёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardComplete { get; set; }
-
+        public DateTime? ServiceCardComplete { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°СЂСѓС€РµРЅРёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° </summary>
-        public DateTime? dtDeadline { get; set; }
-
+        public DateTime? Deadline { get; set; }
         ///<summary> Р’РёРґ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public int? nServiceIncidentTypeId { get; set; }
-
+        public int? ServiceIncidentTypeId { get; set; }
         ///<summary> РћС†РµРЅРєР° РІСЂРµРјРµРЅРё СЂР°Р·РІРёС‚РёСЏ РїРѕР¶Р°СЂР° </summary>
-        public int? nFireStartEstimate { get; set; }
-
+        public int? FireStartEstimate { get; set; }
         ///<summary> РќР°Р±Р»СЋРґР°РµРјС‹Рµ РїРѕСЃР»РµРґСЃС‚РІРёСЏ РїРѕР¶Р°СЂР° </summary>
-        public string? strFireResults { get; set; }
-
+        public string? FireResults { get; set; }
         ///<summary> РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° РїРѕРґСЉРµР·РґРЅС‹С… РїСѓС‚РµР№ </summary>
-        public string? strPathDescription { get; set; }
-
+        public string? PathDescription { get; set; }
         ///<summary> РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° СѓСЃР»РѕРІРёР№ СЂР°Р±РѕС‚С‹ </summary>
-        public string? strConditionsDescription { get; set; }
-
+        public string? ConditionsDescription { get; set; }
         ///<summary> РћС†РµРЅРєР° РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЌРІР°РєСѓР°С†РёРё </summary>
-        public bool lEvacuationAvail { get; set; }
-
+        public bool EvacuationAvail { get; set; }
         ///<summary> РћРїРµСЂР°С‚РѕСЂ Р”Р”РЎ РїСЂРёРЅСЏРІС€РёР№ РєР°СЂС‚РѕС‡РєСѓ </summary>
-        public string? strServiceOperator { get; set; }
-
+        public string? ServiceOperator { get; set; }
         ///<summary> Р’РЅСѓС‚СЂРµРЅРЅРёР№ РЅРѕРјРµСЂ Р·Р°СЏРІРєРё Р”Р”РЎ </summary>
-        public string? strRegistrationNumber { get; set; }
-
+        public string? RegistrationNumber { get; set; }
         ///<summary> Р­С‚Р°Р¶РЅРѕСЃС‚СЊ (РЎРџР‘) </summary>
-        public int? nNumberStoreys { get; set; }
-
+        public int? NumberStoreys { get; set; }
         ///<summary> РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? callDuration { get; set; }
-
+        public int? CallDuration { get; set; }
         ///<summary> Р’СЂРµРјСЏ РѕС‚РєР°Р·Р° РІ РѕР±СЃР»СѓР¶РёРІР°РЅРёРё </summary>
-        public DateTime? dtDenialOfService { get; set; }
-
+        public DateTime? DenialOfService { get; set; }
         ///<summary> РЎРїРµС†РёС„РёС‡РЅС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СЂРµРіРёРѕРЅР° СѓСЃС‚Р°РЅРѕРІРєРё </summary>
-        public RegionDataModel? regionData { get; set; }
-
+        public RegionDataModel? RegionData { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РњРќРРЎ </summary>
-        public string? strMNISId { get; set; }
-
+        public string? MNISId { get; set; }
         ///<summary> РЎРІРµРґРµРЅРёСЏ РњРќРРЎ </summary>
-        public MNISReactionModel? mnisReactionInfo { get; set; }
-
+        public MNISReactionModel? MnisReactionInfo { get; set; }
         ///<summary> РџРѕРґР°РІР°Р»Рё СЃС‚РІРѕР»С‹ </summary> 
-        public List<FireBarrelsItemModel>? fireBarrels { get; set; }
-
+        public List<FireBarrelsItemModel>? FireBarrels { get; set; }
         ///<summary> РћРіРЅРµС‚СѓС€Р°С‰РёРµ СЃСЂРµРґСЃС‚РІР° </summary> 
-        public List<FireExtinguishersItemModel>? fireExtinguishers { get; set; }
-
+        public List<FireExtinguishersItemModel>? FireExtinguishers { get; set; }
         ///<summary> Р СѓРєРѕРІРѕРґРёС‚РµР»Рё СѓС‡РµРЅРёР№ </summary>
-        public List<DrillsChiefModel>? drillsChiefs { get; set; }
-
+        public List<DrillsChiefModel>? DrillsChiefs { get; set; }
         ///<summary> Р РўРџ-1 </summary> 
-        public List<FireChiefModel>? fireChiefs { get; set; }
-
+        public List<FireChiefModel>? FireChiefs { get; set; }
         ///<summary> Р›РёС‡РЅС‹Р№ СЃРѕСЃС‚Р°РІ </summary> 
-        public List<FireFighterModel>? fireFighters { get; set; }
-
+        public List<FireFighterModel>? FireFighters { get; set; }
         ///<summary> Р—РІРµРЅСЊСЏ Р“Р”Р—РЎ </summary> 
-        public List<GdzsUnitModel>? gdzsUnits { get; set; }
-
+        public List<GdzsUnitModel>? GdzsUnits { get; set; }
         ///<summary> РЎРІРµРґРµРЅРёСЏ Рѕ РїСЂРёРІР»РµС‡РµРЅРЅС‹С… РўРЎ 01 </summary> 
-        public List<Vehicle01InfoModel>? involvedVehicles { get; set; }
+        public List<Vehicle01InfoModel>? InvolvedVehicles { get; set; }
     }
-
     public record Card02Model
     {
         ///<summary> РћР±С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </summary>
-        public CardGeneralData? m_GeneralData { get; set; }
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> РљР°СЂС‚РѕС‡РєР° РћР’Р” </summary>
-        public CardOVDModel m_CardOVD { get; set; }
-
+        public CardOVDModel CardOVD { get; set; }
         ///<summary> РљРІР°Р»РёС„РёРєР°С†РёСЏ </summary>
-        public int? nITypeID { get; set; }
-
+        public int? ITypeID { get; set; }
         ///<summary> РџСЂРёРѕСЂРёС‚РµС‚РЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? importanceLevel { get; set; }
-
+        public int? ImportanceLevel { get; set; }
         ///<summary> Р­РєСЃРїРѕСЂС‚РёСЂРѕРІР°РЅР° Р»Рё </summary>
-        public bool lExported { get; set; }
-
+        public bool Exported { get; set; }
         ///<summary> РќРѕРјРµСЂ РљРЈРЎРџ </summary>
-        public string? strRegistrationNumber { get; set; }
-
+        public string? RegistrationNumber { get; set; }
         ///<summary> РћС‚РґРµР»РµРЅРёРµ </summary>
-        public int? registrationDepartmentID { get; set; }
-
+        public int? RegistrationDepartmentID { get; set; }
         ///<summary> Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardCreate { get; set; }
-
+        public DateTime? ServiceCardCreate { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardView { get; set; }
-
+        public DateTime? ServiceCardView { get; set; }
         ///<summary> Р’С‹РµР·Рґ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWork { get; set; }
-
+        public DateTime? ServiceCardWork { get; set; }
         ///<summary> РџСЂРёР±С‹С‚РёРµ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWorkNext { get; set; }
-
+        public DateTime? ServiceCardWorkNext { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р·Р°РєСЂС‹С‚РёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardComplete { get; set; }
-
+        public DateTime? ServiceCardComplete { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°СЂСѓС€РµРЅРёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° </summary>
-        public DateTime? dtDeadline { get; set; }
-
+        public DateTime? Deadline { get; set; }
         ///<summary> Р’РёРґ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public int? nServiceIncidentTypeId { get; set; }
-
+        public int? ServiceIncidentTypeId { get; set; }
         ///<summary> Р§РёСЃР»Рѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»РµР№ </summary>
-        public int? nCriminalsCount { get; set; }
-
+        public int? CriminalsCount { get; set; }
         ///<summary> Р§РёСЃР»Рѕ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ </summary>
-        public int? nVehiclesCount { get; set; }
-
+        public int? VehiclesCount { get; set; }
         ///<summary> РћРїРµСЂР°С‚РѕСЂ Р”Р”РЎ РїСЂРёРЅСЏРІС€РёР№ РєР°СЂС‚РѕС‡РєСѓ </summary>
-        public string? strServiceOperator { get; set; }
-
+        public string? ServiceOperator { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕРёСЃС€РµСЃС‚РІРёРё </summary>
-        public string? strIncidentAdditionalInfo { get; set; }
-
+        public string? IncidentAdditionalInfo { get; set; }
         ///<summary> РќРѕРјРµСЂ РїРµСЂРІРѕРіРѕ РўРЎ РІ СЃРїРёСЃРєРµ </summary>
-        public string? strVehicleRegNumberReadOnly { get; set; }
-
+        public string? VehicleRegNumberReadOnly { get; set; }
         ///<summary> РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? callDuration { get; set; }
-
+        public int? CallDuration { get; set; }
         ///<summary> Р’СЂРµРјСЏ РѕС‚РєР°Р·Р° РІ РѕР±СЃР»СѓР¶РёРІР°РЅРёРё </summary>
-        public DateTime? dtDenialOfService { get; set; }
-
+        public DateTime? DenialOfService { get; set; }
         ///<summary> СЃРїРµС†РёС„РёС‡РЅС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СЂРµРіРёРѕРЅР° СѓСЃС‚Р°РЅРѕРІРєРё </summary>
-        public RegionDataModel? regionData { get; set; }
-
+        public RegionDataModel? RegionData { get; set; }
         ///<summary> РџРѕРґРѕР·СЂРµРІР°РµРјС‹Рµ </summary> 
-        public List<Tm_ISharerDescriptionModel>? m_CriminalDescriptionList { get; set; }
-
+        public List<ISharerDescriptionModel>? CriminalDescriptionList { get; set; }
         ///<summary> Р Р°Р·С‹СЃРєРёРІР°РµРјС‹Рµ </summary> 
-        public List<Tm_ISharerDescriptionModel>? m_LostPeopleDescriptionList { get; set; }
-
+        public List<ISharerDescriptionModel>? LostPeopleDescriptionList { get; set; }
         ///<summary> РђРІС‚РѕС‚СЂР°РЅСЃРїРѕСЂС‚ </summary> 
-        public List<Tm_IVehicleDescriptionModel>? m_VehicleList { get; set; }
-
+        public List<IVehicleDescriptionModel>? VehicleList { get; set; }
         ///<summary> РџРѕСЃС‚СЂР°РґР°РІС€РёРµ </summary> 
-        public List<Tm_IVictimDescriptionModel>? m_VictimList { get; set; }
+        public List<IVictimDescriptionModel>? VictimList { get; set; }
     }
-
     public record CardOVDModel
     {
         ///<summary> РќРѕРјРµСЂ РєР°СЂС‚РѕС‡РєРё 112 </summary>
-        public int nEmergencyCardId { get; set; }
-
+        public int EmergencyCardId { get; set; }
         ///<summary> РљС‚Рѕ РїСЂРёРЅСЏР» </summary>
-        public string? strInspector { get; set; }
-
+        public string? Inspector { get; set; }
         ///<summary> РџСЂРёРЅСЏС‚РѕРµ СЂРµС€РµРЅРёРµ </summary>
-        public int? nStatusId { get; set; }
-
+        public int? StatusId { get; set; }
         ///<summary> РљРЈРЎРџ РћР’Р” </summary>
-        public string? strIntrinsicOVD_N { get; set; }
-
+        public string? IntrinsicOVD { get; set; }
         ///<summary> Р”Р°С‚Р° СЂРµРі. </summary>
-        public DateTime? dtRegDate { get; set; }
-
+        public DateTime? RegDate { get; set; }
         ///<summary> в„–РґРµР»Р° / в„–РљРЈРЎРџ / в„–Р°РґРј. РїСЂРѕС‚. </summary>
-        public string? strDocNumber { get; set; }
-
+        public string? DocNumber { get; set; }
         ///<summary> РЎС‚СЂР°РЅРёС†Р° </summary>
-        public string? strPage { get; set; }
-
+        public string? Page { get; set; }
         ///<summary> Р РµР·СѓР»СЊС‚Р°С‚ </summary>
-        public bool lSolved { get; set; }
-
+        public bool Solved { get; set; }
         ///<summary> РљРІР°Р»РёС„РёРєР°С†РёСЏ РћР’Р” </summary>
-        public int? nOVDITypeId { get; set; }
-
+        public int? OVDITypeId { get; set; }
         ///<summary> РљРЈРЎРџ Р”РџРЎ </summary>
-        public string? strIntrinsicDPS_N { get; set; }
-
+        public string? IntrinsicDPS { get; set; }
         ///<summary> РРјРµРµС‚СЃСЏ РІРёРґРµРѕРЅР°Р±Р»СЋРґРµРЅРёРµ </summary>
-        public bool? isVideoObservation { get; set; }
-
+        public bool? IsVideoObservation { get; set; }
         ///<summary> РРјРµРµС‚СЃСЏ РїРѕРґРѕР·СЂРµРІР°РµРјС‹Р№ РІ СЃРѕРІРµСЂС€РµРЅРёРё РїСЂРµСЃС‚СѓРїР»РµРЅРёСЏ </summary>
-        public bool? isSuspectedPerson { get; set; }
-
+        public bool? IsSuspectedPerson { get; set; }
         ///<summary> РР·СЉСЏС‚С‹ СЃР»РµРґС‹, РІРµС‰РµСЃС‚РІРµРЅРЅС‹Рµ РґРѕРєР°Р·Р°С‚РµР»СЊСЃС‚РІР° </summary>
-        public bool? isEvidence { get; set; }
-
+        public bool? IsEvidence { get; set; }
         ///<summary> РЈС‡Р°СЃС‚РёРµ СЂР°Р±РѕС‚РЅРёРєР° РЎРљ Р Р¤ </summary>
-        public bool? isSkRfStuff { get; set; }
-
+        public bool? IsSkRfStuff { get; set; }
         ///<summary> РџСЂРѕРІРµРґРµРЅРЅС‹Рµ РјРµСЂРѕРїСЂРёСЏС‚РёСЏ </summary>
-        public int? nPastEventId { get; set; }
-
+        public int? PastEventId { get; set; }
         ///<summary> РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°Рј РІС‹РµР·РґР° </summary>
-        public int? nDepartureResultId { get; set; }
-
+        public int? DepartureResultId { get; set; }
         ///<summary> РљС‚Рѕ РІС‹РµР·Р¶Р°Р» </summary> 
-        public List<TaskForceItemModel>? taskForceItemsList { get; set; }
+        public List<TaskForceItemModel>? TaskForceItemsList { get; set; }
     }
-
     public record Card03Model
     {
         ///<summary> РћР±С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </summary>
-        public CardGeneralData? generalData { get; set; }
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> ID РєР°СЂС‚РѕС‡РєРё РІ РєРѕРЅРєСЂРµС‚РЅС‹Р№ РґРµРЅСЊ </summary>
-        public int? nDailyId { get; set; }
-
+        public int? DailyId { get; set; }
         ///<summary> РўСЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєР° Р»Рё СЌС‚Р° РєР°СЂС‚РѕС‡РєР° </summary>
-        public bool isTransportation { get; set; }
-
+        public bool IsTransportation { get; set; }
         ///<summary> РљРѕР»РёС‡РµСЃС‚РІРѕ Р±РѕР»СЊРЅС‹С… </summary>
-        public int? nSickCount { get; set; }
-
+        public int? SickCount { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РєР°СЂС‚РѕС‡РєРё </summary>
-        public CardCompleteStatus? nCompleteStatus { get; set; }
-
+        public CardCompleteStatusModel? CompleteStatus { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р›РџРЈ РѕС‚РїСЂР°РІРєРё </summary>
-        public int? nHospitalId { get; set; }
-
+        public int? HospitalId { get; set; }
         ///<summary> РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р›РџРЈ РЅР°Р·РЅР°С‡РµРЅРёСЏ </summary>
-        public int? nDstHospitalId { get; set; }
-
+        public int? DstHospitalId { get; set; }
         ///<summary> РўРёРї С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё </summary>
-        public int? nTransportationId { get; set; }
-
+        public int? TransportationId { get; set; }
         ///<summary> РџСЂРёС‡РёРЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё </summary>
-        public int? nTransportReasonId { get; set; }
-
+        public int? TransportReasonId { get; set; }
         ///<summary> Р’СЂРµРјСЏ РѕРєРѕРЅС‡Р°РЅРёСЏ РѕР±СЃР»СѓР¶РёРІР°РЅРёСЏ РІС‹Р·РѕРІР° </summary>
-        public DateTime? dtClosed { get; set; }
-
+        public DateTime? Closed { get; set; }
         ///<summary> Р’СЂРµРјСЏ РґРѕСЃС‚Р°РІР»РµРЅРёСЏ РІ Р›РџРЈ </summary>
-        public DateTime? dtAdmission { get; set; }
-
+        public DateTime? Admission { get; set; }
         ///<summary> РљСѓРґР° РґРѕСЃС‚Р°РІР»РµРЅ </summary>
-        public string? strDeliveredTo { get; set; }
-
+        public string? DeliveredTo { get; set; }
         ///<summary> РЎРѕРѕР±С‰РµРЅРёРµ Р±СЂРёРіР°РґС‹ </summary>
-        public string? strTeamMessage { get; set; }
-
+        public string? TeamMessage { get; set; }
         ///<summary> РџСЂРёС‡РёРЅР° Р·Р°РєСЂС‹С‚РёСЏ РєР°СЂС‚РѕС‡РєРё </summary>
-        public string? strCloseReason { get; set; }
-
+        public string? CloseReason { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ РґСѓР±Р»РёСЂРѕРІР°РЅРёСЏ </summary>
-        public int? nDuplicateStatus { get; set; }
-
+        public int? DuplicateStatus { get; set; }
         ///<summary> id РІРѕР·РјРѕР¶РЅРѕРіРѕ РѕСЂРёРіРёРЅР°Р»Р° </summary>
-        public int? nOriginalCardId { get; set; }
-
+        public int? OriginalCardId { get; set; }
         ///<summary> Р РµРєРѕРјРµРЅРґРѕРІР°РЅРЅС‹Р№ РґРµРїР°СЂС‚Р°РјРµРЅС‚ </summary>
-        public int? nRecomendedDepId { get; set; }
-
+        public int? RecomendedDepId { get; set; }
         ///<summary> РЎС‚СЂРѕРєР° СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ Р±РѕР»СЊРЅС‹С… РґР»СЏ СЃРїРёСЃРєР° </summary>
-        public string? strSickPersonsInfo { get; set; }
-
+        public string? SickPersonsInfo { get; set; }
         ///<summary> РЎС‚СЂРѕРєР° СЃ РїРµСЂРµС‡РёСЃР»РµРЅРёРµРј РїСЂРёС‡РёРЅ РІС‹Р·РѕРІР° РґР»СЏ РїРѕРґСЃРІРµС‚РєРё РІ СЃРїРёСЃРєРµ РїСЂРѕРёСЃС€РµСЃС‚РІРёР№ </summary>
-        public string? strSickPersonsReasons { get; set; }
-
+        public string? SickPersonsReasons { get; set; }
         ///<summary> РЎС‚СЂРѕРєР° СЃ РїРµСЂРµС‡РёСЃР»РµРЅРёРµРј РјРµС‚РѕРє Рѕ С‚РѕРј, С‡С‚Рѕ РІС‹Р·РѕРІ СЏРІР»СЏРµС‚СЃСЏ РїСЂРёРѕСЂРёС‚РµС‚РЅС‹Рј </summary>
-        public string? strSickPersonsPriorities { get; set; }
-
+        public string? SickPersonsPriorities { get; set; }
         ///<summary> РЎС‚СЂРѕРєР° СЃ РёРЅС„РѕСЂРјР°С†РёРµР№ Рѕ Р±СЂРёРіР°РґР°С… </summary>
-        public string? strEnginesInfo { get; set; }
-
+        public string? EnginesInfo { get; set; }
         ///<summary> РћСЃРІРѕР±РѕРґРёС‚СЊ Р±СЂРёРіР°РґС‹ </summary>
-        public bool? isFreeTransport { get; set; }
-
+        public bool? IsFreeTransport { get; set; }
         ///<summary> РџРµСЂРµРґР°С‡Р° С†РµРЅС‚СЂР°Р»СЊРЅРѕРјСѓ РґРёСЃРїРµС‚С‡РµСЂСѓ </summary>
-        public bool? isTransfered { get; set; }
-
+        public bool? IsTransfered { get; set; }
         ///<summary> Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardCreate { get; set; }
-
+        public DateTime? ServiceCardCreate { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕРёСЃС€РµСЃС‚РІРёРё </summary>
-        public string? strIncidentAdditionalInfo { get; set; }
-
+        public string? IncidentAdditionalInfo { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardView { get; set; }
-
+        public DateTime? ServiceCardView { get; set; }
         ///<summary> Р’С‹РµР·Рґ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWork { get; set; }
-
+        public DateTime? ServiceCardWork { get; set; }
         ///<summary> РџСЂРёР±С‹С‚РёРµ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWorkNext { get; set; }
-
+        public DateTime? ServiceCardWorkNext { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р·Р°РєСЂС‹С‚РёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardComplete { get; set; }
-
+        public DateTime? ServiceCardComplete { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°СЂСѓС€РµРЅРёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° </summary>
-        public DateTime? dtDeadline { get; set; }
-
+        public DateTime? Deadline { get; set; }
         ///<summary> Р’РёРґ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public int? nServiceIncidentTypeId { get; set; }
-
+        public int? ServiceIncidentTypeId { get; set; }
         ///<summary> РљС‚Рѕ РІС‹Р·РІР°Р» </summary>
-        public string? strWhoCalled { get; set; }
-
+        public string? WhoCalled { get; set; }
         ///<summary> РљС‚Рѕ РІС‹Р·РІР°Р» (РєР»Р°СЃСЃРёС„РёРєР°С‚РѕСЂ) </summary>
-        public int? nWhoCalledId { get; set; }
-
+        public int? WhoCalledId { get; set; }
         ///<summary> Р•СЃС‚СЊ РґРµС‚Рё </summary>
-        public bool haveChildren { get; set; }
-
+        public bool HaveChildren { get; set; }
         ///<summary> РћРїРµСЂР°С‚РѕСЂ Р”Р”РЎ РїСЂРёРЅСЏРІС€РёР№ РєР°СЂС‚РѕС‡РєСѓ </summary>
-        public string? strServiceOperator { get; set; }
-
+        public string? ServiceOperator { get; set; }
         ///<summary> Р’РЅСѓС‚СЂРµРЅРЅРёР№ РЅРѕРјРµСЂ Р·Р°СЏРІРєРё Р”Р”РЎ </summary>
-        public string? strRegistrationNumber { get; set; }
-
+        public string? RegistrationNumber { get; set; }
         ///<summary> РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? callDuration { get; set; }
-
+        public int? CallDuration { get; set; }
         ///<summary> Р’СЂРµРјСЏ РѕС‚РєР°Р·Р° РІ РѕР±СЃР»СѓР¶РёРІР°РЅРёРё </summary>
-        public DateTime? dtDenialOfService { get; set; }
-
+        public DateTime? DenialOfService { get; set; }
         ///<summary> РџСЂРёРІР»РµС‡РµРЅС‹ РўРЎ 03 </summary>
-        public bool? isVehicleInvolved { get; set; }
-
+        public bool? IsVehicleInvolved { get; set; }
         ///<summary> Р‘РѕР»СЊРЅС‹Рµ </summary> 
-        public List<SickPersonModel>? sickPersons { get; set; }
-
+        public List<SickPersonModel>? SickPersons { get; set; }
         ///<summary> РЎРІРµРґРµРЅРёСЏ Рѕ РїСЂРёРІР»РµС‡РµРЅРЅС‹С… РўРЎ 03 </summary> 
-        public List<Vehicle03InfoModel>? involvedVehicles { get; set; }
+        public List<Vehicle03InfoModel>? InvolvedVehicles { get; set; }
     }
-
     public record Card04Model
     {
         ///<summary> Общая информация </summary>
-        public CardGeneralData? GeneralData;
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> Сообщение </summary>
         public string? WhatHappened { get; set; }
-
         ///<summary> Коммунальная служба </summary>
         public int? CommunityServiceId { get; set; }
-
         ///<summary> Принятые меры </summary>
         public string? Measures { get; set; }
-
         ///<summary> Происшествие </summary>
         public int? CommunityServiceSituationId { get; set; }
-
         ///<summary> Экспортирована ли </summary>
         public bool? Exported { get; set; }
-
         ///<summary> Статус </summary>
-        public CardCompleteStatus CompleteStatus { get; set; }
-
+        public CardCompleteStatusModel CompleteStatus { get; set; }
         ///<summary> Время создания сервисной карточки </summary>
         public DateTime? ServiceCardCreate { get; set; }
-
         ///<summary> Время просмотра сервисной карточки </summary>
         public DateTime? ServiceCardView { get; set; }
-
         ///<summary> Выезд на место </summary>
         public DateTime? ServiceCardWork { get; set; }
-
         ///<summary> Прибытие на место </summary>
         public DateTime? ServiceCardWorkNext { get; set; }
-
         ///<summary> Время закрытия сервисной карточки </summary>
         public DateTime? ServiceCardComplete { get; set; }
-
         ///<summary> Дата и время нарушения регламента </summary>
         public DateTime? Deadline { get; set; }
-
         ///<summary> Вид происшествия </summary>
         public int? ServiceIncidentTypeId { get; set; }
-
         ///<summary> Инструкции </summary>
         public int? InstructionId { get; set; }
-
         ///<summary> Консультация </summary>
         public bool IsConsulting { get; set; }
-
         ///<summary> Оператор ДДС принявший карточку </summary>
         public string? ServiceOperator { get; set; }
-
         ///<summary> Внутренний номер заявки ДДС </summary>
         public string? RegistrationNumber { get; set; }
-
         ///<summary> Продолжительность вызова </summary>
         public int? CallDuration { get; set; }
-
         ///<summary> Время отказа в обслуживании </summary>
         public DateTime? DenialOfService { get; set; }
     }
-
     public record CardCommServModel
     {
         ///<summary> РћР±С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </summary>
-        public CardGeneralData? m_GeneralData { get; set; }
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> РЎРѕРѕР±С‰РµРЅРёРµ </summary>
-        public string? strMessage { get; set; }
-
+        public string? Message { get; set; }
         ///<summary> Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РѕР±СЉРµРєС‚Сѓ </summary>
-        public string? strObjectInfo { get; set; }
-
+        public string? ObjectInfo { get; set; }
         ///<summary> РЈРіСЂРѕР·Р° Р»СЋРґСЏРј </summary>
-        public bool lHumanThreat { get; set; }
-
+        public bool HumanThreat { get; set; }
         ///<summary> РџСЂРёР·РЅР°Рє Р§РЎ </summary>
-        public bool lEmergencyFlag { get; set; }
-
+        public bool EmergencyFlag { get; set; }
         ///<summary> Р’СЂРµРјСЏ СѓР±С‹С‚РёСЏ Р±СЂРёРіР°РґС‹ </summary>
-        public DateTime? dtDepart { get; set; }
-
+        public DateTime? Depart { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїСЂРёР±С‹С‚РёСЏ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtArrival { get; set; }
-
+        public DateTime? Arrival { get; set; }
         ///<summary> РўРёРї РѕР±СЉРµРєС‚Р° </summary>
-        public int? nObjectTypeId { get; set; }
-
+        public int? ObjectTypeId { get; set; }
         ///<summary> Р’СЂРµРјСЏ СѓСЃС‚СЂР°РЅРµРЅРёСЏ </summary>
-        public DateTime? dtComplete { get; set; }
-
+        public DateTime? Complete { get; set; }
         ///<summary> РЎС‚Р°С‚СѓСЃ </summary>
-        public CardCompleteStatus nCompleteStatus { get; set; }
-
+        public CardCompleteStatusModel CompleteStatus { get; set; }
         ///<summary> Р—Р°РґРµР№СЃС‚РІРѕРІР°РЅРЅС‹Рµ СЃРёР»С‹ </summary>
-        public string? strUsedMeans { get; set; }
-
+        public string? UsedMeans { get; set; }
         ///<summary> РљРѕРЅС‚СЂРѕР»СЊРЅРѕРµ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ </summary>
-        public DateTime? dtDeadlineExceeded { get; set; }
-
+        public DateTime? DeadlineExceeded { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РґРѕРІРµРґРµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё РґРѕ Р·Р°СЏРІРёС‚РµР»СЏ </summary>
-        public DateTime? dtDeclarantNotify { get; set; }
-
+        public DateTime? DeclarantNotify { get; set; }
         ///<summary> Р”РёСЃРїРµС‚С‡РµСЂ </summary>
-        public string? strAgentWhoNotifies { get; set; }
-
+        public string? AgentWhoNotifies { get; set; }
         ///<summary> Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardCreate { get; set; }
-
+        public DateTime? ServiceCardCreate { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardView { get; set; }
-
+        public DateTime? ServiceCardView { get; set; }
         ///<summary> Р’С‹РµР·Рґ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWork { get; set; }
-
+        public DateTime? ServiceCardWork { get; set; }
         ///<summary> РџСЂРёР±С‹С‚РёРµ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWorkNext { get; set; }
-
+        public DateTime? ServiceCardWorkNext { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р·Р°РєСЂС‹С‚РёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardComplete { get; set; }
-
+        public DateTime? ServiceCardComplete { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°СЂСѓС€РµРЅРёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° </summary>
-        public DateTime? dtDeadline { get; set; }
-
+        public DateTime? Deadline { get; set; }
         ///<summary> Р’РёРґ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public int? nServiceIncidentTypeId { get; set; }
-
+        public int? ServiceIncidentTypeId { get; set; }
         ///<summary> РљРѕРјРјСѓРЅР°Р»СЊРЅР°СЏ СЃР»СѓР¶Р±Р° </summary>
-        public int? nCommunityServiceId { get; set; }
-
+        public int? CommunityServiceId { get; set; }
         ///<summary> РРЅСЃС‚СЂСѓРєС†РёРё </summary>
-        public int? nInstructionId { get; set; }
-
+        public int? InstructionId { get; set; }
         ///<summary> РљРѕРЅСЃСѓР»СЊС‚Р°С†РёСЏ </summary>
-        public bool lIsConsulting { get; set; }
-
+        public bool IsConsulting { get; set; }
         ///<summary> РћРїРµСЂР°С‚РѕСЂ Р”Р”РЎ РїСЂРёРЅСЏРІС€РёР№ РєР°СЂС‚РѕС‡РєСѓ </summary>
-        public string? strServiceOperator { get; set; }
-
+        public string? ServiceOperator { get; set; }
         ///<summary> Р’РЅСѓС‚СЂРµРЅРЅРёР№ РЅРѕРјРµСЂ Р·Р°СЏРІРєРё Р”Р”РЎ </summary>
-        public string? strRegistrationNumber { get; set; }
-
+        public string? RegistrationNumber { get; set; }
         ///<summary> РџСЂРёРЅСЏС‚С‹Рµ РјРµСЂС‹ </summary>
-        public string? strMeasures { get; set; }
-
+        public string? Measures { get; set; }
         ///<summary> РљР°С‚РµРіРѕСЂРёСЏ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public int? nServiceIncidentCategoryId { get; set; }
-
+        public int? ServiceIncidentCategoryId { get; set; }
         ///<summary> РЈРїСЂР°РІР»СЏСЋС‰Р°СЏ РєРѕРјРїР°РЅРёСЏ </summary>
-        public int? nUKID { get; set; }
-
+        public int? UKID { get; set; }
         ///<summary> РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? callDuration { get; set; }
-
+        public int? CallDuration { get; set; }
         ///<summary> Р’СЂРµРјСЏ РѕС‚РєР°Р·Р° РІ РѕР±СЃР»СѓР¶РёРІР°РЅРёРё </summary>
-        public DateTime? dtDenialOfService { get; set; }
+        public DateTime? DenialOfService { get; set; }
     }
-
     public record CardATModel
     {
         ///<summary> РћР±С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </summary>
-        public CardGeneralData? m_GeneralData { get; set; }
-
+        public CardGeneralDataModel? GeneralData { get; set; }
         ///<summary> РћРїРёСЃР°РЅРёРµ РїСЂРѕРёСЃС€РµСЃС‚РІРёСЏ </summary>
-        public string? strWhatHappened { get; set; }
-
+        public string? WhatHappened { get; set; }
         ///<summary> РџСЂРёРЅСЏС‚С‹Рµ РјРµСЂС‹ </summary>
-        public string? strMeasures { get; set; }
-
+        public string? Measures { get; set; }
         ///<summary> РЈС‰РµСЂР± </summary>
-        public string? strDamage { get; set; }
-
+        public string? Damage { get; set; }
         ///<summary> Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardCreate { get; set; }
-
+        public DateTime? ServiceCardCreate { get; set; }
         ///<summary> Р’СЂРµРјСЏ РїСЂРѕСЃРјРѕС‚СЂР° СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardView { get; set; }
-
+        public DateTime? ServiceCardView { get; set; }
         ///<summary> Р’С‹РµР·Рґ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWork { get; set; }
-
+        public DateTime? ServiceCardWork { get; set; }
         ///<summary> РџСЂРёР±С‹С‚РёРµ РЅР° РјРµСЃС‚Рѕ </summary>
-        public DateTime? dtServiceCardWorkNext { get; set; }
-
+        public DateTime? ServiceCardWorkNext { get; set; }
         ///<summary> Р’СЂРµРјСЏ Р·Р°РєСЂС‹С‚РёСЏ СЃРµСЂРІРёСЃРЅРѕР№ РєР°СЂС‚РѕС‡РєРё </summary>
-        public DateTime? dtServiceCardComplete { get; set; }
-
+        public DateTime? ServiceCardComplete { get; set; }
         ///<summary> Р”Р°С‚Р° Рё РІСЂРµРјСЏ РЅР°СЂСѓС€РµРЅРёСЏ СЂРµРіР»Р°РјРµРЅС‚Р° </summary>
-        public DateTime? dtDeadline { get; set; }
-
+        public DateTime? Deadline { get; set; }
         ///<summary> РћРїРµСЂР°С‚РѕСЂ Р”Р”РЎ РїСЂРёРЅСЏРІС€РёР№ РєР°СЂС‚РѕС‡РєСѓ </summary>
-        public string? strServiceOperator { get; set; }
-
+        public string? ServiceOperator { get; set; }
         ///<summary> Р’РЅСѓС‚СЂРµРЅРЅРёР№ РЅРѕРјРµСЂ Р·Р°СЏРІРєРё Р”Р”РЎ </summary>
-        public string? strRegistrationNumber { get; set; }
-
+        public string? RegistrationNumber { get; set; }
         ///<summary> Р’РёРґ С‚РµСЂСЂРѕСЂРёСЃС‚РёС‡РµСЃРєРѕРіРѕ Р°РєС‚Р° </summary>
-        public int? nServiceIncidentTypeId { get; set; }
-
+        public int? ServiceIncidentTypeId { get; set; }
         ///<summary> РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРіРёР±С€РёС… </summary>
-        public int? nDied { get; set; }
-
+        public int? Died { get; set; }
         ///<summary> РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕСЃС‚СЂР°РґР°РІС€РёС… </summary>
-        public int? nVictims { get; set; }
-
+        public int? Victims { get; set; }
         ///<summary> РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… </summary>
-        public int? nSuspects { get; set; }
-
+        public int? Suspects { get; set; }
         ///<summary> РћРїРёСЃР°РЅРёРµ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… </summary>
-        public string? strSuspectsDesc { get; set; }
-
+        public string? SuspectsDesc { get; set; }
         ///<summary> Р’РѕРѕСЂСѓР¶РµРЅРёРµ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… </summary>
-        public string? strSuspectsEquipment { get; set; }
-
+        public string? SuspectsEquipment { get; set; }
         ///<summary> РўСЂР°РЅСЃРїРѕСЂС‚РЅС‹Рµ СЃСЂРµРґСЃС‚РІР° РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… </summary>
-        public string? strSuspectsVehicles { get; set; }
-
+        public string? SuspectsVehicles { get; set; }
         ///<summary> РќР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… </summary>
-        public string? strSuspectsDirection { get; set; }
-
+        public string? SuspectsDirection { get; set; }
         ///<summary> РџРѕРІСЂРµР¶РґРµРЅРёСЏ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… </summary>
-        public string? strSuspectsInjury { get; set; }
-
+        public string? SuspectsInjury { get; set; }
         ///<summary> РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РІС‹Р·РѕРІР° </summary>
-        public int? callDuration { get; set; }
-
+        public int? CallDuration { get; set; }
         ///<summary> Р’СЂРµРјСЏ РѕС‚РєР°Р·Р° РІ РѕР±СЃР»СѓР¶РёРІР°РЅРёРё </summary>
-        public DateTime? dtDenialOfService { get; set; }
+        public DateTime? DenialOfService { get; set; }
     }
-
     public record ServiceCard01Model
     {
-        public Card112Model card112Data { get; set; }
-
-        public Card01Model card01Data { get; set; }
+        public Card112Model Card112Data { get; set; }
+        public Card01Model Card01Data { get; set; }
     }
-
     public record ServiceCard02Model
     {
-        public Card112Model card112Data { get; set; }
-
-        public Card02Model card02Data { get; set; }
+        public Card112Model Card112Data { get; set; }
+        public Card02Model Card02Data { get; set; }
     }
-
     public record ServiceCard03Model
     {
-        public Card112Model card112Data { get; set; }
-
-        public Card03Model card03Data { get; set; }
+        public Card112Model Card112Data { get; set; }
+        public Card03Model Card03Data { get; set; }
     }
-
     public record ServiceCard04Model
     {
-        public Card112Model card112Data { get; set; }
-
-        public Card04Model card04Data { get; set; }
+        public Card112Model Card112Data { get; set; }
+        public Card04Model Card04Data { get; set; }
     }
-
     public record ServiceCardCommServModel
     {
-        public Card112Model card112Data { get; set; }
-
-        public CardCommServModel cardCommServData { get; set; }
+        public Card112Model Card112Data { get; set; }
+        public CardCommServModel CardCommServData { get; set; }
     }
-
     public record ServiceCardATModel
     {
-        public Card112Model card112Data { get; set; }
-
-        public CardATModel cardATData { get; set; }
+        public Card112Model Card112Data { get; set; }
+        public CardATModel CardATData { get; set; }
     }
-
     public record PrevDeclarantInfoModel
     {
         ///<summary> Р¤Р°РјРёР»РёСЏ Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevDeclarantLastName { get; set; }
-
+        public string? PrevDeclarantLastName { get; set; }
         ///<summary> РРјСЏ Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevDeclarantName { get; set; }
-
+        public string? PrevDeclarantName { get; set; }
         ///<summary> РћС‚С‡РµСЃС‚РІРѕ Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevDeclarantMiddleName { get; set; }
-
+        public string? PrevDeclarantMiddleName { get; set; }
         ///<summary> РљРѕРЅС‚Р°РєС‚РЅС‹Р№ С‚РµР»РµС„РѕРЅ Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevCallerContactPhone { get; set; }
-
+        public string? PrevCallerContactPhone { get; set; }
         ///<summary> Р“РѕСЂРѕРґ/РѕР±Р». Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public int? nPrevDeclarantCityId { get; set; }
-
+        public int? PrevDeclarantCityId { get; set; }
         ///<summary> РћРєСЂСѓРі Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public int? nPrevDeclarantDistrictId { get; set; }
-
+        public int? PrevDeclarantDistrictId { get; set; }
         ///<summary> РЈР»РёС†Р° Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public int? nPrevDeclarantStreetId { get; set; }
-
+        public int? PrevDeclarantStreetId { get; set; }
         ///<summary> РќРѕРјРµСЂ РґРѕРјР° Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevDeclarantBuildingNumber { get; set; }
-
+        public string? PrevDeclarantBuildingNumber { get; set; }
         ///<summary> РљРѕСЂРїСѓСЃ Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevDeclarantCorps { get; set; }
-
+        public string? PrevDeclarantCorps { get; set; }
         ///<summary> РљРІР°СЂС‚РёСЂР° Р·РІРѕРЅСЏС‰РµРіРѕ РІ РїСЂРµРґС‹РґСѓС‰РµРј РІС‹Р·РѕРІРµ </summary>
-        public string? strPrevDeclarantFlat { get; set; }
+        public string? PrevDeclarantFlat { get; set; }
     }
-
-    public record CardGeneralData
+    public record CardGeneralDataModel
     {
         public int EmergencyCardId { get; set; }
-
-        public CardType CardType { get; set; }
-
+        public CardTypeModel CardType { get; set; }
         public bool CardCreated { get; set; }
     }
-
-    public enum CardCompleteStatus
+    public enum CardCompleteStatusModel
     {
         Submitted,
         Processing,
         Complete,
     }
-
-    public enum CardType
+    public enum CardTypeModel
     {
         /// <summary>
         /// Служба 112
         /// </summary>
         Card112,
-
         /// <summary>
         /// Служба 01
         /// </summary>
         Card01,
-
         /// <summary>
         /// Служба 02
         /// </summary>
         Card02,
-
         /// <summary>
         /// Служба 03
         /// </summary>
         Card03,
-
         /// <summary>
         /// Служба 04
         /// </summary>
         Card04,
-
         /// <summary>
         /// Служба ЕДДС
         /// </summary>
         CardCommServ,
-
         /// <summary>
         /// Служба Антитеррор
         /// </summary>
         CardAT,
     }
-
-    public enum ValidatedCommand
+    public enum ValidatedCommandModel
     {
-        CompleteCard = 1,
-        PrintCard = 2,
-
+        CompleteCard,
+        PrintCard,
     }
-
-    public enum En_ErrorCode
+    public enum ErrorCodeModel
     {
-        GENERAL_FAULT = 1,
-        UNKNOWN_ACTION = 2,
-        NO_FREE_HANDLERS = 3,
-        INTERRUPTED_CYCLE = 4,
-        DATABASE_FAULT = 5,
-        INVALID_CLIENT = 6,
-        INTERNAL_ERROR = 7,
-        SID_NOT_SPECIFIED = 8,
-        NON_INITIALIZED_MANAGERS = 9,
-        LOGIN_FAILED = 10,
-        LICENSE_ERROR = 11,
-        CLIENT_LICENSE_ERROR = 12,
-        INVALID_PARAMETERS = 13,
-
+        GENERAL_FAULT,
+        UNKNOWN_ACTION,
+        NO_FREE_HANDLERS,
+        INTERRUPTED_CYCLE,
+        DATABASE_FAULT,
+        INVALID_CLIENT,
+        INTERNAL_ERROR,
+        SID_NOT_SPECIFIED,
+        NON_INITIALIZED_MANAGERS,
+        LOGIN_FAILED,
+        LICENSE_ERROR,
+        CLIENT_LICENSE_ERROR,
+        INVALID_PARAMETERS,
     }
-
-    public enum CallType
+    public enum CallTypeModel
     {
-        FalseCall = 1,
-        ChildPrank = 2,
-        Info = 3,
-        Card_01 = 4,
-        Card_02 = 5,
-        Card_03 = 6,
-        Card_04 = 7,
-        Card_CommServ = 8,
-        Repeated = 9,
-        Card_AT = 10,
-        Psychologist = 13,
-        Consultation = 14,
-        Interpreter = 15,
-        RosOhrana = 16,
-        GZHI = 17,
-        InterRegional = 18,
-
+        FalseCall,
+        ChildPrank,
+        Info,
+        Card_01,
+        Card_02,
+        Card_03,
+        Card_04,
+        Card_CommServ,
+        Repeated,
+        Card_AT,
+        Psychologist,
+        Consultation,
+        Interpreter,
+        RosOhrana,
+        GZHI,
+        InterRegional,
     }
-
-    public enum ServiceType
+    public enum ServiceTypeModel
     {
-        Service01 = 0,
-        Service02 = 1,
-        Service03 = 2,
-        Service04 = 3,
-        ServiceCommServ = 4,
-        Service112 = 5,
-        ServiceAT = 6,
-        ServicePsychologist = 9,
-        ServiceConsultation = 10,
-        ServiceInterpreter = 11,
-        ServiceRosOhrana = 12,
-
+        Service01,
+        Service02,
+        Service03,
+        Service04,
+        ServiceCommServ,
+        Service112,
+        ServiceAT,
+        ServicePsychologist,
+        ServiceConsultation,
+        ServiceInterpreter,
+        ServiceRosOhrana,
     }
-
-    public enum ImportanceLevel
+    public enum ImportanceLevelModel
     {
-        NotImportant = 0,
-        Important = 1,
-
+        NotImportant,
+        Important,
     }
-
-    public enum CardSyntheticState
+    public enum CardSyntheticStateModelEnum
     {
-        Request112 = 1,
-        ServicesInvolvement = 2,
-        ServicesReaction = 3,
-        ServicesWork = 4,
-        Completed = 5,
-        ServicesStart = 6,
-        DenialOfService = 7,
-
+        Request112,
+        ServicesInvolvement,
+        ServicesReaction,
+        ServicesWork,
+        Completed,
+        ServicesStart,
+        DenialOfService,
     }
-
-    public enum SortingOrder
+    public enum SortingOrderModel
     {
-        ASC = 1,
-        DESC = 2,
-
+        ASC,
+        DESC,
     }
-
-    public enum PhonogramSource
+    public enum PhonogramSourceModel
     {
-        Internal = 1,
-        External = 2,
-
+        Internal,
+        External,
     }
-
-    public enum DuplicateStatus
+    public enum DuplicateStatusModel
     {
-        UnconfirmedDuplicate = 1,
-        Duplicate = 2,
-        DuplicateFalse = 3,
-        UnconfirmedRepeated = 4,
-        Repeated = 5,
-        RepeatedFalse = 6,
-
+        UnconfirmedDuplicate,
+        Duplicate,
+        DuplicateFalse,
+        UnconfirmedRepeated,
+        Repeated,
+        RepeatedFalse,
     }
-
-    public enum User03Role
+    public enum User03RoleModel
     {
-        Operator_03 = 1,
-        Dispatcher_03 = 2,
-
+        Operator_03,
+        Dispatcher_03,
     }
-
-    public enum ReflectionPriorityBy03Reason
+    public enum ReflectionPriorityBy03ReasonModel
     {
-        Emergency = 0,
-        Immediate = 1,
-        Urgent = 2,
-        Transportation = 3,
-        NoPriority = 4,
-
+        Emergency,
+        Immediate,
+        Urgent,
+        Transportation,
+        NoPriority,
     }
-
-    public enum AttachmentType
+    public enum AttachmentTypeModel
     {
-        IMAGE = 0,
-        ACTION = 1,
-        STRING = 2,
-        PHONE_NUMBER = 3,
-        GEOMETRY = 4,
-        DOWNLOAD = 5,
-        VP_ONLINE_URL = 6,
-        VP_ARCHIVE_URL = 7,
-        VP_THUMBNAIL = 8,
-        PROXY_DOWNLOAD = 9,
-
+        IMAGE,
+        ACTION,
+        STRING,
+        PHONE_NUMBER,
+        GEOMETRY,
+        DOWNLOAD,
+        VP_ONLINE_URL,
+        VP_ARCHIVE_URL,
+        VP_THUMBNAIL,
+        PROXY_DOWNLOAD,
     }
-
-    public enum SMSType
+    public enum SMSTypeModel
     {
-        Incoming = 1,
-        Outcoming = 2,
-
+        Incoming,
+        Outcoming,
     }
-
-    public enum Direction
+    public enum DirectionModel
     {
-        Incoming = 1,
-        Outcoming = 2,
-
+        Incoming,
+        Outcoming,
     }
-
-    public enum SMSStatus
+    public enum SMSStatusModel
     {
-        Sent = 1,
-        NotSent = 2,
-        Received = 3,
-        NotReceived = 4,
-
+        Sent,
+        NotSent,
+        Received,
+        NotReceived,
     }
-
-    public enum SourceType
+    public enum SourceTypeModel
     {
-        PHONE = 1,
-        SMS = 2,
-        ERA_GLONASS = 3,
-        WITHOUT_CALL = 4,
-        SENSORS = 5,
-        INTERNET_PORTAL = 6,
-
+        PHONE,
+        SMS,
+        ERA_GLONASS,
+        WITHOUT_CALL,
+        SENSORS,
+        INTERNET_PORTAL,
     }
-
     public record CallCenterConnectionInfoModel
     {
         public string? Url { get; set; }
         public string? Description { get; set; }
     }
-
     public record AttachmentListModel
     {
-        public List<AttachmentContentModel>? attachments { get; set; }
+        public List<AttachmentContentModel>? Attachments { get; set; }
     }
-
     public record AttachmentDataModel
     {
-        public string? url;
-        public string? postdata;
-        public string? value;
-        public string? data;
+        public string? Url { get; set; }
+        public string? Postdata { get; set; }
+        public string? Value { get; set; }
+        public string? Data { get; set; }
     }
-
     public record AttachmentContentModel
     {
-        public string? name;
-        public string? title;
-        public AttachmentType type;
-        public AttachmentDataModel? data;
+        public string? Name { get; set; }
+        public string? Title { get; set; }
+        public AttachmentTypeModel Type { get; set; }
+        public AttachmentDataModel? Data { get; set; }
     }
-
-    public enum En_ReportFormatType
+    public enum ReportFormatTypeModel
     {
-        pdf = 1,
-        xls = 2,
-        xlsx = 3,
-        docx = 4,
-        rtf = 5,
-
+        pdf,
+        xls,
+        xlsx,
+        docx,
+        rtf,
     }
-
-    public enum ExternalInfoType
+    public enum ExternalInfoTypeModel
     {
-        Unknown = 0,
-        ContentList = 1,
-        SpbSvetetsAlert = 2,
-        Card112 = 3,
-
+        Unknown,
+        ContentList,
+        SpbSvetetsAlert,
+        Card112,
     }
-
     public record GeographicLocationModel
     {
-        public double m_dLatitude { get; set; }
-        public double m_dLongitude { get; set; }
+        public double M_dLatitude { get; set; }
+        public double M_dLongitude { get; set; }
     }
-
     public record CamertonEngineModel
     {
-        public int engineId { get; set; }
-        public GeographicLocationModel? geographicLocation { get; set; }
-        public string? additionalInfo { get; set; }
-        public string? iconUrl { get; set; }
+        public int EngineId { get; set; }
+        public GeographicLocationModel? GeographicLocation { get; set; }
+        public string? AdditionalInfo { get; set; }
+        public string? IconUrl { get; set; }
     }
-
     public record CardCommServFilterModel
     {
-        public int? nServiceIncidentCategoryId { get; set; }
-        public bool? isDeadlineExceeded { get; set; }
+        public int? ServiceIncidentCategoryId { get; set; }
+        public bool? IsDeadlineExceeded { get; set; }
     }
-
     public record Card03FilterModel
     {
-        public bool? isTransfered { get; set; }
-        public bool? isFilterEngine3 { get; set; }
-        public bool? isFilterEngine2 { get; set; }
-        public int? nHospitalId { get; set; }
-        public int? nStreetId { get; set; }
-        public int? nReasonId { get; set; }
-        public string? strAge { get; set; }
-        public int? nGender { get; set; }
+        public bool? IsTransfered { get; set; }
+        public bool? IsFilterEngine3 { get; set; }
+        public bool? IsFilterEngine2 { get; set; }
+        public int? HospitalId { get; set; }
+        public int? StreetId { get; set; }
+        public int? ReasonId { get; set; }
+        public string? Age { get; set; }
+        public int? Gender { get; set; }
         /// <summary> Id карточки </summary>
-        public int? nCardId { get; set; }
+        public int? CardId { get; set; }
     }
-
     public record Card112FilterModel
     {
-        public int? nCardId { get; set; }
-        public DateTime dtBeginPeriod { get; set; }
-        public DateTime dtEndPeriod { get; set; }
-        public string? strPhoneNumber { get; set; }
-        public int? nServiceId { get; set; }
-        public int? nLocalDistrictId { get; set; }
-        public int? nDistrictId { get; set; }
-        public int? nStreetId { get; set; }
-        public string? strBuilding { get; set; }
-        public string? strAgentLogin { get; set; }
-        public string? strCallerContactPhone { get; set; }
-        public string? strDeclarantLastName { get; set; }
-        public int? completeStatus { get; set; }
-        public ImportanceLevel? importanceLevel { get; set; }
-        public bool? lCompleted { get; set; }
-        public bool? isUnwatched { get; set; }
-        public string? strIncidentDescription { get; set; }
-        public DateTime? dtDeadline { get; set; }
-        public bool? isDayly { get; set; }
-        public int? nIncidentTypeId { get; set; }
-        public bool? isPriority { get; set; }
+        public int? CardId { get; set; }
+        public DateTime BeginPeriod { get; set; }
+        public DateTime EndPeriod { get; set; }
+        public string? PhoneNumber { get; set; }
+        public int? ServiceId { get; set; }
+        public int? LocalDistrictId { get; set; }
+        public int? DistrictId { get; set; }
+        public int? StreetId { get; set; }
+        public string? Building { get; set; }
+        public string? AgentLogin { get; set; }
+        public string? CallerContactPhone { get; set; }
+        public string? DeclarantLastName { get; set; }
+        public int? CompleteStatus { get; set; }
+        public ImportanceLevelModel? ImportanceLevel { get; set; }
+        public bool? Completed { get; set; }
+        public bool? IsUnwatched { get; set; }
+        public string? IncidentDescription { get; set; }
+        public DateTime? Deadline { get; set; }
+        public bool? IsDayly { get; set; }
+        public int? IncidentTypeId { get; set; }
+        public bool? IsPriority { get; set; }
         public CardCommServFilterModel? CardCommServFilter { get; set; }
-        public bool? lTestCard { get; set; }
+        public bool? TestCard { get; set; }
         public Card03FilterModel? Card03Filter { get; set; }
         public Card02FilterModel? Card02Filter { get; set; }
-        public bool? isServiceTypeIdCorrect { get; set; } = true;
-        public bool? withEmptyStreet { get; set; }
-        public string? strDeclarantName { get; set; }
-        public string? strDeclarantMiddleName { get; set; }
-        public bool? withEmptyLocalDistrict { get; set; }
-        public string? strAdditionalLocationInfo { get; set; }
+        public bool? IsServiceTypeIdCorrect { get; set; }
+        public bool? WithEmptyStreet { get; set; }
+        public string? DeclarantName { get; set; }
+        public string? DeclarantMiddleName { get; set; }
+        public bool? WithEmptyLocalDistrict { get; set; }
+        public string? AdditionalLocationInfo { get; set; }
         /// <summary> Идентификатор района города звонящего </summary>
-        public int? nDeclarantLocalDistrictId { get; set; }
+        public int? DeclarantLocalDistrictId { get; set; }
         /// <summary> Фильтровать по пустому району города звонящего </summary>
-        public bool? withEmptyDeclarantLocalDistrict { get; set; }
+        public bool? WithEmptyDeclarantLocalDistrict { get; set; }
         /// <summary> Идентификатор улицы звонящего </summary>
-        public int? nDeclarantStreetId { get; set; }
+        public int? DeclarantStreetId { get; set; }
         /// <summary> Фильтровать по пустой улице звонящего </summary>
-        public bool? withEmptyDeclarantStreet { get; set; }
-        public string? strDeclarantBuildingNumber { get; set; }
+        public bool? WithEmptyDeclarantStreet { get; set; }
+        public string? DeclarantBuildingNumber { get; set; }
         /// <summary> Идентификатор региона </summary>
-        public int? nRegionId { get; set; }
+        public int? RegionId { get; set; }
         /// <summary> Количество привлеченных экстренных служб </summary>
-        public int? nServiceCount { get; set; }
-        public bool? control { get; set; }
+        public int? ServiceCount { get; set; }
+        public bool? Control { get; set; }
         /// <summary> Учитывать ли пустой город вместе с фильтром по идентификатору города </summary>
-        public bool? withEmptyCity { get; set; }
-        public bool? wasInDenialOfService { get; set; }
-        public List<int>? nCallTypeIds { get; set; }
-        public List<int>? nSourceTypeIds { get; set; }
+        public bool? WithEmptyCity { get; set; }
+        public bool? WasInDenialOfService { get; set; }
+        public List<int>? CallTypeIds { get; set; }
+        public List<int>? SourceTypeIds { get; set; }
         /// <summary> список идентификаторов статусов карточек </summary>
-        public List<int>? nCardSyntheticStateIds { get; set; }
+        public List<int>? CardSyntheticStateIds { get; set; }
         /// <summary> список идентификаторов привлечённых отделений службы </summary>
-        public List<int>? nDepartmentIds { get; set; }
+        public List<int>? DepartmentIds { get; set; }
         /// <summary> список типов вызовов </summary>
-        public List<int>? nIncidentTypeIds { get; set; }
+        public List<int>? IncidentTypeIds { get; set; }
         /// <summary> районы </summary>
-        public List<int>? cityIds { get; set; }
+        public List<int>? CityIds { get; set; }
         /// <summary> Источники для исключения из списка </summary>
-        public List<int>? excludeExternalCreatorsList { get; set; }
+        public List<int>? ExcludeExternalCreatorsList { get; set; }
     }
-
-
     /// <summary> Правило валидации поля </summary>
     public record ValidationRuleModel
     {
@@ -1528,9 +1101,8 @@ namespace Dt.EsApi.Models
         /// <summary> Значение другого поля карточки при котором данное поле становится обязательным. CompareValue используется совместно с CompareField. </summary>
         public string? CompareValue { get; set; }
         /// <summary> Свойство служит для определения команды, для которой используется данное правило валидации. </summary>
-        public ValidatedCommand? CommandProperty { get; set; }
+        public ValidatedCommandModel? CommandProperty { get; set; }
     }
-
     public record Card112ValidationModel
     {
         /// <summary> Тип проиcшествия </summary>
@@ -1630,7 +1202,6 @@ namespace Dt.EsApi.Models
         /// <summary> Регион </summary>
         public List<ValidationRuleModel>? Region { get; set; }
     }
-
     /// <summary> Валидация полей карточки 01 </summary>
     public record Card01ValidationModel
     {
@@ -1709,7 +1280,6 @@ namespace Dt.EsApi.Models
         /// <summary> Этажность </summary>
         public List<ValidationRuleModel>? NumberStoreys { get; set; }
     }
-
     /// <summary> Валидация полей карточки Силы и средства (в составе карточки 01) </summary>
     public record CardForceValidationModel
     {
@@ -1720,7 +1290,6 @@ namespace Dt.EsApi.Models
         /// <summary> Ликвидация открытого огня </summary>
         public List<ValidationRuleModel>? OpenFireLiquidation { get; set; }
     }
-
     /// <summary> Валидация полей карточки 02 </summary>
     public record Card02ValidationModel
     {
@@ -1739,7 +1308,6 @@ namespace Dt.EsApi.Models
         /// <summary> Дополнительная информация о происшествии </summary>
         public List<ValidationRuleModel>? IncidentAdditionalInfo { get; set; }
     }
-
     /// <summary> Валидация полей карточки ОВД </summary>
     public record CardOvdValidationModel
     {
@@ -1776,7 +1344,6 @@ namespace Dt.EsApi.Models
         /// <summary> Результат </summary>
         public List<ValidationRuleModel>? Solved { get; set; }
     }
-
     /// <summary> Валидация полей карточки 02 Разыскиваемый </summary>
     public record Card02WantedValidationModel
     {
@@ -1801,7 +1368,6 @@ namespace Dt.EsApi.Models
         /// <summary> Дата рождения </summary>
         public List<ValidationRuleModel>? BirthdayDate { get; set; }
     }
-
     /// <summary> Валидация полей карточки 02 Подозреваемый </summary>
     public record Card02SuspectValidationModel
     {
@@ -1826,7 +1392,6 @@ namespace Dt.EsApi.Models
         /// <summary> Дата рождения </summary>
         public List<ValidationRuleModel>? BirthdayDate { get; set; }
     }
-
     /// <summary> Валидация полей карточки 02 Транспорт </summary>
     public record Card02VehicleValidationModel
     {
@@ -1849,7 +1414,6 @@ namespace Dt.EsApi.Models
         /// <summary> Скрылось с места происшествия </summary>
         public List<ValidationRuleModel>? Hided { get; set; }
     }
-
     /// <summary> Валидация полей карточки 02 Пострадавший </summary>
     public record Card02VictimValidationModel
     {
@@ -1874,7 +1438,6 @@ namespace Dt.EsApi.Models
         /// <summary> Доп. инфо </summary>
         public List<ValidationRuleModel>? AdditionalInfo { get; set; }
     }
-
     /// <summary> Валидация полей карточки 03 </summary>
     public record Card03ValidationModel
     {
@@ -1915,7 +1478,6 @@ namespace Dt.EsApi.Models
         /// <summary> Дополнительная информация </summary>
         public List<ValidationRuleModel>? IncidentAdditionalInfo { get; set; }
     }
-
     /// <summary> Валидация полей карточки 03 Пострадавший </summary>
     public record Card03SickPersonValidationModel
     {
@@ -1946,7 +1508,6 @@ namespace Dt.EsApi.Models
         /// <summary> Возраст </summary>
         public List<ValidationRuleModel>? Age { get; set; }
     }
-
     /// <summary> Валидация полей карточки 04 </summary>
     public record Card04ValidationModel
     {
@@ -1971,7 +1532,6 @@ namespace Dt.EsApi.Models
         /// <summary> Прибытие на место </summary>
         public List<ValidationRuleModel>? ServiceCardWorkNext { get; set; }
     }
-
     /// <summary> Валидация полей карточки AT </summary>
     public record CardATValidationModel
     {
@@ -2004,7 +1564,6 @@ namespace Dt.EsApi.Models
         /// <summary> Прибытие на место </summary>
         public List<ValidationRuleModel>? ServiceCardWorkNext { get; set; }
     }
-
     /// <summary> Валидация полей карточки ЕДДС/ЖКХ </summary>
     public record CardCommServValidationModel
     {
@@ -2047,7 +1606,6 @@ namespace Dt.EsApi.Models
         /// <summary> Консультация </summary>
         public List<ValidationRuleModel>? IsConsulting { get; set; }
     }
-
     /// <summary> Валидация полей карточки кастомной службы (старой) </summary>
     public record CardCustomServiceValidationModel
     {
@@ -2064,14 +1622,12 @@ namespace Dt.EsApi.Models
         /// <summary> Принятые меры </summary>
         public List<ValidationRuleModel>? Measures { get; set; }
     }
-
     public record CardCustomServiceValidationItemModel
     {
         /// <summary> Id службы </summary>
         public int ServiceTypeId { get; set; }
         public CardCustomServiceValidationModel? Validation { get; set; }
     }
-
     /// <summary> Валидация всех карточек </summary>
     public record ValidationsModel
     {
@@ -2091,22 +1647,18 @@ namespace Dt.EsApi.Models
         public CardCommServValidationModel? CardCommServ { get; set; }
         public List<CardCustomServiceValidationItemModel>? CardCustomServices { get; set; }
     }
-
     public record ButtonCommandModel
     {
         /// <summary> Основная команда кнопки </summary>
-        public En_Command? DefaultCommand { get; set; }
+        public CommandModel? DefaultCommand { get; set; }
         /// <summary> Дополнительная команда кнопки </summary>
-        public En_Command? AdditionalCommand { get; set; }
+        public CommandModel? AdditionalCommand { get; set; }
     }
-
-    public enum En_Command
+    public enum CommandModel
     {
-        SaveCardWithTransferCommand = 0,
-        InitConferenceCommand = 1,
-
+        SaveCardWithTransferCommand,
+        InitConferenceCommand,
     }
-
     public record RoleSettingsModel
     {
         /// <summary> Директория для сохранения карточки в xml формате </summary>
@@ -2135,7 +1687,7 @@ namespace Dt.EsApi.Models
         /// <summary> На рабочих местах 3-го уровня показывать все карточки не учитывая отделение </summary>
         public bool DoNotUseCardDepartmentFilter { get; set; }
         public bool? IsImportanceLevelEnabled { get; set; }
-        public ImportanceLevel? ImportanceLevelDefaultValue { get; set; }
+        public ImportanceLevelModel? ImportanceLevelDefaultValue { get; set; }
         /// <summary> Измеряется в секундах (целое число), при получении нотификаций прежде чем обновлять список карточек будет сделана пауза в столько секунд, сколько указано в настройке </summary>
         public int? UselessRefreshTimeout { get; set; }
         /// <summary> Sets the timeout when downloading reports </summary>
@@ -2154,7 +1706,7 @@ namespace Dt.EsApi.Models
         /// <summary> Максимальный уровень приближения на карте </summary>
         public int? MaxZoomLevel { get; set; }
         /// <summary> Текстовый идентификатор службы </summary>
-        public ServiceType? ServiceType { get; set; }
+        public ServiceTypeModel? ServiceType { get; set; }
         /// <summary> Настройки кнопки Передать с вызовом </summary>
         public ButtonCommandModel? TransferButtonCommand { get; set; }
         /// <summary> Включить всплывающие подсказки к полям карточки (режим УТК УСПО) </summary>
@@ -2260,7 +1812,7 @@ namespace Dt.EsApi.Models
         /// <summary> Список url MRS </summary>
         public List<MRSSettingsModel>? MrsSettings { get; set; }
         /// <summary> Список типов карточек доступных для изменения  </summary>
-        public List<OperatorCanEditItemModel>? OperatorCanEditCllection { get; set; }
+        public List<OperatorCanEditItemModel>? OperatorCanEditCollection { get; set; }
         /// <summary> Список настроек адресной книги </summary>
         public List<AddressbookSettingModel>? AddressbookSettings { get; set; }
         /// <summary> Список правил подсветки карточек в списке карточек </summary>
@@ -2274,89 +1826,81 @@ namespace Dt.EsApi.Models
         /// <summary> Список id служб, которые будут всегда привлечены при создании карточки. </summary>
         public List<int>? DefaultInvolvedServiceTypeIds { get; set; }
     }
-
-    public enum CallStatus
+    public enum CallStatusModel
     {
-        TransferedTo01 = 0,
-        TransferedTo02 = 1,
-        TransferedTo03 = 2,
-        TransferedTo04 = 3,
-        TransferedToAT = 4,
-        TransferedToCommServ = 5,
-        TerminatedByOperator = 6,
-        TerminatedByAbonent = 7,
-
+        TransferedTo01,
+        TransferedTo02,
+        TransferedTo03,
+        TransferedTo04,
+        TransferedToAT,
+        TransferedToCommServ,
+        TerminatedByOperator,
+        TerminatedByAbonent,
     }
-
     public record EmergencyCardModel
     {
-        public Card112Model card112 { get; set; }
-        public Card01Model card01 { get; set; }
-        public Card02Model card02 { get; set; }
-        public Card03Model card03 { get; set; }
-        public Card04Model card04 { get; set; }
-        public CardATModel cardAT { get; set; }
-        public CardCommServModel cardCommServ { get; set; }
+        public Card112Model Card112 { get; set; }
+        public Card01Model Card01 { get; set; }
+        public Card02Model Card02 { get; set; }
+        public Card03Model Card03 { get; set; }
+        public Card04Model Card04 { get; set; }
+        public CardATModel CardAT { get; set; }
+        public CardCommServModel CardCommServ { get; set; }
     }
-
     public record OperatorCanEditItemModel
     {
-        public CardType Card { get; set; }
-        public En_ServiceCardEditView View { get; set; }
+        public CardTypeModel Card { get; set; }
+        public ServiceCardEditViewModel View { get; set; }
         public bool CanComplete { get; set; }
         public bool CanChangeState { get; set; }
     }
-
-    public enum En_ServiceCardEditView
+    public enum ServiceCardEditViewModel
     {
         ///<summary>Карточка 01 как у ДДС 01</summary>
-        Card01View = 1,
+        Card01View,
         ///<summary>Карточка 01 Санкт-Петербург для просмотра</summary>
-        Card01SpbView = 2,
+        Card01SpbView,
         ///<summary>Карточка 01 Санкт-Петербург для редактирования</summary>
-        Card01SpbEditView = 3,
+        Card01SpbEditView,
         ///<summary>Карточка 02 как у ДДС 02</summary>
-        Card02View = 4,
+        Card02View,
         ///<summary>Карточка 02 Санкт-Петербург для просмотра</summary>
-        Card02SpbView = 5,
+        Card02SpbView,
         ///<summary>Карточка 02 Санкт-Петербург для редактирования</summary>
-        Card02SpbEditView = 6,
+        Card02SpbEditView,
         ///<summary>Карточка 02 'Интеграция' для редактирования</summary>
-        Card02IntegrationView = 21,
+        Card02IntegrationView,
         ///<summary>Карточка 03 как у Диспетчера 03</summary>
-        Card03DispatcherView = 7,
+        Card03DispatcherView,
         ///<summary>Карточка 03 Санкт-Петербург для просмотра</summary>
-        Card03SpbView = 8,
+        Card03SpbView,
         ///<summary>Карточка 03 Санкт-Петербург для редактирования</summary>
-        Card03SpbEditView = 9,
+        Card03SpbEditView,
         ///<summary>Карточка 03 только добавление пострадавших</summary>
-        Card03AddVictimsView = 11,
+        Card03AddVictimsView,
         ///<summary>Карточка 04 как у ДДС 04</summary>
-        Card04View = 12,
+        Card04View,
         ///<summary>Карточка 04 Санкт-Петербург для просмотра</summary>
-        Card04SpbView = 13,
+        Card04SpbView,
         ///<summary>Карточка 04 Санкт-Петербург для редактирования</summary>
-        Card04SpbEditView = 14,
+        Card04SpbEditView,
         ///<summary>Карточка ЖКХ/ЕДДС как у ДДС ЖКХ/ЕДДС</summary>
-        CardCommServView = 15,
+        CardCommServView,
         ///<summary>Карточка ЖКХ/ЕДДС Санкт-Петербург для просмотра</summary>
-        CardCommServSpbView = 16,
+        CardCommServSpbView,
         ///<summary>Карточка ЖКХ/ЕДДС Санкт-Петербург для редактирования</summary>
-        CardCommServSpbEditView = 17,
+        CardCommServSpbEditView,
         ///<summary>Карточка АТ как у ДДС АТ</summary>
-        CardATView = 18,
+        CardATView,
         ///<summary>Карточка АТ Санкт-Петербург для просмотра</summary>
-        CardATSpbView = 19,
+        CardATSpbView,
         ///<summary>Карточка АТ Санкт-Петербург для редактирования</summary>
-        CardATSpbEditView = 20,
-
+        CardATSpbEditView,
     }
-
     public record EmergencyServersCollectionModel
     {
-        public List<EmergencyServerInfoModel>? emergencyServers { get; set; }
+        public List<EmergencyServerInfoModel>? EmergencyServers { get; set; }
     }
-
     public record EmergencyServerInfoModel
     {
         public string? Url { get; set; }
@@ -2364,26 +1908,23 @@ namespace Dt.EsApi.Models
         public bool IsFirstPriority { get; set; }
         public bool IsAvailable { get; set; }
     }
-
     public record WeatherModel
     {
-        public short temperature { get; set; }
-        public short pressure { get; set; }
-        public byte clouds { get; set; }
-        public byte windDirection { get; set; }
-        public short windStrength { get; set; }
-        public short humidity { get; set; }
+        public short Temperature { get; set; }
+        public short Pressure { get; set; }
+        public byte Clouds { get; set; }
+        public byte WindDirection { get; set; }
+        public short WindStrength { get; set; }
+        public short Humidity { get; set; }
     }
-
     public record WeatherLayerModel
     {
-        public long id { get; set; }
-        public string? description { get; set; }
-        public double? longitude { get; set; }
-        public double? latitude { get; set; }
-        public WeatherModel? weather { get; set; }
+        public long Id { get; set; }
+        public string? Description { get; set; }
+        public double? Longitude { get; set; }
+        public double? Latitude { get; set; }
+        public WeatherModel? Weather { get; set; }
     }
-
     public record AddressbookSettingModel
     {
         /// <summary> IP базы адресной книги </summary>
@@ -2397,19 +1938,16 @@ namespace Dt.EsApi.Models
         /// <summary> Пароль </summary>
         public string? Password { get; set; }
     }
-
     public record AddressbookSettingsItemModel
     {
         /// <summary> Список настроек адресной книги </summary>
         public List<AddressbookSettingModel>? AddressbookSettings { get; set; }
     }
-
     public record VisualAttributesModel
     {
         /// <summary> Текстовое название стандартного цвета </summary>
         public string? BackgroundColor { get; set; }
     }
-
     public record CardConditionModel
     {
         /// <summary> Признак Комплексное реагирование </summary>
@@ -2423,7 +1961,6 @@ namespace Dt.EsApi.Models
         /// <summary> Признак Контроль </summary>
         public bool? IsControl { get; set; }
     }
-
     public record CardHighlightItemModel
     {
         /// <summary> Визуальное состояние карточки, которое будет применено при совпадении CardCondition </summary>
@@ -2431,368 +1968,323 @@ namespace Dt.EsApi.Models
         /// <summary> Состояние карточки, при котором будут применены VisualAttributes </summary>
         public CardConditionModel CardCondition { get; set; }
     }
-
     public record CustomServiceModel
     {
         /// <summary> Идентификатор имени кастомной службы </summary>
-        public int? nameId { get; set; }
+        public int? NameId { get; set; }
         /// <summary> Идентификатор службы </summary>
-        public int nServiceTypeId { get; set; }
+        public int ServiceTypeId { get; set; }
         /// <summary> Идентификатор состояния кастомной службы </summary>
-        public int? stateId { get; set; }
+        public int? StateId { get; set; }
         /// <summary> Дата привлечения кастомной службы </summary>
-        public DateTime? dateInvolve { get; set; }
+        public DateTime? DateInvolve { get; set; }
         /// <summary> Данные карточки кастомной службы </summary>
-        public CustomServiceDataModel data { get; set; }
+        public CustomServiceDataModel Data { get; set; }
     }
-
     public record CustomServiceDataModel
     {
         /// <summary> Вид выезда </summary>
-        public int? nIncidentTypeId { get; set; }
+        public int? IncidentTypeId { get; set; }
         /// <summary> Комментарий </summary>
-        public string? additionalInfo { get; set; }
+        public string? AdditionalInfo { get; set; }
         /// <summary> Принятые меры </summary>
-        public string? performActions { get; set; }
+        public string? PerformActions { get; set; }
         /// <summary> Выезд на место </summary>
-        public DateTime? dtServiceCardWork { get; set; }
+        public DateTime? ServiceCardWork { get; set; }
         /// <summary> Прибытие на место </summary>
-        public DateTime? dtServiceCardWorkNext { get; set; }
+        public DateTime? ServiceCardWorkNext { get; set; }
         /// <summary> Время закрытия сервисной карточки </summary>
-        public DateTime? dtServiceCardComplete { get; set; }
+        public DateTime? ServiceCardComplete { get; set; }
         /// <summary> Время просмотра карточки </summary>
-        public DateTime? dtServiceCardView { get; set; }
+        public DateTime? ServiceCardView { get; set; }
         /// <summary> Коллекция задействованных бригад </summary>
-        public List<int>? departmentIds { get; set; }
+        public List<int>? DepartmentIds { get; set; }
     }
-
     public record CardCustomServiceModel
     {
         /// <summary> Идентификатор службы </summary>
-        public int serviceTypeId { get; set; }
+        public int ServiceTypeId { get; set; }
         /// <summary> Доп. информация </summary>
-        public MetaFieldsModel? metaFields { get; set; }
+        public MetaFieldsModel? MetaFields { get; set; }
         /// <summary> Список кастомных полей службы </summary>
-        public CustomFieldsModel? customFields { get; set; }
+        public CustomFieldsModel? CustomFields { get; set; }
     }
-
     public record MetaFieldsModel
     {
         /// <summary> Идентификатор состояния кастомной службы </summary>
-        public int? stateId { get; set; }
+        public int? StateId { get; set; }
         /// <summary> Дата привлечения кастомной службы </summary>
-        public DateTime? dateInvolve { get; set; }
+        public DateTime? DateInvolve { get; set; }
     }
-
     public record CustomFieldsModel
     {
         /// <summary> Список логических полей </summary>
-        public List<BoolFieldModel>? boolFields { get; set; }
+        public List<BoolFieldModel>? BoolFields { get; set; }
         /// <summary> Список целочисленных полей </summary>
-        public List<IntFieldModel>? intFields { get; set; }
+        public List<IntFieldModel>? IntFields { get; set; }
         /// <summary> Список строковых полей </summary>
-        public List<StringFieldModel>? stringFields { get; set; }
+        public List<StringFieldModel>? StringFields { get; set; }
         /// <summary> Список полей с выпадающим списком </summary>
-        public List<ComboFieldModel>? comboFields { get; set; }
+        public List<ComboFieldModel>? ComboFields { get; set; }
         /// <summary> Список полей с датой/временем </summary>
-        public List<DateTimeFieldModel>? dateTimeFields { get; set; }
+        public List<DateTimeFieldModel>? DateTimeFields { get; set; }
         /// <summary> Список таблиц </summary>
-        public List<TableModel>? tables { get; set; }
+        public List<TableModel>? Tables { get; set; }
     }
-
     public record BoolFieldModel
     {
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Значение </summary>
-        public bool? value { get; set; }
+        public bool? Value { get; set; }
     }
-
     public record IntFieldModel
     {
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Значение </summary>
-        public int? value { get; set; }
+        public int? Value { get; set; }
     }
-
     public record StringFieldModel
     {
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Значение </summary>
-        public string? value { get; set; }
+        public string? Value { get; set; }
     }
-
     public record ComboFieldModel
     {
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Значение </summary>
-        public int? value { get; set; }
+        public int? Value { get; set; }
     }
-
     public record DateTimeFieldModel
     {
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Значение </summary>
-        public DateTime? value { get; set; }
+        public DateTime? Value { get; set; }
     }
-
     public record TableModel
     {
         /// <summary> Идентификатор шаблона таблицы </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Список столбцов с логическим значением </summary>
-        public List<BoolColumnModel>? boolColumns { get; set; }
+        public List<BoolColumnModel>? BoolColumns { get; set; }
         /// <summary> Список столбцов с целочисленным значением </summary>
-        public List<IntColumnModel>? intColumns { get; set; }
+        public List<IntColumnModel>? IntColumns { get; set; }
         /// <summary> Список столбцов со строковым значением </summary>
-        public List<StringColumnModel>? stringColumns { get; set; }
+        public List<StringColumnModel>? StringColumns { get; set; }
         /// <summary> Список столбцов с датой/временем </summary>
-        public List<DateTimeColumnModel>? dateTimeColumns { get; set; }
+        public List<DateTimeColumnModel>? DateTimeColumns { get; set; }
         /// <summary> Список столбцов с выпадающим списком </summary>
-        public List<ComboColumnModel>? comboColumns { get; set; }
+        public List<ComboColumnModel>? ComboColumns { get; set; }
     }
-
     public record BoolColumnModel
     {
         /// <summary> Идентификатор шаблона ячейки столбца </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Список значений стобца </summary>
-        public List<BoolCellModel>? values { get; set; }
+        public List<BoolCellModel>? Values { get; set; }
     }
-
     public record BoolCellModel
     {
         /// <summary> Идентификатор ячейки </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Значение </summary>
-        public bool? value { get; set; }
+        public bool? Value { get; set; }
     }
-
     public record StringColumnModel
     {
         /// <summary> Идентификатор шаблона ячейки столбца </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Список значений стобца </summary>
-        public List<StringCellModel>? values { get; set; }
+        public List<StringCellModel>? Values { get; set; }
     }
-
     public record StringCellModel
     {
         /// <summary> Идентификатор ячейки </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Значение </summary>
-        public string? value { get; set; }
+        public string? Value { get; set; }
     }
-
     public record IntColumnModel
     {
         /// <summary> Идентификатор шаблона ячейки столбца </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Список значений стобца </summary>
-        public List<IntCellModel>? values { get; set; }
+        public List<IntCellModel>? Values { get; set; }
     }
-
     public record IntCellModel
     {
         /// <summary> Идентификатор ячейки </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Значение </summary>
-        public int? value { get; set; }
+        public int? Value { get; set; }
     }
-
     public record DateTimeColumnModel
     {
         /// <summary> Идентификатор шаблона ячейки столбца </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Список значений стобца </summary>
-        public List<DateTimeCellModel>? values { get; set; }
+        public List<DateTimeCellModel>? Values { get; set; }
     }
-
     public record DateTimeCellModel
     {
         /// <summary> Идентификатор ячейки </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Значение </summary>
-        public DateTime? value { get; set; }
+        public DateTime? Value { get; set; }
     }
-
     public record ComboColumnModel
     {
         /// <summary> Идентификатор шаблона ячейки столбца </summary>
-        public int templateId;
+        public int TemplateId { get; set; }
         /// <summary> Список значений стобца </summary>
-        public List<ComboCellModel>? values { get; set; }
+        public List<ComboCellModel>? Values { get; set; }
     }
-
     public record ComboCellModel
     {
         /// <summary> Идентификатор ячейки </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Значение </summary>
-        public int? value { get; set; }
+        public int? Value { get; set; }
     }
-
     public record ServiceEventModel
     {
-        public int serviceTypeId { get; set; }
-        public bool opened { get; set; }
+        public int ServiceTypeId { get; set; }
+        public bool Opened { get; set; }
     }
-
     public record MetaDataModel
     {
-        public ReplicationMetaDataModel? replication { get; set; }
+        public ReplicationMetaDataModel? Replication { get; set; }
         /// <summary> Список событий службы </summary>
-        public List<ServiceEventModel>? serviceEvents { get; set; }
+        public List<ServiceEventModel>? ServiceEvents { get; set; }
     }
-
     public record ReplicationTargetInfoModel
     {
-        public int replicationTargetId { get; set; }
-        public string? replicationTargetName { get; set; }
-        public bool isDelivered { get; set; }
+        public int ReplicationTargetId { get; set; }
+        public string? ReplicationTargetName { get; set; }
+        public bool IsDelivered { get; set; }
     }
-
     public record ReplicationMetaDataModel
     {
-        public bool isDelivered { get; set; }
+        public bool IsDelivered { get; set; }
         /// <summary> Список информации о доставке по каждому направлению. </summary>
-        public List<ReplicationTargetInfoModel>? targetsInfo { get; set; }
+        public List<ReplicationTargetInfoModel>? TargetsInfo { get; set; }
     }
-
     public record RegionAdditionalInfoModelFromGenerated
     {
-        public int nId { get; set; }
-        public bool? autocomplete { get; set; }
+        public int Id { get; set; }
+        public bool? Autocomplete { get; set; }
     }
-
     public record PhoneBookDictionaryModel
     {
-        public int id { get; set; }
-        public int regionId { get; set; }
-        public int commTypeId { get; set; }
-        public int commPhoneId { get; set; }
-        public string? phoneNumber { get; set; }
-        public bool? deleted { get; set; }
+        public int Id { get; set; }
+        public int RegionId { get; set; }
+        public int CommTypeId { get; set; }
+        public int CommPhoneId { get; set; }
+        public string? PhoneNumber { get; set; }
+        public bool? Deleted { get; set; }
     }
-
     public record RegionDataModel
     {
-        public string? strRegistrationDepartment { get; set; }
-        public DateTime? dtRegDate { get; set; }
-        public DateTime? dtDepartmentTransfer { get; set; }
-        public string? strDenialOfServiceReason { get; set; }
+        public string? RegistrationDepartment { get; set; }
+        public DateTime? RegDate { get; set; }
+        public DateTime? DepartmentTransfer { get; set; }
+        public string? DenialOfServiceReason { get; set; }
     }
-
     public record MNISReactionModel
     {
-        public List<MNISReactionItemModel>? reaction { get; set; }
+        public List<MNISReactionItemModel>? Reaction { get; set; }
     }
-
     public record MNISReactionItemModel
     {
-        public List<MNISEventModel>? events { get; set; }
+        public List<MNISEventModel>? Events { get; set; }
     }
-
     public record MNISEventModel
     {
-        public string? resource { get; set; }
-        public MNISEventType? eventType { get; set; }
-        public DateTime? eventTime { get; set; }
-        public string? eventName { get; set; }
+        public string? Resource { get; set; }
+        public MNISEventTypeModel? EventType { get; set; }
+        public DateTime? EventTime { get; set; }
+        public string? EventName { get; set; }
     }
-
-    public enum MNISEventType
+    public enum MNISEventTypeModel
     {
-        Other = 0,
-        Accepted = 1,
-        Departure = 2,
-        OnTheWay = 3,
-        WayIncedent = 4,
-        TrafficDelay = 5,
-        Reject = 6,
-        Redirect = 7,
-        Arrived = 8,
-        Deployment = 9,
-        Performance = 10,
-        Completed = 11,
-        Undeployment = 12,
-        Retuning = 13,
-        Comeback = 14,
-        ArrivalToBase = 15,
-        Closed = 16,
-
+        Other,
+        Accepted,
+        Departure,
+        OnTheWay,
+        WayIncedent,
+        TrafficDelay,
+        Reject,
+        Redirect,
+        Arrived,
+        Deployment,
+        Performance,
+        Completed,
+        Undeployment,
+        Retuning,
+        Comeback,
+        ArrivalToBase,
+        Closed,
     }
-
     public record Vehicle03InfoModel
     {
-        public string? vehicleId { get; set; }
-        public DateTime? dtInvolve { get; set; }
+        public string? VehicleId { get; set; }
+        public DateTime? Involve { get; set; }
     }
-
-    public class Vehicle01InfoModel
+    public record Vehicle01InfoModel
     {
-        public string? vehicleId { get; set; }
-        public DateTime? latestEventTime { get; set; }
-        public MNISEventType? latestEventType { get; set; }
+        public string? VehicleId { get; set; }
+        public DateTime? LatestEventTime { get; set; }
+        public MNISEventTypeModel? LatestEventType { get; set; }
     }
-
-    public enum VehicleInfoSourceName
+    public enum VehicleInfoSourceNameModel
     {
-        MNIS = 1,
-        RNIS = 2,
-
+        MNIS,
+        RNIS,
     }
-
     public record VehicleArrivalModel
     {
-        public string? externalVehicleId { get; set; }
-        public GeoPointModelFromGenerated? currentLocation { get; set; }
-        public int? estimatedTravelTimeMinutes { get; set; }
-        public DateTime? estimatedArrivalTime { get; set; }
-        public string? stateRegNumber { get; set; }
+        public string? ExternalVehicleId { get; set; }
+        public GeoPointModelFromGenerated? CurrentLocation { get; set; }
+        public int? EstimatedTravelTimeMinutes { get; set; }
+        public DateTime? EstimatedArrivalTime { get; set; }
+        public string? StateRegNumber { get; set; }
     }
-
     public record ArrivalInfoModel
     {
-        public GeoPointModelFromGenerated? destination { get; set; }
-        public List<VehicleArrivalModel>? vehiclesArrival { get; set; }
+        public GeoPointModelFromGenerated? Destination { get; set; }
+        public List<VehicleArrivalModel>? VehiclesArrival { get; set; }
     }
-
     public record VehicleTrackInfoModel
     {
-        public GeoPointModelFromGenerated? coords { get; set; }
-        public string? stateRegNumber { get; set; }
+        public GeoPointModelFromGenerated? Coords { get; set; }
+        public string? StateRegNumber { get; set; }
     }
-
-    public enum En_MapType
+    public enum MapTypeModel
     {
         /// <summary> Protei GEO server </summary>
-        Protei = 3,
+        Protei,
         /// <summary> IAC GIS </summary>
-        IAC = 5,
+        IAC,
         /// <summary> ArcGIS rest API </summary>
-        ArcGIS = 6,
+        ArcGIS,
         /// <summary> External map view with PPPUR integration by chrome webdriver </summary>
-        ChromeBrowserPppur = 7,
-
+        ChromeBrowserPppur,
     }
-
-    public enum En_CallCenterProviderType
+    public enum CallCenterProviderTypeModel
     {
-        NotSet = 0,
-        Protei = 1,
-        Avaya7 = 3,
-        ProteiEACD3 = 4,
-        EmergencyServer = 5,
-        GridBookServer = 6,
-        ProteiEACDWPServer = 7,
-
+        NotSet,
+        Protei,
+        Avaya7,
+        ProteiEACD3,
+        EmergencyServer,
+        GridBookServer,
+        ProteiEACDWPServer,
     }
-
     public record ConnectionInfoModel
     {
         public string? ActionUrl { get; set; }
@@ -2802,7 +2294,6 @@ namespace Dt.EsApi.Models
         public int Priority { get; set; }
         public int Attempts { get; set; }
     }
-
     public record MRSSettingsModel
     {
         public string? Mrs { get; set; }
@@ -2812,29 +2303,25 @@ namespace Dt.EsApi.Models
         public string? CallIdFilter { get; set; }
         public int? GetFileListTimeout { get; set; }
     }
-
     public record MapsSettingsModel
     {
         public int? VideoPortalUserID { get; set; }
         public string? CityName { get; set; }
-        public En_MapType MapManufacturer { get; set; }
+        public MapTypeModel MapManufacturer { get; set; }
     }
-
     public record MapTileUrlModelFromGenerated
     {
         public string? Url { get; set; }
-        public En_MapType? MapManufacturer { get; set; }
+        public MapTypeModel? MapManufacturer { get; set; }
         public string? HomeCity { get; set; }
     }
-
     public record CallCenterSettingsModel
     {
-        public En_CallCenterProviderType CallCenterProvider { get; set; }
+        public CallCenterProviderTypeModel CallCenterProvider { get; set; }
         public string? Url { get; set; }
         public int? RunProcessWaitTimeout { get; set; }
         public int? PollingInterval { get; set; }
     }
-
     public record CallCenterParameterModel
     {
         /// <summary> Проигрывать звук в динамики/колонки </summary>
@@ -2845,15 +2332,13 @@ namespace Dt.EsApi.Models
         public bool? EmergencyModeEnable { get; set; }
         /// <summary> Длительность ожидания (секунды), до переключения из 'Режима работы без РМО' в 'Аварийный режим' </summary>
         public int? WaitSecondsBeforeEmergencyMode { get; set; }
-
     }
-
     public record SettingsModel
     {
         public MapsSettingsModel? MapsSettings { get; set; }
         public CallCenterSettingsModel? CallCenterSettings { get; set; }
         public string? AcdTerminalWindowStyleRunMode { get; set; }
-        public User03Role? User03Role { get; set; }
+        public User03RoleModel? User03Role { get; set; }
         public int? ActualDepartmentID { get; set; }
         public bool IsCallCenterUsed { get; set; }
         public bool NoCardCreationSiren { get; set; }
@@ -2874,599 +2359,460 @@ namespace Dt.EsApi.Models
         public List<int>? ForcesAvailableDepartments { get; set; }
         public List<int>? AdditionalCities { get; set; }
     }
-
     public record CallDataModel
     {
-
-        public long nCallId { get; set; }
-        public string? extCallId { get; set; }
-        public string? extCallId2 { get; set; }
-        public string? strCdPN { get; set; }
-        public string? strCgPN { get; set; }
-        public int nCategory { get; set; }
+        public long CallId { get; set; }
+        public string? ExtCallId { get; set; }
+        public string? ExtCallId2 { get; set; }
+        public string? CdPN { get; set; }
+        public string? CgPN { get; set; }
+        public int Category { get; set; }
         public string? GatewayIPAddr { get; set; }
         public string? ESGlobalID { get; set; }
-        public ExternalInfoType externalInfoType { get; set; }
-        public int? ccRegionID { get; set; }
-        public string? visitedNetworkId { get; set; }
-        public SMSDataModel? smsData { get; set; }
-        public string? resultInfo { get; set; }
-        public int? callDuration { get; set; }
-        public Direction? callDirection { get; set; }
-        public int? distributeDuration { get; set; }
-        public List<string>? externalInfo { get; set; }
-
+        public ExternalInfoTypeModel ExternalInfoType { get; set; }
+        public int? CcRegionID { get; set; }
+        public string? VisitedNetworkId { get; set; }
+        public SMSDataModel? SmsData { get; set; }
+        public string? ResultInfo { get; set; }
+        public int? CallDuration { get; set; }
+        public DirectionModel? CallDirection { get; set; }
+        public int? DistributeDuration { get; set; }
+        public List<string>? ExternalInfo { get; set; }
     }
-
     public record SMSDataModel
     {
-
         /// <summary> Текст сообщения </summary>
-        public string? strMessageText { get; set; }
+        public string? MessageText { get; set; }
         /// <summary> Тип СМС (входящее, исходящее) </summary>
-        public SMSType? smsType { get; set; }
+        public SMSTypeModel? SmsType { get; set; }
         /// <summary> Статус СМС (отправлено, получено) </summary>
-        public SMSStatus? smsStatus { get; set; }
+        public SMSStatusModel? SmsStatus { get; set; }
         /// <summary> SMPP Id </summary>
-        public string? strSMPPId { get; set; }
+        public string? SMPPId { get; set; }
         /// <summary> Идентификатор СМС для Авая </summary>
-        public int? nSmsId { get; set; }
-
+        public int? SmsId { get; set; }
     }
-
     public record IncidentTypeRecordModel
     {
-
-        public int nIncidentTypeId { get; set; }
-        public int? callTypeId { get; set; }
-        public int? regionId { get; set; }
-        public bool deleted { get; set; }
+        public int IncidentTypeId { get; set; }
+        public int? CallTypeId { get; set; }
+        public int? RegionId { get; set; }
+        public bool Deleted { get; set; }
         public List<int>? ServiceTypeIds { get; set; }
-
     }
-
     public record ServiceIncidentTypeRecordModel
     {
-
-        public int nId { get; set; }
-        public string? strValue { get; set; }
-        public int? nIncidentTypeId { get; set; }
-        public string? additionalInfo { get; set; }
-        public bool deleted { get; set; }
-        public List<int>? auxIncidentIds { get; set; }
-
+        public int Id { get; set; }
+        public string? Value { get; set; }
+        public int? IncidentTypeId { get; set; }
+        public string? AdditionalInfo { get; set; }
+        public bool Deleted { get; set; }
+        public List<int>? AuxIncidentIds { get; set; }
     }
-
     public record ServiceDeadlinesModel
     {
-
-        public int serviceTypeId { get; set; }
-        public int? serviceCreateTimeout { get; set; }
-
-
+        public int ServiceTypeId { get; set; }
+        public int? ServiceCreateTimeout { get; set; }
     }
-
     public record ReplicationTargetModel
     {
-
-        public int replicationTargetId { get; set; }
-        public string? replicationServiceName { get; set; }
-        public int? replicationTargetServiceTypeId { get; set; }
-
-
+        public int ReplicationTargetId { get; set; }
+        public string? ReplicationServiceName { get; set; }
+        public int? ReplicationTargetServiceTypeId { get; set; }
     }
-
     public record Card112ListModel
     {
-
-        public int total { get; set; }
-        public List<Card112Model>? cardList { get; set; }
-
-
+        public int Total { get; set; }
+        public List<Card112Model>? CardList { get; set; }
     }
-
-    public record Tm_ISharerDescriptionModel
+    public record ISharerDescriptionModel
     {
-
         /// <summary> На вид </summary>
-        public string? strInLooksAge { get; set; }
+        public string? InLooksAge { get; set; }
         /// <summary> Рост </summary>
-        public int? nStatureID { get; set; }
+        public int? StatureID { get; set; }
         /// <summary> Телосложение </summary>
-        public int? nFigureID { get; set; }
+        public int? FigureID { get; set; }
         /// <summary> Рост </summary>
-        public string? strStature { get; set; }
+        public string? Stature { get; set; }
         /// <summary> Телосложение </summary>
-        public string? strFigure { get; set; }
+        public string? Figure { get; set; }
         /// <summary> Одет </summary>
-        public string? strExterior { get; set; }
+        public string? Exterior { get; set; }
         /// <summary> Особые приметы </summary>
-        public string? strExtra { get; set; }
+        public string? Extra { get; set; }
         /// <summary> Пол </summary>
-        public int? nGender { get; set; }
+        public int? Gender { get; set; }
         /// <summary> Фамилия </summary>
-        public string? strLastName { get; set; }
+        public string? LastName { get; set; }
         /// <summary> Имя </summary>
-        public string? strFirstName { get; set; }
+        public string? FirstName { get; set; }
         /// <summary> Отчество </summary>
-        public string? strMiddleName { get; set; }
+        public string? MiddleName { get; set; }
         /// <summary> Дата рождения </summary>
-        public DateTime? dtBirthday { get; set; }
-
-
+        public DateTime? Birthday { get; set; }
     }
-
-    public record Tm_IVehicleDescriptionModel
+    public record IVehicleDescriptionModel
     {
-
         /// <summary> Производитель </summary>
-        public string? strVendor { get; set; }
+        public string? Vendor { get; set; }
         /// <summary> Модель </summary>
-        public string? strName { get; set; }
+        public string? Name { get; set; }
         /// <summary> Цвет </summary>
-        public string? strColor { get; set; }
+        public string? Color { get; set; }
         /// <summary> Тип ТС из классификатора </summary>
-        public string? strType { get; set; }
+        public string? Type { get; set; }
         /// <summary> Цвет ТС из классификатора </summary>
-        public int? nColorID { get; set; }
+        public int? ColorID { get; set; }
         /// <summary> Тип ТС из классификатора </summary>
-        public int? nTypeID { get; set; }
+        public int? TypeID { get; set; }
         /// <summary> Особые приметы </summary>
-        public string? strExtra { get; set; }
+        public string? Extra { get; set; }
         /// <summary> Номер </summary>
-        public string? strRegistrationNumber { get; set; }
+        public string? RegistrationNumber { get; set; }
         /// <summary> Регион </summary>
-        public string? strRegion { get; set; }
+        public string? Region { get; set; }
         /// <summary> Скрылось с места происшествия </summary>
-        public bool lHided { get; set; }
-
-
+        public bool Hided { get; set; }
     }
-
-    public record Tm_IVictimDescriptionModel
+    public record IVictimDescriptionModel
     {
-
         /// <summary> Фамилия </summary>
-        public string? strLastName { get; set; }
+        public string? LastName { get; set; }
         /// <summary> Отчество </summary>
-        public string? strMiddleName { get; set; }
+        public string? MiddleName { get; set; }
         /// <summary> Имя </summary>
-        public string? strFirstName { get; set; }
+        public string? FirstName { get; set; }
         /// <summary> Телефон </summary>
-        public string? strContactPhone { get; set; }
+        public string? ContactPhone { get; set; }
         /// <summary> Доп. инфо </summary>
-        public string? strAdditionalInfo { get; set; }
+        public string? AdditionalInfo { get; set; }
         /// <summary> Id района </summary>
-        public int? nCityId { get; set; }
+        public int? CityId { get; set; }
         /// <summary> Id улицы </summary>
-        public int? nStreetId { get; set; }
+        public int? StreetId { get; set; }
         /// <summary> Телосложение </summary>
-        public string? strBuildingNumber { get; set; }
+        public string? BuildingNumber { get; set; }
         /// <summary> Корпус </summary>
-        public string? strCorps { get; set; }
+        public string? Corps { get; set; }
         /// <summary> Квартира </summary>
-        public string? strFlat { get; set; }
-
+        public string? Flat { get; set; }
     }
-
     public record TaskForceItemModel
     {
-
-        public int ovdServiceId { get; set; }
-        public string? lastName { get; set; }
-
+        public int OvdServiceId { get; set; }
+        public string? LastName { get; set; }
     }
-
     public record Card02FilterModel
     {
-
         /// <summary> КУСП ОВД </summary>
-        public string? strInstrinsicOvd { get; set; }
+        public string? InstrinsicOvd { get; set; }
         /// <summary> КУСП ДПС </summary>
-        public string? strInstrinsicDps { get; set; }
+        public string? InstrinsicDps { get; set; }
         /// <summary> Фильтровать ли карточки с неуказанной улицей </summary>
-        public bool? isFilterEmptyStreet { get; set; }
+        public bool? IsFilterEmptyStreet { get; set; }
         /// <summary> Id улицы </summary>
-        public int? nStreetId { get; set; }
+        public int? StreetId { get; set; }
         /// <summary> Квалификация ОВД </summary>
-        public int? nITypeId { get; set; }
+        public int? ITypeId { get; set; }
         /// <summary> Id карточки </summary>
-        public int? nCardId { get; set; }
+        public int? CardId { get; set; }
         /// <summary> Фамилия заявителя </summary>
-        public string? strDeclarantLastName { get; set; }
-
+        public string? DeclarantLastName { get; set; }
     }
-
-    public record Tm_DictionaryItemModel
+    public record DictionaryItemModel
     {
-
-        public int nId { get; set; }
-        public string? strValue { get; set; }
-        public string? extId { get; set; }
-        public bool deleted { get; set; }
-        public string? strDescription { get; set; }
-
+        public int Id { get; set; }
+        public string? Value { get; set; }
+        public string? ExtId { get; set; }
+        public bool Deleted { get; set; }
+        public string? Description { get; set; }
     }
-
     public record DCRecordModel
     {
-
-        public int districtId { get; set; }
-        public int cityId { get; set; }
-        public bool deleted { get; set; }
-
+        public int DistrictId { get; set; }
+        public int CityId { get; set; }
+        public bool Deleted { get; set; }
     }
-
     public record SDCRecordModel
     {
-
-        public int streetId { get; set; }
-        public int districtId { get; set; }
-        public int cityId { get; set; }
-        public bool deleted { get; set; }
-
+        public int StreetId { get; set; }
+        public int DistrictId { get; set; }
+        public int CityId { get; set; }
+        public bool Deleted { get; set; }
     }
-
     public record CardStateDescStructModel
     {
-
-        public int _id { get; set; }
-        public string? _name { get; set; }
-        public int? _nextid { get; set; }
-        public int? _previd { get; set; }
-        public int? _standardMinutes { get; set; }
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public int? Nextid { get; set; }
+        public int? Previd { get; set; }
+        public int? StandardMinutes { get; set; }
     }
-
     public record CardSyntheticStateModel
     {
-
-        public int _id { get; set; }
-        public string? _name { get; set; }
-        public int _color_r { get; set; }
-        public int _color_g { get; set; }
-        public int _color_b { get; set; }
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public int ColorR { get; set; }
+        public int ColorG { get; set; }
+        public int ColorB { get; set; }
     }
-
-    public record Tm_SubCallTypeItemModel
+    public record SubCallTypeItemModel
     {
-
-        public int nId { get; set; }
-        public int nCallTypeId { get; set; }
-        public int nCityId { get; set; }
-        public string? strGroupNumber { get; set; }
-        public string? description { get; set; }
-
+        public int Id { get; set; }
+        public int CallTypeId { get; set; }
+        public int CityId { get; set; }
+        public string? GroupNumber { get; set; }
+        public string? Description { get; set; }
     }
-
     public record FieldConstraintModel
     {
-
-        public string? name { get; set; }
-        public int size { get; set; }
-
-
+        public string? Name { get; set; }
+        public int Size { get; set; }
     }
-
     public record ObjectStructModel
     {
-
-        public int _ID { get; set; }
-        public string? _name { get; set; }
-        public int? _streetID { get; set; }
-        public int _cityID { get; set; }
-        public int _districtID { get; set; }
-        public string? _building { get; set; }
-        public string? _corps { get; set; }
-        public bool _gasified { get; set; }
-        public int _baseClassID { get; set; }
-        public int _departmentID { get; set; }
-        public int? _typeID { get; set; }
-        public bool _deleted { get; set; }
-        public List<int>? _fireReactionPlanIDs { get; set; }
-
+        public int? ID { get; set; }
+        public string? Name { get; set; }
+        public int? StreetID { get; set; }
+        public int CityID { get; set; }
+        public int DistrictID { get; set; }
+        public string? Building { get; set; }
+        public string? Corps { get; set; }
+        public bool Gasified { get; set; }
+        public int BaseClassID { get; set; }
+        public int DepartmentID { get; set; }
+        public int? TypeID { get; set; }
+        public bool Deleted { get; set; }
+        public List<int>? FireReactionPlanIDs { get; set; }
     }
-
     public record FireObjectRangeStructModel
     {
-
-        public int _ID { get; set; }
-        public string? _name { get; set; }
-        public int? _streetID { get; set; }
-        public int _cityID { get; set; }
-        public int _districtID { get; set; }
-        public int _departmentID { get; set; }
-        public int? _buildingFrom { get; set; }
-        public int? _buildingTo { get; set; }
-        public int? _odd { get; set; }
-        public List<int>? _fireReactionPlanIDs { get; set; }
-
+        public int? ID { get; set; }
+        public string? Name { get; set; }
+        public int? StreetID { get; set; }
+        public int CityID { get; set; }
+        public int DistrictID { get; set; }
+        public int DepartmentID { get; set; }
+        public int? BuildingFrom { get; set; }
+        public int? BuildingTo { get; set; }
+        public int? Odd { get; set; }
+        public List<int>? FireReactionPlanIDs { get; set; }
     }
-
     public record FireReactionPlanItemStructModel
     {
-
-        public int _ID { get; set; }
-        public int _fireRectionPlanID { get; set; }
-        public int _fireEngineTypeID { get; set; }
-        public string? _fireEngineType { get; set; }
-        public int _fireDepartmentID { get; set; }
-        public int _count { get; set; }
-        public int _order { get; set; }
-        public int _fireClassID { get; set; }
-
+        public int? ID { get; set; }
+        public int FireRectionPlanID { get; set; }
+        public int FireEngineTypeID { get; set; }
+        public string? FireEngineType { get; set; }
+        public int FireDepartmentID { get; set; }
+        public int Count { get; set; }
+        public int Order { get; set; }
+        public int FireClassID { get; set; }
     }
-
     public record FireReactionPlanStructModel
     {
-
-        public int _ID { get; set; }
-        public string? _name { get; set; }
-        public int _departmentID { get; set; }
-        public List<FireReactionPlanItemStructModel>? _items { get; set; }
-
-
+        public int? ID { get; set; }
+        public string? Name { get; set; }
+        public int DepartmentID { get; set; }
+        public List<FireReactionPlanItemStructModel>? Items { get; set; }
     }
-
     public record MalefactionStructModel
     {
-
-        public int _ID { get; set; }
-        public string? _name { get; set; }
-        public int _code { get; set; }
-
-
+        public int? ID { get; set; }
+        public string? Name { get; set; }
+        public int Code { get; set; }
     }
-
     public record MalefactionGroupStructModel
     {
-
-        public int _ID { get; set; }
-        public string? _name { get; set; }
-        public int _code { get; set; }
-        public List<MalefactionStructModel>? _items { get; set; }
-
-
+        public int? ID { get; set; }
+        public string? Name { get; set; }
+        public int Code { get; set; }
+        public List<MalefactionStructModel>? Items { get; set; }
     }
-
     public record Tm_SnapshotDataModel
     {
-
-        public int nId { get; set; }
-        public string? strModifier { get; set; }
-        public DateTime dtModified { get; set; }
-        public int nCardId { get; set; }
-        public int nCardTypeId { get; set; }
-        public int nVersion { get; set; }
-        public string? strModifications { get; set; }
-
-
+        public int Id { get; set; }
+        public string? Modifier { get; set; }
+        public DateTime Modified { get; set; }
+        public int CardId { get; set; }
+        public int CardTypeId { get; set; }
+        public int Version { get; set; }
+        public string? Modifications { get; set; }
     }
-
-
     public record CustomServiceCardTemplateModel
     {
-
         /// <summary> Идентификатор шаблона внешнего вида карточки </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Список полей </summary>
-        public List<FieldInfoModel>? fields { get; set; }
-
-
+        public List<FieldInfoModel>? Fields { get; set; }
     }
-
     public record ServiceTypeIdToCustomServiceCardTemplateModel
     {
-
         /// <summary> Идентификатор службы </summary>
-        public int serviceTypeId { get; set; }
+        public int ServiceTypeId { get; set; }
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
-
-
+        public int TemplateId { get; set; }
     }
-
     public record FieldInfoModel
     {
-
         /// <summary> Идентификатор шаблона поля </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Тип шаблона </summary>
-        public En_TemplateType templateType { get; set; }
+        public TemplateTypeModel TemplateType { get; set; }
         /// <summary> Порядок поля </summary>
-        public int order { get; set; }
-
-
+        public int Order { get; set; }
     }
-
     public record ControlTemplateModel
     {
-
         /// <summary> Идентификатор шаблона поля </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Название поля </summary>
-        public string? name { get; set; }
+        public string? Name { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
-
-
+        public bool? IsDeleted { get; set; }
     }
-
     public record ComboControlTemplateModel
     {
-
         /// <summary> Идентификатор шаблона поля </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Название поля </summary>
-        public string? name { get; set; }
+        public string? Name { get; set; }
         /// <summary> Id источника данных </summary>
-        public int dataSetId { get; set; }
+        public int DataSetId { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
-
-
+        public bool? IsDeleted { get; set; }
     }
-
     public record DateTimeControlTemplateModel
     {
-
         /// <summary> Идентификатор шаблона поля </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Название поля </summary>
-        public string? name { get; set; }
+        public string? Name { get; set; }
         /// <summary> Формат поля </summary>
-        public DateTimeFormat format { get; set; }
+        public DateTimeFormat Format { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
-
-
+        public bool? IsDeleted { get; set; }
     }
-
     public record TableControlTemplateModel
     {
-
         /// <summary> Идентификатор шаблона поля </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Название таблицы </summary>
-        public string? name { get; set; }
+        public string? Name { get; set; }
         /// <summary> Id списка столбцов </summary>
-        public int columnsSetId { get; set; }
+        public int ColumnsSetId { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
-
-
+        public bool? IsDeleted { get; set; }
     }
-
     public record ColumnsSetModel
     {
-
         /// <summary> Идентификатор набора столбцов </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
         /// <summary> Список столбцов </summary>
-        public List<ColumnInfoModel>? columns { get; set; }
-
-
+        public List<ColumnInfoModel>? Columns { get; set; }
     }
-
     public record ColumnInfoModel
     {
-
         /// <summary> Идентификатор шаблона столбца </summary>
-        public int templateId { get; set; }
+        public int TemplateId { get; set; }
         /// <summary> Тип шаблона </summary>
-        public En_TemplateType templateType { get; set; }
+        public TemplateTypeModel TemplateType { get; set; }
         /// <summary> Порядок столбца </summary>
-        public int order { get; set; }
-
-
+        public int Order { get; set; }
     }
-
     public record DataSetModel
     {
-
         /// <summary> Идентификатор набора данных </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
         /// <summary> Набор значений </summary>
-        public List<DataSetItemModel>? items { get; set; }
-
-
+        public List<DataSetItemModel>? Items { get; set; }
     }
-
     public record DataSetItemModel
     {
-
         /// <summary> Идентификатор значения в наборе данных </summary>
-        public int id { get; set; }
+        public int Id { get; set; }
         /// <summary> Значение </summary>
-        public string? value { get; set; }
+        public string? Value { get; set; }
         /// <summary> Признак того, что запись удалена </summary>
-        public bool? isDeleted { get; set; }
-
-
+        public bool? IsDeleted { get; set; }
     }
-
-    public enum En_TemplateType
+    public enum TemplateTypeModel
     {
-        Bool = 0,
-        Int = 1,
-        String = 2,
-        DateTime = 3,
-        Combo = 4,
-        Table = 5,
-
+        Bool,
+        Int,
+        String,
+        DateTime,
+        Combo,
+        Table,
     }
-
-    public enum DateTimeFormat
+    public enum DateTimeFormatModel
     {
-        Date = 0,
-        DateTime = 1,
-
+        Date,
+        DateTime,
     }
-
     public record BasicDictionariesModel
     {
-
-        public List<Tm_DictionaryItemModel>? CallTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? ServiceTypeDictionary { get; set; }
-        public List<Tm_SubCallTypeItemModel>? SubCallTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? CallTypeNumberDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? AdditionalCallTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? DeclarantStatusDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? CCMC_TypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? ObjectTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? FireClassDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? FireReasonDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? FireIncidentTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? Departments01Dictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? FireReactionPlanDictionary { get; set; }
+        public List<DictionaryItemModel>? CallTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? ServiceTypeDictionary { get; set; }
+        public List<SubCallTypeItemModel>? SubCallTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? CallTypeNumberDictionary { get; set; }
+        public List<DictionaryItemModel>? AdditionalCallTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? DeclarantStatusDictionary { get; set; }
+        public List<DictionaryItemModel>? CCMC_TypeDictionary { get; set; }
+        public List<DictionaryItemModel>? ObjectTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? FireClassDictionary { get; set; }
+        public List<DictionaryItemModel>? FireReasonDictionary { get; set; }
+        public List<DictionaryItemModel>? FireIncidentTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? Departments01Dictionary { get; set; }
+        public List<DictionaryItemModel>? FireReactionPlanDictionary { get; set; }
         public List<CardStateDescStructModel>? Card01StateDescStructs { get; set; }
         public List<FireObjectRangeStructModel>? FireObjectRangeStructs { get; set; }
         public List<FireReactionPlanStructModel>? FireReactionPlanStructs { get; set; }
-        public List<Tm_DictionaryItemModel>? FireBarrelTypes { get; set; }
-        public List<Tm_DictionaryItemModel>? FireExtinguisherTypes { get; set; }
-        public List<Tm_DictionaryItemModel>? WaterSources { get; set; }
-        public List<Tm_DictionaryItemModel>? FirePreventionTypes { get; set; }
-        public List<Tm_DictionaryItemModel>? FireRoles { get; set; }
-        public List<Tm_DictionaryItemModel>? FireIncidentGroupDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? Departments02Dictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? OVDServiceDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? ITypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? ITypeDetailedDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? StatureDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? FigureDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? StatusDictionary { get; set; }
+        public List<DictionaryItemModel>? FireBarrelTypes { get; set; }
+        public List<DictionaryItemModel>? FireExtinguisherTypes { get; set; }
+        public List<DictionaryItemModel>? WaterSources { get; set; }
+        public List<DictionaryItemModel>? FirePreventionTypes { get; set; }
+        public List<DictionaryItemModel>? FireRoles { get; set; }
+        public List<DictionaryItemModel>? FireIncidentGroupDictionary { get; set; }
+        public List<DictionaryItemModel>? Departments02Dictionary { get; set; }
+        public List<DictionaryItemModel>? OVDServiceDictionary { get; set; }
+        public List<DictionaryItemModel>? ITypeDictionary { get; set; }
+        public List<DictionaryItemModel>? ITypeDetailedDictionary { get; set; }
+        public List<DictionaryItemModel>? StatureDictionary { get; set; }
+        public List<DictionaryItemModel>? FigureDictionary { get; set; }
+        public List<DictionaryItemModel>? StatusDictionary { get; set; }
         public List<CardStateDescStructModel>? Card02StateDescStructs { get; set; }
         public List<MalefactionGroupStructModel>? MalefactionGroupStructs { get; set; }
-        public List<Tm_DictionaryItemModel>? OvdPastEvents { get; set; }
-        public List<Tm_DictionaryItemModel>? OvdDepartureResults { get; set; }
-        public List<Tm_DictionaryItemModel>? Departments03Dictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? ReasonDictionary { get; set; }
+        public List<DictionaryItemModel>? OvdPastEvents { get; set; }
+        public List<DictionaryItemModel>? OvdDepartureResults { get; set; }
+        public List<DictionaryItemModel>? Departments03Dictionary { get; set; }
+        public List<DictionaryItemModel>? ReasonDictionary { get; set; }
         public List<CardStateDescStructModel>? Card03StateDescStructs { get; set; }
-        public List<Tm_DictionaryItemModel>? DiagnosisDictionary { get; set; }
+        public List<DictionaryItemModel>? DiagnosisDictionary { get; set; }
         public List<HospitalModel>? Hospitals { get; set; }
-        public List<Tm_DictionaryItemModel>? TransportationTypesDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? Card03TransportReasonDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? GasServicesDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? GasServiceSituationsDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? GasSituationInstructions { get; set; }
-        public List<Tm_DictionaryItemModel>? DepartmentsCommServDictionary { get; set; }
+        public List<DictionaryItemModel>? TransportationTypesDictionary { get; set; }
+        public List<DictionaryItemModel>? Card03TransportReasonDictionary { get; set; }
+        public List<DictionaryItemModel>? GasServicesDictionary { get; set; }
+        public List<DictionaryItemModel>? GasServiceSituationsDictionary { get; set; }
+        public List<DictionaryItemModel>? GasSituationInstructions { get; set; }
+        public List<DictionaryItemModel>? DepartmentsCommServDictionary { get; set; }
         public List<CardStateDescStructModel>? CardCommServStateDescStructs { get; set; }
-        public List<Tm_DictionaryItemModel>? IncidentCommServCategoryDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? CardCommServUKDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? IncidentCommServObjectTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? IncidentCommServCategoryDictionary { get; set; }
+        public List<DictionaryItemModel>? CardCommServUKDictionary { get; set; }
+        public List<DictionaryItemModel>? IncidentCommServObjectTypeDictionary { get; set; }
         public List<IntMapItemModel>? IncidentCommServType2ObjectTypeMap { get; set; }
-        public List<Tm_DictionaryItemModel>? CityDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? DistrictDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? StreetDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? RegionDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? LocalDistrictDictionary { get; set; }
+        public List<DictionaryItemModel>? CityDictionary { get; set; }
+        public List<DictionaryItemModel>? DistrictDictionary { get; set; }
+        public List<DictionaryItemModel>? StreetDictionary { get; set; }
+        public List<DictionaryItemModel>? RegionDictionary { get; set; }
+        public List<DictionaryItemModel>? LocalDistrictDictionary { get; set; }
         public List<RegionAdditionalInfoModelFromGenerated>? RegionsAdditionalInfo { get; set; }
-        public List<Tm_DictionaryItemModel>? IncidentTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? IncidentTypeDictionary { get; set; }
         public List<IncidentTypeRecordModel>? IncidentTypeRecords { get; set; }
         public List<ServiceIncidentTypeRecordModel>? Incident01TypeRecords { get; set; }
         public List<ServiceIncidentTypeRecordModel>? Incident02TypeRecords { get; set; }
@@ -3478,27 +2824,27 @@ namespace Dt.EsApi.Models
         public List<DCRecordModel>? DCRecords { get; set; }
         public List<SDCRecordModel>? SDCRecords { get; set; }
         public List<CardSyntheticStateModel>? CardSyntheticStateDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? LanguageDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? sourceTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? VehicleTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? Card03WhoCalledDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? ExternalCreatorsDictionary { get; set; }
+        public List<DictionaryItemModel>? LanguageDictionary { get; set; }
+        public List<DictionaryItemModel>? SourceTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? VehicleTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? Card03WhoCalledDictionary { get; set; }
+        public List<DictionaryItemModel>? ExternalCreatorsDictionary { get; set; }
         public List<ServiceDeadlinesModel>? ServiceDeadlinesDictionary { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_02_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_03_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_OVD_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_04_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_AT_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_CommServ_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_FireFighterCard_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_ISharerDescription_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_IVehicleDescription_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_IVictimDescription_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Card_112_Constraints { get; set; }
-        public List<FieldConstraintModel>? Tm_Call_History_Constraints { get; set; }
-        public List<Tm_DictionaryItemModel>? customServiceIncidentType { get; set; }
-        public List<Tm_DictionaryItemModel>? customServiceDepartment { get; set; }
-        public List<Tm_DictionaryItemModel>? ServiceType2CustomServiceTypeDictionary { get; set; }
+        public List<FieldConstraintModel>? Card02Constraints { get; set; }
+        public List<FieldConstraintModel>? Card03Constraints { get; set; }
+        public List<FieldConstraintModel>? CardOVDConstraints { get; set; }
+        public List<FieldConstraintModel>? Card04Constraints { get; set; }
+        public List<FieldConstraintModel>? CardATConstraints { get; set; }
+        public List<FieldConstraintModel>? CardCommServConstraints { get; set; }
+        public List<FieldConstraintModel>? FireFighterCardConstraints { get; set; }
+        public List<FieldConstraintModel>? ISharerDescriptionConstraints { get; set; }
+        public List<FieldConstraintModel>? IVehicleDescriptionConstraints { get; set; }
+        public List<FieldConstraintModel>? IVictimDescriptionConstraints { get; set; }
+        public List<FieldConstraintModel>? Card112Constraints { get; set; }
+        public List<FieldConstraintModel>? CallHistoryConstraints { get; set; }
+        public List<DictionaryItemModel>? CustomServiceIncidentType { get; set; }
+        public List<DictionaryItemModel>? CustomServiceDepartment { get; set; }
+        public List<DictionaryItemModel>? ServiceType2CustomServiceTypeDictionary { get; set; }
         public List<ControlTemplateModel>? BoolControlTemplates { get; set; }
         public List<ControlTemplateModel>? IntControlTemplates { get; set; }
         public List<ControlTemplateModel>? StringControlTemplates { get; set; }
@@ -3509,721 +2855,531 @@ namespace Dt.EsApi.Models
         public List<DataSetModel>? DataSets { get; set; }
         public List<ServiceTypeIdToCustomServiceCardTemplateModel>? ServiceTypeIdToCustomServiceCardTemplateDictionary { get; set; }
         public List<ColumnsSetModel>? ColumnsSets { get; set; }
-        public List<Tm_DictionaryItemModel>? CommunicationTypeDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? CommunicationPhonesDictionary { get; set; }
+        public List<DictionaryItemModel>? CommunicationTypeDictionary { get; set; }
+        public List<DictionaryItemModel>? CommunicationPhonesDictionary { get; set; }
         public List<PhoneBookDictionaryModel>? PhoneBookDictionary { get; set; }
-        public List<Tm_DictionaryItemModel>? PerformActionsTypeDictionary { get; set; }
-
-
+        public List<DictionaryItemModel>? PerformActionsTypeDictionary { get; set; }
     }
-
     public record CardMessageModelFromGenerated
     {
-
-        public int? serviceTypeId { get; set; }
-        public int nID { get; set; }
-        public string? strCreator { get; set; }
-        public int nEmergencyCardID { get; set; }
-        public int? nDepartmentID { get; set; }
-        public string? strMessage { get; set; }
-        public bool isServiceMessage { get; set; }
-        public DateTime dtCreate { get; set; }
-
-
+        public int? ServiceTypeId { get; set; }
+        public int ID { get; set; }
+        public string? Creator { get; set; }
+        public int EmergencyCardID { get; set; }
+        public int? DepartmentID { get; set; }
+        public string? Message { get; set; }
+        public bool IsServiceMessage { get; set; }
+        public DateTime Create { get; set; }
     }
-
     public record DepartmentModelFromGenerated
     {
-
-        public int m_nID { get; set; }
-        public string? m_strName { get; set; }
-        public GeographicLocationModel? m_GeographicLocation { get; set; }
-        public int m_nDistrictID { get; set; }
-        public List<EngineModel>? m_Engines { get; set; }
-
-
+        public int ID { get; set; }
+        public string? Name { get; set; }
+        public GeographicLocationModel? GeographicLocation { get; set; }
+        public int DistrictID { get; set; }
+        public List<EngineModel>? Engines { get; set; }
     }
-
     public record EngineModel
     {
-
-        public int nID { get; set; }
-        public int nDepartmentID { get; set; }
-        public string? strNumber { get; set; }
-        public int? nStateID { get; set; }
-        public int? nShiftReportStateID { get; set; }
-        public int? nEmergencyCardID { get; set; }
-        public int? nEmergencyCardImportnaceLevelID { get; set; }
-        public Engine03AdditionalInfoModel? engine03AdditionalInfo { get; set; }
-
-
+        public int ID { get; set; }
+        public int DepartmentID { get; set; }
+        public string? Number { get; set; }
+        public int? StateID { get; set; }
+        public int? ShiftReportStateID { get; set; }
+        public int? EmergencyCardID { get; set; }
+        public int? EmergencyCardImportnaceLevelID { get; set; }
+        public Engine03AdditionalInfoModel? Engine03AdditionalInfo { get; set; }
     }
-
     public record Engine03AdditionalInfoModel
     {
-
-        public int nProfileID { get; set; }
+        public int ProfileID { get; set; }
         /// <summary> Врач </summary>
-        public int? nPrimarySpecialistID { get; set; }
+        public int? PrimarySpecialistID { get; set; }
         /// <summary> Фельдшер </summary>
-        public int? nSecondarySpecialistID { get; set; }
+        public int? SecondarySpecialistID { get; set; }
         /// <summary> Санитар </summary>
-        public int? nOrderlyID { get; set; }
+        public int? OrderlyID { get; set; }
         /// <summary> Начало смены </summary>
-        public DateTime dtShiftBegin { get; set; }
+        public DateTime ShiftBegin { get; set; }
         /// <summary> Конец смены </summary>
-        public DateTime dtShiftEnd { get; set; }
-        public DateTime dtShiftBeginReal { get; set; }
-        public DateTime dtWorkBegin { get; set; }
-        public DateTime dtLastAction { get; set; }
-        public int? nCityID { get; set; }
-        public int? nDistrictID { get; set; }
-        public int? nStreetID { get; set; }
-        public string? strBuilding { get; set; }
-        public string? strCorps { get; set; }
-        public string? strRoom { get; set; }
-        public DateTime dtEmergencyCardCreate { get; set; }
-        public int? nCallCount { get; set; }
-
-
+        public DateTime ShiftEnd { get; set; }
+        public DateTime ShiftBeginReal { get; set; }
+        public DateTime WorkBegin { get; set; }
+        public DateTime LastAction { get; set; }
+        public int? CityID { get; set; }
+        public int? DistrictID { get; set; }
+        public int? StreetID { get; set; }
+        public string? Building { get; set; }
+        public string? Corps { get; set; }
+        public string? Room { get; set; }
+        public DateTime EmergencyCardCreate { get; set; }
+        public int? CallCount { get; set; }
     }
-
     public record Tm_DepartmentStatePairModel
     {
-
-        public int departmentID { get; set; }
-        public int stateID { get; set; }
-
-
+        public int DepartmentID { get; set; }
+        public int StateID { get; set; }
     }
-
     public record CardDepartmentStateModel
     {
-
-        public int id { get; set; }
-        public DateTime modified { get; set; }
-        public DateTime action { get; set; }
-        public int departmentID { get; set; }
-        public int cardStateDescID { get; set; }
-        public int? serviceTypeId { get; set; }
-        public string? strMessage { get; set; }
-
-
+        public int Id { get; set; }
+        public DateTime Modified { get; set; }
+        public DateTime Action { get; set; }
+        public int DepartmentID { get; set; }
+        public int CardStateDescID { get; set; }
+        public int? ServiceTypeId { get; set; }
+        public string? Message { get; set; }
     }
-
     public record DepartmentStateHistoryModel
     {
-
-        public int activeState { get; set; }
-        public List<CardDepartmentStateModel>? stateHistory { get; set; }
-
-
+        public int ActiveState { get; set; }
+        public List<CardDepartmentStateModel>? StateHistory { get; set; }
     }
-
     public record DepartmentInvolvedFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-
-
+        public int? WantsServiceTypeId { get; set; }
     }
-
     public record DepartmentStateChangedFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-
-
+        public int? WantsServiceTypeId { get; set; }
     }
-
     public record RequestedEnginesListChangedFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-        public int wantsEmergencyCardID { get; set; }
-
-
+        public int? WantsServiceTypeId { get; set; }
+        public int WantsEmergencyCardID { get; set; }
     }
-
     public record CardCurrentStatesInDepartmentsChangedFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-        public int wantsEmergencyCardID { get; set; }
-
-
+        public int? WantsServiceTypeId { get; set; }
+        public int WantsEmergencyCardID { get; set; }
     }
-
     public record CardMessageListChangedFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-        public int wantsEmergencyCardID { get; set; }
-
-
+        public int? WantsServiceTypeId { get; set; }
+        public int WantsEmergencyCardID { get; set; }
     }
-
     public record BroadcastMessageFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-        public List<int>? wantsDepartmentIDs { get; set; }
-
-
+        public int? WantsServiceTypeId { get; set; }
+        public List<int>? WantsDepartmentIDs { get; set; }
     }
-
     public record ShiftReportChangedFilterModel
     {
-
-        public int? wantsServiceTypeId { get; set; }
-
+        public int? WantsServiceTypeId { get; set; }
     }
-
     public record CardAdditionalInfoAddedFilterModel
     {
-
-        public int cardId { get; set; }
-
-
+        public int CardId { get; set; }
     }
-
-    public enum CardEventType
+    public enum CardEventTypeModel
     {
-        CardCreated = 1,
-        CardChanged = 2,
-
+        CardCreated,
+        CardChanged,
     }
-
     public record NotificationFiltersModel
     {
-
-        public bool wantsCard01Changed { get; set; }
-        public bool wantsCard02Changed { get; set; }
-        public bool wantsCard03Changed { get; set; }
-        public bool wantsCard04Changed { get; set; }
-        public bool wantsCardATChanged { get; set; }
-        public bool wantsCardCommServChanged { get; set; }
-        public bool wantsCard112Changed { get; set; }
-        public bool wantsCard01Created { get; set; }
-        public bool wantsCard02Created { get; set; }
-        public bool wantsCard03Created { get; set; }
-        public bool wantsCard04Created { get; set; }
-        public bool wantsCardATCreated { get; set; }
-        public bool wantsCardCommServCreated { get; set; }
-        public bool wantsCard112Created { get; set; }
-        public bool? wantsGlonassCardChanged { get; set; }
-        public bool? wantsClientRegistered { get; set; }
-        public bool? wantsUpdateRequested { get; set; }
-        public bool? wantsActiveCallCenterIndexChanged { get; set; }
-        public CardMessageListChangedFilterModel? wantsCardMessageListChangedFilter { get; set; }
-        public BroadcastMessageFilterModel? wantsBroadcastMessageFilter { get; set; }
-        public DepartmentInvolvedFilterModel? wantsDepartmentInvolvedFilter { get; set; }
-        public DepartmentStateChangedFilterModel? wantsDepartmentStateChangedFilter { get; set; }
-        public RequestedEnginesListChangedFilterModel? wantsRequestedEnginesListChangedFilter { get; set; }
-        public CardCurrentStatesInDepartmentsChangedFilterModel? wantsCardCurrentStatesInDepartmentsChangedFilter { get; set; }
-        public ShiftReportChangedFilterModel? wantsShiftReportChangedFilter { get; set; }
-        public UpdatingCoordsFilterModel? wantsUpdatingCoordsFilter { get; set; }
-        public bool? wantsCamertonEnginesPositionFilter { get; set; }
-        public bool? wantsCommServDeadlineExceededFilter { get; set; }
-        public CardAdditionalInfoAddedFilterModel? wantsCardAdditionalInfoAddedFilter { get; set; }
-        public bool? wantsWeatherLayersChanged { get; set; }
-        public bool? wantsAllServiceTypeIdsCardChanged { get; set; }
-        public bool? wantsAllServiceTypeIdsCardCreated { get; set; }
-        public bool? wantsSmsStatusChanged { get; set; }
-        public bool? wantsSmsUpdatedEvent { get; set; }
-        public List<int>? wantsServiceTypeIdsCardChanged { get; set; }
-        public List<int>? wantsServiceTypeIdsCardCreated { get; set; }
-
-
+        public bool WantsCard01Changed { get; set; }
+        public bool WantsCard02Changed { get; set; }
+        public bool WantsCard03Changed { get; set; }
+        public bool WantsCard04Changed { get; set; }
+        public bool WantsCardATChanged { get; set; }
+        public bool WantsCardCommServChanged { get; set; }
+        public bool WantsCard112Changed { get; set; }
+        public bool WantsCard01Created { get; set; }
+        public bool WantsCard02Created { get; set; }
+        public bool WantsCard03Created { get; set; }
+        public bool WantsCard04Created { get; set; }
+        public bool WantsCardATCreated { get; set; }
+        public bool WantsCardCommServCreated { get; set; }
+        public bool WantsCard112Created { get; set; }
+        public bool? WantsGlonassCardChanged { get; set; }
+        public bool? WantsClientRegistered { get; set; }
+        public bool? WantsUpdateRequested { get; set; }
+        public bool? WantsActiveCallCenterIndexChanged { get; set; }
+        public CardMessageListChangedFilterModel? WantsCardMessageListChangedFilter { get; set; }
+        public BroadcastMessageFilterModel? WantsBroadcastMessageFilter { get; set; }
+        public DepartmentInvolvedFilterModel? WantsDepartmentInvolvedFilter { get; set; }
+        public DepartmentStateChangedFilterModel? WantsDepartmentStateChangedFilter { get; set; }
+        public RequestedEnginesListChangedFilterModel? WantsRequestedEnginesListChangedFilter { get; set; }
+        public CardCurrentStatesInDepartmentsChangedFilterModel? WantsCardCurrentStatesInDepartmentsChangedFilter { get; set; }
+        public ShiftReportChangedFilterModel? WantsShiftReportChangedFilter { get; set; }
+        public UpdatingCoordsFilterModel? WantsUpdatingCoordsFilter { get; set; }
+        public bool? WantsCamertonEnginesPositionFilter { get; set; }
+        public bool? WantsCommServDeadlineExceededFilter { get; set; }
+        public CardAdditionalInfoAddedFilterModel? WantsCardAdditionalInfoAddedFilter { get; set; }
+        public bool? WantsWeatherLayersChanged { get; set; }
+        public bool? WantsAllServiceTypeIdsCardChanged { get; set; }
+        public bool? WantsAllServiceTypeIdsCardCreated { get; set; }
+        public bool? WantsSmsStatusChanged { get; set; }
+        public bool? WantsSmsUpdatedEvent { get; set; }
+        public List<int>? WantsServiceTypeIdsCardChanged { get; set; }
+        public List<int>? WantsServiceTypeIdsCardCreated { get; set; }
     }
-
     public record UpdatingCoordsFilterModel
     {
-
-        public int? serviceTypeId { get; set; }
-
-
+        public int? ServiceTypeId { get; set; }
     }
-
     public record FireBarrelsItemModel
     {
-
-        public int nTypeID { get; set; }
-        public int count { get; set; }
-        public DateTime? dtSupply { get; set; }
-
-
+        public int TypeID { get; set; }
+        public int Count { get; set; }
+        public DateTime? Supply { get; set; }
     }
-
     public record FireExtinguishersItemModel
     {
-
-        public int nTypeID { get; set; }
-        public int count { get; set; }
-        public DateTime? dtSupply { get; set; }
-
-
+        public int TypeID { get; set; }
+        public int Count { get; set; }
+        public DateTime? Supply { get; set; }
     }
-
     public record FireChiefModel
     {
-
-        public string? strName { get; set; }
-        public int nJobId { get; set; }
-        public DateTime dtArrive { get; set; }
-
-
+        public string? Name { get; set; }
+        public int JobId { get; set; }
+        public DateTime Arrive { get; set; }
     }
-
     public record DrillsChiefModel
     {
-
-        public string? strName { get; set; }
-        public int nJobId { get; set; }
-
-
+        public string? Name { get; set; }
+        public int JobId { get; set; }
     }
-
-
     public record GdzsUnitModel
     {
-
-        public int nNumOfPeoples { get; set; }
-        public int nNumOfMinutes { get; set; }
-        public DateTime? dtStartWorking { get; set; }
-
-
+        public int NumOfPeoples { get; set; }
+        public int NumOfMinutes { get; set; }
+        public DateTime? StartWorking { get; set; }
     }
-
     public record FireFighterModel
     {
-
-        public string? strName { get; set; }
-        public int nJobId { get; set; }
-
-
+        public string? Name { get; set; }
+        public int JobId { get; set; }
     }
-
     /// <summary> Больной </summary>
     public record SickPersonModel
     {
-
         /// <summary> ID пациента </summary>
-        public int? nId { get; set; }
+        public int? Id { get; set; }
         /// <summary> ФИО пациента </summary>
-        public string? strName { get; set; }
+        public string? Name { get; set; }
         /// <summary> Отчество пациента </summary>
-        public string? strMiddleName { get; set; }
+        public string? MiddleName { get; set; }
         /// <summary> Фамилия пациента </summary>
-        public string? strLastName { get; set; }
+        public string? LastName { get; set; }
         /// <summary> Приметы пациента </summary>
-        public string? strSickPersonSigns { get; set; }
+        public string? SickPersonSigns { get; set; }
         /// <summary> Пол (мужчина ли) </summary>
-        public bool? isMale { get; set; }
+        public bool? IsMale { get; set; }
         /// <summary> Дата рождения </summary>
-        public DateTime? dtBirth { get; set; }
+        public DateTime? Birth { get; set; }
         /// <summary> Возраст лет </summary>
-        public int? nAgeYear { get; set; }
+        public int? AgeYear { get; set; }
         /// <summary> Возраст месяцев </summary>
-        public int? nAgeMonth { get; set; }
+        public int? AgeMonth { get; set; }
         /// <summary> Возраст дней </summary>
-        public int? nAgeDay { get; set; }
+        public int? AgeDay { get; set; }
         /// <summary> Причина вызова </summary>
-        public int? nReasonId { get; set; }
+        public int? ReasonId { get; set; }
         /// <summary> Описание причины </summary>
-        public string? strReasonTags { get; set; }
+        public string? ReasonTags { get; set; }
         /// <summary> Диагноз консультанта </summary>
-        public int? nConsultDiagnosId { get; set; }
+        public int? ConsultDiagnosId { get; set; }
         /// <summary> Диагноз ЛПУ </summary>
-        public int? nDiagnosId { get; set; }
+        public int? DiagnosId { get; set; }
         /// <summary> Результат обслуживания </summary>
-        public int? nResultId { get; set; }
+        public int? ResultId { get; set; }
         /// <summary> Причина смерти </summary>
-        public string? strDeathCause { get; set; }
+        public string? DeathCause { get; set; }
         /// <summary> Дефекты оказания помощи </summary>
-        public string? strEmcDefects { get; set; }
+        public string? EmcDefects { get; set; }
         /// <summary> Оказаная помощь </summary>
-        public string? strEmcAssistance { get; set; }
+        public string? EmcAssistance { get; set; }
         /// <summary> Приоритетный ли вызов </summary>
-        public bool? isReasonPriority { get; set; }
-
-
+        public bool? IsReasonPriority { get; set; }
     }
-
     public record HospitalModel
     {
-
-        public int nId { get; set; }
-        public string? strName { get; set; }
-        public string? strSign { get; set; }
-        public int? nCityId { get; set; }
-
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Sign { get; set; }
+        public int? CityId { get; set; }
     }
-
-
     /// <summary> Информация о настройках на компьютере клиента </summary>
     public record SettingsInfoModel
     {
-
-        public User03Role? user03Role { get; set; }
-        public int? cityId { get; set; }
-        public int? localDistrictId { get; set; }
-        public int? regionId { get; set; }
-        public int? numberOfForcesAvailableDeps { get; set; }
-        public int? currentDepartmentId { get; set; }
-        public bool? isRegion { get; set; }
-        public int? actualDepartmentID { get; set; }
-        public string? wpID { get; set; }
-        public string? roleTitle { get; set; }
-        public int? sourceZoneId { get; set; }
-        public ImportanceLevel? importanceLevelDefaultValue { get; set; }
-        public bool? isImportanceLevelEnabled { get; set; }
-        public List<int>? nAdditionalCityIds { get; set; }
-
-
+        public User03RoleModel? User03Role { get; set; }
+        public int? CityId { get; set; }
+        public int? LocalDistrictId { get; set; }
+        public int? RegionId { get; set; }
+        public int? NumberOfForcesAvailableDeps { get; set; }
+        public int? CurrentDepartmentId { get; set; }
+        public bool? IsRegion { get; set; }
+        public int? ActualDepartmentID { get; set; }
+        public string? WpID { get; set; }
+        public string? RoleTitle { get; set; }
+        public int? SourceZoneId { get; set; }
+        public ImportanceLevelModel? ImportanceLevelDefaultValue { get; set; }
+        public bool? IsImportanceLevelEnabled { get; set; }
+        public List<int>? AdditionalCityIds { get; set; }
     }
-
     public record PcInfoModel
     {
-
-        public string? osName { get; set; }
-        public SettingsInfoModel? settingsInfo { get; set; }
-        public string? maxDotNetFramework { get; set; }
-        public string? missingVcRedistribs { get; set; }
-        public string? clientDictionariesCache { get; set; }
-
-
+        public string? OsName { get; set; }
+        public SettingsInfoModel? SettingsInfo { get; set; }
+        public string? MaxDotNetFramework { get; set; }
+        public string? MissingVcRedistribs { get; set; }
+        public string? ClientDictionariesCache { get; set; }
     }
-
     public record VideoQACameraModel
     {
-
-        public int cameraID { get; set; }
-        public int operatorID { get; set; }
-        public string? manufacturer { get; set; }
-        public string? model { get; set; }
-        public bool isPtz { get; set; }
-        public bool isDigital { get; set; }
-        public string? address { get; set; }
-        public double longitude { get; set; }
-        public double latitude { get; set; }
-        public double azimuth { get; set; }
-        public double angle { get; set; }
-        public string? codec { get; set; }
-        public int resolutionX { get; set; }
-        public int resolutionY { get; set; }
-        public int fps { get; set; }
-        public int bitrate { get; set; }
-        public double lostPackets { get; set; }
-        public string? ipAddress { get; set; }
-        public int streamPort { get; set; }
-        public int webPort { get; set; }
-        public string? login { get; set; }
-        public string? password { get; set; }
-        public int state { get; set; }
-        public string? gatewayHost { get; set; }
-        public string? name { get; set; }
-
-
+        public int CameraID { get; set; }
+        public int OperatorID { get; set; }
+        public string? Manufacturer { get; set; }
+        public string? Model { get; set; }
+        public bool IsPtz { get; set; }
+        public bool IsDigital { get; set; }
+        public string? Address { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+        public double Azimuth { get; set; }
+        public double Angle { get; set; }
+        public string? Codec { get; set; }
+        public int ResolutionX { get; set; }
+        public int ResolutionY { get; set; }
+        public int Fps { get; set; }
+        public int Bitrate { get; set; }
+        public double LostPackets { get; set; }
+        public string? IpAddress { get; set; }
+        public int StreamPort { get; set; }
+        public int WebPort { get; set; }
+        public string? Login { get; set; }
+        public string? Password { get; set; }
+        public int State { get; set; }
+        public string? GatewayHost { get; set; }
+        public string? Name { get; set; }
     }
-
     public record EraGlonassECallLocationModel
     {
-
         /// <summary> Широта местоположения ТС </summary>
-        public long? latitude { get; set; }
+        public long? Latitude { get; set; }
         /// <summary> Долгота местоположения ТС </summary>
-        public long? longitude { get; set; }
+        public long? Longitude { get; set; }
         /// <summary> Достоверность определения местоположения ТС </summary>
-        public bool? positionCanBeTrusted { get; set; }
+        public bool? PositionCanBeTrusted { get; set; }
         /// <summary> Момент определения местоположения </summary>
-        public string? timestamp { get; set; }
-
-
+        public string? Timestamp { get; set; }
     }
-
     public record EraGlonassECallIntegrationModel
     {
-
         /// <summary> Уникальный идентификатор карточки вызова </summary>
-        public string? cardId { get; set; }
+        public string? CardId { get; set; }
         /// <summary> Краткий ссылочный идентификатор (КСИ) карточки вызова </summary>
-        public int cardShortId { get; set; }
+        public int CardShortId { get; set; }
         /// <summary> Идентификатор КВ в СЭР (в случае отправки уточненной КВ) </summary>
-        public string? esgCardId { get; set; }
+        public string? EsgCardId { get; set; }
         /// <summary> Язык общения с заявителем </summary>
-        public string? declarantLanguageCode { get; set; }
+        public string? DeclarantLanguageCode { get; set; }
         /// <summary> Состояние голосового канала между заявителем и оператором </summary>
-        public string? voiceChannelState { get; set; }
+        public string? VoiceChannelState { get; set; }
         /// <summary> Число пострадавших </summary>
-        public string? injuredPersons { get; set; }
+        public string? InjuredPersons { get; set; }
         /// <summary> Контактный телефонный номер заявителя </summary>
-        public string? driverPhone { get; set; }
+        public string? DriverPhone { get; set; }
         /// <summary> ФИО заявителя </summary>
-        public string? driverFullName { get; set; }
+        public string? DriverFullName { get; set; }
         /// <summary> Телефонный номер абонентского терминала </summary>
-        public string? terminalPhone { get; set; }
+        public string? TerminalPhone { get; set; }
         /// <summary> Тип активации (автоматически/вручную) </summary>
-        public bool? automaticActivation { get; set; }
+        public bool? AutomaticActivation { get; set; }
         /// <summary> Тип вызова (тестовый/экстренный) </summary>
-        public bool? testCall { get; set; }
+        public bool? TestCall { get; set; }
         /// <summary> Тип ТС </summary>
-        public string? vehicleType { get; set; }
+        public string? VehicleType { get; set; }
         /// <summary> Идентификатор ТС по ISO 3779 </summary>
-        public string? vehicleIdentificationNumber { get; set; }
+        public string? VehicleIdentificationNumber { get; set; }
         /// <summary> Тип энергоносителя ТС </summary>
-        public string? vehiclePropulsionStorageType { get; set; }
+        public string? VehiclePropulsionStorageType { get; set; }
         /// <summary> Время события или создания карточки вызова (с временной зоной) </summary>
-        public string? callTimestamp { get; set; }
+        public string? CallTimestamp { get; set; }
         /// <summary> Местоположение ТС в момент события </summary>
-        public EraGlonassECallLocationModel? vehicleLocation { get; set; }
+        public EraGlonassECallLocationModel? VehicleLocation { get; set; }
         /// <summary> Число пассажиров </summary>
-        public int? numberOfPassengers { get; set; }
+        public int? NumberOfPassengers { get; set; }
         /// <summary> Оценка тяжести ДТП (0 = низкая вероятность ущерба здоровью людей, 10 = максимальная вероятность) </summary>
-        public int? severeCrashEstimate { get; set; }
+        public int? SevereCrashEstimate { get; set; }
         /// <summary> Адресная информация о местоположении ТС в текстовом виде </summary>
-        public string? locationDescription { get; set; }
+        public string? LocationDescription { get; set; }
         /// <summary> Удар спереди </summary>
-        public bool? crashInfoFrontCrash { get; set; }
+        public bool? CrashInfoFrontCrash { get; set; }
         /// <summary> Удар слева </summary>
-        public bool? crashInfoLeftCrash { get; set; }
+        public bool? CrashInfoLeftCrash { get; set; }
         /// <summary> Удар справа </summary>
-        public bool? crashInfoRightCrash { get; set; }
+        public bool? CrashInfoRightCrash { get; set; }
         /// <summary> Удар сбоку </summary>
-        public bool? crashInfoSideCrash { get; set; }
+        public bool? CrashInfoSideCrash { get; set; }
         /// <summary> Удар сзади </summary>
-        public bool? crashInfoRearCrash { get; set; }
+        public bool? CrashInfoRearCrash { get; set; }
         /// <summary> Переворот </summary>
-        public bool? crashInfoRollover { get; set; }
+        public bool? CrashInfoRollover { get; set; }
         /// <summary> Другой тип происшествия </summary>
-        public bool? crashInfoOtherCrashType { get; set; }
+        public bool? CrashInfoOtherCrashType { get; set; }
         /// <summary> Государственный регистрационный номер ТС </summary>
-        public string? vehicleRegistryNumber { get; set; }
+        public string? VehicleRegistryNumber { get; set; }
         /// <summary> Цвет кузова ТС </summary>
-        public string? vehicleBodyColor { get; set; }
+        public string? VehicleBodyColor { get; set; }
         /// <summary> Марка и/или модель ТС </summary>
-        public string? vehicleModel { get; set; }
+        public string? VehicleModel { get; set; }
         /// <summary> Направление движения ТС </summary>
-        public string? vehicleDirection { get; set; }
-
-
+        public string? VehicleDirection { get; set; }
     }
-
     /// <summary> Карты </summary>
     public record MapAddressModel
     {
-
-        public string? country { get; set; }
-        public string? region { get; set; }
-        public string? city { get; set; }
-        public string? district { get; set; }
-        public string? street { get; set; }
-        public string? localdistrict { get; set; }
-        public string? additionalStreet { get; set; }
-        public string? house { get; set; }
-        public string? building { get; set; }
-        public string? floors { get; set; }
-        public int? cityId { get; set; }
-        public int? districtId { get; set; }
-        public int? streetId { get; set; }
-        public int? localdistrictId { get; set; }
-        public int? additionalStreetId { get; set; }
-        public string? invalidStreet { get; set; }
-        public string? structure { get; set; }
-
-
+        public string? Country { get; set; }
+        public string? Region { get; set; }
+        public string? City { get; set; }
+        public string? District { get; set; }
+        public string? Street { get; set; }
+        public string? Localdistrict { get; set; }
+        public string? AdditionalStreet { get; set; }
+        public string? House { get; set; }
+        public string? Building { get; set; }
+        public string? Floors { get; set; }
+        public int? CityId { get; set; }
+        public int? DistrictId { get; set; }
+        public int? StreetId { get; set; }
+        public int? LocaldistrictId { get; set; }
+        public int? AdditionalStreetId { get; set; }
+        public string? InvalidStreet { get; set; }
+        public string? Structure { get; set; }
     }
-
     public record GeoPointModelFromGenerated
     {
-
-        public double lat { get; set; }
-        public double lng { get; set; }
-
-
+        public double Lat { get; set; }
+        public double Lng { get; set; }
     }
-
     public record GeoAreaModelFromGenerated
     {
-
-        public GeoPointModelFromGenerated? lowerCorner { get; set; }
-        public GeoPointModelFromGenerated? upperCorner { get; set; }
-        public string? kind { get; set; }
-        public string? text { get; set; }
-        public bool isLocality { get; set; }
-        public long? iacObject { get; set; }
-        public string? floors { get; set; }
-
-
+        public GeoPointModelFromGenerated? LowerCorner { get; set; }
+        public GeoPointModelFromGenerated? UpperCorner { get; set; }
+        public string? Kind { get; set; }
+        public string? Text { get; set; }
+        public bool IsLocality { get; set; }
+        public long? IacObject { get; set; }
+        public string? Floors { get; set; }
     }
-
     public record CardMarkerInfoModel
     {
-
-        public string? globalId { get; set; }
-        public int cardID { get; set; }
-        public GeoPointModelFromGenerated? coord { get; set; }
-        public int? cardState { get; set; }
-        public int? callType { get; set; }
-        public string? description { get; set; }
-        public bool needToShow { get; set; }
-
-
+        public string? GlobalId { get; set; }
+        public int CardID { get; set; }
+        public GeoPointModelFromGenerated? Coord { get; set; }
+        public int? CardState { get; set; }
+        public int? CallType { get; set; }
+        public string? Description { get; set; }
+        public bool NeedToShow { get; set; }
     }
-
     public record CallHistoryItemModel
     {
-
-        public CallDataModel? callData { get; set; }
-        public DateTime callTime { get; set; }
-        public string? operatorPin { get; set; }
-        public List<PhonogramModel>? phonograms { get; set; }
-
-
+        public CallDataModel? CallData { get; set; }
+        public DateTime CallTime { get; set; }
+        public string? OperatorPin { get; set; }
+        public List<PhonogramModel>? Phonograms { get; set; }
     }
-
     public record PhonogramModel
     {
-
-        public string? url { get; set; }
-        public DateTime? dtcreate { get; set; }
-        public PhonogramSource? sourceType { get; set; }
-
-
+        public string? Url { get; set; }
+        public DateTime? Dtcreate { get; set; }
+        public PhonogramSourceModel? SourceType { get; set; }
     }
-
     public record Card112ListExcelReportParamsModel
     {
-
-        public Card112FilterModel? filter { get; set; }
-        public bool? usePaging { get; set; }
-        public int from { get; set; }
-        public int to { get; set; }
-        public string? orderBy { get; set; }
-        public SortingOrder? sortingOrder { get; set; }
-        public List<ColumnModel>? reportColumns { get; set; }
-
-
+        public Card112FilterModel? Filter { get; set; }
+        public bool? UsePaging { get; set; }
+        public int From { get; set; }
+        public int To { get; set; }
+        public string? OrderBy { get; set; }
+        public SortingOrderModel? SortingOrder { get; set; }
+        public List<ColumnModel>? ReportColumns { get; set; }
     }
-
     public record ColumnModel
     {
-
-        public string? header { get; set; }
-        public int? serviceTypeId { get; set; }
-        public string? fieldName { get; set; }
-
-
+        public string? Header { get; set; }
+        public int? ServiceTypeId { get; set; }
+        public string? FieldName { get; set; }
     }
-
-    public enum LayerType
+    public enum LayerTypeModel
     {
-        FIRES = 1,
-
+        FIRES,
     }
-
     public record IntMapItemModel
     {
-
-        public int id1 { get; set; }
-        public int id2 { get; set; }
-        public string? strValue { get; set; }
-
+        public int Id1 { get; set; }
+        public int Id2 { get; set; }
+        public string? Value { get; set; }
     }
-
     public record GisServiceGeoObjectModel
     {
-
-        public int id { get; set; }
-        public string? name { get; set; }
-        public string? description { get; set; }
-        public string? geoJsonLocation { get; set; }
-        public string? iconUrl { get; set; }
-        public string? fillColor { get; set; }
-        public string? strokeColor { get; set; }
-        public string? pointRadius { get; set; }
-        public string? fillOpacity { get; set; }
-        public string? strokeOpacity { get; set; }
-        public string? strokeWidth { get; set; }
-        public LocationModel? location { get; set; }
-        public List<GisServiceGeoObjectFieldModel>? fields { get; set; }
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public string? GeoJsonLocation { get; set; }
+        public string? IconUrl { get; set; }
+        public string? FillColor { get; set; }
+        public string? StrokeColor { get; set; }
+        public string? PointRadius { get; set; }
+        public string? FillOpacity { get; set; }
+        public string? StrokeOpacity { get; set; }
+        public string? StrokeWidth { get; set; }
+        public LocationModel? Location { get; set; }
+        public List<GisServiceGeoObjectFieldModel>? Fields { get; set; }
     }
-
     public record GisServiceGeoObjectFieldModel
     {
-
-        public int id { get; set; }
-        public string? name { get; set; }
-        public string? value { get; set; }
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Value { get; set; }
     }
-
     public record GisServiceLayerModel
     {
-
-        public int id { get; set; }
-        public string? name { get; set; }
-        public string? description { get; set; }
-        public int? parentId { get; set; }
-        public List<GisServiceGeoObjectModel>? geoObjects { get; set; }
-        public List<GisServiceLayerModel>? layers { get; set; }
-
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public int? ParentId { get; set; }
+        public List<GisServiceGeoObjectModel>? GeoObjects { get; set; }
+        public List<GisServiceLayerModel>? Layers { get; set; }
     }
-
     public record GeometryModel
     {
-
-        public string? type { get; set; }
-        public List<double>? coordinates { get; set; }
-
+        public string? Type { get; set; }
+        public List<double>? Coordinates { get; set; }
     }
-
     public record LocationModel
     {
-
-        public string? type { get; set; }
-        public GeometryModel? geometry { get; set; }
-
+        public string? Type { get; set; }
+        public GeometryModel? Geometry { get; set; }
     }
-
     public record DistanceInfoModel
     {
-
-        public double distance { get; set; }
-
+        public double Distance { get; set; }
     }
-
     public record DistanceOnRouteInfoModel
     {
-
-        public double distance { get; set; }
-        public List<GeoPointModelFromGenerated>? points { get; set; }
-
+        public double Distance { get; set; }
+        public List<GeoPointModelFromGenerated>? Points { get; set; }
     }
-
     public record LayersInfoModel
     {
-        public bool? withObjects { get; set; }
-        public List<GisServiceLayerModel>? layers { get; set; }
-
+        public bool? WithObjects { get; set; }
+        public List<GisServiceLayerModel>? Layers { get; set; }
     }
-
     public record GeoObjectsInfoModel
     {
-        public bool lastPage { get; set; }
-        public long totalCount { get; set; }
-        public List<GisServiceGeoObjectModel>? geoObjects { get; set; }
-
+        public bool LastPage { get; set; }
+        public long TotalCount { get; set; }
+        public List<GisServiceGeoObjectModel>? GeoObjects { get; set; }
     }
-
     public record SearchInfoModel
     {
-
-        public bool? withObjects { get; set; }
-        public List<GisServiceLayerModel>? layers { get; set; }
-
+        public bool? WithObjects { get; set; }
+        public List<GisServiceLayerModel>? Layers { get; set; }
     }
 
 }
