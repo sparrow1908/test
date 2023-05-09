@@ -2915,7 +2915,7 @@ namespace Dt.EsApi.Models
         public DateTime EmergencyCardCreate { get; set; }
         public int? CallCount { get; set; }
     }
-    public record Tm_DepartmentStatePairModel
+    public record DepartmentStatePairModel
     {
         public int DepartmentID { get; set; }
         public int StateID { get; set; }

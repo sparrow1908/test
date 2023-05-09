@@ -3,6 +3,7 @@ using AutoMapper;
 using Dt.EsApi.Models;
 using ServerLogic.Requests.Card_112;
 using ServerLogic.Types;
+using AutoMapper.Extensions.EnumMapping;
 
 namespace Dt.EsApi.Mapper
 {
@@ -155,6 +156,349 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.ServiceOperator, opt => opt.MapFrom(src => src.strServiceOperator))
                 .ForMember(dest => dest.RegistrationNumber, opt => opt.MapFrom(src => src.strRegistrationNumber))
                 .ReverseMapWithValidation();
+
+
+
+
+
+
+            cfg.CreateMap<En_CardCompleteStatus, CardCompleteStatusModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_CardCompleteStatus.Submitted, CardCompleteStatusModel.Submitted)
+                        .MapValue(En_CardCompleteStatus.Processing, CardCompleteStatusModel.Processing)
+                        .MapValue(En_CardCompleteStatus.Complete, CardCompleteStatusModel.Complete)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_CardType, CardTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_CardType.Card_112, CardTypeModel.Card112)
+                        .MapValue(En_CardType.Card_01, CardTypeModel.Card01)
+                        .MapValue(En_CardType.Card_02, CardTypeModel.Card02)
+                        .MapValue(En_CardType.Card_03, CardTypeModel.Card03)
+                        .MapValue(En_CardType.Card_04, CardTypeModel.Card04)
+                        .MapValue(En_CardType.Card_CommServ, CardTypeModel.CardCommServ)
+                        .MapValue(En_CardType.Card_AT, CardTypeModel.CardAT)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_ValidatedCommand, ValidatedCommandModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_ValidatedCommand.CompleteCard, ValidatedCommandModel.CompleteCard)
+                        .MapValue(En_ValidatedCommand.PrintCard, ValidatedCommandModel.PrintCard)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<ErrorCode, ErrorCodeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(ErrorCode.GENERAL_FAULT, ErrorCodeModel.GENERAL_FAULT)
+                        .MapValue(ErrorCode.UNKNOWN_ACTION, ErrorCodeModel.UNKNOWN_ACTION)
+                        .MapValue(ErrorCode.NO_FREE_HANDLERS, ErrorCodeModel.NO_FREE_HANDLERS)
+                        .MapValue(ErrorCode.INTERRUPTED_CYCLE, ErrorCodeModel.INTERRUPTED_CYCLE)
+                        .MapValue(ErrorCode.DATABASE_FAULT, ErrorCodeModel.DATABASE_FAULT)
+                        .MapValue(ErrorCode.INVALID_CLIENT, ErrorCodeModel.INVALID_CLIENT)
+                        .MapValue(ErrorCode.INTERNAL_ERROR, ErrorCodeModel.INTERNAL_ERROR)
+                        .MapValue(ErrorCode.SID_NOT_SPECIFIED, ErrorCodeModel.SID_NOT_SPECIFIED)
+                        .MapValue(ErrorCode.NON_INITIALIZED_MANAGERS, ErrorCodeModel.NON_INITIALIZED_MANAGERS)
+                        .MapValue(ErrorCode.LOGIN_FAILED, ErrorCodeModel.LOGIN_FAILED)
+                        .MapValue(ErrorCode.LICENSE_ERROR, ErrorCodeModel.LICENSE_ERROR)
+                        .MapValue(ErrorCode.CLIENT_LICENSE_ERROR, ErrorCodeModel.CLIENT_LICENSE_ERROR)
+                        .MapValue(ErrorCode.INVALID_PARAMETERS, ErrorCodeModel.INVALID_PARAMETERS)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_CallType, CallTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_CallType.FalseCall, CallTypeModel.FalseCall)
+                        .MapValue(En_CallType.ChildPrank, CallTypeModel.ChildPrank)
+                        .MapValue(En_CallType.Info, CallTypeModel.Info)
+                        .MapValue(En_CallType.Card_01, CallTypeModel.Card_01)
+                        .MapValue(En_CallType.Card_02, CallTypeModel.Card_02)
+                        .MapValue(En_CallType.Card_03, CallTypeModel.Card_03)
+                        .MapValue(En_CallType.Card_04, CallTypeModel.Card_04)
+                        .MapValue(En_CallType.Card_CommServ, CallTypeModel.Card_CommServ)
+                        .MapValue(En_CallType.Repeated, CallTypeModel.Repeated)
+                        .MapValue(En_CallType.Card_AT, CallTypeModel.Card_AT)
+                        .MapValue(En_CallType.Psychologist, CallTypeModel.Psychologist)
+                        .MapValue(En_CallType.Consultation, CallTypeModel.Consultation)
+                        .MapValue(En_CallType.Interpreter, CallTypeModel.Interpreter)
+                        .MapValue(En_CallType.RosOhrana, CallTypeModel.RosOhrana)
+                        .MapValue(En_CallType.GZHI, CallTypeModel.GZHI)
+                        .MapValue(En_CallType.InterRegional, CallTypeModel.InterRegional)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_ServiceType, ServiceTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_ServiceType.Service01, ServiceTypeModel.Service01)
+                        .MapValue(En_ServiceType.Service02, ServiceTypeModel.Service02)
+                        .MapValue(En_ServiceType.Service03, ServiceTypeModel.Service03)
+                        .MapValue(En_ServiceType.Service04, ServiceTypeModel.Service04)
+                        .MapValue(En_ServiceType.ServiceCommServ, ServiceTypeModel.ServiceCommServ)
+                        .MapValue(En_ServiceType.Service112, ServiceTypeModel.Service112)
+                        .MapValue(En_ServiceType.ServiceAT, ServiceTypeModel.ServiceAT)
+                        .MapValue(En_ServiceType.ServicePsychologist, ServiceTypeModel.ServicePsychologist)
+                        .MapValue(En_ServiceType.ServiceConsultation, ServiceTypeModel.ServiceConsultation)
+                        .MapValue(En_ServiceType.ServiceInterpreter, ServiceTypeModel.ServiceInterpreter)
+                        .MapValue(En_ServiceType.ServiceRosOhrana, ServiceTypeModel.ServiceRosOhrana)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_ImportanceLevel, ImportanceLevelModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_ImportanceLevel.NotImportant, ImportanceLevelModel.NotImportant)
+                        .MapValue(En_ImportanceLevel.Important, ImportanceLevelModel.Important)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_CardSyntheticState, CardSyntheticStateModelEnum>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_CardSyntheticState.Request112, CardSyntheticStateModelEnum.Request112)
+                        .MapValue(En_CardSyntheticState.ServicesInvolvement, CardSyntheticStateModelEnum.ServicesInvolvement)
+                        .MapValue(En_CardSyntheticState.ServicesReaction, CardSyntheticStateModelEnum.ServicesReaction)
+                        .MapValue(En_CardSyntheticState.ServicesWork, CardSyntheticStateModelEnum.ServicesWork)
+                        .MapValue(En_CardSyntheticState.Completed, CardSyntheticStateModelEnum.Completed)
+                        .MapValue(En_CardSyntheticState.ServicesStart, CardSyntheticStateModelEnum.ServicesStart)
+                        .MapValue(En_CardSyntheticState.DenialOfService, CardSyntheticStateModelEnum.DenialOfService)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_SortingOrder, SortingOrderModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_SortingOrder.ASC, SortingOrderModel.ASC)
+                        .MapValue(En_SortingOrder.DESC, SortingOrderModel.DESC)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_PhonogramSource, PhonogramSourceModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_PhonogramSource.Internal, PhonogramSourceModel.Internal)
+                        .MapValue(En_PhonogramSource.External, PhonogramSourceModel.External)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_DuplicateStatus, DuplicateStatusModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_DuplicateStatus.UnconfirmedDuplicate, DuplicateStatusModel.UnconfirmedDuplicate)
+                        .MapValue(En_DuplicateStatus.Duplicate, DuplicateStatusModel.Duplicate)
+                        .MapValue(En_DuplicateStatus.DuplicateFalse, DuplicateStatusModel.DuplicateFalse)
+                        .MapValue(En_DuplicateStatus.UnconfirmedRepeated, DuplicateStatusModel.UnconfirmedRepeated)
+                        .MapValue(En_DuplicateStatus.Repeated, DuplicateStatusModel.Repeated)
+                        .MapValue(En_DuplicateStatus.RepeatedFalse, DuplicateStatusModel.RepeatedFalse)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_User03Role, User03RoleModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_User03Role.Operator_03, User03RoleModel.Operator_03)
+                        .MapValue(En_User03Role.Dispatcher_03, User03RoleModel.Dispatcher_03)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_ReflectionPriorityBy03Reason, ReflectionPriorityBy03ReasonModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_ReflectionPriorityBy03Reason.Emergency, ReflectionPriorityBy03ReasonModel.Emergency)
+                        .MapValue(En_ReflectionPriorityBy03Reason.Immediate, ReflectionPriorityBy03ReasonModel.Immediate)
+                        .MapValue(En_ReflectionPriorityBy03Reason.Urgent, ReflectionPriorityBy03ReasonModel.Urgent)
+                        .MapValue(En_ReflectionPriorityBy03Reason.Transportation, ReflectionPriorityBy03ReasonModel.Transportation)
+                        .MapValue(En_ReflectionPriorityBy03Reason.NoPriority, ReflectionPriorityBy03ReasonModel.NoPriority)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_AttachmentType, AttachmentTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_AttachmentType.IMAGE, AttachmentTypeModel.IMAGE)
+                        .MapValue(En_AttachmentType.ACTION, AttachmentTypeModel.ACTION)
+                        .MapValue(En_AttachmentType.STRING, AttachmentTypeModel.STRING)
+                        .MapValue(En_AttachmentType.PHONE_NUMBER, AttachmentTypeModel.PHONE_NUMBER)
+                        .MapValue(En_AttachmentType.GEOMETRY, AttachmentTypeModel.GEOMETRY)
+                        .MapValue(En_AttachmentType.DOWNLOAD, AttachmentTypeModel.DOWNLOAD)
+                        .MapValue(En_AttachmentType.VP_ONLINE_URL, AttachmentTypeModel.VP_ONLINE_URL)
+                        .MapValue(En_AttachmentType.VP_ARCHIVE_URL, AttachmentTypeModel.VP_ARCHIVE_URL)
+                        .MapValue(En_AttachmentType.VP_THUMBNAIL, AttachmentTypeModel.VP_THUMBNAIL)
+                        .MapValue(En_AttachmentType.PROXY_DOWNLOAD, AttachmentTypeModel.PROXY_DOWNLOAD)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_SMSType, SMSTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_SMSType.Incoming, SMSTypeModel.Incoming)
+                        .MapValue(En_SMSType.Outcoming, SMSTypeModel.Outcoming)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_Direction, DirectionModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_Direction.Incoming, DirectionModel.Incoming)
+                        .MapValue(En_Direction.Outcoming, DirectionModel.Outcoming)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_SMSStatus, SMSStatusModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_SMSStatus.Sent, SMSStatusModel.Sent)
+                        .MapValue(En_SMSStatus.NotSent, SMSStatusModel.NotSent)
+                        .MapValue(En_SMSStatus.Received, SMSStatusModel.Received)
+                        .MapValue(En_SMSStatus.NotReceived, SMSStatusModel.NotReceived)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_SourceType, SourceTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_SourceType.PHONE, SourceTypeModel.PHONE)
+                        .MapValue(En_SourceType.SMS, SourceTypeModel.SMS)
+                        .MapValue(En_SourceType.ERA_GLONASS, SourceTypeModel.ERA_GLONASS)
+                        .MapValue(En_SourceType.WITHOUT_CALL, SourceTypeModel.WITHOUT_CALL)
+                        .MapValue(En_SourceType.SENSORS, SourceTypeModel.SENSORS)
+                        .MapValue(En_SourceType.INTERNET_PORTAL, SourceTypeModel.INTERNET_PORTAL)
+                )
+                .ReverseMap();
+            
+            cfg.CreateMap<ReportFormatType, ReportFormatTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(ReportFormatType.pdf, ReportFormatTypeModel.pdf)
+                        .MapValue(ReportFormatType.xls, ReportFormatTypeModel.xls)
+                        .MapValue(ReportFormatType.xlsx, ReportFormatTypeModel.xlsx)
+                        .MapValue(ReportFormatType.docx, ReportFormatTypeModel.docx)
+                        .MapValue(ReportFormatType.rtf, ReportFormatTypeModel.rtf)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_ExternalInfoType, ExternalInfoTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_ExternalInfoType.Unknown, ExternalInfoTypeModel.Unknown)
+                        .MapValue(En_ExternalInfoType.ContentList, ExternalInfoTypeModel.ContentList)
+                        .MapValue(En_ExternalInfoType.SpbSvetetsAlert, ExternalInfoTypeModel.SpbSvetetsAlert)
+                        .MapValue(En_ExternalInfoType.Card112, ExternalInfoTypeModel.Card112)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<Command, CommandModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(Command.SaveCardWithTransferCommand, CommandModel.SaveCardWithTransferCommand)
+                        .MapValue(Command.InitConferenceCommand, CommandModel.InitConferenceCommand)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_CallStatus, CallStatusModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_CallStatus.TransferedTo01, CallStatusModel.TransferedTo01)
+                        .MapValue(En_CallStatus.TransferedTo02, CallStatusModel.TransferedTo02)
+                        .MapValue(En_CallStatus.TransferedTo03, CallStatusModel.TransferedTo03)
+                        .MapValue(En_CallStatus.TransferedTo04, CallStatusModel.TransferedTo04)
+                        .MapValue(En_CallStatus.TransferedToAT, CallStatusModel.TransferedToAT)
+                        .MapValue(En_CallStatus.TransferedToCommServ, CallStatusModel.TransferedToCommServ)
+                        .MapValue(En_CallStatus.TerminatedByOperator, CallStatusModel.TerminatedByOperator)
+                        .MapValue(En_CallStatus.TerminatedByAbonent, CallStatusModel.TerminatedByAbonent)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<ServiceCardEditView, ServiceCardEditViewModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(ServiceCardEditView.Card01View, ServiceCardEditViewModel.Card01View)
+                        .MapValue(ServiceCardEditView.Card01SpbView, ServiceCardEditViewModel.Card01SpbView)
+                        .MapValue(ServiceCardEditView.Card01SpbEditView, ServiceCardEditViewModel.Card01SpbEditView)
+                        .MapValue(ServiceCardEditView.Card02View, ServiceCardEditViewModel.Card02View)
+                        .MapValue(ServiceCardEditView.Card02SpbView, ServiceCardEditViewModel.Card02SpbView)
+                        .MapValue(ServiceCardEditView.Card02SpbEditView, ServiceCardEditViewModel.Card02SpbEditView)
+                        .MapValue(ServiceCardEditView.Card02IntegrationView, ServiceCardEditViewModel.Card02IntegrationView)
+                        .MapValue(ServiceCardEditView.Card03DispatcherView, ServiceCardEditViewModel.Card03DispatcherView)
+                        .MapValue(ServiceCardEditView.Card03SpbView, ServiceCardEditViewModel.Card03SpbView)
+                        .MapValue(ServiceCardEditView.Card03SpbEditView, ServiceCardEditViewModel.Card03SpbEditView)
+                        .MapValue(ServiceCardEditView.Card03AddVictimsView, ServiceCardEditViewModel.Card03AddVictimsView)
+                        .MapValue(ServiceCardEditView.Card04View, ServiceCardEditViewModel.Card04View)
+                        .MapValue(ServiceCardEditView.Card04SpbView, ServiceCardEditViewModel.Card04SpbView)
+                        .MapValue(ServiceCardEditView.Card04SpbEditView, ServiceCardEditViewModel.Card04SpbEditView)
+                        .MapValue(ServiceCardEditView.CardCommServView, ServiceCardEditViewModel.CardCommServView)
+                        .MapValue(ServiceCardEditView.CardCommServSpbView, ServiceCardEditViewModel.CardCommServSpbView)
+                        .MapValue(ServiceCardEditView.CardCommServSpbEditView, ServiceCardEditViewModel.CardCommServSpbEditView)
+                        .MapValue(ServiceCardEditView.CardATView, ServiceCardEditViewModel.CardATView)
+                        .MapValue(ServiceCardEditView.CardATSpbView, ServiceCardEditViewModel.CardATSpbView)
+                        .MapValue(ServiceCardEditView.CardATSpbEditView, ServiceCardEditViewModel.CardATSpbEditView)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_MNISEventType, MNISEventTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_MNISEventType.Other, MNISEventTypeModel.Other)
+                        .MapValue(En_MNISEventType.Accepted, MNISEventTypeModel.Accepted)
+                        .MapValue(En_MNISEventType.Departure, MNISEventTypeModel.Departure)
+                        .MapValue(En_MNISEventType.OnTheWay, MNISEventTypeModel.OnTheWay)
+                        .MapValue(En_MNISEventType.WayIncedent, MNISEventTypeModel.WayIncedent)
+                        .MapValue(En_MNISEventType.TrafficDelay, MNISEventTypeModel.TrafficDelay)
+                        .MapValue(En_MNISEventType.Reject, MNISEventTypeModel.Reject)
+                        .MapValue(En_MNISEventType.Redirect, MNISEventTypeModel.Redirect)
+                        .MapValue(En_MNISEventType.Arrived, MNISEventTypeModel.Arrived)
+                        .MapValue(En_MNISEventType.Deployment, MNISEventTypeModel.Deployment)
+                        .MapValue(En_MNISEventType.Performance, MNISEventTypeModel.Performance)
+                        .MapValue(En_MNISEventType.Completed, MNISEventTypeModel.Completed)
+                        .MapValue(En_MNISEventType.Undeployment, MNISEventTypeModel.Undeployment)
+                        .MapValue(En_MNISEventType.Retuning, MNISEventTypeModel.Retuning)
+                        .MapValue(En_MNISEventType.Comeback, MNISEventTypeModel.Comeback)
+                        .MapValue(En_MNISEventType.ArrivalToBase, MNISEventTypeModel.ArrivalToBase)
+                        .MapValue(En_MNISEventType.Closed, MNISEventTypeModel.Closed)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_VehicleInfoSourceName, VehicleInfoSourceNameModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_VehicleInfoSourceName.MNIS, VehicleInfoSourceNameModel.MNIS)
+                        .MapValue(En_VehicleInfoSourceName.RNIS, VehicleInfoSourceNameModel.RNIS)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<MapType, MapTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(MapType.Protei, MapTypeModel.Protei)
+                        .MapValue(MapType.IAC, MapTypeModel.IAC)
+                        .MapValue(MapType.ArcGIS, MapTypeModel.ArcGIS)
+                        .MapValue(MapType.ChromeBrowserPppur, MapTypeModel.ChromeBrowserPppur)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<CallCenterProviderType, CallCenterProviderTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(CallCenterProviderType.NotSet, CallCenterProviderTypeModel.NotSet)
+                        .MapValue(CallCenterProviderType.Protei, CallCenterProviderTypeModel.Protei)
+                        .MapValue(CallCenterProviderType.Avaya7, CallCenterProviderTypeModel.Avaya7)
+                        .MapValue(CallCenterProviderType.ProteiEACD3, CallCenterProviderTypeModel.ProteiEACD3)
+                        .MapValue(CallCenterProviderType.EmergencyServer, CallCenterProviderTypeModel.EmergencyServer)
+                        .MapValue(CallCenterProviderType.GridBookServer, CallCenterProviderTypeModel.GridBookServer)
+                        .MapValue(CallCenterProviderType.ProteiEACDWPServer, CallCenterProviderTypeModel.ProteiEACDWPServer)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_TemplateType, TemplateTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_TemplateType.Bool, TemplateTypeModel.Bool)
+                        .MapValue(En_TemplateType.Int, TemplateTypeModel.Int)
+                        .MapValue(En_TemplateType.String, TemplateTypeModel.String)
+                        .MapValue(En_TemplateType.DateTime, TemplateTypeModel.DateTime)
+                        .MapValue(En_TemplateType.Combo, TemplateTypeModel.Combo)
+                        .MapValue(En_TemplateType.Table, TemplateTypeModel.Table)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<DateTimeFormat, DateTimeFormatModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(DateTimeFormat.Date, DateTimeFormatModel.Date)
+                        .MapValue(DateTimeFormat.DateTime, DateTimeFormatModel.DateTime)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<CardEventType, CardEventTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(CardEventType.CardCreated, CardEventTypeModel.CardCreated)
+                        .MapValue(CardEventType.CardChanged, CardEventTypeModel.CardChanged)
+                )
+                .ReverseMap();
+
+            cfg.CreateMap<En_LayerType, LayerTypeModel>()
+                .ConvertUsingEnumMapping(opt => opt
+                        .MapValue(En_LayerType.FIRES, LayerTypeModel.FIRES)
+                )
+                .ReverseMap();
+
 
 
 
@@ -551,81 +895,6 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.PrevDeclarantFlat, opt => opt.MapFrom(src => src.strPrevDeclarantFlat))
                 .ReverseMapWithValidation();
 
-            /*
-            cfg.CreateMap<CardCompleteStatus, CardCompleteStatusModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<CardType, CardTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<ValidatedCommand, ValidatedCommandModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<ErrorCode, ErrorCodeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<CallType, CallTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<ServiceType, ServiceTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<ImportanceLevel, ImportanceLevelModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<CardSyntheticState, CardSyntheticStateModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<SortingOrder, SortingOrderModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<PhonogramSource, PhonogramSourceModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<DuplicateStatus, DuplicateStatusModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<User03Role, User03RoleModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<ReflectionPriorityBy03Reason, ReflectionPriorityBy03ReasonModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<AttachmentType, AttachmentTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<SMSType, SMSTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<Direction, DirectionModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<SMSStatus, SMSStatusModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<SourceType, SourceTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            */
-
             cfg.CreateMap<CallCenterConnectionInfo, CallCenterConnectionInfoModel>()
                 .ForMember(dest => dest.Url, opt => opt.MapFrom(src => src.Url))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
@@ -648,18 +917,7 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.type))
                 .ForMember(dest => dest.Data, opt => opt.MapFrom(src => src.data))
                 .ReverseMapWithValidation();
-
-            /*
-            cfg.CreateMap<ReportFormatType, ReportFormatTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            cfg.CreateMap<ExternalInfoType, ExternalInfoTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            */
-
+                                 
             cfg.CreateMap<GeographicLocation, GeographicLocationModel>()
                 .ForMember(dest => dest.M_dLatitude, opt => opt.MapFrom(src => src.m_dLatitude))
                 .ForMember(dest => dest.M_dLongitude, opt => opt.MapFrom(src => src.m_dLongitude))
@@ -1050,13 +1308,6 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.AdditionalCommand, opt => opt.MapFrom(src => src.AdditionalCommand))
                 .ReverseMapWithValidation();
 
-            /*
-            cfg.CreateMap<Command, CommandModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            */
-
             cfg.CreateMap<RoleSettings, RoleSettingsModel>()
                 .ForMember(dest => dest.SaveFileToXmlPath, opt => opt.MapFrom(src => src.SaveFileToXmlPath))
                 .ForMember(dest => dest.Validations, opt => opt.MapFrom(src => src.Validations))
@@ -1147,13 +1398,6 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.DefaultInvolvedServiceTypeIds, opt => opt.MapFrom(src => src.DefaultInvolvedServiceTypeIds))
                 .ReverseMapWithValidation();
 
-            /*
-            cfg.CreateMap<CallStatus, CallStatusModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-
-            */
-
             cfg.CreateMap<EmergencyCard, EmergencyCardModel>()
                 .ForMember(dest => dest.Card112, opt => opt.MapFrom(src => src.card112))
                 .ForMember(dest => dest.Card01, opt => opt.MapFrom(src => src.card01))
@@ -1170,11 +1414,6 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.CanComplete, opt => opt.MapFrom(src => src.CanComplete))
                 .ForMember(dest => dest.CanChangeState, opt => opt.MapFrom(src => src.CanChangeState))
                 .ReverseMapWithValidation();
-            /*
-            cfg.CreateMap<ServiceCardEditView, ServiceCardEditViewModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
 
             cfg.CreateMap<EmergencyServersCollection, EmergencyServersCollectionModel>()
                 .ForMember(dest => dest.EmergencyServers, opt => opt.MapFrom(src => src.emergencyServers))
@@ -1413,11 +1652,6 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.EventName, opt => opt.MapFrom(src => src.eventName))
                 .ReverseMapWithValidation();
 
-            /*
-            cfg.CreateMap<MNISEventType, MNISEventTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
             cfg.CreateMap<Vehicle03Info, Vehicle03InfoModel>()
                 .ForMember(dest => dest.VehicleId, opt => opt.MapFrom(src => src.vehicleId))
                 .ForMember(dest => dest.Involve, opt => opt.MapFrom(src => src.dtInvolve))
@@ -1428,11 +1662,7 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.LatestEventTime, opt => opt.MapFrom(src => src.latestEventTime))
                 .ForMember(dest => dest.LatestEventType, opt => opt.MapFrom(src => src.latestEventType))
                 .ReverseMapWithValidation();
-            /*
-            cfg.CreateMap<VehicleInfoSourceName, VehicleInfoSourceNameModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
+
             cfg.CreateMap<VehicleArrival, VehicleArrivalModel>()
                 .ForMember(dest => dest.ExternalVehicleId, opt => opt.MapFrom(src => src.externalVehicleId))
                 .ForMember(dest => dest.CurrentLocation, opt => opt.MapFrom(src => src.currentLocation))
@@ -1450,15 +1680,7 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.Coords, opt => opt.MapFrom(src => src.coords))
                 .ForMember(dest => dest.StateRegNumber, opt => opt.MapFrom(src => src.stateRegNumber))
                 .ReverseMapWithValidation();
-            /*
-            cfg.CreateMap<MapType, MapTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
 
-            cfg.CreateMap<CallCenterProviderType, CallCenterProviderTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
             cfg.CreateMap<ConnectionInfo, ConnectionInfoModel>()
                 .ForMember(dest => dest.ActionUrl, opt => opt.MapFrom(src => src.ActionUrl))
                 .ForMember(dest => dest.NotificationUrl, opt => opt.MapFrom(src => src.NotificationUrl))
@@ -1832,15 +2054,7 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.value))
                 .ForMember(dest => dest.IsDeleted, opt => opt.MapFrom(src => src.isDeleted))
                 .ReverseMapWithValidation();
-            /*
-            cfg.CreateMap<TemplateType, TemplateTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
 
-            cfg.CreateMap<DateTimeFormat, DateTimeFormatModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
             cfg.CreateMap<BasicDictionaries, BasicDictionariesModel>()
                 .ForMember(dest => dest.CallTypeDictionary, opt => opt.MapFrom(src => src.CallTypeDictionary))
                 .ForMember(dest => dest.ServiceTypeDictionary, opt => opt.MapFrom(src => src.ServiceTypeDictionary))
@@ -1996,7 +2210,7 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.CallCount, opt => opt.MapFrom(src => src.nCallCount))
                 .ReverseMapWithValidation();
 
-            cfg.CreateMap<Tm_DepartmentStatePair, Tm_DepartmentStatePairModel>()
+            cfg.CreateMap<Tm_DepartmentStatePair, DepartmentStatePairModel>()
                 .ForMember(dest => dest.DepartmentID, opt => opt.MapFrom(src => src.departmentID))
                 .ForMember(dest => dest.StateID, opt => opt.MapFrom(src => src.stateID))
                 .ReverseMapWithValidation();
@@ -2051,11 +2265,7 @@ namespace Dt.EsApi.Mapper
             cfg.CreateMap<CardAdditionalInfoAddedFilter, CardAdditionalInfoAddedFilterModel>()
                 .ForMember(dest => dest.CardId, opt => opt.MapFrom(src => src.cardId))
                 .ReverseMapWithValidation();
-            /*
-            cfg.CreateMap<CardEventType, CardEventTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
+
             cfg.CreateMap<NotificationFilters, NotificationFiltersModel>()
                 .ForMember(dest => dest.WantsCard01Changed, opt => opt.MapFrom(src => src.wantsCard01Changed))
                 .ForMember(dest => dest.WantsCard02Changed, opt => opt.MapFrom(src => src.wantsCard02Changed))
@@ -2328,11 +2538,7 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.ServiceTypeId, opt => opt.MapFrom(src => src.serviceTypeId))
                 .ForMember(dest => dest.FieldName, opt => opt.MapFrom(src => src.fieldName))
                 .ReverseMapWithValidation();
-            /*
-            cfg.CreateMap<LayerType, LayerTypeModel>()
-                .ConvertUsingEnumMapping(opt => opt)
-                .ReverseMapWithValidation();
-            */
+
             cfg.CreateMap<IntMapItem, IntMapItemModel>()
                 .ForMember(dest => dest.Id1, opt => opt.MapFrom(src => src.id1))
                 .ForMember(dest => dest.Id2, opt => opt.MapFrom(src => src.id2))
@@ -2404,10 +2610,6 @@ namespace Dt.EsApi.Mapper
                 .ForMember(dest => dest.WithObjects, opt => opt.MapFrom(src => src.withObjects))
                 .ForMember(dest => dest.Layers, opt => opt.MapFrom(src => src.layers))
                 .ReverseMapWithValidation();
-
-
-
-
 
 
             return cfg;

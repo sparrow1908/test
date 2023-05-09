@@ -2,6 +2,7 @@
 using Dt.EsApi.Mapper;
 using Dt.EsApi.Models;
 using ServerLogic.Types;
+using System.Linq;
 using Xunit;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
@@ -2014,8 +2015,8 @@ namespace ServerLogic.Tests.Types
             var fixture = new Fixture();
             var cardDto = fixture.Create<Tm_DepartmentStatePair>();
             // Act
-            var cardModel = mapper.Map<Tm_DepartmentStatePair, Tm_DepartmentStatePairModel>(cardDto);
-            var cardNewDto = mapper.Map<Tm_DepartmentStatePairModel, Tm_DepartmentStatePair>(cardModel);
+            var cardModel = mapper.Map<Tm_DepartmentStatePair, DepartmentStatePairModel>(cardDto);
+            var cardNewDto = mapper.Map<DepartmentStatePairModel, Tm_DepartmentStatePair>(cardModel);
             // Assert
             Assert.Equal(cardDto, cardNewDto);
         }
@@ -2530,6 +2531,11 @@ namespace ServerLogic.Tests.Types
             // Arrange
             var mapper = MapperFabric.CreateMapper();
             var fixture = new Fixture();
+
+            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+                .ForEach(b => fixture.Behaviors.Remove(b));
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+
             var cardDto = fixture.Create<GisServiceLayer>();
             // Act
             var cardModel = mapper.Map<GisServiceLayer, GisServiceLayerModel>(cardDto);
@@ -2600,6 +2606,11 @@ namespace ServerLogic.Tests.Types
             // Arrange
             var mapper = MapperFabric.CreateMapper();
             var fixture = new Fixture();
+
+            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+                .ForEach(b => fixture.Behaviors.Remove(b));
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+
             var cardDto = fixture.Create<LayersInfo>();
             // Act
             var cardModel = mapper.Map<LayersInfo, LayersInfoModel>(cardDto);
@@ -2628,6 +2639,11 @@ namespace ServerLogic.Tests.Types
             // Arrange
             var mapper = MapperFabric.CreateMapper();
             var fixture = new Fixture();
+
+            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+                .ForEach(b => fixture.Behaviors.Remove(b));
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+
             var cardDto = fixture.Create<SearchInfo>();
             // Act
             var cardModel = mapper.Map<SearchInfo, SearchInfoModel>(cardDto);
